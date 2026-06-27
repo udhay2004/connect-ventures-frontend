@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en" class="notranslate">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <meta name="description" content="Browse real businesses for sale worldwide — Connect Ventures aggregates live listings from global marketplaces across 47+ countries.">
+  <title>Business Marketplace | Connect Ventures</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0b1528;
+      --navy-light: #16243d;
+      --navy-dark: #070d1a;
+      --teal: #00c9a7;
+      --teal-light: #f0fdfa;
+      --teal-dark: #008770;
+      --blue: #29b6f6;
+      --blue-light: #e0f7fa;
+      --blue-dark: #0288d1;
+      --gold: #f59e0b;
+      --gold-bg: #fffbeb;
+      --gold-dark: #b45309;
+      --purple: #7c3aed;
+      --purple-light: #f5f3ff;
+      --red: #ef4444;
+      --red-bg: #fef2f2;
+      --green: #10b981;
+      --green-light: #ecfdf5;
+      --ink: #0f172a;
+      --muted: #475569;
+      --muted-light: #94a3b8;
+      --bg-light: #f8fafc;
+      --line-light: rgba(15, 23, 42, 0.08);
+      --line-dark: rgba(255, 255, 255, 0.08);
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-display); background-color: var(--bg-light); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .container { width: 100%; max-width: 1220px; margin: 0 auto; padding: 0 24px; }
+    a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
+    button { font-family: var(--font-display); }
+
+    /* ── Topbar ── */
+    .topbar { background-color: var(--navy-dark); color: #cbd5e1; font-size: 11.5px; font-weight: 500; letter-spacing: 0.01em; border-bottom: 1px solid var(--line-dark); position: relative; z-index: 100; }
+    .topbar .container { display: flex; justify-content: space-between; align-items: center; min-height: 40px; flex-wrap: wrap; gap: 12px; padding-top: 6px; padding-bottom: 6px; }
+    .topbar-item strong { color: #fff; font-weight: 700; }
+    .topbar-award { background: rgba(255,255,255,0.05); border: 1px solid var(--line-dark); padding: 3px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; color: #fff; }
+
+    /* ── Nav ── */
+    .site-nav { background: rgba(255,255,255,0.90); backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--line-light); position: sticky; top: 0; z-index: 99; height: 72px; display: flex; align-items: center; }
+    .site-nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 100% !important; padding: 0 32px !important; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-mark { width: 42px; height: 42px; background: var(--navy); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; box-shadow: 0 4px 14px rgba(0,201,167,0.3); }
+    .nav-brand-name { font-size: 13.5px; font-weight: 800; letter-spacing: 0.05em; color: var(--navy); line-height: 1.2; }
+    .nav-brand-tag { font-size: 10px; font-weight: 600; color: var(--muted); letter-spacing: 0.02em; margin-top: 1px; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-link { font-size: 13.5px; font-weight: 600; color: #475569; padding: 6px 0; position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: var(--teal); transform: scaleX(0); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); }
+    .nav-link.active, .nav-link:hover { color: var(--navy); }
+    .nav-link.active::after, .nav-link:hover::after { transform: scaleX(1); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--navy); }
+
+    @media (max-width: 1200px) {
+      .hamburger { display: block; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: #fff; padding: 24px; border-bottom: 1px solid var(--line-light); gap: 16px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+      .nav-links.open { display: flex; }
+      .nav-right { display: none; }
+    }
+
+    @media (min-width: 1201px) and (max-width: 1380px) {
+      .site-nav .container { padding: 0 16px; }
+      .nav-links { gap: 12px; }
+      .nav-link { font-size: 12.5px; }
+      .btn-sm { padding: 8px 14px; font-size: 12px; }
+    }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 750; border-radius: 10px; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); cursor: pointer; position: relative; overflow: hidden; border: none; }
+    .btn-sm { padding: 10px 18px; font-size: 12.5px; }
+    .btn-md { padding: 11px 20px; font-size: 13px; }
+    .btn-lg { padding: 13px 26px; font-size: 14px; }
+    .btn-primary { background-color: var(--teal); color: #fff; box-shadow: 0 4px 18px rgba(0,201,167,0.25); }
+    .btn-primary:hover { background-color: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,201,167,0.35); }
+    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,0.25); color: #fff; }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+    /* ── Hero ── */
+    .page-hero {
+      background-color: var(--navy);
+      background-image: radial-gradient(circle at 80% 20%, rgba(0,201,167,0.08) 0%, transparent 45%), radial-gradient(circle at 10% 80%, rgba(41,182,246,0.08) 0%, transparent 45%);
+      padding: 56px 0 0; border-bottom: 4px solid var(--gold); position: relative; overflow: hidden;
+    }
+    .section-eyebrow { font-size: 13.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--teal); margin-bottom: 12px; display: inline-flex; align-items: center; gap: 6px; }
+    .section-eyebrow::before { content: ''; display: inline-block; width: 7.5px; height: 7.5px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px var(--teal); }
+    .hero-title { color: #fff; font-size: clamp(1.9rem, 4.4vw, 2.8rem); font-weight: 800; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 14px; max-width: 760px; }
+    .hero-title em { font-family: var(--font-serif); font-style: italic; color: var(--gold); font-weight: 500; }
+    .hero-desc { color: #cbd5e1; font-size: 15px; line-height: 1.75; max-width: 660px; margin-bottom: 28px; }
+    .hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+
+    /* ── Search strip inside hero ── */
+    .hero-search-strip { background: rgba(255,255,255,0.06); border-top: 1px solid var(--line-dark); padding: 22px 0; }
+    .hero-search-inner { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .hero-search-box { display: flex; flex: 1; min-width: 260px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .hero-search-box input { flex: 1; border: none; outline: none; padding: 14px 18px; font-family: var(--font-display); font-size: 14px; color: var(--ink); }
+    .hero-search-btn { background: var(--teal); border: none; cursor: pointer; padding: 0 22px; color: #fff; font-family: var(--font-display); font-size: 13.5px; font-weight: 700; white-space: nowrap; transition: background 0.2s ease; }
+    .hero-search-btn:hover { background: var(--teal-dark); }
+    .hero-search-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .search-hint { font-size: 11.5px; color: var(--muted-light); font-weight: 500; }
+
+    /* ── Filter bar ── */
+    .toolbar-section { background: #fff; border-bottom: 1px solid var(--line-light); position: sticky; top: 72px; z-index: 50; }
+    .toolbar { display: flex; gap: 10px; padding: 14px 0; flex-wrap: wrap; align-items: center; }
+    .toolbar select { font-family: var(--font-display); font-size: 13px; padding: 9px 14px; border-radius: 10px; border: 1.5px solid var(--line-light); background: var(--bg-light); color: var(--ink); outline: none; transition: border-color 0.2s ease; min-width: 148px; cursor: pointer; }
+    .toolbar select:focus { border-color: var(--teal); background: #fff; }
+    .active-query-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--teal-light); border: 1px solid rgba(0,201,167,0.25); color: var(--teal-dark); font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 8px; white-space: nowrap; }
+    .active-query-tag button { background: none; border: none; cursor: pointer; color: var(--teal-dark); font-size: 14px; line-height: 1; padding: 0; margin-left: 2px; }
+    .result-count { font-size: 12.5px; color: var(--muted); font-weight: 600; white-space: nowrap; margin-left: auto; }
+    .powered-badge { font-size: 10.5px; color: var(--muted-light); font-weight: 600; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+    .powered-badge span { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 6px var(--teal); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+
+    /* ── Listings ── */
+    .listings-section { padding: 32px 0 72px; }
+    .listings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
+    @media (max-width: 860px) { .listings-grid { grid-template-columns: 1fr; } }
+
+    /* ── Loading state ── */
+    .loading-state { grid-column: 1/-1; padding: 60px 20px; text-align: center; }
+    .loader-ring { width: 48px; height: 48px; border: 3px solid var(--line-light); border-top-color: var(--teal); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-state p { font-size: 14px; color: var(--muted); font-weight: 600; }
+    .loading-state small { font-size: 12px; color: var(--muted-light); margin-top: 6px; display: block; }
+
+    /* ── Skeleton cards ── */
+    .skeleton-card { background: #fff; border: 1.5px solid var(--line-light); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+    .skel { background: linear-gradient(90deg, #f0f4f8 25%, #e2e8f0 50%, #f0f4f8 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 6px; }
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+    .skel-sm { height: 12px; width: 40%; }
+    .skel-md { height: 16px; width: 75%; }
+    .skel-lg { height: 14px; width: 90%; }
+    .skel-icon { width: 44px; height: 44px; border-radius: 12px; }
+    .skel-price { height: 20px; width: 55%; }
+
+    /* ── Card ── */
+    .listing-card { background: #fff; border: 1.5px solid var(--line-light); border-radius: 18px; padding: 22px; cursor: pointer; transition: all 0.25s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 4px 14px rgba(15,23,42,0.02); display: flex; flex-direction: column; gap: 14px; position: relative; overflow: hidden; }
+    .listing-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--teal), var(--blue)); opacity: 0; transition: opacity 0.25s ease; }
+    .listing-card:hover { border-color: rgba(0,201,167,0.35); box-shadow: 0 14px 32px rgba(15,23,42,0.07); transform: translateY(-3px); }
+    .listing-card:hover::before { opacity: 1; }
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .card-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .card-badges { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+    .badge { font-size: 10.5px; font-weight: 800; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+    .badge-acquisition { background: var(--blue-light); color: var(--blue-dark); }
+    .badge-merger { background: var(--purple-light); color: var(--purple); }
+    .badge-asset { background: var(--gold-bg); color: var(--gold-dark); }
+    .badge-franchise { background: var(--green-light); color: #065f46; }
+    .badge-investment { background: #fdf4ff; color: #6b21a8; }
+    .badge-active { background: rgba(0,201,167,0.1); color: var(--teal-dark); }
+    .badge-source { background: var(--bg-light); color: var(--muted); border: 1px solid var(--line-light); }
+    .card-ref { font-family: var(--font-mono); font-size: 10px; color: var(--muted-light); font-weight: 600; letter-spacing: 0.05em; margin-bottom: 4px; text-transform: uppercase; }
+    .card-title { font-size: 15.5px; font-weight: 750; color: var(--navy); margin-bottom: 7px; line-height: 1.35; }
+    .card-summary { font-size: 13px; color: var(--muted); line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; border-top: 1px solid var(--line-light); padding-top: 14px; }
+    .meta-field {}
+    .meta-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted-light); margin-bottom: 3px; }
+    .meta-value { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+    .meta-value.price { color: var(--teal-dark); font-family: var(--font-mono); }
+    .card-footer { display: flex; gap: 8px; flex-wrap: wrap; border-top: 1px solid var(--line-light); padding-top: 12px; align-items: center; }
+    .tag-pill { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; display: inline-flex; align-items: center; gap: 5px; }
+    .tag-pill::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+    .tag-country { background: var(--teal-light); color: var(--teal-dark); }
+    .tag-industry { background: var(--blue-light); color: var(--blue-dark); }
+    .card-arrow-btn { margin-left: auto; width: 30px; height: 30px; border-radius: 50%; background: var(--bg-light); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--navy); transition: all 0.2s ease; font-size: 14px; flex-shrink: 0; }
+    .listing-card:hover .card-arrow-btn { background: var(--teal); color: #fff; }
+
+    .source-link { font-size: 11px; color: var(--muted-light); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; margin-left: auto; }
+
+    /* ── Detail ── */
+    .detail-view { display: none; }
+    .detail-view.active { display: block; }
+    .list-view.hidden { display: none; }
+    .back-link { font-size: 13px; font-weight: 700; color: var(--muted); background: none; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; padding: 0; margin: 28px 0 22px; transition: color 0.2s ease; }
+    .back-link:hover { color: var(--teal-dark); }
+    .dossier { background: #fff; border: 1.5px solid var(--line-light); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 32px rgba(15,23,42,0.04); }
+    .dossier-header { background: var(--navy); padding: 36px 36px 30px; position: relative; overflow: hidden; border-bottom: 3px solid var(--gold); }
+    .dossier-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 85% 15%, rgba(245,158,11,0.08) 0%, transparent 50%), radial-gradient(circle at 10% 80%, rgba(0,201,167,0.08) 0%, transparent 50%); }
+    .dossier-header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; position: relative; z-index: 1; }
+    .dossier-ref { font-family: var(--font-mono); font-size: 11px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; font-weight: 600; }
+    .dossier-title { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; color: #fff; line-height: 1.3; max-width: 80%; margin-bottom: 14px; position: relative; z-index: 1; }
+    .dossier-tags { display: flex; gap: 10px; flex-wrap: wrap; position: relative; z-index: 1; }
+    .dossier-tags .tag-pill { background: rgba(255,255,255,0.1); color: #fff; }
+    .dossier-tags .tag-pill::before { background: var(--teal); }
+    .dossier-financials { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 18px 22px; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px; margin-top: 22px; position: relative; z-index: 1; }
+    .fin-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted-light); margin-bottom: 5px; }
+    .fin-value { font-family: var(--font-mono); font-size: 17px; font-weight: 600; color: #fff; }
+    .fin-value.highlight { color: var(--gold); }
+    .dossier-body { padding: 32px 36px; display: grid; grid-template-columns: 1fr 264px; gap: 40px; }
+    .dossier-section { margin-bottom: 26px; }
+    .dossier-section:last-child { margin-bottom: 0; }
+    .field-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-dark); margin-bottom: 8px; }
+    .field-value { font-size: 14.5px; color: var(--ink); line-height: 1.7; }
+    .highlights-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .highlights-list li { font-size: 13.5px; color: var(--ink); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+    .highlights-list li::before { content: '✓'; color: var(--teal-dark); font-weight: 800; font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+    .dossier-sidebar { border-left: 1.5px solid var(--line-light); padding-left: 28px; }
+    .sidebar-field { margin-bottom: 18px; }
+    .sidebar-field .field-value { font-weight: 650; font-size: 13.5px; }
+    .source-box { background: var(--teal-light); border: 1px solid rgba(0,201,167,0.2); border-radius: 12px; padding: 14px 16px; font-size: 12px; color: var(--teal-dark); margin-bottom: 16px; line-height: 1.6; }
+    .source-box strong { display: block; margin-bottom: 3px; }
+    .source-box a { color: var(--teal-dark); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+    .connect-box { padding: 20px; background: var(--bg-light); border: 1.5px solid var(--line-light); border-radius: 14px; }
+    .connect-box p { font-size: 12.5px; color: var(--muted); margin-bottom: 14px; line-height: 1.65; }
+    .btn-connect { width: 100%; margin-bottom: 10px; }
+
+    /* ── Empty / error ── */
+    .empty-state { text-align: center; padding: 70px 20px; color: var(--muted); grid-column: 1/-1; }
+    .empty-state .icon { font-size: 36px; margin-bottom: 12px; }
+    .empty-state p { font-size: 14px; }
+    .empty-state button { margin-top: 16px; }
+
+    /* ── Post modal ── */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(7,13,26,0.7); backdrop-filter: blur(3px); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
+    .modal-overlay.active { display: flex; }
+    .modal { background: #fff; border-radius: 20px; max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 32px; }
+    .modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+    .modal h2 { font-size: 22px; font-weight: 800; color: var(--navy); }
+    .modal-close { background: var(--bg-light); border: none; color: var(--muted); font-size: 18px; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; }
+    .modal-close:hover { background: var(--line-light); color: var(--ink); }
+    .modal-note { font-size: 12.5px; color: var(--muted); margin-bottom: 22px; line-height: 1.6; background: var(--teal-light); padding: 12px 14px; border-radius: 10px; }
+    .form-section-label { font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy); padding: 12px 0 6px; border-top: 1px solid var(--line-light); margin-top: 6px; margin-bottom: 10px; }
+    .form-section-label:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--teal-dark); margin-bottom: 7px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; font-family: var(--font-display); font-size: 13.5px; padding: 11px 14px; border-radius: 10px; border: 1.5px solid var(--line-light); background: var(--bg-light); color: var(--ink); outline: none; transition: border-color 0.2s ease; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--teal); background: #fff; }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    .form-submit { width: 100%; margin-top: 8px; padding: 13px; font-size: 13.5px; }
+    .form-status { margin-top: 14px; font-size: 12.5px; font-weight: 700; text-align: center; display: none; padding: 10px; border-radius: 8px; }
+    .form-status.success { color: var(--teal-dark); background: var(--teal-light); display: block; }
+    .form-status.error { color: #b91c1c; background: var(--red-bg); display: block; }
+
+    @media (max-width: 760px) {
+      .dossier-header { padding: 28px 22px 24px; }
+      .dossier-title { max-width: 100%; }
+      .dossier-body { grid-template-columns: 1fr; padding: 26px 22px; }
+      .dossier-sidebar { border-left: none; border-top: 1.5px solid var(--line-light); padding-left: 0; padding-top: 24px; }
+      .form-row, .form-row-3 { grid-template-columns: 1fr; }
+    }
+    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-item"><strong>1,000+</strong> clients · <strong>47+</strong> countries · Chairman: <strong>Dr. Anil Gupta</strong> · Connect Ventures</div>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <span class="topbar-item">Call: <a href="tel:+919999981613" style="color:var(--blue);font-weight:700;">+91 999 998 1613</a></span>
+        <span class="topbar-award">Most Promising Service Provider 2025</span>
+        <span class="topbar-award">Top 10 Compliance — SiliconIndia</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="site-nav" role="navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">CV</div>
+        <div>
+          <div class="nav-brand-name">CONNECT VENTURES</div>
+          <div class="nav-brand-tag">Your Globalization Partner</div>
+        </div>
+      </a>
+      <button class="hamburger" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">All Services</a>
+        <a href="5c-model.html" class="nav-link">5C Framework</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="#" class="nav-link active">Marketplace</a>
+        <a href="countries.html" class="nav-link">Countries</a>
+        <a href="about.html" class="nav-link">About Dr. Gupta</a>
+        <a href="partners.html" class="nav-link">Partners</a>
+        <a href="index.html#resources" class="nav-link">Resources</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="index.html#contact" class="btn btn-primary btn-sm">Free consultation</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <span class="section-eyebrow">Global Business Marketplace</span>
+      <h1 class="hero-title">Acquire, exit or merge a business <em>anywhere in the world</em></h1>
+      <p class="hero-desc">Search live, real business-for-sale listings from global marketplaces — powered by AI-assisted discovery. Connect Ventures facilitates introductions, due diligence, and cross-border deal structuring across 47+ countries.</p>
+      <div class="hero-cta-row">
+        <button class="btn btn-primary btn-lg" id="openListModal">List your business →</button>
+        <a href="#listings-anchor" class="btn btn-outline btn-lg">Browse listings ↓</a>
+      </div>
+    </div>
+    <div class="hero-search-strip">
+      <div class="container">
+        <div class="hero-search-inner">
+          <div class="hero-search-box">
+            <input type="text" id="aiSearchInput" placeholder='e.g. "Manufacturing business for sale in Germany" or "FMCG acquisition India"' />
+            <button class="hero-search-btn" id="aiSearchBtn">Search live listings →</button>
+          </div>
+          <span class="search-hint">Searches real listings from global business marketplaces</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- List View -->
+  <div class="list-view" id="listView">
+    <div class="toolbar-section" id="listings-anchor">
+      <div class="container">
+        <div class="toolbar">
+          <div id="activeQueryTag"></div>
+          <select id="industryFilter">
+            <option value="">All Industries</option>
+            <option>Food & Beverages</option><option>FMCG</option><option>Healthcare</option>
+            <option>Manufacturing</option><option>Engineering</option><option>Technology</option>
+            <option>Retail</option><option>Hospitality</option><option>Logistics</option>
+            <option>Agribusiness</option><option>Energy</option><option>Financial Services</option>
+            <option>Real Estate</option><option>Education</option>
+          </select>
+          <select id="countryFilter"><option value="">All Countries</option></select>
+          <select id="dealTypeFilter">
+            <option value="">All Deal Types</option>
+            <option value="acquisition">Acquisition</option>
+            <option value="merger">Merger</option>
+            <option value="franchise">Franchise</option>
+            <option value="investment">Investment</option>
+          </select>
+          <span class="result-count" id="resultCount"></span>
+          <span class="powered-badge"><span></span>AI-powered live search</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="listings-section">
+      <div class="container">
+        <div class="listings-grid" id="listingsGrid">
+          <!-- Initial prompt state -->
+          <div class="empty-state" id="initialState">
+            <div class="icon">🌐</div>
+            <p style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;">Search for live business listings worldwide</p>
+            <p>Use the search bar above — type what you're looking for, like <em>"hotel for sale Southeast Asia"</em> or <em>"tech company acquisition Europe"</em>.</p>
+            <button class="btn btn-primary btn-md" style="margin-top:20px;" onclick="document.getElementById('aiSearchInput').focus()">Start searching →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Detail View -->
+  <div class="detail-view" id="detailView">
+    <div class="container">
+      <button class="back-link" id="backBtn">← Back to all listings</button>
+      <div class="dossier" id="dossierContent"></div>
+      <div style="height:56px;"></div>
+    </div>
+  </div>
+
+  <!-- List Business Modal -->
+  <div class="modal-overlay" id="listModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>List your business</h2>
+        <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
+      </div>
+      <p class="modal-note">All submissions are strictly confidential. Your business details are not made public until you approve. Our team will contact you within 1–2 business days.</p>
+      <form id="listForm">
+        <div class="form-section-label">Business details</div>
+        <div class="form-group">
+          <label for="f-title">Business / listing title</label>
+          <input type="text" id="f-title" required placeholder="e.g. Established FMCG Distributor — Southeast Asia" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-industry">Industry</label>
+            <select id="f-industry" required>
+              <option value="">Select…</option>
+              <option>Food & Beverages</option><option>FMCG</option><option>Healthcare</option>
+              <option>Manufacturing</option><option>Engineering</option><option>Technology</option>
+              <option>Retail</option><option>Hospitality</option><option>Real Estate</option>
+              <option>Logistics</option><option>Agribusiness</option><option>Energy</option>
+              <option>Financial Services</option><option>Education</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="f-country">Country</label>
+            <input type="text" id="f-country" required placeholder="e.g. India" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-deal-type">Deal type</label>
+            <select id="f-deal-type" required>
+              <option value="">Select…</option>
+              <option value="acquisition">Full Acquisition</option>
+              <option value="merger">Merger</option>
+              <option value="asset-sale">Asset Sale</option>
+              <option value="franchise">Franchise / License</option>
+              <option value="investment">Minority Investment</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="f-employees">No. of employees</label>
+            <select id="f-employees">
+              <option value="">Select…</option>
+              <option>1–10</option><option>11–50</option><option>51–200</option><option>201–500</option><option>500+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-summary">Business summary</label>
+          <textarea id="f-summary" required placeholder="Brief overview of what the business does, its market position, and why it's being sold…"></textarea>
+        </div>
+        <div class="form-section-label">Financials (approximate)</div>
+        <div class="form-row-3">
+          <div class="form-group">
+            <label for="f-asking">Asking price (USD)</label>
+            <input type="text" id="f-asking" placeholder="e.g. 5,000,000" />
+          </div>
+          <div class="form-group">
+            <label for="f-revenue">Annual revenue (USD)</label>
+            <input type="text" id="f-revenue" placeholder="e.g. 3,000,000" />
+          </div>
+          <div class="form-group">
+            <label for="f-estab">Year established</label>
+            <input type="text" id="f-estab" placeholder="e.g. 2008" />
+          </div>
+        </div>
+        <div class="form-section-label">Your contact details</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-name">Your full name</label>
+            <input type="text" id="f-name" required />
+          </div>
+          <div class="form-group">
+            <label for="f-email">Contact email</label>
+            <input type="email" id="f-email" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-phone">Contact phone</label>
+          <input type="tel" id="f-phone" />
+        </div>
+        <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Submit confidentially →</button>
+        <div class="form-status" id="formStatus"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // ─────────────────────────────────────────────
+    // State
+    // ─────────────────────────────────────────────
+    let allListings = [];
+    let activeQuery = '';
+    let currentFilters = { industry: '', country: '', dealType: '' };
+
+    const gridEl = document.getElementById('listingsGrid');
+    const resultCountEl = document.getElementById('resultCount');
+    const listView = document.getElementById('listView');
+    const detailView = document.getElementById('detailView');
+    const dossierContent = document.getElementById('dossierContent');
+
+    const INDUSTRY_ICONS = {
+      'food': '🍜', 'beverage': '🥤', 'fmcg': '🛒', 'healthcare': '💊', 'pharma': '💊',
+      'hotel': '🏨', 'hospitality': '🏨', 'restaurant': '🍽️', 'manufacturing': '🏭',
+      'tech': '💻', 'software': '💻', 'it': '💻', 'logistics': '🚚', 'transport': '🚢',
+      'retail': '🏪', 'agri': '🌾', 'farm': '🌾', 'energy': '⚡', 'real estate': '🏢',
+      'education': '📚', 'engineering': '⚙️', 'financial': '💰', 'media': '📱',
+      'beauty': '💄', 'fashion': '👗'
+    };
+
+    function getIcon(text) {
+      const lower = (text || '').toLowerCase();
+      for (const [key, icon] of Object.entries(INDUSTRY_ICONS)) {
+        if (lower.includes(key)) return icon;
+      }
+      return '🏢';
+    }
+
+    function escHtml(str) {
+      const d = document.createElement('div');
+      d.textContent = str ?? '';
+      return d.innerHTML;
+    }
+
+    // ─────────────────────────────────────────────
+    // AI Search — calls our secure backend endpoint
+    // ─────────────────────────────────────────────
+    async function runAISearch(query) {
+      activeQuery = query;
+
+      // Show skeleton
+      gridEl.innerHTML = `
+        <div class="loading-state" style="grid-column:1/-1">
+          <div class="loader-ring"></div>
+          <p>Searching live listings across global marketplaces…</p>
+          <small>Scanning BizBuySell, BusinessesForSale, Acquire.com, Flippa and more</small>
+        </div>`;
+      resultCountEl.textContent = '';
+      updateQueryTag();
+
+      try {
+        const res = await fetch('/api/search', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query })
+        });
+
+        if (!res.ok) throw new Error(`API error ${res.status}`);
+        const listings = await res.json();
+
+        allListings = listings.map((l, i) => ({ ...l, slug: l.slug || `listing-${i}` }));
+
+        populateCountryFilter();
+        renderGrid();
+      } catch (err) {
+        console.error('Search error:', err);
+        gridEl.innerHTML = `
+          <div class="empty-state">
+            <div class="icon">⚠️</div>
+            <p style="font-weight:700;color:var(--navy);margin-bottom:8px;">Search failed</p>
+            <p>Couldn't retrieve live listings right now. Please try again.</p>
+            <button class="btn btn-primary btn-md" onclick="runAISearch('${escHtml(query)}')">Retry</button>
+          </div>`;
+        resultCountEl.textContent = '';
+      }
+    }
+
+    function populateCountryFilter() {
+      const cSel = document.getElementById('countryFilter');
+      const existing = new Set([...cSel.options].map(o => o.value));
+      [...new Set(allListings.map(l => l.country).filter(Boolean))].sort().forEach(c => {
+        if (!existing.has(c)) cSel.insertAdjacentHTML('beforeend', `<option value="${escHtml(c)}">${escHtml(c)}</option>`);
+      });
+    }
+
+    function updateQueryTag() {
+      const el = document.getElementById('activeQueryTag');
+      if (activeQuery) {
+        el.innerHTML = `<span class="active-query-tag">"${escHtml(activeQuery)}" <button onclick="clearSearch()" title="Clear search">×</button></span>`;
+      } else {
+        el.innerHTML = '';
+      }
+    }
+
+    function clearSearch() {
+      activeQuery = '';
+      allListings = [];
+      updateQueryTag();
+      resultCountEl.textContent = '';
+      document.getElementById('aiSearchInput').value = '';
+      document.getElementById('countryFilter').innerHTML = '<option value="">All Countries</option>';
+      gridEl.innerHTML = `
+        <div class="empty-state" id="initialState">
+          <div class="icon">🌐</div>
+          <p style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;">Search for live business listings worldwide</p>
+          <p>Use the search bar above — type what you're looking for.</p>
+          <button class="btn btn-primary btn-md" style="margin-top:20px;" onclick="document.getElementById('aiSearchInput').focus()">Start searching →</button>
+        </div>`;
+    }
+
+    const DEAL_LABELS = { 'acquisition': 'Acquisition', 'merger': 'Merger', 'franchise': 'Franchise', 'investment': 'Investment', 'asset-sale': 'Asset Sale' };
+    const DEAL_CLASSES = { 'acquisition': 'badge-acquisition', 'merger': 'badge-merger', 'franchise': 'badge-franchise', 'investment': 'badge-investment', 'asset-sale': 'badge-asset' };
+
+    function renderGrid() {
+      const filtered = allListings.filter(p => {
+        const mi = !currentFilters.industry || (p.industry || '').toLowerCase().includes(currentFilters.industry.toLowerCase());
+        const mc = !currentFilters.country || p.country === currentFilters.country;
+        const md = !currentFilters.dealType || p.dealType === currentFilters.dealType;
+        return mi && mc && md;
+      });
+
+      resultCountEl.textContent = `${filtered.length} listing${filtered.length === 1 ? '' : 's'} found`;
+
+      if (filtered.length === 0) {
+        gridEl.innerHTML = `<div class="empty-state"><div class="icon">∅</div><p>No listings match your filters.</p></div>`;
+        return;
+      }
+
+      gridEl.innerHTML = filtered.map(p => {
+        const dealClass = DEAL_CLASSES[p.dealType] || 'badge-acquisition';
+        const dealLabel = DEAL_LABELS[p.dealType] || p.dealType || 'Acquisition';
+        return `
+        <div class="listing-card" data-slug="${escHtml(p.slug)}" tabindex="0" role="button">
+          <div class="card-top">
+            <div class="card-icon">${getIcon((p.industry || '') + ' ' + (p.title || ''))}</div>
+            <div class="card-badges">
+              <span class="badge ${dealClass}">${escHtml(dealLabel)}</span>
+              <span class="badge badge-active">Active</span>
+            </div>
+          </div>
+          <div>
+            <div class="card-ref">${escHtml(p.sourceName || 'Live listing')}</div>
+            <div class="card-title">${escHtml(p.title)}</div>
+            <div class="card-summary">${escHtml(p.summary)}</div>
+          </div>
+          <div class="card-meta">
+            <div class="meta-field">
+              <div class="meta-label">Asking Price</div>
+              <div class="meta-value price">${escHtml(p.askingPrice || 'On request')}</div>
+            </div>
+            <div class="meta-field">
+              <div class="meta-label">Revenue</div>
+              <div class="meta-value">${escHtml(p.revenue || 'Undisclosed')}</div>
+            </div>
+          </div>
+          <div class="card-footer">
+            ${p.country ? `<span class="tag-pill tag-country">${escHtml(p.country)}</span>` : ''}
+            ${p.industry ? `<span class="tag-pill tag-industry">${escHtml(p.industry)}</span>` : ''}
+            ${p.sourceUrl ? `<a class="source-link" href="${escHtml(p.sourceUrl)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">View source ↗</a>` : ''}
+            <button class="card-arrow-btn" aria-hidden="true">→</button>
+          </div>
+        </div>`;
+      }).join('');
+
+      document.querySelectorAll('.listing-card').forEach(card => {
+        const open = () => openDetail(card.dataset.slug);
+        card.addEventListener('click', open);
+        card.addEventListener('keydown', e => { if (e.key === 'Enter') open(); });
+      });
+    }
+
+    function openDetail(slug) {
+      const p = allListings.find(l => l.slug === slug);
+      if (!p) return;
+      listView.classList.add('hidden');
+      detailView.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      renderDossier(p);
+      history.pushState({ slug }, '', `#${slug}`);
+    }
+
+    function renderDossier(p) {
+      const dealClass = DEAL_CLASSES[p.dealType] || 'badge-acquisition';
+      const dealLabel = DEAL_LABELS[p.dealType] || p.dealType || 'Acquisition';
+      const highlights = Array.isArray(p.highlights)
+        ? p.highlights.map(h => `<li>${escHtml(h)}</li>`).join('')
+        : '';
+
+      dossierContent.innerHTML = `
+        <div class="dossier-header">
+          <div class="dossier-header-top">
+            <div style="position:relative;z-index:1;">
+              <div class="dossier-ref">Source: ${escHtml(p.sourceName || 'Live listing')}</div>
+              <div class="dossier-title">${escHtml(p.title)}</div>
+              <div class="dossier-tags">
+                ${p.country ? `<span class="tag-pill">${escHtml(p.country)}</span>` : ''}
+                ${p.industry ? `<span class="tag-pill">${escHtml(p.industry)}</span>` : ''}
+                ${p.yearEstablished ? `<span class="tag-pill">Est. ${escHtml(p.yearEstablished)}</span>` : ''}
+                ${p.employees ? `<span class="tag-pill">${escHtml(p.employees)} employees</span>` : ''}
+              </div>
+            </div>
+            <span class="badge ${dealClass}" style="font-size:12px;padding:6px 14px;position:relative;z-index:1;">${escHtml(dealLabel)}</span>
+          </div>
+          <div class="dossier-financials">
+            <div><div class="fin-label">Asking Price</div><div class="fin-value highlight">${escHtml(p.askingPrice || 'On request')}</div></div>
+            <div><div class="fin-label">Annual Revenue</div><div class="fin-value">${escHtml(p.revenue || 'Undisclosed')}</div></div>
+            <div><div class="fin-label">Year Est.</div><div class="fin-value">${escHtml(p.yearEstablished || '—')}</div></div>
+            <div><div class="fin-label">Employees</div><div class="fin-value">${escHtml(p.employees || '—')}</div></div>
+          </div>
+        </div>
+        <div class="dossier-body">
+          <div>
+            <div class="dossier-section">
+              <div class="field-label">Overview</div>
+              <div class="field-value">${escHtml(p.summary)}</div>
+            </div>
+            ${highlights ? `<div class="dossier-section"><div class="field-label">Key highlights</div><ul class="highlights-list">${highlights}</ul></div>` : ''}
+          </div>
+          <div class="dossier-sidebar">
+            <div class="sidebar-field">
+              <div class="field-label">Country</div>
+              <div class="field-value">${escHtml(p.country || '—')}</div>
+            </div>
+            <div class="sidebar-field">
+              <div class="field-label">Industry</div>
+              <div class="field-value">${escHtml(p.industry || '—')}</div>
+            </div>
+            <div class="sidebar-field">
+              <div class="field-label">Deal type</div>
+              <div class="field-value">${escHtml(dealLabel)}</div>
+            </div>
+            ${p.sourceUrl ? `
+            <div class="source-box">
+              <strong>📄 Original listing</strong>
+              This listing was found on <strong>${escHtml(p.sourceName || 'an external marketplace')}</strong>.
+              <br><a href="${escHtml(p.sourceUrl)}" target="_blank" rel="noopener">View on ${escHtml(p.sourceName || 'source')} ↗</a>
+            </div>` : ''}
+            <div class="connect-box">
+              <p>Connect Ventures can facilitate introductions, manage NDA signing, and coordinate cross-border due diligence for this listing.</p>
+              <button class="btn btn-primary btn-connect" id="connectBtn">Contact Connect Ventures</button>
+            </div>
+          </div>
+        </div>`;
+
+      document.getElementById('connectBtn').addEventListener('click', () => {
+        window.location.href = `mailto:partnerships@theconnectventures.com?subject=${encodeURIComponent('Acquisition Enquiry: ' + p.title)}`;
+      });
+    }
+
+    function showList() {
+      detailView.classList.remove('active');
+      listView.classList.remove('hidden');
+      history.pushState({}, '', window.location.pathname);
+    }
+
+    // ─────────────────────────────────────────────
+    // Event listeners
+    // ─────────────────────────────────────────────
+    document.getElementById('backBtn').addEventListener('click', showList);
+    window.addEventListener('popstate', () => {
+      const slug = window.location.hash.replace('#', '');
+      if (slug) openDetail(slug); else showList();
+    });
+
+    const searchBtn = document.getElementById('aiSearchBtn');
+    const searchInput = document.getElementById('aiSearchInput');
+
+    searchBtn.addEventListener('click', () => {
+      const q = searchInput.value.trim();
+      if (q) { runAISearch(q); document.getElementById('listings-anchor').scrollIntoView({ behavior: 'smooth' }); }
+    });
+    searchInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') { searchBtn.click(); }
+    });
+
+    document.getElementById('industryFilter').addEventListener('change', e => { currentFilters.industry = e.target.value; if (allListings.length) renderGrid(); });
+    document.getElementById('countryFilter').addEventListener('change', e => { currentFilters.country = e.target.value; if (allListings.length) renderGrid(); });
+    document.getElementById('dealTypeFilter').addEventListener('change', e => { currentFilters.dealType = e.target.value; if (allListings.length) renderGrid(); });
+
+    // Modal
+    const listModal = document.getElementById('listModal');
+    document.getElementById('openListModal').addEventListener('click', () => listModal.classList.add('active'));
+    document.getElementById('closeModal').addEventListener('click', () => listModal.classList.remove('active'));
+    listModal.addEventListener('click', e => { if (e.target === listModal) listModal.classList.remove('active'); });
+
+    document.getElementById('listForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const statusEl = document.getElementById('formStatus');
+      btn.disabled = true; btn.textContent = 'Submitting…';
+      try {
+        // Replace with your actual form API endpoint
+        await new Promise(r => setTimeout(r, 1200)); // simulate
+        statusEl.textContent = 'Submitted — our team will be in touch within 1–2 business days.';
+        statusEl.className = 'form-status success';
+        document.getElementById('listForm').reset();
+        setTimeout(() => { listModal.classList.remove('active'); statusEl.className = 'form-status'; }, 2500);
+      } catch {
+        statusEl.textContent = 'Something went wrong. Please email us directly.';
+        statusEl.className = 'form-status error';
+      } finally {
+        btn.disabled = false; btn.textContent = 'Submit confidentially →';
+      }
+    });
+
+    // Hamburger
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        hamburger.innerHTML = navLinks.classList.contains('open')
+          ? '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>'
+          : '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en" class="notranslate">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <meta name="description" content="Connect Ventures C5 — Co-creation: The C5 Co-creation module represents the deepest level of engagement — where Connect Ventures acts not just as an advisor but as an active co-investor or joint venture partner.">
+  <meta name="keywords" content="co-investment India, JV facilitation India, M&A India global, commodity marketplace India, strategic partnership India global">
+  <meta name="robots" content="index, follow">
+  <title>C5 — Co-creation — Strategic growth partnerships and co-investment | Connect Ventures</title>
+  
+  <!-- Web Fonts for Premium Aesthetics -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════
+       PREMIUM STYLING & BRAND IDENTITY VARIABLES
+       ═══════════════════════════════════════════ */
+    :root {
+      --navy: #0b1528;
+      --navy-light: #16243d;
+      --navy-dark: #070d1a;
+      --teal: #00c9a7;
+      --teal-light: #f0fdfa;
+      --teal-dark: #008770;
+      --blue: #29b6f6;
+      --blue-light: #e0f7fa;
+      --blue-dark: #0288d1;
+      --gold: #f59e0b;
+      --gold-bg: #fffbeb;
+      --ink: #0f172a;
+      --muted: #475569;
+      --muted-light: #94a3b8;
+      --bg-light: #f8fafc;
+      --line-light: rgba(15, 23, 42, 0.08);
+      --line-dark: rgba(255, 255, 255, 0.08);
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --bdr: rgba(15, 23, 42, 0.08);
+      --tl: #475569;
+    }
+
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-display);
+      background-color: var(--bg-light);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
+
+    /* ═══════════════════════════════════════════
+       NAVIGATION / TOPBAR COMPONENTS
+       ═══════════════════════════════════════════ */
+    
+    /* Topbar Slim Elegant Ribbon */
+    .topbar {
+      background-color: var(--navy-dark);
+      color: #cbd5e1;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      border-bottom: 1px solid var(--line-dark);
+      position: relative;
+      z-index: 100;
+    }
+    
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 40px;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+
+    .topbar-item strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+    
+    .topbar-award {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line-dark);
+      padding: 3px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    /* Navigation Bar */
+    .site-nav {
+      background: rgba(255,255,255,0.90);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--line-light);
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+    .site-nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 100% !important; padding: 0 32px !important; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-mark {
+      width: 42px; height: 42px; background: var(--navy); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 800; box-shadow: 0 4px 14px rgba(0,201,167,0.3);
+    }
+    .nav-brand-name { font-size: 13.5px; font-weight: 800; letter-spacing: 0.05em; color: var(--navy); line-height: 1.2; }
+    .nav-brand-tag { font-size: 10px; font-weight: 600; color: var(--muted); letter-spacing: 0.02em; margin-top: 1px; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-link { font-size: 13.5px; font-weight: 600; color: #475569; padding: 6px 0; position: relative; }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+      height: 2px; background: var(--teal);
+      transform: scaleX(0); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .nav-link.active, .nav-link:hover { color: var(--navy); }
+    .nav-link.active::after, .nav-link:hover::after { transform: scaleX(1); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--navy); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 750;
+      border-radius: 10px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      font-family: var(--font-display);
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -75%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+      transform: rotate(25deg);
+      transition: none;
+    }
+
+    .btn:hover::after {
+      left: 150%;
+      transition: left 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-sm {
+      padding: 10px 18px;
+      font-size: 12.5px;
+    }
+
+    .btn-lg {
+      padding: 15px 30px;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background-color: var(--teal);
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 18px rgba(0, 201, 167, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--teal-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 201, 167, 0.35);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-outline-white:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost-green {
+      background: rgba(76, 175, 80, 0.1);
+      color: #4cab50;
+      border: 1.5px solid rgba(76, 175, 80, 0.3);
+    }
+
+    .btn-ghost-green:hover {
+      background: rgba(76, 175, 80, 0.18);
+      border-color: #4cab50;
+      transform: translateY(-2px);
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-eyebrow {
+      font-size: 13.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--teal);
+      margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 7.5px;
+      height: 7.5px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 8px var(--teal);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    @media (max-width: 1200px) {
+      .hamburger {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        padding: 24px;
+        border-bottom: 1px solid var(--line-light);
+        gap: 16px;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-right {
+        display: none;
+      }
+    }
+
+    @media (min-width: 1201px) and (max-width: 1380px) {
+      .site-nav .container { padding: 0 16px; }
+      .nav-links { gap: 12px; }
+      .nav-link { font-size: 12.5px; }
+      .btn-sm { padding: 8px 14px; font-size: 12px; }
+    }
+
+    @media (max-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Co-creation Section Custom Layout Styling */
+    .cocreation-card {
+      background: #ffffff;
+      border: 1px solid var(--bdr);
+      border-radius: 20px;
+      padding: 28px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+
+    .cocreation-card:hover {
+      border-color: #993C1D;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px -5px rgba(153, 60, 29, 0.12), 0 8px 16px -8px rgba(153, 60, 29, 0.08);
+    }
+
+    /* CTA Banner Styles */
+    .cta-banner {
+      background-color: var(--navy);
+      background-image: radial-gradient(circle at 20% 80%, rgba(0, 201, 167, 0.06) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(41, 182, 246, 0.06) 0%, transparent 50%);
+      padding: 72px 0;
+      text-align: center;
+      border-top: 3px solid var(--blue);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-title {
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .cta-desc {
+      color: #94a3b8;
+      font-size: 15px;
+      margin-bottom: 32px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .btn-group-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .cta-guarantee {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--teal);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 16px;
+    }
+
+    /* Footer Styling */
+    .site-footer {
+      background-color: var(--navy-dark);
+      padding: 72px 0 40px;
+      color: #94a3b8;
+      font-size: 13.5px;
+      border-top: 1px solid var(--line-dark);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 992px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .footer-logo-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-desc {
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .footer-heading {
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-size: 13.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-link {
+      display: block;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+
+    .footer-link:hover {
+      color: var(--teal);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .wa-float {
+      position: fixed;
+      width: 56px;
+      height: 56px;
+      bottom: 24px;
+      right: 24px;
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 98;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    .wa-float svg {
+      width: 30px;
+      height: 30px;
+      fill: currentColor;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 44px;
+      height: 44px;
+      background: var(--navy-light);
+      border: 1px solid var(--line-dark);
+      color: white;
+      border-radius: 50%;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 98;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      background: var(--teal);
+      transform: translateY(-3px);
+    }
+    @media (max-width: 768px) {
+      .wa-float {
+        bottom: 84px !important;
+        left: 20px !important;
+        width: 46px !important;
+        height: 46px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slim Elegant Announcement Ribbon -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-item">
+        <strong>1,000+</strong> clients · <strong>47+</strong> countries · Chairman: <strong>Dr. Anil Gupta</strong> · Connect Ventures
+      </div>
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <span class="topbar-item">Call: <a href="tel:+919999981613" style="color: var(--blue); font-weight: 700;">+91 999 998 1613</a></span>
+        <span class="topbar-award">Most Promising Service Provider 2025</span>
+        <span class="topbar-award">Top 10 Compliance — SiliconIndia</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">CV</div>
+        <div>
+          <div class="nav-brand-name">CONNECT VENTURES</div>
+          <div class="nav-brand-tag">Your Globalization Partner</div>
+        </div>
+      </a>
+      <button class="hamburger" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">All Services</a>
+        <a href="5c-model.html" class="nav-link">5C Framework</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="marketplace.html" class="nav-link">Marketplace</a>
+        <a href="countries.html" class="nav-link">Countries</a>
+        <a href="about.html" class="nav-link">About Dr. Gupta</a>
+        <a href="partners.html" class="nav-link">Partners</a>
+        <a href="index.html#resources" class="nav-link">Resources</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="index.html#contact" class="btn btn-primary btn-sm">Free consultation</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header Section -->
+  <div style="background:var(--navy);padding:64px 0 48px;border-bottom:3px solid var(--blue); background-image: radial-gradient(circle at 80% 20%, rgba(0, 201, 167, 0.08) 0%, transparent 45%);">
+    <div class="container">
+      <span class="section-eyebrow" style="display:inline-flex;margin-bottom:12px">C5 — Co-creation</span>
+      <h1 style="color:#fff;font-size:clamp(2.1rem, 5vw, 3.2rem);font-weight:800;margin-bottom:16px;line-height:1.25;letter-spacing:-0.02em;">Strategic growth partnerships &amp; co-investment</h1>
+      <p style="color:#cbd5e1;font-size:15.5px;line-height:1.75;max-width:760px">The C5 Co-creation module represents the deepest level of engagement — where Connect Ventures acts not just as an advisor but as an active co-investor, strategic partner, or co-creator in your international business ventures.</p>
+    </div>
+  </div>
+
+  <!-- Co-creation Matrix Section -->
+  <section class="section" style="background:#FAECE7;">
+    <div class="container">
+      <div class="grid-2" style="gap:24px;">
+        
+        <!-- Card 1 -->
+        <div class="cocreation-card">
+          <h3 style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:10px">Strategic co-investment</h3>
+          <p style="font-size:14px;color:var(--tl);line-height:1.7">Connect Ventures evaluates co-investment opportunities in high-potential Indian businesses expanding internationally. Direct equity participation, or facilitation of investment from the wider Connect Ventures network.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="cocreation-card">
+          <h3 style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:10px">JV facilitation and M&A</h3>
+          <p style="font-size:14px;color:var(--tl);line-height:1.7">Facilitate joint ventures between Indian companies and foreign partners — structuring the legal framework, economic participation, governance, and exit provisions. Also advise on cross-border M&A transactions.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="cocreation-card">
+          <h3 style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:10px">Syndicate leadership</h3>
+          <p style="font-size:14px;color:var(--tl);line-height:1.7">Lead or co-lead investment syndicates bringing together multiple Indian and global investors around a specific opportunity — technology, real estate, commodities, or growth equity.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="cocreation-card">
+          <h3 style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:10px">Commodity marketplace (Hong Kong)</h3>
+          <p style="font-size:14px;color:var(--tl);line-height:1.7">Access to Connect Ventures' commodity trading platform in Hong Kong — connecting Indian commodity producers and traders with global buyers through a structured, compliant marketplace.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="cocreation-card">
+          <h3 style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:10px">BNI and COC network access</h3>
+          <p style="font-size:14px;color:var(--tl);line-height:1.7">Leverage Dr. Anil Gupta's extensive BNI (Business Network International) and Chamber of Commerce (COC) networks across USA, UK, UAE, Singapore, and India for business development and partnership opportunities.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="cocreation-card">
+          <h3 style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:10px">Estate planning and succession</h3>
+          <p style="font-size:14px;color:var(--tl);line-height:1.7">For Indian HNIs and family businesses with significant cross-border wealth: estate planning across jurisdictions, family office structuring, wealth governance, and succession planning.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="cta-title">Ready to explore C5 — Co-creation?</h2>
+      <p class="cta-desc">Connect Ventures delivers C5 — Co-creation as part of the complete 5C global expansion framework. Talk to Dr. Anil Gupta's team for a free assessment of how C5 — Co-creation can accelerate your international growth.</p>
+      
+      <div class="btn-group-center">
+        <a href="index.html#contact" class="btn btn-primary btn-lg">Free consultation →</a>
+        <a href="tel:+919999981613" class="btn btn-outline-white btn-lg">📞 +91 999 998 1613</a>
+        <a href="https://wa.me/919999981613" class="btn ghost-green btn-lg" target="_blank" style="background: rgba(37, 211, 102, 0.1); color: #25d366; border: 1.5px solid rgba(37, 211, 102, 0.3); padding: 15px 30px; border-radius: 10px; font-weight:750;">💬 WhatsApp</a>
+      </div>
+      
+      <p class="cta-guarantee">No commitment · Fixed-fee · Response within 4 hours</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo-name">CONNECT VENTURES</div>
+          <p class="footer-desc">India's premier global expansion group. Parent company of Comply Globally. 5C framework. 1,000+ clients, 47+ countries.</p>
+          <div class="footer-desc" style="color: #64748b; font-size:12.5px;">www.theconnectventures.com · www.complyglobally.com</div>
+        </div>
+        <div>
+          <div class="footer-heading">5C Services</div>
+          <a href="coaching.html" class="footer-link">C1 Coaching</a>
+          <a href="consulting.html" class="footer-link">C2 Consulting</a>
+          <a href="connecting.html" class="footer-link">C3 Connecting</a>
+          <a href="collaboration.html" class="footer-link">C4 Collaboration</a>
+          <a href="co-creation.html" class="footer-link">C5 Co-creation</a>
+        </div>
+        <div>
+          <div class="footer-heading">Expand to</div>
+          <a href="countries.html" class="footer-link">All 47+ countries</a>
+          <a href="index.html" class="footer-link">Knowledge hub</a>
+          <a href="faq.html" class="footer-link">All FAQs</a>
+          <a href="index.html#contact" class="footer-link">Contact</a>
+        </div>
+        <div>
+          <div class="footer-heading">Company</div>
+          <a href="about.html" class="footer-link">About Dr. Anil Gupta</a>
+          <a href="about.html" class="footer-link">Awards &amp; recognition</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 Connect Ventures | Chairman: Dr. Anil Gupta</div>
+        <div class="footer-awards">🏆 Most Promising Service Provider 2025 · ⭐ SiliconIndia Top 10</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Widget -->
+  <a href="https://wa.me/919999981613" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Scroll To Top Button -->
+  <button class="scroll-top" id="scrollTopBtn">↑</button>
+
+  <script>
+    // Lightweight Hamburger Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const hamburgerOpenSVG = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    const hamburgerCloseSVG = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>';
+    
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        hamburger.innerHTML = navLinks.classList.contains('open') ? hamburgerCloseSVG : hamburgerOpenSVG;
+      });
+      // Close mobile drawer when link clicked
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.innerHTML = hamburgerOpenSVG;
+        });
+      });
+    }
+
+    // Scroll to Top visibility
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    if (scrollTopBtn) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+          scrollTopBtn.classList.add('visible');
+        } else {
+          scrollTopBtn.classList.remove('visible');
+        }
+      });
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>

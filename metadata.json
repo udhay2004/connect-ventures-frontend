@@ -1,0 +1,6 @@
+{
+  "name": "Connect Ventures",
+  "description": "Dr. Anil Gupta's Global Expansion Platform helping businesses expand to USA, UK, UAE, Singapore, Canada, Germany, and Australia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

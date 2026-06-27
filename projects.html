@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" class="notranslate">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <meta name="description" content="Live business opportunities from companies seeking distributors, partners, importers and investors — facilitated by Connect Ventures across 47+ countries.">
+  <meta name="robots" content="index, follow">
+  <title>Projects & Opportunities | Connect Ventures</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0b1528;
+      --navy-light: #16243d;
+      --navy-dark: #070d1a;
+      --teal: #00c9a7;
+      --teal-light: #f0fdfa;
+      --teal-dark: #008770;
+      --blue: #29b6f6;
+      --blue-light: #e0f7fa;
+      --blue-dark: #0288d1;
+      --gold: #f59e0b;
+      --gold-bg: #fffbeb;
+      --red: #ef4444;
+      --red-bg: #fef2f2;
+      --ink: #0f172a;
+      --muted: #475569;
+      --muted-light: #94a3b8;
+      --bg-light: #f8fafc;
+      --line-light: rgba(15, 23, 42, 0.08);
+      --line-dark: rgba(255, 255, 255, 0.08);
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-display);
+      background-color: var(--bg-light);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { width: 100%; max-width: 1220px; margin: 0 auto; padding: 0 24px; }
+    a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
+    button { font-family: var(--font-display); }
+
+    /* ── Topbar ── */
+    .topbar {
+      background-color: var(--navy-dark); color: #cbd5e1; font-size: 11.5px; font-weight: 500;
+      letter-spacing: 0.01em; border-bottom: 1px solid var(--line-dark); position: relative; z-index: 100;
+    }
+    .topbar .container { display: flex; justify-content: space-between; align-items: center; min-height: 40px; flex-wrap: wrap; gap: 12px; padding-top: 6px; padding-bottom: 6px; }
+    .topbar-item strong { color: #ffffff; font-weight: 700; }
+    .topbar-award { background: rgba(255,255,255,0.05); border: 1px solid var(--line-dark); padding: 3px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; color: #ffffff; }
+
+    /* ── Nav ── */
+    .site-nav {
+      background: rgba(255,255,255,0.90); backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--line-light); position: sticky; top: 0; left: 0; right: 0; z-index: 99;
+      height: 72px; display: flex; align-items: center;
+    }
+    .site-nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 100% !important; padding: 0 32px !important; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-mark {
+      width: 42px; height: 42px; background: var(--navy); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800;
+      box-shadow: 0 4px 14px rgba(0,201,167,0.3);
+    }
+    .nav-brand-name { font-size: 13.5px; font-weight: 800; letter-spacing: 0.05em; color: var(--navy); line-height: 1.2; }
+    .nav-brand-tag { font-size: 10px; font-weight: 600; color: var(--muted); letter-spacing: 0.02em; margin-top: 1px; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-link { font-size: 13.5px; font-weight: 600; color: #475569; padding: 6px 0; position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: var(--teal); transform: scaleX(0); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); }
+    .nav-link.active, .nav-link:hover { color: var(--navy); }
+    .nav-link.active::after, .nav-link:hover::after { transform: scaleX(1); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--navy); }
+
+    @media (max-width: 1200px) {
+      .hamburger { display: block; }
+      .nav-links {
+        display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0;
+        background: #ffffff; padding: 24px; border-bottom: 1px solid var(--line-light);
+        gap: 16px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      }
+      .nav-links.open { display: flex; }
+      .nav-right { display: none; }
+    }
+
+    @media (min-width: 1201px) and (max-width: 1380px) {
+      .site-nav .container { padding: 0 16px; }
+      .nav-links { gap: 12px; }
+      .nav-link { font-size: 12.5px; }
+      .btn-sm { padding: 8px 14px; font-size: 12px; }
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; font-weight: 750; border-radius: 10px;
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1); cursor: pointer; position: relative; overflow: hidden; border: none;
+    }
+    .btn-sm { padding: 10px 18px; font-size: 12.5px; }
+    .btn-md { padding: 11px 20px; font-size: 13px; }
+    .btn-primary { background-color: var(--teal); color: #ffffff; box-shadow: 0 4px 18px rgba(0,201,167,0.25); }
+    .btn-primary:hover { background-color: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,201,167,0.35); }
+    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    /* ── Page Hero ── */
+    .page-hero {
+      background-color: var(--navy);
+      background-image: radial-gradient(circle at 80% 20%, rgba(0,201,167,0.08) 0%, transparent 45%),
+                        radial-gradient(circle at 10% 80%, rgba(41,182,246,0.08) 0%, transparent 45%);
+      padding: 56px 0 40px; border-bottom: 4px solid var(--blue); position: relative; overflow: hidden;
+    }
+    .section-eyebrow {
+      font-size: 13.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--teal);
+      margin-bottom: 12px; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .section-eyebrow::before { content: ''; display: inline-block; width: 7.5px; height: 7.5px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px var(--teal); }
+    .hero-title { color: #ffffff; font-size: clamp(1.9rem, 4.4vw, 2.8rem); font-weight: 800; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 14px; max-width: 760px; }
+    .hero-title em { font-family: var(--font-serif); font-style: italic; color: var(--teal); font-weight: 500; }
+    .hero-desc { color: #cbd5e1; font-size: 15px; line-height: 1.75; max-width: 660px; margin-bottom: 28px; }
+
+    .hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* ── Filter Toolbar ── */
+    .toolbar-section { background: #fff; border-bottom: 1px solid var(--line-light); position: sticky; top: 72px; z-index: 50; }
+    .toolbar { display: flex; gap: 12px; padding: 18px 0; flex-wrap: wrap; align-items: center; }
+    .toolbar input, .toolbar select {
+      font-family: var(--font-display); font-size: 13.5px; padding: 11px 16px; border-radius: 10px;
+      border: 1.5px solid var(--line-light); background: var(--bg-light); color: var(--ink); outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .toolbar input:focus, .toolbar select:focus { border-color: var(--teal); background: #fff; }
+    .toolbar input[type="text"] { flex: 1; min-width: 220px; }
+    .toolbar select { min-width: 160px; cursor: pointer; }
+    .result-count { font-size: 12.5px; color: var(--muted); font-weight: 600; white-space: nowrap; margin-left: auto; }
+
+    /* ── Project Cards ── */
+    .projects-section { padding: 40px 0 72px; }
+    .projects-list { display: flex; flex-direction: column; gap: 14px; }
+
+    .proj-card {
+      background: #fff; border: 1.5px solid var(--line-light); border-radius: 16px; padding: 22px 24px;
+      display: grid; grid-template-columns: 1fr auto auto auto; align-items: center; gap: 20px;
+      cursor: pointer; transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+      box-shadow: 0 4px 14px rgba(15,23,42,0.02);
+    }
+    .proj-card:hover { border-color: rgba(0,201,167,0.35); box-shadow: 0 14px 32px rgba(15,23,42,0.07); transform: translateY(-2px); }
+
+    .proj-main { min-width: 0; }
+    .proj-date { font-family: var(--font-mono); font-size: 10.5px; color: var(--muted-light); font-weight: 600; letter-spacing: 0.03em; margin-bottom: 6px; text-transform: uppercase; }
+    .proj-title { font-size: 16px; font-weight: 750; color: var(--navy); margin-bottom: 6px; }
+    .proj-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .proj-tag {
+      font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px;
+      display: inline-flex; align-items: center; gap: 5px;
+    }
+    .proj-tag::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+    .proj-tag.industry { background: var(--blue-light); color: var(--blue-dark); }
+    .proj-tag.country { background: var(--teal-light); color: var(--teal-dark); }
+
+    .proj-status {
+      font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em;
+      padding: 6px 14px; border-radius: 9999px; white-space: nowrap;
+    }
+    .proj-status.open { background: rgba(0,201,167,0.1); color: var(--teal-dark); }
+    .proj-status.closed { background: rgba(148,163,184,0.15); color: var(--muted); }
+    .proj-status.pending { background: var(--gold-bg); color: #b45309; }
+
+    .proj-arrow {
+      width: 34px; height: 34px; border-radius: 50%; background: var(--bg-light);
+      display: flex; align-items: center; justify-content: center; color: var(--navy);
+      font-weight: 700; transition: all 0.2s ease; flex-shrink: 0;
+    }
+    .proj-card:hover .proj-arrow { background: var(--teal); color: #fff; transform: translateX(2px); }
+
+    .empty-state { text-align: center; padding: 70px 20px; color: var(--muted); }
+    .empty-state .icon { font-size: 36px; margin-bottom: 12px; }
+    .empty-state p { font-size: 14px; }
+
+    @media (max-width: 760px) {
+      .proj-card { grid-template-columns: 1fr auto; grid-template-areas: "main status" "tags tags"; row-gap: 12px; }
+      .proj-main { grid-area: main; }
+      .proj-status { grid-area: status; }
+      .proj-tags { grid-area: tags; }
+      .proj-arrow { display: none; }
+    }
+
+    /* ── Detail / Dossier View ── */
+    .detail-view { display: none; }
+    .detail-view.active { display: block; }
+    .list-view.hidden { display: none; }
+
+    .back-link {
+      font-size: 13px; font-weight: 700; color: var(--muted); background: none; border: none; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px; padding: 0; margin: 28px 0 22px; transition: color 0.2s ease;
+    }
+    .back-link:hover { color: var(--teal-dark); }
+
+    .dossier {
+      background: #fff; border: 1.5px solid var(--line-light); border-radius: 20px; overflow: hidden;
+      box-shadow: 0 10px 32px rgba(15,23,42,0.04);
+    }
+    .dossier-header { background: var(--navy); padding: 36px 36px 30px; position: relative; overflow: hidden; }
+    .dossier-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 85% 15%, rgba(0,201,167,0.12) 0%, transparent 50%);
+    }
+    .dossier-header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; position: relative; z-index: 1; }
+    .dossier-meta-top { font-family: var(--font-mono); font-size: 11px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; font-weight: 600; }
+    .dossier-title { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; color: #fff; line-height: 1.3; max-width: 80%; margin-bottom: 18px; position: relative; z-index: 1; }
+    .dossier-tags { display: flex; gap: 10px; flex-wrap: wrap; position: relative; z-index: 1; }
+    .dossier-tags .proj-tag { background: rgba(255,255,255,0.1); color: #fff; }
+    .dossier-tags .proj-tag::before { background: var(--teal); }
+
+    .dossier-body { padding: 32px 36px; display: grid; grid-template-columns: 1fr 240px; gap: 40px; }
+    .dossier-section { margin-bottom: 26px; }
+    .dossier-section:last-child { margin-bottom: 0; }
+    .field-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-dark); margin-bottom: 8px; }
+    .field-value { font-size: 14.5px; color: var(--ink); line-height: 1.7; }
+
+    .dossier-sidebar { border-left: 1.5px solid var(--line-light); padding-left: 28px; }
+    .sidebar-field { margin-bottom: 20px; }
+    .sidebar-field .field-value { font-weight: 650; }
+
+    .connect-box { margin-top: 8px; padding: 20px; background: var(--bg-light); border: 1.5px solid var(--line-light); border-radius: 14px; }
+    .connect-box p { font-size: 12.5px; color: var(--muted); margin-bottom: 14px; line-height: 1.65; }
+    .btn-connect { width: 100%; }
+
+    @media (max-width: 760px) {
+      .dossier-header { padding: 28px 22px 24px; }
+      .dossier-title { max-width: 100%; }
+      .dossier-body { grid-template-columns: 1fr; padding: 26px 22px; }
+      .dossier-sidebar { border-left: none; border-top: 1.5px solid var(--line-light); padding-left: 0; padding-top: 24px; }
+    }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(7,13,26,0.7); backdrop-filter: blur(3px);
+      z-index: 200; align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal { background: #fff; border-radius: 20px; max-width: 580px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 32px; }
+    .modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+    .modal h2 { font-size: 22px; font-weight: 800; color: var(--navy); }
+    .modal-close { background: var(--bg-light); border: none; color: var(--muted); font-size: 18px; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; line-height: 1; }
+    .modal-close:hover { background: var(--line-light); color: var(--ink); }
+    .modal-note { font-size: 12.5px; color: var(--muted); margin-bottom: 26px; line-height: 1.6; background: var(--teal-light); padding: 12px 14px; border-radius: 10px; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--teal-dark); margin-bottom: 7px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; font-family: var(--font-display); font-size: 13.5px; padding: 11px 14px; border-radius: 10px;
+      border: 1.5px solid var(--line-light); background: var(--bg-light); color: var(--ink); outline: none; transition: border-color 0.2s ease;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--teal); background: #fff; }
+    .form-group textarea { resize: vertical; min-height: 88px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-submit { width: 100%; margin-top: 6px; padding: 13px; font-size: 13.5px; }
+
+    .form-status { margin-top: 14px; font-size: 12.5px; font-weight: 700; text-align: center; display: none; padding: 10px; border-radius: 8px; }
+    .form-status.success { color: var(--teal-dark); background: var(--teal-light); display: block; }
+    .form-status.error { color: #b91c1c; background: var(--red-bg); display: block; }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .toolbar { position: relative; }
+      .toolbar-section { position: static; }
+    }
+
+    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, .proj-card:focus-visible {
+      outline: 2px solid var(--teal); outline-offset: 2px;
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-item">
+        <strong>1,000+</strong> clients · <strong>47+</strong> countries · Chairman: <strong>Dr. Anil Gupta</strong> · Connect Ventures
+      </div>
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <span class="topbar-item">Call: <a href="tel:+919999981613" style="color: var(--blue); font-weight: 700;">+91 999 998 1613</a></span>
+        <span class="topbar-award">Most Promising Service Provider 2025</span>
+        <span class="topbar-award">Top 10 Compliance — SiliconIndia</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="site-nav" role="navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">CV</div>
+        <div>
+          <div class="nav-brand-name">CONNECT VENTURES</div>
+          <div class="nav-brand-tag">Your Globalization Partner</div>
+        </div>
+      </a>
+      <button class="hamburger" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">All Services</a>
+        <a href="5c-model.html" class="nav-link">5C Framework</a>
+        <a href="projects.html" class="nav-link active">Projects</a>
+        <a href="marketplace.html" class="nav-link">Marketplace</a>
+        <a href="countries.html" class="nav-link">Countries</a>
+        <a href="about.html" class="nav-link">About Dr. Gupta</a>
+        <a href="partners.html" class="nav-link">Partners</a>
+        <a href="index.html#resources" class="nav-link">Resources</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="index.html#contact" class="btn btn-primary btn-sm">Free consultation</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <span class="section-eyebrow">Live opportunities</span>
+      <h1 class="hero-title">Projects seeking distributors, partners & <em>investors</em></h1>
+      <p class="hero-desc">Live requests from companies across our 47+ country network — looking for distributors, importers, joint venture partners, or capital. Post your own project and our team will connect you with the right counterparts.</p>
+      <div class="hero-cta-row">
+        <button class="btn btn-primary btn-md" id="openPostModal">Post your project →</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="list-view" id="listView">
+    <!-- Toolbar -->
+    <div class="toolbar-section">
+      <div class="container">
+        <div class="toolbar">
+          <input type="text" id="searchInput" placeholder="Search projects…" />
+          <select id="industryFilter"><option value="">All Industries</option></select>
+          <select id="countryFilter"><option value="">All Countries</option></select>
+          <span class="result-count" id="resultCount">Loading…</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <section class="projects-section">
+      <div class="container">
+        <div class="projects-list" id="projectsList"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Detail View -->
+  <div class="detail-view" id="detailView">
+    <div class="container">
+      <button class="back-link" id="backBtn">← Back to all projects</button>
+      <div class="dossier" id="dossierContent"></div>
+      <div style="height: 56px;"></div>
+    </div>
+  </div>
+
+  <!-- Post Project Modal -->
+  <div class="modal-overlay" id="postModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Post your project</h2>
+        <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
+      </div>
+      <p class="modal-note">Submissions are reviewed by our team before going live. You'll hear from us within 1–2 business days.</p>
+
+      <form id="postForm">
+        <div class="form-group">
+          <label for="f-title">Project title</label>
+          <input type="text" id="f-title" required placeholder="e.g. Looking for Distributors for Organic Snacks" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-industry">Industry</label>
+            <select id="f-industry" required>
+              <option value="">Select…</option>
+              <option>Food</option><option>FMCG</option><option>Healthcare</option>
+              <option>Engineering</option><option>Electronics</option><option>Manufacturing</option>
+              <option>Hospitality</option><option>Consumer Goods</option><option>Agribusiness</option>
+              <option>Energy</option><option>Beverages</option><option>Technology</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="f-country">Country</label>
+            <input type="text" id="f-country" required placeholder="e.g. India" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-summary">Summary</label>
+          <textarea id="f-summary" required placeholder="Briefly describe what you're looking for…"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="f-details">Full details</label>
+          <textarea id="f-details" required placeholder="Company background, requirements, terms, target market…" style="min-height:130px;"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-company">Company name</label>
+            <input type="text" id="f-company" required />
+          </div>
+          <div class="form-group">
+            <label for="f-email">Contact email</label>
+            <input type="email" id="f-email" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-phone">Contact phone (optional)</label>
+          <input type="tel" id="f-phone" />
+        </div>
+        <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Submit for review</button>
+        <div class="form-status" id="formStatus"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // ============================================================
+    // CONFIG — point this at your deployed API
+    // ============================================================
+    const API_BASE = window.PROJECTS_API_BASE || '/api/projects';
+
+    let allProjects = [];
+    let currentFilters = { search: '', industry: '', country: '' };
+
+    const listEl = document.getElementById('projectsList');
+    const resultCountEl = document.getElementById('resultCount');
+    const listView = document.getElementById('listView');
+    const detailView = document.getElementById('detailView');
+    const dossierContent = document.getElementById('dossierContent');
+
+    function formatDate(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
+    }
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str ?? '';
+      return div.innerHTML;
+    }
+
+    async function fetchProjects() {
+      try {
+        const res = await fetch(`${API_BASE}?status=open,closed`);
+        if (!res.ok) throw new Error('Failed to load');
+        const data = await res.json();
+        allProjects = data.projects || [];
+        populateFilterOptions();
+        renderList();
+      } catch (err) {
+        listEl.innerHTML = `<div class="empty-state"><div class="icon">⚠</div><p>Couldn't load projects right now. Please try again shortly.</p></div>`;
+        resultCountEl.textContent = '';
+        console.error(err);
+      }
+    }
+
+    function populateFilterOptions() {
+      const industries = [...new Set(allProjects.map(p => p.industry))].sort();
+      const countries = [...new Set(allProjects.map(p => p.country))].sort();
+      const industrySel = document.getElementById('industryFilter');
+      const countrySel = document.getElementById('countryFilter');
+      industries.forEach(i => industrySel.insertAdjacentHTML('beforeend', `<option value="${escapeHtml(i)}">${escapeHtml(i)}</option>`));
+      countries.forEach(c => countrySel.insertAdjacentHTML('beforeend', `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`));
+    }
+
+    function renderList() {
+      const filtered = allProjects.filter(p => {
+        const q = currentFilters.search.toLowerCase();
+        const matchesSearch = !q || p.title.toLowerCase().includes(q) || p.summary.toLowerCase().includes(q);
+        const matchesIndustry = !currentFilters.industry || p.industry === currentFilters.industry;
+        const matchesCountry = !currentFilters.country || p.country === currentFilters.country;
+        return matchesSearch && matchesIndustry && matchesCountry;
+      });
+
+      resultCountEl.textContent = `${filtered.length} project${filtered.length === 1 ? '' : 's'}`;
+
+      if (filtered.length === 0) {
+        listEl.innerHTML = `<div class="empty-state"><div class="icon">∅</div><p>No projects match your filters. Try widening your search.</p></div>`;
+        return;
+      }
+
+      listEl.innerHTML = filtered.map(p => {
+        const statusClass = p.status === 'open' ? 'open' : p.status === 'closed' ? 'closed' : 'pending';
+        const statusLabel = p.status === 'open' ? 'Open' : p.status === 'closed' ? 'Closed' : 'Pending';
+        return `
+          <div class="proj-card" data-slug="${escapeHtml(p.slug)}" tabindex="0" role="button">
+            <div class="proj-main">
+              <div class="proj-date">${formatDate(p.createdAt)}</div>
+              <div class="proj-title">${escapeHtml(p.title)}</div>
+              <div class="proj-tags">
+                <span class="proj-tag industry">${escapeHtml(p.industry)}</span>
+                <span class="proj-tag country">${escapeHtml(p.country)}</span>
+              </div>
+            </div>
+            <div class="proj-status ${statusClass}">${statusLabel}</div>
+            <div class="proj-arrow">→</div>
+          </div>
+        `;
+      }).join('');
+
+      document.querySelectorAll('.proj-card').forEach(card => {
+        const open = () => showDetail(card.dataset.slug);
+        card.addEventListener('click', open);
+        card.addEventListener('keydown', e => { if (e.key === 'Enter') open(); });
+      });
+    }
+
+    async function showDetail(slug) {
+      listView.classList.add('hidden');
+      detailView.classList.add('active');
+      dossierContent.innerHTML = `<div class="empty-state"><p>Loading…</p></div>`;
+      window.scrollTo({ top: 0, behavior: 'instant' });
+
+      try {
+        const res = await fetch(`${API_BASE}/${encodeURIComponent(slug)}`);
+        if (!res.ok) throw new Error('Not found');
+        const p = await res.json();
+        renderDossier(p);
+        history.pushState({ slug }, '', `#${slug}`);
+      } catch (err) {
+        dossierContent.innerHTML = `<div class="empty-state"><div class="icon">⚠</div><p>This project couldn't be found.</p></div>`;
+      }
+    }
+
+    function renderDossier(p) {
+      const statusClass = p.status === 'open' ? 'open' : p.status === 'closed' ? 'closed' : 'pending';
+      const statusLabel = p.status === 'open' ? 'Open' : p.status === 'closed' ? 'Closed' : 'Pending';
+
+      dossierContent.innerHTML = `
+        <div class="dossier-header">
+          <div class="dossier-header-top">
+            <div>
+              <div class="dossier-meta-top">Posted ${formatDate(p.createdAt)}</div>
+              <div class="dossier-title">${escapeHtml(p.title)}</div>
+              <div class="dossier-tags">
+                <span class="proj-tag">${escapeHtml(p.industry)}</span>
+                <span class="proj-tag">${escapeHtml(p.country)}</span>
+              </div>
+            </div>
+            <span class="proj-status ${statusClass}">${statusLabel}</span>
+          </div>
+        </div>
+        <div class="dossier-body">
+          <div>
+            <div class="dossier-section">
+              <div class="field-label">Summary</div>
+              <div class="field-value">${escapeHtml(p.summary)}</div>
+            </div>
+            <div class="dossier-section">
+              <div class="field-label">Full details</div>
+              <div class="field-value">${escapeHtml(p.details).replace(/\n/g, '<br>')}</div>
+            </div>
+          </div>
+          <div class="dossier-sidebar">
+            <div class="sidebar-field">
+              <div class="field-label">Company</div>
+              <div class="field-value">${escapeHtml(p.companyName)}</div>
+            </div>
+            <div class="connect-box">
+              <p>Interested in this opportunity? Reach out through Connect Ventures and our team will facilitate the introduction.</p>
+              <button class="btn btn-primary btn-connect" id="connectBtn">Connect</button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('connectBtn').addEventListener('click', () => {
+        window.location.href = `mailto:partnerships@theconnectventures.com?subject=${encodeURIComponent('Re: ' + p.title)}`;
+      });
+    }
+
+    function showList() {
+      detailView.classList.remove('active');
+      listView.classList.remove('hidden');
+      history.pushState({}, '', window.location.pathname);
+    }
+
+    document.getElementById('backBtn').addEventListener('click', showList);
+    window.addEventListener('popstate', () => {
+      const slug = window.location.hash.replace('#', '');
+      if (slug) showDetail(slug); else showList();
+    });
+
+    document.getElementById('searchInput').addEventListener('input', e => { currentFilters.search = e.target.value; renderList(); });
+    document.getElementById('industryFilter').addEventListener('change', e => { currentFilters.industry = e.target.value; renderList(); });
+    document.getElementById('countryFilter').addEventListener('change', e => { currentFilters.country = e.target.value; renderList(); });
+
+    // Post modal
+    const postModal = document.getElementById('postModal');
+    document.getElementById('openPostModal').addEventListener('click', () => postModal.classList.add('active'));
+    document.getElementById('closeModal').addEventListener('click', () => postModal.classList.remove('active'));
+    postModal.addEventListener('click', e => { if (e.target === postModal) postModal.classList.remove('active'); });
+
+    document.getElementById('postForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submitBtn');
+      const statusEl = document.getElementById('formStatus');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+      statusEl.className = 'form-status';
+
+      const payload = {
+        title: document.getElementById('f-title').value.trim(),
+        industry: document.getElementById('f-industry').value,
+        country: document.getElementById('f-country').value.trim(),
+        summary: document.getElementById('f-summary').value.trim(),
+        details: document.getElementById('f-details').value.trim(),
+        companyName: document.getElementById('f-company').value.trim(),
+        contactEmail: document.getElementById('f-email').value.trim(),
+        contactPhone: document.getElementById('f-phone').value.trim()
+      };
+
+      try {
+        const res = await fetch(API_BASE, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('Submission failed');
+
+        statusEl.textContent = 'Submitted — your project is pending review.';
+        statusEl.className = 'form-status success';
+        document.getElementById('postForm').reset();
+        setTimeout(() => { postModal.classList.remove('active'); statusEl.className = 'form-status'; }, 2200);
+      } catch (err) {
+        statusEl.textContent = 'Something went wrong. Please try again.';
+        statusEl.className = 'form-status error';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit for review';
+      }
+    });
+
+    // Mobile nav
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const hamburgerOpenSVG = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    const hamburgerCloseSVG = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>';
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        hamburger.innerHTML = navLinks.classList.contains('open') ? hamburgerCloseSVG : hamburgerOpenSVG;
+      });
+      // Close mobile drawer when link clicked
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.innerHTML = hamburgerOpenSVG;
+        });
+      });
+    }
+
+    // Init
+    fetchProjects();
+    const initialSlug = window.location.hash.replace('#', '');
+    if (initialSlug) showDetail(initialSlug);
+  </script>
+
+</body>
+</html>

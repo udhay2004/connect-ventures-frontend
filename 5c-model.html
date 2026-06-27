@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en" class="notranslate">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <meta name="description" content="The 5C framework by Dr. Anil Gupta: Coaching, Consulting, Connecting, Collaboration, Co-creation. The only complete single-stop global expansion model for Indian businesses.">
+  <meta name="keywords" content="5C model global expansion, Connect Ventures 5C framework, Dr Anil Gupta 5C, global expansion India framework">
+  <meta name="robots" content="index, follow">
+  <title>The 5C Framework — Connect Ventures Proprietary Global Expansion Model</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0b1528;
+      --navy-light: #16243d;
+      --navy-dark: #070d1a;
+      --teal: #00c9a7;
+      --teal-light: #f0fdfa;
+      --teal-dark: #008770;
+      --blue: #29b6f6;
+      --blue-light: #e0f7fa;
+      --blue-dark: #0288d1;
+      --gold: #f59e0b;
+      --gold-bg: #fffbeb;
+      --ink: #0f172a;
+      --muted: #475569;
+      --muted-light: #94a3b8;
+      --bg-light: #f8fafc;
+      --line-light: rgba(15, 23, 42, 0.08);
+      --line-dark: rgba(255, 255, 255, 0.08);
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-display);
+      background-color: var(--bg-light);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { width: 100%; max-width: 1220px; margin: 0 auto; padding: 0 24px; }
+    a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
+
+    /* ── Topbar ── */
+    .topbar {
+      background-color: var(--navy-dark);
+      color: #cbd5e1;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      border-bottom: 1px solid var(--line-dark);
+      position: relative;
+      z-index: 100;
+    }
+    .topbar .container {
+      display: flex; justify-content: space-between; align-items: center;
+      min-height: 40px; flex-wrap: wrap; gap: 12px;
+      padding-top: 6px; padding-bottom: 6px;
+    }
+    .topbar-item strong { color: #ffffff; font-weight: 700; }
+    .topbar-award {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line-dark);
+      padding: 3px 10px; border-radius: 9999px;
+      font-size: 11px; font-weight: 600; color: #ffffff;
+    }
+
+    /* ── Nav ── */
+    .site-nav {
+      background: rgba(255,255,255,0.90);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--line-light);
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+    .site-nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 100% !important; padding: 0 32px !important; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-mark {
+      width: 42px; height: 42px; background: var(--navy); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 800; box-shadow: 0 4px 14px rgba(0,201,167,0.3);
+    }
+    .nav-brand-name { font-size: 13.5px; font-weight: 800; letter-spacing: 0.05em; color: var(--navy); line-height: 1.2; }
+    .nav-brand-tag { font-size: 10px; font-weight: 600; color: var(--muted); letter-spacing: 0.02em; margin-top: 1px; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-link { font-size: 13.5px; font-weight: 600; color: #475569; padding: 6px 0; position: relative; }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+      height: 2px; background: var(--teal);
+      transform: scaleX(0); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .nav-link.active, .nav-link:hover { color: var(--navy); }
+    .nav-link.active::after, .nav-link:hover::after { transform: scaleX(1); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--navy); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-weight: 750; border-radius: 10px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer; position: relative; overflow: hidden;
+      font-family: var(--font-display); border: none;
+    }
+    .btn::after {
+      content: ''; position: absolute; top: -50%; left: -75%; width: 40%; height: 200%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+      transform: rotate(25deg); transition: none;
+    }
+    .btn:hover::after { left: 150%; transition: left 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+    .btn-sm { padding: 10px 18px; font-size: 12.5px; }
+    .btn-md { padding: 11px 20px; font-size: 13px; }
+    .btn-lg { padding: 15px 30px; font-size: 14px; }
+    .btn-primary { background-color: var(--teal); color: #ffffff; box-shadow: 0 4px 18px rgba(0, 201, 167, 0.25); }
+    .btn-primary:hover { background-color: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 201, 167, 0.35); }
+    .btn-outline-white { background: transparent; color: #ffffff; border: 2px solid rgba(255, 255, 255, 0.25); }
+    .btn-outline-white:hover { background: rgba(255, 255, 255, 0.08); border-color: #ffffff; transform: translateY(-2px); }
+    .btn-ghost-green { background: rgba(76, 175, 80, 0.1); color: #4cab50; border: 1.5px solid rgba(76, 175, 80, 0.3); }
+    .btn-ghost-green:hover { background: rgba(76, 175, 80, 0.18); border-color: #4cab50; transform: translateY(-2px); }
+
+    /* ── Hero ── */
+    .hero-header {
+      background-color: var(--navy);
+      background-image: radial-gradient(circle at 80% 20%, rgba(0, 201, 167, 0.08) 0%, transparent 45%),
+                        radial-gradient(circle at 10% 80%, rgba(41, 182, 246, 0.08) 0%, transparent 45%);
+      padding: 64px 0 0;
+      position: relative;
+      border-bottom: 4px solid var(--blue);
+      overflow: hidden;
+    }
+    .hero-header::after {
+      content: ''; position: absolute; left: 0; right: 0; height: 1.5px;
+      background: linear-gradient(90deg, transparent 5%, rgba(0, 201, 167, 0.3) 50%, transparent 95%);
+      top: 0; animation: sweepRadar 7s linear infinite; pointer-events: none;
+    }
+    @keyframes sweepRadar {
+      0% { top: 0%; opacity: 0; } 10% { opacity: 0.8; } 90% { opacity: 0.8; } 100% { top: 100%; opacity: 0; }
+    }
+    .hero-header-inner { padding-bottom: 44px; }
+
+    .section-eyebrow {
+      font-size: 13.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--teal); margin-bottom: 12px; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .section-eyebrow::before {
+      content: ''; display: inline-block; width: 7.5px; height: 7.5px; border-radius: 50%;
+      background: var(--teal); box-shadow: 0 0 8px var(--teal);
+    }
+    .hero-title { color: #ffffff; font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 16px; max-width: 880px; }
+    .hero-title em { font-family: var(--font-serif); font-style: italic; color: var(--teal); font-weight: 500; }
+    .hero-desc { color: #cbd5e1; font-size: 15.5px; line-height: 1.75; max-width: 720px; }
+
+    /* Sequence rail teaser strip under hero */
+    .rail-teaser {
+      display: flex; border-top: 1px solid var(--line-dark);
+      position: relative; z-index: 1;
+    }
+    .rail-teaser a {
+      flex: 1; padding: 18px 20px; border-right: 1px solid var(--line-dark);
+      display: flex; align-items: center; gap: 10px;
+      font-size: 12.5px; font-weight: 700; color: #b9c4d4;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .rail-teaser a:last-child { border-right: none; }
+    .rail-teaser a:hover { background: rgba(255,255,255,0.04); color: #fff; }
+    .rail-teaser .tnum {
+      font-family: var(--font-mono); font-size: 11px; width: 22px; height: 22px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      border: 1.5px solid currentColor; color: inherit;
+    }
+    @media (max-width: 900px) {
+      .rail-teaser { flex-wrap: wrap; }
+      .rail-teaser a { flex: 1 1 50%; border-bottom: 1px solid var(--line-dark); }
+    }
+
+    /* ── Section basics ── */
+    .section { padding: 72px 0; }
+    .bg-light { background-color: var(--bg-light); }
+    .bg-white { background-color: #ffffff; }
+    .section-header { max-width: 820px; margin: 0 auto 48px; }
+    .section-header.center { text-align: center; }
+    .section-title { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 800; color: var(--navy); line-height: 1.3; letter-spacing: -0.02em; margin-bottom: 18px; }
+    .section-divider { width: 60px; height: 3.5px; background: linear-gradient(to right, var(--teal), var(--blue)); border-radius: 2px; margin: 18px 0; }
+    .section-header.center .section-divider { margin-left: auto; margin-right: auto; }
+    .section-subtitle { font-size: 14.5px; color: #475569; line-height: 1.8; }
+
+    /* ══════════════════════════════════════════════
+       5C SEQUENTIAL BANDS — full-width, numbered rail
+       ══════════════════════════════════════════════ */
+    .modules-wrap { padding: 64px 0 80px; }
+
+    .c-band {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      background: #fff;
+      border: 1.5px solid var(--line-light);
+      box-shadow: 0 10px 32px rgba(15, 23, 42, 0.025);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      scroll-margin-top: 90px;
+    }
+    .c-band:hover { box-shadow: 0 20px 48px rgba(15, 23, 42, 0.07); }
+    .c-band:last-child { margin-bottom: 0; }
+
+    /* Numbered rail on the left, full band height */
+    .c-rail {
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+      padding: 32px 0 0;
+      color: #fff;
+      position: relative;
+    }
+    .c-rail-num {
+      font-family: var(--font-serif); font-weight: 700; font-style: italic;
+      font-size: 30px; line-height: 1;
+    }
+    .c-rail-line {
+      flex: 1; width: 2px; margin-top: 14px; margin-bottom: 8px;
+      background: rgba(255,255,255,0.22);
+    }
+    .c-band:last-child .c-rail-line { display: none; }
+
+    .c-mod-coaching .c-rail { background: linear-gradient(180deg, #7c3aed, #6d28d9); }
+    .c-mod-collaboration .c-rail { background: linear-gradient(180deg, var(--gold), #d97706); }
+    .c-mod-consulting .c-rail { background: linear-gradient(180deg, var(--teal), var(--teal-dark)); }
+    .c-mod-connecting .c-rail { background: linear-gradient(180deg, #4cab50, #2e7d32); }
+    .c-mod-cocreation .c-rail { background: linear-gradient(180deg, #f97316, #ea580c); }
+
+    .c-band-body { padding: 30px 32px 32px; }
+
+    .c-badge-pill {
+      font-size: 10.5px; font-weight: 800; padding: 5px 12px; border-radius: 6px;
+      letter-spacing: 0.08em; text-transform: uppercase; display: inline-block; margin-bottom: 10px;
+    }
+    .c-mod-coaching .c-badge-pill { background: rgba(124, 58, 237, 0.1); color: #7c3aed; }
+    .c-mod-collaboration .c-badge-pill { background: rgba(245, 158, 11, 0.1); color: #d97706; }
+    .c-mod-consulting .c-badge-pill { background: rgba(0, 201, 167, 0.1); color: var(--teal-dark); }
+    .c-mod-connecting .c-badge-pill { background: rgba(76, 175, 80, 0.1); color: #2e7d32; }
+    .c-mod-cocreation .c-badge-pill { background: rgba(249, 115, 22, 0.1); color: #ea580c; }
+
+    .c-band-head {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 24px;
+      flex-wrap: wrap; margin-bottom: 22px;
+    }
+    .c-band-head-text { flex: 1 1 380px; min-width: 0; }
+    .c-mod-title { font-size: 21px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; margin-bottom: 8px; }
+    .c-mod-desc { font-size: 13.5px; line-height: 1.7; color: #475569; max-width: 640px; }
+
+    .c-action-btn { flex-shrink: 0; white-space: nowrap; }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       BALANCED GRID: 3 columns on desktop (3-2 for Coaching, 3-3-3 for Consulting)
+       2 columns on tablet, 1 column on mobile
+       ═══════════════════════════════════════════════════════════════════════ */
+    .c-sub-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    
+    @media (max-width: 1100px) {
+      .c-sub-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .c-sub-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    .c-sub-card {
+      background: var(--bg-light);
+      border: 1px solid var(--line-light);
+      border-radius: 12px;
+      padding: 15px 16px;
+      transition: all 0.2s ease;
+    }
+    .c-sub-card:hover { background: #fff; border-color: rgba(15, 23, 42, 0.14); transform: translateY(-2px); }
+
+    .c-sub-heading {
+      font-size: 13px; font-weight: 750; color: var(--navy); margin-bottom: 5px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .c-sub-heading::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .c-mod-coaching .c-sub-heading::before { background: #7c3aed; }
+    .c-mod-collaboration .c-sub-heading::before { background: var(--gold); }
+    .c-mod-consulting .c-sub-heading::before { background: var(--teal); }
+    .c-mod-connecting .c-sub-heading::before { background: #4cab50; }
+    .c-mod-cocreation .c-sub-heading::before { background: #f97316; }
+
+    .c-sub-body { font-size: 11.8px; color: var(--muted); line-height: 1.55; }
+
+    @media (max-width: 760px) {
+      .c-band { grid-template-columns: 1fr; }
+      .c-rail { flex-direction: row; padding: 16px 20px; gap: 10px; }
+      .c-rail-line { display: none; }
+      .c-band-body { padding: 24px 20px 26px; }
+      .c-action-btn { width: 100%; }
+    }
+
+    /* ── CTA Banner ── */
+    .cta-banner {
+      background-color: var(--navy);
+      background-image: radial-gradient(circle at center, rgba(0, 201, 167, 0.08) 0%, transparent 60%);
+      padding: 72px 0; text-align: center;
+      border-top: 3px solid var(--teal); border-bottom: 3px solid var(--teal);
+      position: relative; overflow: hidden;
+    }
+    .cta-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .cta-desc { color: #cbd5e1; font-size: 15px; max-width: 580px; margin: 0 auto 32px; line-height: 1.7; }
+    .btn-group-center { display: flex; justify-content: center; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
+    .cta-guarantee { font-size: 11.5px; color: #94a3b8; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+
+    /* ── Footer ── */
+    .site-footer { background-color: var(--navy-dark); border-top: 1.5px solid var(--line-dark); padding: 72px 0 40px; color: #cbd5e1; position: relative; overflow: hidden; }
+    .footer-watermark {
+      position: absolute; bottom: -6%; left: 0; right: 0; font-size: 9.5vw; font-weight: 900;
+      text-transform: uppercase; color: rgba(255, 255, 255, 0.01); text-align: center;
+      user-select: none; pointer-events: none; letter-spacing: 0.15em; font-family: var(--font-display); line-height: 1;
+    }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr 0.9fr 0.9fr 0.9fr; gap: 40px; margin-bottom: 48px; }
+    .footer-logo-name { font-size: 14.5px; font-weight: 800; letter-spacing: 0.05em; color: #ffffff; margin-bottom: 16px; }
+    .footer-desc { font-size: 12.5px; line-height: 1.75; color: #94a3b8; margin-bottom: 16px; }
+    .footer-sites { font-size: 12px; font-family: var(--font-mono); color: var(--teal); font-weight: 600; }
+    .footer-heading { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #ffffff; margin-bottom: 18px; border-left: 2.5px solid var(--blue); padding-left: 8px; }
+    .footer-link { display: block; font-size: 13px; color: #94a3b8; margin-bottom: 10px; transition: color 0.2s ease; }
+    .footer-link:hover { color: var(--teal); }
+    .footer-bottom { border-top: 1.5px solid rgba(255, 255, 255, 0.05); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; position: relative; z-index: 10; }
+    .footer-copy { font-size: 12.5px; color: #64748b; }
+    .footer-awards { font-size: 12px; color: #94a3b8; font-weight: 500; }
+
+    @keyframes wiggleWhatsApp { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-4px) scale(1.05); } }
+    .wa-float {
+      position: fixed; bottom: 24px; left: 24px; width: 52px; height: 52px; border-radius: 50%;
+      background: #25d366; box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35); z-index: 999;
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+      animation: wiggleWhatsApp 4s ease-in-out infinite;
+    }
+    .wa-float:hover { background: #128c7e; transform: scale(1.1); animation-play-state: paused; }
+    .wa-float svg { width: 25px; height: 25px; fill: #ffffff; }
+
+    .scroll-top {
+      position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; border-radius: 50%;
+      background: var(--navy); border: 1px solid var(--line-dark); color: #ffffff;
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+      font-size: 15px; font-weight: bold; opacity: 0; transform: translateY(10px);
+      transition: all 0.3s ease; z-index: 998; box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); }
+    .scroll-top:hover { background: var(--teal); border-color: var(--teal); }
+
+    @media (max-width: 1040px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 1200px) {
+      .topbar { display: none; }
+      .site-nav { height: 64px; }
+      .hamburger { display: block; }
+      .nav-links {
+        position: absolute; top: 64px; left: 0; right: 0; background: #ffffff;
+        border-bottom: 1.5px solid var(--line-light); flex-direction: column;
+        padding: 20px 0; gap: 16px; display: none; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      }
+      .nav-links.open { display: flex; }
+      .nav-right { display: none; }
+    }
+
+    @media (min-width: 1201px) and (max-width: 1380px) {
+      .site-nav .container { padding: 0 16px; }
+      .nav-links { gap: 12px; }
+      .nav-link { font-size: 12.5px; }
+      .btn-sm { padding: 8px 14px; font-size: 12px; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-header { padding: 44px 0 0; }
+      .section { padding: 48px 0; }
+      .modules-wrap { padding: 44px 0 56px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 768px) {
+      .wa-float { bottom: 84px !important; left: 20px !important; width: 46px !important; height: 46px !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-item">
+        <strong>1,000+</strong> clients · <strong>47+</strong> countries · Chairman: <strong>Dr. Anil Gupta</strong> · Connect Ventures
+      </div>
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <span class="topbar-item">Call: <a href="tel:+919999981613" style="color: var(--blue); font-weight: 700;">+91 999 998 1613</a></span>
+        <span class="topbar-award">Most Promising Service Provider 2025</span>
+        <span class="topbar-award">Top 10 Compliance — SiliconIndia</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="site-nav" role="navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">CV</div>
+        <div>
+          <div class="nav-brand-name">CONNECT VENTURES</div>
+          <div class="nav-brand-tag">Your Globalization Partner</div>
+        </div>
+      </a>
+      <button class="hamburger" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">All Services</a>
+        <a href="#" class="nav-link active">5C Framework</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="marketplace.html" class="nav-link">Marketplace</a>
+        <a href="countries.html" class="nav-link">Countries</a>
+        <a href="about.html" class="nav-link">About Dr. Gupta</a>
+        <a href="partners.html" class="nav-link">Partners</a>
+        <a href="index.html#resources" class="nav-link">Resources</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="index.html#contact" class="btn btn-primary btn-sm">Free consultation</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero-header">
+    <div class="container hero-header-inner">
+      <span class="section-eyebrow">Proprietary framework</span>
+      <h1 class="hero-title">The 5C model — the complete system for taking your Indian business <em>global</em></h1>
+      <p class="hero-desc">Developed by Dr. Anil Gupta, Chairman, Connect Ventures. The 5C model is an integrated expansion blueprint that addresses all five dimensions of global commerce simultaneously — making Connect Ventures your single point of accountability.</p>
+    </div>
+    <div class="container">
+      <div class="rail-teaser">
+        <a href="#c1"><span class="tnum">1</span> Coaching</a>
+        <a href="#c2"><span class="tnum">2</span> Consulting</a>
+        <a href="#c3"><span class="tnum">3</span> Connecting</a>
+        <a href="#c4"><span class="tnum">4</span> Collaboration</a>
+        <a href="#c5"><span class="tnum">5</span> Co-creation</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Why it exists -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-eyebrow">Why the 5C model exists</span>
+        <h2 class="section-title">Global expansion fails when companies specialise in only one or two dimensions</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">Most consultancies handle incorporation OR tax OR compliance. Most logistics firms handle shipping but not corporate filings. Most immigration lawyers handle visas but not banking. The result: Indian businesses juggle 6–8 separate agencies, none of whom sees the full picture. The 5C model eliminates this fragmentation by tying together strategy, operations, networks, trade compliance, and co-creation under one roof.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5C Sequential Bands -->
+  <section class="modules-wrap bg-white">
+    <div class="container">
+
+      <!-- C1 — Coaching -->
+      <div class="c-band c-mod-coaching" id="c1">
+        <div class="c-rail">
+          <div class="c-rail-num">01</div>
+          <div class="c-rail-line"></div>
+        </div>
+        <div class="c-band-body">
+          <div class="c-badge-pill">C1 — Coaching</div>
+          <div class="c-band-head">
+            <div class="c-band-head-text">
+              <h3 class="c-mod-title">Strategic leadership for global growth</h3>
+              <p class="c-mod-desc">Always the right starting point — before incorporation, before banking, before compliance. Strategy determines everything: without a clear market entry plan, the right entity structure, and leadership aligned to the international ambition, legal and operational excellence alone won't produce the outcome you want.</p>
+            </div>
+            <a href="coaching.html" class="btn btn-primary c-action-btn btn-md">Explore C1 Coaching →</a>
+          </div>
+
+          <div class="c-sub-grid">
+            <div class="c-sub-card">
+              <div class="c-sub-heading">CEO and founder coaching</div>
+              <div class="c-sub-body">Personal strategy sessions with Dr. Anil Gupta covering market selection, positioning, team structure, investor messaging, and leadership resilience.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Tech product planning & GDPR</div>
+              <div class="c-sub-body">For Indian SaaS companies: GDPR architecture, data residency planning, international pricing, payment localisation, and roadmap adjustments.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Market entry strategy maps</div>
+              <div class="c-sub-body">Country selection metrics, competitive positioning, go-to-market strategy, local partnership models, and sequenced expansion planning.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Succession and wealth structuring</div>
+              <div class="c-sub-body">For family-owned businesses going international: ownership transition, international holding company design, and cross-border estate mapping.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Knowledge library and research</div>
+              <div class="c-sub-body">Market research reports, sector analyses, country-specific entry guides, and wisdom-backed management frameworks such as the Arthashastra.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- C2 — Consulting -->
+      <div class="c-band c-mod-consulting" id="c2">
+        <div class="c-rail">
+          <div class="c-rail-num">02</div>
+          <div class="c-rail-line"></div>
+        </div>
+        <div class="c-band-body">
+          <div class="c-badge-pill">C2 — Consulting</div>
+          <div class="c-band-head">
+            <div class="c-band-head-text">
+              <h3 class="c-mod-title">The backbone of global expansion</h3>
+              <p class="c-mod-desc">The largest and most intensive module — covering all the legal, financial, and compliance infrastructure that lets a business operate internationally. This is where most expansion groundwork and filings live.</p>
+            </div>
+            <a href="consulting.html" class="btn btn-primary c-action-btn btn-md">Explore C2 Consulting →</a>
+          </div>
+
+          <div class="c-sub-grid">
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Foreign company incorporation</div>
+              <div class="c-sub-body">47+ jurisdictions, including USA, UK, UAE, Singapore, and Canada, configured remotely with filings, registered office, and director requirements handled.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">International taxation & DTAA</div>
+              <div class="c-sub-body">Form 5472 filings, transfer pricing strategy, DTAA tax credit optimisation, foreign tax credit structuring, and FEMA compliance alignment.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Cross-border banking & EIN</div>
+              <div class="c-sub-body">Open corporate accounts in USA, UK, UAE, Singapore without travel — rapid EIN/UEN applications, corporate cards, and bank relationships.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Secretarial compliance & filings</div>
+              <div class="c-sub-body">Annual returns, corporate registry filings, BOI reports for US FinCEN, and UK Companies House listings managed on your behalf.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">IPR protection & trademarks</div>
+              <div class="c-sub-body">Madrid Protocol filings, Patent Cooperation Treaty registrations, GI tag management, and Amazon Brand Registry setup.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Trade finance & credit lines</div>
+              <div class="c-sub-body">Letter of Credit structuring, pre/post-shipment export financing, CGTSE schemes, and relationships with export credit insurers (ECGC).</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Employer on Record hiring</div>
+              <div class="c-sub-body">Hire team members abroad through local HR networks, with payroll, benefits, and local labour law compliance fully overseen.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Multimodal localisation</div>
+              <div class="c-sub-body">GDPR-ready design, translation of websites and marketing across 20+ languages, packaging compliance, and brand localisation testing.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Brand Intelligence Reports</div>
+              <div class="c-sub-body">Market research, local demand mapping, competitor pricing reviews, and localised legal risk assessment.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- C3 — Connecting -->
+      <div class="c-band c-mod-connecting" id="c3">
+        <div class="c-rail">
+          <div class="c-rail-num">03</div>
+          <div class="c-rail-line"></div>
+        </div>
+        <div class="c-band-body">
+          <div class="c-badge-pill">C3 — Connecting</div>
+          <div class="c-band-head">
+            <div class="c-band-head-text">
+              <h3 class="c-mod-title">Finding the right people globally</h3>
+              <p class="c-mod-desc">The right legal structure is necessary but not sufficient. This module connects Indian businesses to the specific people they need in each market — distributors, agents, investors, JV partners, and institutional buyers.</p>
+            </div>
+            <a href="connecting.html" class="btn btn-primary c-action-btn btn-md">Explore C3 Connecting →</a>
+          </div>
+
+          <div class="c-sub-grid">
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Stakeholder hunt & matchmaking</div>
+              <div class="c-sub-body">A proprietary 5-step outreach process across 47+ countries delivering warm, validated introductions to distributors and partners.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Investor connects</div>
+              <div class="c-sub-body">Introductions to foreign private equity, venture capital funds, family offices, and angel networks interested in fast-growing Indian companies.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">entryIndia.com collaboration</div>
+              <div class="c-sub-body">Established portals for rapid B2B matchmaking, export validation, and connections with trade chambers in India and target markets.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Government relations pathway</div>
+              <div class="c-sub-body">Advisory on local government relationships, customs special permits, and getting product certifications from regional regulators.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- C4 — Collaboration -->
+      <div class="c-band c-mod-collaboration" id="c4">
+        <div class="c-rail">
+          <div class="c-rail-num">04</div>
+          <div class="c-rail-line"></div>
+        </div>
+        <div class="c-band-body">
+          <div class="c-badge-pill">C4 — Collaboration</div>
+          <div class="c-band-head">
+            <div class="c-band-head-text">
+              <h3 class="c-mod-title">Closing deals across borders</h3>
+              <p class="c-mod-desc">The operational mechanics of cross-border business — from shipping goods through an IOR partner to facilitating complex joint venture agreements. This is where strategic plans meet hands-on shipping and trade execution.</p>
+            </div>
+            <a href="collaboration.html" class="btn btn-primary c-action-btn btn-md">Explore C4 Collaboration →</a>
+          </div>
+
+          <div class="c-sub-grid">
+            <div class="c-sub-card">
+              <div class="c-sub-heading">IOR / EOR / AOR services</div>
+              <div class="c-sub-body">Ship to Amazon FBA, Walmart, UK, or UAE without a foreign entity, and hire global staff without a local company, via 15–20 vetted IOR partners.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Deal facilitation & legal drafts</div>
+              <div class="c-sub-body">SHA and term sheet drafting, MOU preparation, joint venture structuring, and due diligence coordination for cross-border deals.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">3PL warehousing & EXIM support</div>
+              <div class="c-sub-body">Third-party logistics warehousing in USA, UK, UAE, and Singapore, with customs clearance routing, HS code classification, and DGFT compliance.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- C5 — Co-creation -->
+      <div class="c-band c-mod-cocreation" id="c5">
+        <div class="c-rail">
+          <div class="c-rail-num">05</div>
+        </div>
+        <div class="c-band-body">
+          <div class="c-badge-pill">C5 — Co-creation</div>
+          <div class="c-band-head">
+            <div class="c-band-head-text">
+              <h3 class="c-mod-title">Strategic growth partnerships</h3>
+              <p class="c-mod-desc">For select businesses ready to go beyond standard service engagements into genuine co-ownership of global ventures, with Connect Ventures as an active co-investor, co-creator, or strategic partner.</p>
+            </div>
+            <a href="co-creation.html" class="btn btn-primary c-action-btn btn-md">Explore C5 Co-creation →</a>
+          </div>
+
+          <div class="c-sub-grid">
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Strategic co-investment & networks</div>
+              <div class="c-sub-body">Direct equity participation, syndicate structuring, and matching development grants inside target regions.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Joint venture structuring & M&A</div>
+              <div class="c-sub-body">Active deal negotiation, valuations, risk syndication, and post-merger governance oversight for cross-border entities.</div>
+            </div>
+            <div class="c-sub-card">
+              <div class="c-sub-heading">Commodity marketplace & trading hub</div>
+              <div class="c-sub-body">Direct access to select commodity trading channels, commercial network syndicates, and bulk transaction validation.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="cta-title">Ready to start your global journey?</h2>
+      <p class="cta-desc">Every 5C module engagement starts with a free strategy call. Tell us where you want to go — we map the right services across the 5C framework for your specific situation.</p>
+      <div class="btn-group-center">
+        <a href="index.html#contact" class="btn btn-primary btn-lg">Book free consultation →</a>
+        <a href="tel:+919999981613" class="btn btn-outline-white btn-lg">Call +91 999 998 1613</a>
+        <a href="https://wa.me/919999981613" class="btn btn-ghost-green btn-lg" target="_blank" rel="noopener">WhatsApp chat</a>
+      </div>
+      <p class="cta-guarantee">No commitment · Fixed-fee pricing · Response within 4 hours</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-watermark">CONNECT VENTURES</div>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo-name">CONNECT VENTURES</div>
+          <p class="footer-desc">India's premier global expansion group. Connect Ventures is the parent group company. Comply Globally is a group company. Deliverer of the 5C framework. 1,000+ clients, 47+ countries. Chairman: Dr. Anil Gupta.</p>
+          <div class="footer-sites">www.theconnectventures.com &nbsp;|&nbsp; www.complyglobally.com</div>
+        </div>
+        <div>
+          <div class="footer-heading">5C Services</div>
+          <a href="coaching.html" class="footer-link">C1 — Coaching</a>
+          <a href="consulting.html" class="footer-link">C2 — Consulting</a>
+          <a href="connecting.html" class="footer-link">C3 — Connecting</a>
+          <a href="collaboration.html" class="footer-link">C4 — Collaboration</a>
+          <a href="co-creation.html" class="footer-link">C5 — Co-creation</a>
+        </div>
+        <div>
+          <div class="footer-heading">Expand to</div>
+          <a href="countries.html" class="footer-link">India to USA</a>
+          <a href="countries.html" class="footer-link">India to UK</a>
+          <a href="countries.html" class="footer-link">India to UAE</a>
+          <a href="countries.html" class="footer-link">India to Singapore</a>
+          <a href="countries.html" class="footer-link">All 47+ Countries →</a>
+        </div>
+        <div>
+          <div class="footer-heading">Company</div>
+          <a href="about.html" class="footer-link">About Dr. Anil Gupta</a>
+          <a href="index.html#contact" class="footer-link">Contact us</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 Connect Ventures | Chairman: Dr. Anil Gupta</div>
+        <div class="footer-awards">Most Promising Service Provider 2025 · Top 10 Compliance — SiliconIndia</div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919999981613" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const hamburgerOpenSVG = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    const hamburgerCloseSVG = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>';
+
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        hamburger.innerHTML = navLinks.classList.contains('open') ? hamburgerCloseSVG : hamburgerOpenSVG;
+      });
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.innerHTML = hamburgerOpenSVG;
+        });
+      });
+    }
+
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    if (scrollTopBtn) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) scrollTopBtn.classList.add('visible');
+        else scrollTopBtn.classList.remove('visible');
+      });
+      scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+  </script>
+</body>
+</html>
