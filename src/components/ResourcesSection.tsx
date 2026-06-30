@@ -146,7 +146,7 @@ const categoryRates = {
   "Plastics & Articles":       { insurance: 0.0030, spoilage: 0.002, packaging: 0.012, docs: 0.005 },
 };
 
-// NOTE: Mexico and France removed — no guide files exist for these yet.
+// India removed from this list — no india.docx file is served by the backend.
 // This list must match the COUNTRY_FILE_MAP keys in your backend routes/guides.js exactly.
 const downloadableGuides = [
   { country: "Canada",               downloads: "2,340+ downloads", size: "4.1 MB" },
@@ -165,10 +165,10 @@ const downloadableGuides = [
   { country: "Australia",            downloads: "1,590+ downloads", size: "3.9 MB" },
   { country: "Switzerland",          downloads: "980+ downloads",  size: "3.8 MB" },
   { country: "Netherlands",          downloads: "1,470+ downloads", size: "4.2 MB" },
-  { country: "India",                downloads: "3,450+ downloads", size: "4.6 MB" },
 ];
 
-// Used to populate the gate-form country dropdown.
+// Used to populate the gate-form country dropdown (the visitor's own country —
+// India is kept here since visitors from India can still submit the form).
 const gateFormCountries = [
   "India", "United States", "United Kingdom", "Canada", "Singapore",
   "United Arab Emirates", "Germany", "Australia", "Netherlands", "Switzerland",
