@@ -16,6 +16,11 @@ import {
 } from 'lucide-react';
 
 // ==========================================
+// API CONFIG
+// ==========================================
+const API_BASE = "https://YOUR-BACKEND.onrender.com"; // ← replace with your real Render URL
+
+// ==========================================
 // LOOKUP TABLES
 // ==========================================
 
@@ -104,6 +109,8 @@ const categoryRates = {
   "Plastics & Articles":       { insurance: 0.0030, spoilage: 0.002, packaging: 0.012, docs: 0.005 },
 };
 
+// NOTE: Mexico and France removed — no guide files exist for these yet.
+// This list must match the COUNTRY_FILE_MAP keys in your backend routes/guides.js exactly.
 const downloadableGuides = [
   { country: "Canada",               flag: "🇨🇦", downloads: "2,340+ downloads", size: "4.1 MB" },
   { country: "United Kingdom",       flag: "🇬🇧", downloads: "1,890+ downloads", size: "3.9 MB" },
@@ -118,12 +125,34 @@ const downloadableGuides = [
   { country: "Estonia",              flag: "🇪🇪", downloads: "650+ downloads",  size: "3.2 MB" },
   { country: "Hong Kong",            flag: "🇭🇰", downloads: "1,810+ downloads", size: "4.1 MB" },
   { country: "Germany",              flag: "🇩🇪", downloads: "2,560+ downloads", size: "4.5 MB" },
-  { country: "Mexico",               flag: "🇲🇽", downloads: "2,170+ downloads", size: "4.0 MB" },
   { country: "Australia",            flag: "🇦🇺", downloads: "1,590+ downloads", size: "3.9 MB" },
   { country: "Switzerland",          flag: "🇨🇭", downloads: "980+ downloads",  size: "3.8 MB" },
   { country: "Netherlands",          flag: "🇳🇱", downloads: "1,470+ downloads", size: "4.2 MB" },
-  { country: "France",               flag: "🇫🇷", downloads: "2,340+ downloads", size: "4.4 MB" },
   { country: "India",                flag: "🇮🇳", downloads: "3,450+ downloads", size: "4.6 MB" },
+];
+
+// Used to give the gate-form country dropdown flags instead of plain country codes/text.
+// Includes a couple of extra common nationalities (the field is "your country", not
+// necessarily the guide's country) plus an "Other" fallback.
+const gateFormCountries = [
+  { name: "India",                 flag: "🇮🇳" },
+  { name: "United States",         flag: "🇺🇸" },
+  { name: "United Kingdom",        flag: "🇬🇧" },
+  { name: "Canada",                flag: "🇨🇦" },
+  { name: "Singapore",             flag: "🇸🇬" },
+  { name: "United Arab Emirates",  flag: "🇦🇪" },
+  { name: "Germany",               flag: "🇩🇪" },
+  { name: "Australia",             flag: "🇦🇺" },
+  { name: "Netherlands",           flag: "🇳🇱" },
+  { name: "Switzerland",           flag: "🇨🇭" },
+  { name: "Hong Kong",             flag: "🇭🇰" },
+  { name: "Indonesia",             flag: "🇮🇩" },
+  { name: "Vietnam",               flag: "🇻🇳" },
+  { name: "Thailand",              flag: "🇹🇭" },
+  { name: "Philippines",           flag: "🇵🇭" },
+  { name: "Italy",                 flag: "🇮🇹" },
+  { name: "Estonia",               flag: "🇪🇪" },
+  { name: "Other",                 flag: "🌐" },
 ];
 
 // ==========================================
@@ -302,42 +331,58 @@ export default function ResourcesSection() {
   const [showGateDialog, setShowGateDialog] = useState(false);
   const [selectedGuide, setSelectedGuide]   = useState(null);
   const [gateForm, setGateForm] = useState({ fullName: "", email: "", company: "", country: "", phone: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError]   = useState("");
 
-  const handleOpenGate = (guide) => { setSelectedGuide(guide); setShowGateDialog(true); };
-  const handleGateSubmit = (e) => {
+  const handleOpenGate = (guide) => {
+    setSelectedGuide(guide);
+    setSubmitError("");
+    setShowGateDialog(true);
+  };
+
+  const handleGateSubmit = async (e) => {
     e.preventDefault();
-    if (!selectedGuide) return;
-    const content = `=============================================================================
-CONNECT VENTURES - GLOBAL COMPLIANCE & TRADE EXPANSION ADVISORY
-2026 OFFICIAL ENTERPRISE TRADE GUIDE: ${selectedGuide.country.toUpperCase()}
-=============================================================================
-Prepared for: ${gateForm.fullName} | ${gateForm.company} | ${gateForm.email}
-Generated: ${new Date().toLocaleString()}
------------------------------------------------------------------------------
-1. TARIFFS & GOVERNING CODE HARMONIZATION (${selectedGuide.country})
------------------------------------------------------------------------------
-To route exports or establish operational entities in ${selectedGuide.country},
-importers are strictly audited against standard international compliance filters.
------------------------------------------------------------------------------
-2. COMPLIANCE & CORPORATE SETUP STRATEGY
------------------------------------------------------------------------------
-Establishing secure foreign footprints requires systematic, legal execution.
------------------------------------------------------------------------------
-3. DIRECT ENTERPRISE ASSISTANCE
------------------------------------------------------------------------------
-* Portal: partner@complyglobally.com
-* USA:    +1 (302) 214-1717
-* India:  +91 99999 81613
-Connect Ventures | Comply Globally — complyglobally.com
-=============================================================================`;
-    const blob = new Blob([content], { type: "text/plain;charset=utf-8;" });
-    const url  = URL.createObjectURL(blob);
-    const a    = document.createElement("a");
-    a.href = url;
-    a.setAttribute("download", `Connect_Ventures_${selectedGuide.country.replace(/\s+/g,"_")}_Trade_Guide_2026.txt`);
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    setShowGateDialog(false);
-    setGateForm({ fullName:"", email:"", company:"", country:"", phone:"" });
+    if (!selectedGuide || isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const res = await fetch(`${API_BASE}/api/guides/download`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: gateForm.fullName,
+          email: gateForm.email,
+          company: gateForm.company,
+          country: gateForm.country,
+          phone: gateForm.phone,
+          guideCountry: selectedGuide.country,
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || "Something went wrong. Please try again.");
+      }
+
+      const { downloadUrl } = await res.json();
+
+      const a = document.createElement("a");
+      a.href = `${API_BASE}${downloadUrl}`;
+      a.setAttribute("download", `${selectedGuide.country.replace(/\s+/g, "_")}_Trade_Guide_2026.docx`);
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      setShowGateDialog(false);
+      setGateForm({ fullName: "", email: "", company: "", country: "", phone: "" });
+    } catch (err) {
+      console.error("Guide download error:", err);
+      setSubmitError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // ── Tool 1 state
@@ -941,8 +986,8 @@ Connect Ventures | Comply Globally — complyglobally.com
                     <label className={labelCls}>Country *</label>
                     <select required value={gateForm.country} onChange={e=>setGateForm({...gateForm,country:e.target.value})} className={selectCls}>
                       <option value="">Select…</option>
-                      {["India","United States","Singapore","United Kingdom","Canada","United Arab Emirates","Germany","Other"].map(c=>(
-                        <option key={c} value={c}>{c}</option>
+                      {gateFormCountries.map(({name, flag})=>(
+                        <option key={name} value={name}>{flag} {name}</option>
                       ))}
                     </select>
                   </div>
@@ -952,14 +997,22 @@ Connect Ventures | Comply Globally — complyglobally.com
                       onChange={e=>setGateForm({...gateForm,phone:e.target.value})} className={inputCls}/>
                   </div>
                 </div>
+
+                {submitError && (
+                  <div className="flex items-start gap-2.5 px-4 py-3 bg-rose-50 border border-rose-200 rounded-xl">
+                    <ShieldAlert className="w-4 h-4 text-rose-500 mt-0.5 flex-shrink-0"/>
+                    <p className="text-[12px] text-rose-700 leading-relaxed">{submitError}</p>
+                  </div>
+                )}
+
                 <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-3 pt-6 border-t border-slate-100">
                   <button type="button" onClick={()=>setShowGateDialog(false)}
                     className="px-6 py-3 text-[13px] font-semibold text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
                     Cancel
                   </button>
-                  <button type="submit"
-                    className="px-7 py-3 bg-slate-900 text-white text-[13px] font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-700 transition-colors">
-                    Submit & Download <ArrowRight className="w-4 h-4"/>
+                  <button type="submit" disabled={isSubmitting}
+                    className="px-7 py-3 bg-slate-900 text-white text-[13px] font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
+                    {isSubmitting ? "Preparing…" : "Submit & Download"} <ArrowRight className="w-4 h-4"/>
                   </button>
                 </div>
               </form>
