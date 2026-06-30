@@ -550,10 +550,10 @@ export default function ResourcesSection() {
                       </p>
                     </div>
                     <button onClick={() => handleOpenGate(guide)}
-                      className="mt-8 w-full flex items-center justify-center gap-2 py-3
-                        bg-[#00c9a7]/10 border border-[#00c9a7]/40 rounded-xl
-                        hover:bg-[#00c9a7] hover:border-[#00c9a7] hover:text-white
-                        text-[#007a66] text-[13px] font-bold transition-all duration-200"
+                      className="mt-8 w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-[13px] border transition-all duration-200"
+                      style={{ backgroundColor: "#e6f9f6", borderColor: "#00c9a7", color: "#007a66" }}
+                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#00c9a7"; e.currentTarget.style.color = "#ffffff"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "#e6f9f6"; e.currentTarget.style.color = "#007a66"; }}
                     >
                       <Download className="w-4 h-4" /> Download Manual
                     </button>
