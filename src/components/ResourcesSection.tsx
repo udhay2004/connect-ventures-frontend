@@ -18,7 +18,44 @@ import {
 // ==========================================
 // API CONFIG
 // ==========================================
-const API_BASE = "https://YOUR-BACKEND.onrender.com"; // ← replace with your real Render URL
+const API_BASE = "https://connect-ventures-backend.onrender.com";
+
+// ==========================================
+// FLAG IMAGES (real images — emoji flags don't render on Windows)
+// ==========================================
+const FLAG_CODES = {
+  Canada: "ca",
+  "United Kingdom": "gb",
+  "United States": "us",
+  Singapore: "sg",
+  Indonesia: "id",
+  "United Arab Emirates": "ae",
+  Thailand: "th",
+  Vietnam: "vn",
+  Philippines: "ph",
+  Italy: "it",
+  Estonia: "ee",
+  "Hong Kong": "hk",
+  Germany: "de",
+  Australia: "au",
+  Switzerland: "ch",
+  Netherlands: "nl",
+  India: "in",
+  Other: null,
+};
+
+const FlagImg = ({ country, className = "w-10 h-auto rounded" }) => {
+  const code = FLAG_CODES[country];
+  if (!code) return <span className={className}>🌐</span>;
+  return (
+    <img
+      src={`https://flagcdn.com/w160/${code}.png`}
+      alt={`${country} flag`}
+      className={className}
+      loading="lazy"
+    />
+  );
+};
 
 // ==========================================
 // LOOKUP TABLES
@@ -112,47 +149,31 @@ const categoryRates = {
 // NOTE: Mexico and France removed — no guide files exist for these yet.
 // This list must match the COUNTRY_FILE_MAP keys in your backend routes/guides.js exactly.
 const downloadableGuides = [
-  { country: "Canada",               flag: "🇨🇦", downloads: "2,340+ downloads", size: "4.1 MB" },
-  { country: "United Kingdom",       flag: "🇬🇧", downloads: "1,890+ downloads", size: "3.9 MB" },
-  { country: "United States",        flag: "🇺🇸", downloads: "3,120+ downloads", size: "4.5 MB" },
-  { country: "Singapore",            flag: "🇸🇬", downloads: "1,650+ downloads", size: "3.8 MB" },
-  { country: "Indonesia",            flag: "🇮🇩", downloads: "1,420+ downloads", size: "4.0 MB" },
-  { country: "United Arab Emirates", flag: "🇦🇪", downloads: "2,180+ downloads", size: "3.7 MB" },
-  { country: "Thailand",             flag: "🇹🇭", downloads: "1,340+ downloads", size: "3.9 MB" },
-  { country: "Vietnam",              flag: "🇻🇳", downloads: "1,570+ downloads", size: "4.2 MB" },
-  { country: "Philippines",          flag: "🇵🇭", downloads: "980+ downloads",  size: "3.6 MB" },
-  { country: "Italy",                flag: "🇮🇹", downloads: "1,240+ downloads", size: "4.3 MB" },
-  { country: "Estonia",              flag: "🇪🇪", downloads: "650+ downloads",  size: "3.2 MB" },
-  { country: "Hong Kong",            flag: "🇭🇰", downloads: "1,810+ downloads", size: "4.1 MB" },
-  { country: "Germany",              flag: "🇩🇪", downloads: "2,560+ downloads", size: "4.5 MB" },
-  { country: "Australia",            flag: "🇦🇺", downloads: "1,590+ downloads", size: "3.9 MB" },
-  { country: "Switzerland",          flag: "🇨🇭", downloads: "980+ downloads",  size: "3.8 MB" },
-  { country: "Netherlands",          flag: "🇳🇱", downloads: "1,470+ downloads", size: "4.2 MB" },
-  { country: "India",                flag: "🇮🇳", downloads: "3,450+ downloads", size: "4.6 MB" },
+  { country: "Canada",               downloads: "2,340+ downloads", size: "4.1 MB" },
+  { country: "United Kingdom",       downloads: "1,890+ downloads", size: "3.9 MB" },
+  { country: "United States",        downloads: "3,120+ downloads", size: "4.5 MB" },
+  { country: "Singapore",            downloads: "1,650+ downloads", size: "3.8 MB" },
+  { country: "Indonesia",            downloads: "1,420+ downloads", size: "4.0 MB" },
+  { country: "United Arab Emirates", downloads: "2,180+ downloads", size: "3.7 MB" },
+  { country: "Thailand",             downloads: "1,340+ downloads", size: "3.9 MB" },
+  { country: "Vietnam",              downloads: "1,570+ downloads", size: "4.2 MB" },
+  { country: "Philippines",          downloads: "980+ downloads",  size: "3.6 MB" },
+  { country: "Italy",                downloads: "1,240+ downloads", size: "4.3 MB" },
+  { country: "Estonia",              downloads: "650+ downloads",  size: "3.2 MB" },
+  { country: "Hong Kong",            downloads: "1,810+ downloads", size: "4.1 MB" },
+  { country: "Germany",              downloads: "2,560+ downloads", size: "4.5 MB" },
+  { country: "Australia",            downloads: "1,590+ downloads", size: "3.9 MB" },
+  { country: "Switzerland",          downloads: "980+ downloads",  size: "3.8 MB" },
+  { country: "Netherlands",          downloads: "1,470+ downloads", size: "4.2 MB" },
+  { country: "India",                downloads: "3,450+ downloads", size: "4.6 MB" },
 ];
 
-// Used to give the gate-form country dropdown flags instead of plain country codes/text.
-// Includes a couple of extra common nationalities (the field is "your country", not
-// necessarily the guide's country) plus an "Other" fallback.
+// Used to populate the gate-form country dropdown.
 const gateFormCountries = [
-  { name: "India",                 flag: "🇮🇳" },
-  { name: "United States",         flag: "🇺🇸" },
-  { name: "United Kingdom",        flag: "🇬🇧" },
-  { name: "Canada",                flag: "🇨🇦" },
-  { name: "Singapore",             flag: "🇸🇬" },
-  { name: "United Arab Emirates",  flag: "🇦🇪" },
-  { name: "Germany",               flag: "🇩🇪" },
-  { name: "Australia",             flag: "🇦🇺" },
-  { name: "Netherlands",           flag: "🇳🇱" },
-  { name: "Switzerland",           flag: "🇨🇭" },
-  { name: "Hong Kong",             flag: "🇭🇰" },
-  { name: "Indonesia",             flag: "🇮🇩" },
-  { name: "Vietnam",               flag: "🇻🇳" },
-  { name: "Thailand",              flag: "🇹🇭" },
-  { name: "Philippines",           flag: "🇵🇭" },
-  { name: "Italy",                 flag: "🇮🇹" },
-  { name: "Estonia",               flag: "🇪🇪" },
-  { name: "Other",                 flag: "🌐" },
+  "India", "United States", "United Kingdom", "Canada", "Singapore",
+  "United Arab Emirates", "Germany", "Australia", "Netherlands", "Switzerland",
+  "Hong Kong", "Indonesia", "Vietnam", "Thailand", "Philippines", "Italy",
+  "Estonia", "Other",
 ];
 
 // ==========================================
@@ -516,7 +537,7 @@ export default function ResourcesSection() {
                   <CardBody className="flex flex-col flex-1 justify-between">
                     <div>
                       <div className="flex items-start justify-between mb-6 gap-2">
-                        <span className="text-6xl leading-none">{guide.flag}</span>
+                        <FlagImg country={guide.country} className="w-16 h-auto rounded-md shadow-sm border border-slate-100" />
                         <span className="text-[11px] font-mono font-semibold text-slate-400 bg-slate-100 px-3 py-1.5 rounded-full whitespace-nowrap">
                           {guide.size}
                         </span>
@@ -956,18 +977,21 @@ export default function ResourcesSection() {
       {showGateDialog && selectedGuide && (
         <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 overflow-y-auto"
           style={{background:"rgba(15,23,42,0.55)"}}>
-          <div className="bg-white rounded-2xl border border-[#e2e8ef] w-full max-w-[520px] overflow-hidden shadow-2xl my-8">
-            <div className="flex items-start justify-between gap-3 px-8 py-7 border-b border-slate-100">
-              <div>
-                <p className="text-[10px] font-bold text-[#00c9a7] uppercase tracking-[0.22em] mb-1">Connect Ventures Library</p>
-                <h3 className="text-[18px] font-bold text-slate-900">Download: {selectedGuide.country} {selectedGuide.flag}</h3>
+          <div className="bg-white rounded-2xl border border-[#e2e8ef] w-full max-w-[520px] overflow-hidden shadow-2xl my-8 flex flex-col max-h-[90vh]">
+            <div className="flex items-start justify-between gap-3 px-8 py-7 border-b border-slate-100 flex-shrink-0">
+              <div className="flex items-center gap-3">
+                <FlagImg country={selectedGuide.country} className="w-9 h-auto rounded shadow-sm border border-slate-100" />
+                <div>
+                  <p className="text-[10px] font-bold text-[#00c9a7] uppercase tracking-[0.22em] mb-1">Connect Ventures Library</p>
+                  <h3 className="text-[18px] font-bold text-slate-900">Download: {selectedGuide.country}</h3>
+                </div>
               </div>
               <button onClick={()=>setShowGateDialog(false)}
                 className="w-9 h-9 rounded-lg border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-50 transition-colors flex-shrink-0 mt-0.5">
                 <X className="w-4 h-4"/>
               </button>
             </div>
-            <div className="px-8 py-8">
+            <div className="px-8 py-8 overflow-y-auto">
               <form onSubmit={handleGateSubmit} className="space-y-6">
                 {[
                   { label:"Full Name *",      key:"fullName", type:"text",  placeholder:"e.g. Ramesh Kumar",    required:true },
@@ -986,8 +1010,8 @@ export default function ResourcesSection() {
                     <label className={labelCls}>Country *</label>
                     <select required value={gateForm.country} onChange={e=>setGateForm({...gateForm,country:e.target.value})} className={selectCls}>
                       <option value="">Select…</option>
-                      {gateFormCountries.map(({name, flag})=>(
-                        <option key={name} value={name}>{flag} {name}</option>
+                      {gateFormCountries.map((name)=>(
+                        <option key={name} value={name}>{name}</option>
                       ))}
                     </select>
                   </div>
