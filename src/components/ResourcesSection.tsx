@@ -149,22 +149,22 @@ const categoryRates = {
 // India removed from this list — no india.docx file is served by the backend.
 // This list must match the COUNTRY_FILE_MAP keys in your backend routes/guides.js exactly.
 const downloadableGuides = [
-  { country: "Canada",               downloads: "2,340+ downloads", size: "4.1 MB" },
-  { country: "United Kingdom",       downloads: "1,890+ downloads", size: "3.9 MB" },
-  { country: "United States",        downloads: "3,120+ downloads", size: "4.5 MB" },
-  { country: "Singapore",            downloads: "1,650+ downloads", size: "3.8 MB" },
-  { country: "Indonesia",            downloads: "1,420+ downloads", size: "4.0 MB" },
-  { country: "United Arab Emirates", downloads: "2,180+ downloads", size: "3.7 MB" },
-  { country: "Thailand",             downloads: "1,340+ downloads", size: "3.9 MB" },
-  { country: "Vietnam",              downloads: "1,570+ downloads", size: "4.2 MB" },
-  { country: "Philippines",          downloads: "980+ downloads",  size: "3.6 MB" },
-  { country: "Italy",                downloads: "1,240+ downloads", size: "4.3 MB" },
-  { country: "Estonia",              downloads: "650+ downloads",  size: "3.2 MB" },
-  { country: "Hong Kong",            downloads: "1,810+ downloads", size: "4.1 MB" },
-  { country: "Germany",              downloads: "2,560+ downloads", size: "4.5 MB" },
-  { country: "Australia",            downloads: "1,590+ downloads", size: "3.9 MB" },
-  { country: "Switzerland",          downloads: "980+ downloads",  size: "3.8 MB" },
-  { country: "Netherlands",          downloads: "1,470+ downloads", size: "4.2 MB" },
+  { country: "Canada", size: "4.1 MB" },
+  { country: "United Kingdom", size: "3.9 MB" },
+  { country: "United States", size: "4.5 MB" },
+  { country: "Singapore", size: "3.8 MB" },
+  { country: "Indonesia", size: "4.0 MB" },
+  { country: "United Arab Emirates", size: "3.7 MB" },
+  { country: "Thailand", size: "3.9 MB" },
+  { country: "Vietnam", size: "4.2 MB" },
+  { country: "Philippines",  size: "3.6 MB" },
+  { country: "Italy", size: "4.3 MB" },
+  { country: "Estonia",  size: "3.2 MB" },
+  { country: "Hong Kong", size: "4.1 MB" },
+  { country: "Germany", size: "4.5 MB" },
+  { country: "Australia", size: "3.9 MB" },
+  { country: "Switzerland",  size: "3.8 MB" },
+  { country: "Netherlands", size: "4.2 MB" },
 ];
 
 // Used to populate the gate-form country dropdown (the visitor's own country —
@@ -354,6 +354,8 @@ export default function ResourcesSection() {
   const [gateForm, setGateForm] = useState({ fullName: "", email: "", company: "", country: "", phone: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError]   = useState("");
+  const [modalMounted, setModalMounted] = useState(false);
+  useEffect(() => setModalMounted(true), []);
 
   const handleOpenGate = (guide) => {
     setSelectedGuide(guide);
@@ -543,8 +545,7 @@ export default function ResourcesSection() {
                         </span>
                       </div>
                       <h4 className="text-[16px] font-bold text-slate-900 mb-1">{guide.country}</h4>
-                      <p className="text-[12px] font-semibold text-[#009e86] mb-4">{guide.downloads}</p>
-                      <p className="text-[13px] text-slate-500 leading-relaxed">
+                      <p className="text-[13px] text-slate-500 leading-relaxed mt-3">
                         Tariff structures, compliance frameworks and strategic market entry for {guide.country}.
                       </p>
                     </div>
@@ -973,8 +974,10 @@ export default function ResourcesSection() {
         )}
       </div>
 
-      {/* ── DOWNLOAD GATE MODAL ── */}
-      {showGateDialog && selectedGuide && (
+      {/* ── DOWNLOAD GATE MODAL — portaled to <body> so it isn't clipped by the
+            drawer's overflow-hidden + transform ancestor (that was cutting off
+            the bottom of the form, including the Submit button) ── */}
+      {showGateDialog && selectedGuide && modalMounted && createPortal(
         <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 overflow-y-auto"
           style={{background:"rgba(15,23,42,0.55)"}}>
           <div className="bg-white rounded-2xl border border-[#e2e8ef] w-full max-w-[520px] overflow-hidden shadow-2xl my-8 flex flex-col max-h-[90vh]">
@@ -1029,7 +1032,7 @@ export default function ResourcesSection() {
                   </div>
                 )}
 
-                <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-3 pt-6 border-t border-slate-100">
+                <div className="flex flex-row items-center justify-end gap-3 pt-6 border-t border-slate-100">
                   <button type="button" onClick={()=>setShowGateDialog(false)}
                     className="px-6 py-3 text-[13px] font-semibold text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
                     Cancel
@@ -1042,7 +1045,8 @@ export default function ResourcesSection() {
               </form>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
