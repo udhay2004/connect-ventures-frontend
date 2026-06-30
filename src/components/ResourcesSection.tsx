@@ -1034,12 +1034,18 @@ export default function ResourcesSection() {
 
                 <div className="flex flex-row items-center justify-end gap-3 pt-6 border-t border-slate-100">
                   <button type="button" onClick={()=>setShowGateDialog(false)}
-                    className="px-6 py-3 text-[13px] font-semibold text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
+                    className="px-6 py-3 text-[13px] font-semibold rounded-xl border transition-colors"
+                    style={{ color: "#475569", borderColor: "#e2e8f0", backgroundColor: "#ffffff" }}>
                     Cancel
                   </button>
                   <button type="submit" disabled={isSubmitting}
-                    className="px-7 py-3 bg-slate-900 text-white text-[13px] font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
-                    {isSubmitting ? "Preparing…" : "Submit & Download"} <ArrowRight className="w-4 h-4"/>
+                    className="px-7 py-3 text-[13px] font-bold rounded-xl flex items-center justify-center gap-2 transition-colors disabled:cursor-not-allowed"
+                    style={{
+                      backgroundColor: isSubmitting ? "#334155" : "#0b1220",
+                      color: "#ffffff",
+                      opacity: isSubmitting ? 0.7 : 1,
+                    }}>
+                    {isSubmitting ? "Preparing…" : "Submit & Download"} <ArrowRight className="w-4 h-4" style={{ color: "#ffffff" }}/>
                   </button>
                 </div>
               </form>
