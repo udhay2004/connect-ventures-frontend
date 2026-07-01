@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Shield, Award, Calendar, ArrowRight } from 'lucide-react';
-// @ts-ignore
-import dainikJagranClipping from '../assets/images/dainik_jagran_original_clipping_1781949908756.jpg';
-// @ts-ignore
-import nbtOriginalClipping from '../assets/images/nbt_original_clipping_1781950382987.jpg';
-// @ts-ignore
-import economicTimesOriginalClipping from '../assets/images/economic_times_original_clipping_1781950636089.jpg';
+
+import { dainikJagranClipping, nbtOriginalClipping, economicTimesOriginalClipping } from '../assets/clippingImages';
 
 export default function TrustCredibility() {
   const mediaLogos = [
