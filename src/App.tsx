@@ -259,7 +259,7 @@ export default function App() {
   const description = (document.getElementById('desc-textarea') as HTMLTextAreaElement).value;
 
   try {
-    const API_BASE = 'https://YOUR-RENDER-URL.onrender.com/api/contact';
+    const API_BASE = 'https://connect-ventures-backend.onrender.com/api/contact';
     const res = await fetch(API_BASE, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
