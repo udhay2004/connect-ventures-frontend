@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Shield, Award, Calendar, ArrowRight } from 'lucide-react';
-
+import { Shield, Award, Calendar } from 'lucide-react';
 import { dainikJagranClipping, nbtOriginalClipping, economicTimesOriginalClipping } from '../assets/clippingImages';
+import { zeeTvLogo, jainTvLogo, sudarshanLogo, jantantraLogo } from '../assets/channelLogos';
 
 export default function TrustCredibility() {
   const mediaLogos = [
     { name: 'Dainik Jagran', color: 'hover:text-emerald-600', hoverBg: 'hover:bg-emerald-50/50', activeBorder: 'border-emerald-500 ring-2 ring-emerald-500/10', logo: 'Dainik Jagran' },
     { name: 'Economic Times', color: 'hover:text-sky-600', hoverBg: 'hover:bg-sky-50/50', activeBorder: 'border-sky-500 ring-2 ring-sky-500/10', logo: 'Economic Times' },
-    { name: 'Zee TV', color: 'hover:text-purple-600', hoverBg: 'hover:bg-purple-50/50', activeBorder: 'border-purple-500 ring-2 ring-purple-500/10', logo: 'Zee TV' },
-    { name: 'Jain TV', color: 'hover:text-blue-600', hoverBg: 'hover:bg-blue-50/50', activeBorder: 'border-blue-500 ring-2 ring-blue-500/10', logo: 'Jain TV' },
-    { name: 'Sudarshan', color: 'hover:text-amber-600', hoverBg: 'hover:bg-amber-50/50', activeBorder: 'border-amber-500 ring-2 ring-amber-500/10', logo: 'Sudarshan' },
+    { name: 'Zee TV', color: 'hover:text-purple-600', hoverBg: 'hover:bg-purple-50/50', activeBorder: 'border-purple-500 ring-2 ring-purple-500/10', logo: 'Zee TV', logoImg: zeeTvLogo },
+    { name: 'Jain TV', color: 'hover:text-blue-600', hoverBg: 'hover:bg-blue-50/50', activeBorder: 'border-blue-500 ring-2 ring-blue-500/10', logo: 'Jain TV', logoImg: jainTvLogo },
+    { name: 'Sudarshan', color: 'hover:text-amber-600', hoverBg: 'hover:bg-amber-50/50', activeBorder: 'border-amber-500 ring-2 ring-amber-500/10', logo: 'Sudarshan', logoImg: sudarshanLogo },
     { name: 'NBT', color: 'hover:text-rose-600', hoverBg: 'hover:bg-rose-50/50', activeBorder: 'border-rose-500 ring-2 ring-rose-500/10', logo: 'NBT' },
-    { name: 'Jantantra TV', color: 'hover:text-orange-600', hoverBg: 'hover:bg-orange-50/50', activeBorder: 'border-orange-500 ring-2 ring-orange-500/10', logo: 'Jantantra TV' }
+    { name: 'Jantantra TV', color: 'hover:text-orange-600', hoverBg: 'hover:bg-orange-50/50', activeBorder: 'border-orange-500 ring-2 ring-orange-500/10', logo: 'Jantantra TV', logoImg: jantantraLogo },
   ];
 
   const [activeMedia, setActiveMedia] = useState<string | null>(null);
@@ -26,6 +26,7 @@ export default function TrustCredibility() {
     paragraphs: string[];
     highlights: string[];
     isLogoOnly?: boolean;
+    logoImg?: string;
     logoText?: string;
     logoColor?: string;
   }> = {
@@ -71,8 +72,7 @@ export default function TrustCredibility() {
       title: 'Featured on Zee TV',
       publication: 'Zee TV',
       headline: 'Recognized by one of India\'s largest entertainment & news networks',
-      logoText: 'Z',
-      logoColor: '#a21caf',
+      logoImg: zeeTvLogo,
       isLogoOnly: true,
       paragraphs: [
         'Zee TV is one of India\'s largest and most-watched television networks, reaching hundreds of millions of viewers across India and the Indian diaspora worldwide through its entertainment and news programming.',
@@ -85,8 +85,7 @@ export default function TrustCredibility() {
       title: 'Featured on Jain TV',
       publication: 'Jain TV',
       headline: 'Featured on a respected national news & current affairs network',
-      logoText: 'JAIN',
-      logoColor: '#0f1840',
+      logoImg: jainTvLogo,
       isLogoOnly: true,
       paragraphs: [
         'Jain TV is a well-established national news network known for its current affairs and business programming, reaching audiences across India.',
@@ -99,8 +98,7 @@ export default function TrustCredibility() {
       title: 'Featured on Sudarshan News',
       publication: 'Sudarshan News',
       headline: 'Featured on a widely-followed national news channel',
-      logoText: 'सुदर्शन',
-      logoColor: '#dc2626',
+      logoImg: sudarshanLogo,
       isLogoOnly: true,
       paragraphs: [
         'Sudarshan News is a widely-followed national news channel known for its coverage of business and policy topics across India.',
@@ -132,8 +130,7 @@ export default function TrustCredibility() {
       title: 'Featured on Jantantra TV',
       publication: 'Jantantra TV',
       headline: 'Featured in an expert panel on international tax & compliance',
-      logoText: 'जन-तंत्र',
-      logoColor: '#dc2626',
+      logoImg: jantantraLogo,
       isLogoOnly: true,
       paragraphs: [
         'Jantantra TV is a national broadcast network covering business, policy, and current affairs for audiences across India.',
@@ -149,7 +146,7 @@ export default function TrustCredibility() {
   return (
     <section className="section bg-slate-50 relative overflow-hidden" id="trust-credibility">
       <div className="wrap">
-        
+
         {/* Centered Header */}
         <div className="sh center">
           <div className="label">
@@ -228,7 +225,7 @@ export default function TrustCredibility() {
             </div>
 
             {/* Interactive Selector Tabs/Logos */}
-            <div className="w-full" style={{ marginBottom: selectedFeature ? '0' : '0' }}>
+            <div className="w-full">
               <div
                 className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 w-full"
                 style={{ gap: '1rem' }}
@@ -236,7 +233,7 @@ export default function TrustCredibility() {
                 {mediaLogos.map((ch, idx) => {
                   const isActive = activeMedia === ch.name;
                   return (
-                    <button 
+                    <button
                       key={idx}
                       onClick={() => {
                         if (activeMedia === ch.name) {
@@ -246,8 +243,8 @@ export default function TrustCredibility() {
                         }
                       }}
                       className={`bg-white/75 border rounded-2xl cursor-pointer hover:scale-[1.02] hover:shadow-md transition-all duration-300 flex flex-col justify-center items-center text-center outline-none ${
-                        isActive 
-                          ? `${ch.activeBorder} bg-white shadow-lg` 
+                        isActive
+                          ? `${ch.activeBorder} bg-white shadow-lg`
                           : 'border-slate-200/80 opacity-60 hover:opacity-100 ' + ch.hoverBg
                       }`}
                       style={{
@@ -260,11 +257,22 @@ export default function TrustCredibility() {
                       }`}>
                         {isActive ? '● VIEWING PRESS' : 'FEATURED ON'}
                       </span>
-                      <span className={`text-sm font-black tracking-tighter transition-colors ${
-                        isActive ? 'text-slate-950' : 'text-slate-600'
-                      }`}>
-                        {ch.logo}
-                      </span>
+
+                      {/* Show logo image if available, else text */}
+                      {ch.logoImg ? (
+                        <img
+                          src={ch.logoImg}
+                          alt={ch.name}
+                          style={{ width: '72px', height: '40px', objectFit: 'contain' }}
+                        />
+                      ) : (
+                        <span className={`text-sm font-black tracking-tighter transition-colors ${
+                          isActive ? 'text-slate-950' : 'text-slate-600'
+                        }`}>
+                          {ch.logo}
+                        </span>
+                      )}
+
                       <span className="text-[10px] text-slate-400 font-medium mt-0.5">
                         {ch.name}
                       </span>
@@ -287,44 +295,50 @@ export default function TrustCredibility() {
                   style={{ marginTop: '2.5rem', minHeight: selectedFeature.isLogoOnly ? '280px' : '360px' }}
                 >
                   <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-teal-500 via-emerald-400 to-blue-500"></div>
-                  
+
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start" style={{ paddingTop: '0.75rem' }}>
-                    
-                    {/* Article Image/Newspaper Clipping Column */}
+
+                    {/* Image / Logo Column */}
                     <div className="lg:col-span-5 flex flex-col items-center">
                       <div
-                        className="relative group overflow-hidden rounded-2xl border border-slate-200 shadow-md bg-slate-50 max-w-sm lg:max-w-full w-full"
+                        className="relative group overflow-hidden rounded-2xl border border-slate-200 shadow-md bg-slate-50 w-full"
                         style={{
-                          minHeight: '320px',
+                          minHeight: selectedFeature.isLogoOnly ? '220px' : '320px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          padding: selectedFeature.isLogoOnly ? '2.5rem' : '0'
+                          padding: selectedFeature.isLogoOnly ? '2.5rem' : '0.75rem',
                         }}
                       >
                         {selectedFeature.isLogoOnly ? (
-                          <div
-                            className="flex items-center justify-center w-full transition-transform duration-500 group-hover:scale-[1.03]"
-                            style={{ minHeight: '180px' }}
-                          >
-                            <span
-                              className="font-black tracking-tight text-center px-4"
-                              style={{
-                                color: selectedFeature.logoColor || '#0f172a',
-                                fontSize: selectedFeature.logoText && selectedFeature.logoText.length > 6 ? '1.75rem' : '3.5rem',
-                                lineHeight: 1.1,
-                                wordBreak: 'break-word'
-                              }}
-                            >
-                              {selectedFeature.logoText}
-                            </span>
-                          </div>
+                          /* Channel logo — show the SVG image large and centered */
+                          <img
+                            src={selectedFeature.logoImg}
+                            alt={selectedFeature.publication}
+                            style={{
+                              maxWidth: '200px',
+                              width: '100%',
+                              height: 'auto',
+                              objectFit: 'contain',
+                              transition: 'transform 0.5s',
+                            }}
+                            className="group-hover:scale-[1.04]"
+                          />
                         ) : (
+                          /* Newspaper clipping — show full image, no crop */
                           <img
                             src={selectedFeature.image}
                             alt={selectedFeature.title}
                             referrerPolicy="no-referrer"
-                            className="w-full h-auto object-cover max-h-[460px] rounded-2xl transition-transform duration-500 group-hover:scale-[1.01]"
+                            style={{
+                              width: '100%',
+                              height: 'auto',
+                              maxHeight: '460px',
+                              objectFit: 'contain',
+                              borderRadius: '0.75rem',
+                              transition: 'transform 0.5s',
+                            }}
+                            className="group-hover:scale-[1.01]"
                           />
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-350 flex items-end p-4">
@@ -350,12 +364,9 @@ export default function TrustCredibility() {
                         {selectedFeature.headline}
                       </h3>
 
-                      {/* Styled rendering for multiple paragraphs */}
                       <div className="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed font-light">
                         {selectedFeature.paragraphs.map((p, pIdx) => (
-                          <p key={pIdx}>
-                            {p}
-                          </p>
+                          <p key={pIdx}>{p}</p>
                         ))}
                       </div>
                     </div>
