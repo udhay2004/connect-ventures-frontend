@@ -763,7 +763,7 @@
       const btn = document.getElementById('submitBtn');
       const statusEl = document.getElementById('formStatus');
       btn.disabled = true; btn.textContent = 'Submitting…';
-      try {
+       try {
         // Replace with your actual form API endpoint
         await new Promise(r => setTimeout(r, 1200)); // simulate
         statusEl.textContent = 'Submitted — our team will be in touch within 1–2 business days.';
@@ -776,6 +776,7 @@
       } finally {
         btn.disabled = false; btn.textContent = 'Submit confidentially →';
       }
+  
     });
 
     // Hamburger
