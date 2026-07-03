@@ -1466,49 +1466,74 @@
     const resetFormBtn = document.getElementById('resetFormBtn');
 
     if (leadForm) {
-  leadForm.addEventListener('submit', (e) => {
+  const leadSubmitBtn = leadForm.querySelector('[type="submit"]');
+
+  leadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const nameVal = document.getElementById('cf-name').value.trim();
     const emailVal = document.getElementById('cf-email').value.trim();
-    
+
     let isValid = true;
-    
+
     if (!nameVal) {
       document.getElementById('cf-name').style.borderColor = 'red';
       isValid = false;
     } else {
       document.getElementById('cf-name').style.borderColor = '';
     }
-    
+
     if (!emailVal || !emailVal.includes('@')) {
       document.getElementById('cf-email').style.borderColor = 'red';
       isValid = false;
     } else {
       document.getElementById('cf-email').style.borderColor = '';
     }
-    
+
     if (!isValid) return;
 
-    // Populate success message
-    successName.textContent = nameVal;
-    successEmail.textContent = emailVal;
-
-    // Show overlay screen
-    successScreen.classList.add('active');
-    
-    // Optionally save to localStorage for client preview persistence
-    const pendingEnquiries = JSON.parse(localStorage.getItem('pending_enquiries') || '[]');
-    pendingEnquiries.push({
+    const payload = {
       name: nameVal,
       email: emailVal,
       phone: document.getElementById('cf-phone').value.trim(),
-      country: document.getElementById('cf-country').value,
+      targetMarket: document.getElementById('cf-country').value,
       service: document.getElementById('cf-svc').value,
-      message: document.getElementById('cf-msg').value.trim(),
-      date: new Date().toISOString()
-    });
-    localStorage.setItem('pending_enquiries', JSON.stringify(pendingEnquiries));
+      description: document.getElementById('cf-msg').value.trim(),
+    };
+
+    if (leadSubmitBtn) {
+      leadSubmitBtn.disabled = true;
+      leadSubmitBtn.dataset.originalText = leadSubmitBtn.textContent;
+      leadSubmitBtn.textContent = 'Submitting…';
+    }
+
+    try {
+      const res = await fetch('https://connect-ventures-backend.onrender.com/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || 'Submission failed');
+      }
+
+      // Populate success message
+      successName.textContent = nameVal;
+      successEmail.textContent = emailVal;
+
+      // Show overlay screen
+      successScreen.classList.add('active');
+    } catch (err) {
+      console.error('Contact form submission error:', err);
+      alert('Something went wrong submitting your enquiry. Please try again or email us directly.');
+    } finally {
+      if (leadSubmitBtn) {
+        leadSubmitBtn.disabled = false;
+        leadSubmitBtn.textContent = leadSubmitBtn.dataset.originalText || 'Submit';
+      }
+    }
   });
 }
 
