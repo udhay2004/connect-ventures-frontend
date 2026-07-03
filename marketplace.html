@@ -778,12 +778,13 @@
           contactEmail: document.getElementById('f-email').value.trim(),
           contactPhone: document.getElementById('f-phone').value.trim(),
         };
-
-        const res = await fetch('https://connect-ventures-backend.onrender.com/api/listings', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
+         const res = await fetch('https://connect-ventures-backend.onrender.com/api/marketplace', {
+           method: 'POST',
+           headers: { 'Content-Type': 'application/json' },
+           body: JSON.stringify(payload),
         });
+
+    
 
         if (!res.ok) {
           const err = await res.json().catch(() => ({}));
