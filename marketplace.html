@@ -764,8 +764,32 @@
       const statusEl = document.getElementById('formStatus');
       btn.disabled = true; btn.textContent = 'Submitting…';
        try {
-        // Replace with your actual form API endpoint
-        await new Promise(r => setTimeout(r, 1200)); // simulate
+        const payload = {
+          title: document.getElementById('f-title').value.trim(),
+          industry: document.getElementById('f-industry').value,
+          country: document.getElementById('f-country').value.trim(),
+          dealType: document.getElementById('f-deal-type').value,
+          employees: document.getElementById('f-employees').value,
+          summary: document.getElementById('f-summary').value.trim(),
+          askingPrice: document.getElementById('f-asking').value.trim(),
+          revenue: document.getElementById('f-revenue').value.trim(),
+          yearEstablished: document.getElementById('f-estab').value.trim(),
+          contactName: document.getElementById('f-name').value.trim(),
+          contactEmail: document.getElementById('f-email').value.trim(),
+          contactPhone: document.getElementById('f-phone').value.trim(),
+        };
+
+        const res = await fetch('https://connect-ventures-backend.onrender.com/api/listings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.error || 'Submission failed');
+        }
+
         statusEl.textContent = 'Submitted — our team will be in touch within 1–2 business days.';
         statusEl.className = 'form-status success';
         document.getElementById('listForm').reset();
