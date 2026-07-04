@@ -2,7 +2,7 @@
 // Vanilla, framework-free widget — works identically on every page
 // (React SPA entry and the plain .html pages alike).
 
-const BOT_URL = 'https://YOUR-CHATBOT-SERVICE-URL.onrender.com'; // set after deploying Step 1
+const BOT_URL = 'https://connect-ventures-chatbot.onrender.com'; // set after deploying Step 1
 
 function getSessionId(): string {
   let id = localStorage.getItem('cv_chat_session');
