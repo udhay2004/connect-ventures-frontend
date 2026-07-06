@@ -14,6 +14,7 @@ import {
   Ship,
   Plane,
   Globe,
+  Search,
 } from 'lucide-react';
 
 // ==========================================
@@ -150,23 +151,25 @@ const categoryRates = {
 // India removed from this list — no india.docx file is served by the backend.
 // This list must match the COUNTRY_FILE_MAP keys in your backend routes/guides.js exactly.
 const downloadableGuides = [
-  { country: "Canada", size: "4.1 MB" },
-  { country: "United Kingdom", size: "3.9 MB" },
-  { country: "United States", size: "4.5 MB" },
-  { country: "Singapore", size: "3.8 MB" },
-  { country: "Indonesia", size: "4.0 MB" },
-  { country: "United Arab Emirates", size: "3.7 MB" },
-  { country: "Thailand", size: "3.9 MB" },
-  { country: "Vietnam", size: "4.2 MB" },
-  { country: "Philippines",  size: "3.6 MB" },
-  { country: "Italy", size: "4.3 MB" },
-  { country: "Estonia",  size: "3.2 MB" },
-  { country: "Hong Kong", size: "4.1 MB" },
-  { country: "Germany", size: "4.5 MB" },
-  { country: "Australia", size: "3.9 MB" },
-  { country: "Switzerland",  size: "3.8 MB" },
-  { country: "Netherlands", size: "4.2 MB" },
+  { country: "Canada", size: "4.1 MB", region: "Americas" },
+  { country: "United States", size: "4.5 MB", region: "Americas" },
+  { country: "United Kingdom", size: "3.9 MB", region: "Europe" },
+  { country: "Italy", size: "4.3 MB", region: "Europe" },
+  { country: "Estonia", size: "3.2 MB", region: "Europe" },
+  { country: "Germany", size: "4.5 MB", region: "Europe" },
+  { country: "Switzerland", size: "3.8 MB", region: "Europe" },
+  { country: "Netherlands", size: "4.2 MB", region: "Europe" },
+  { country: "Singapore", size: "3.8 MB", region: "Asia-Pacific" },
+  { country: "Indonesia", size: "4.0 MB", region: "Asia-Pacific" },
+  { country: "Thailand", size: "3.9 MB", region: "Asia-Pacific" },
+  { country: "Vietnam", size: "4.2 MB", region: "Asia-Pacific" },
+  { country: "Philippines", size: "3.6 MB", region: "Asia-Pacific" },
+  { country: "Hong Kong", size: "4.1 MB", region: "Asia-Pacific" },
+  { country: "Australia", size: "3.9 MB", region: "Asia-Pacific" },
+  { country: "United Arab Emirates", size: "3.7 MB", region: "Middle East" },
 ];
+
+const REGION_ORDER = ["Americas", "Europe", "Asia-Pacific", "Middle East"];
 
 // Used to populate the gate-form country dropdown (the visitor's own country —
 // India is kept here since visitors from India can still submit the form).
@@ -349,6 +352,7 @@ export function ResourcesDrawer({ isOpen, onClose }) {
 
 export default function ResourcesSection() {
   const [activeTab, setActiveTab]   = useState("tools");
+  const [guideSearch, setGuideSearch] = useState("");
   const [activeTool, setActiveTool] = useState("fiscal");
   const [showGateDialog, setShowGateDialog] = useState(false);
   const [selectedGuide, setSelectedGuide]   = useState(null);
@@ -527,41 +531,89 @@ export default function ResourcesSection() {
         {/* ═══ DOWNLOADS TAB ═══ */}
         {activeTab === "downloads" && (
           <div>
-            <div className="mb-12">
-              <p className="text-[11px] font-bold text-[#009e86] uppercase tracking-[0.2em] mb-3">📚 Free resource library</p>
-              <h3 className="text-[28px] font-bold text-slate-900 mb-3">Global Trade Guides</h3>
-              <p className="text-[14px] text-slate-600 max-w-xl leading-relaxed">
-                Comprehensive country-specific compliance guides. Fill in your details for instant access — no account needed. Updated for 2026.
-              </p>
+            <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+              <div>
+                <p className="text-[11px] font-bold text-[#009e86] uppercase tracking-[0.2em] mb-3">Free resource library</p>
+                <h3 className="text-[28px] font-bold text-slate-900 mb-3">Global Trade Guides</h3>
+                <p className="text-[14px] text-slate-600 max-w-xl leading-relaxed">
+                  {downloadableGuides.length} country-specific compliance guides, updated for 2026. Fill in your details for instant access — no account needed.
+                </p>
+              </div>
+              <div className="relative w-full md:w-[280px] flex-shrink-0">
+                <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={guideSearch}
+                  onChange={(e) => setGuideSearch(e.target.value)}
+                  placeholder="Search by country…"
+                  className="w-full bg-white border border-[#d1d9e0] rounded-xl pl-11 pr-4 py-3 text-[14px] text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#00c9a7]/30 focus:border-[#00c9a7] transition-all placeholder:text-slate-400"
+                />
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-              {downloadableGuides.map((guide, idx) => (
-                <Card key={idx} className="flex flex-col">
-                  <CardBody className="flex flex-col flex-1 justify-between">
-                    <div>
-                      <div className="flex items-start justify-between mb-6 gap-2">
-                        <FlagImg country={guide.country} className="w-16 h-auto rounded-md shadow-sm border border-slate-100" />
-                        <span className="text-[11px] font-mono font-semibold text-slate-400 bg-slate-100 px-3 py-1.5 rounded-full whitespace-nowrap">
-                          {guide.size}
-                        </span>
-                      </div>
-                      <h4 className="text-[16px] font-bold text-slate-900 mb-1">{guide.country}</h4>
-                      <p className="text-[13px] text-slate-500 leading-relaxed mt-3">
-                        Tariff structures, compliance frameworks and strategic market entry for {guide.country}.
-                      </p>
+
+            {(() => {
+              const query = guideSearch.trim().toLowerCase();
+              const filtered = downloadableGuides.filter(g => g.country.toLowerCase().includes(query));
+
+              if (filtered.length === 0) {
+                return (
+                  <div className="py-20 flex flex-col items-center text-center">
+                    <div className="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mb-5">
+                      <Search className="w-6 h-6 text-slate-400" />
                     </div>
-                    <button onClick={() => handleOpenGate(guide)}
-                      className="mt-8 w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-[13px] border transition-all duration-200"
-                      style={{ backgroundColor: "#e6f9f6", borderColor: "#00c9a7", color: "#007a66" }}
-                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#00c9a7"; e.currentTarget.style.color = "#ffffff"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "#e6f9f6"; e.currentTarget.style.color = "#007a66"; }}
-                    >
-                      <Download className="w-4 h-4" /> Download Manual
+                    <p className="text-[15px] font-bold text-slate-700 mb-1.5">No guides match "{guideSearch}"</p>
+                    <p className="text-[13px] text-slate-500 mb-6">Try a different country name, or clear the search.</p>
+                    <button onClick={() => setGuideSearch("")}
+                      className="text-[13px] font-bold text-[#009e86] hover:underline">
+                      Clear search
                     </button>
-                  </CardBody>
-                </Card>
-              ))}
-            </div>
+                  </div>
+                );
+              }
+
+              const regionsPresent = REGION_ORDER.filter(r => filtered.some(g => g.region === r));
+
+              return (
+                <div className="space-y-12">
+                  {regionsPresent.map(region => (
+                    <div key={region}>
+                      <div className="flex items-center gap-4 mb-6">
+                        <h4 className="text-[13px] font-extrabold text-slate-500 uppercase tracking-[0.18em] whitespace-nowrap">{region}</h4>
+                        <div className="h-px bg-slate-200 flex-1" />
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                        {filtered.filter(g => g.region === region).map((guide) => (
+                          <Card key={guide.country} className="flex flex-col hover:border-[#00c9a7]/40 hover:shadow-md transition-all duration-200">
+                            <CardBody className="flex flex-col flex-1 justify-between">
+                              <div>
+                                <div className="flex items-start justify-between mb-6 gap-2">
+                                  <FlagImg country={guide.country} className="w-14 h-auto rounded-md shadow-sm border border-slate-100" />
+                                  <span className="text-[11px] font-mono font-semibold text-slate-400 bg-slate-100 px-3 py-1.5 rounded-full whitespace-nowrap">
+                                    {guide.size}
+                                  </span>
+                                </div>
+                                <h5 className="text-[16px] font-bold text-slate-900 mb-1.5">{guide.country}</h5>
+                                <p className="text-[13px] text-slate-500 leading-relaxed">
+                                  Tariffs, entity setup, and compliance requirements for market entry.
+                                </p>
+                              </div>
+                              <button onClick={() => handleOpenGate(guide)}
+                                className="mt-8 w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-[13px] border transition-all duration-200"
+                                style={{ backgroundColor: "#e6f9f6", borderColor: "#00c9a7", color: "#007a66" }}
+                                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#00c9a7"; e.currentTarget.style.color = "#ffffff"; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "#e6f9f6"; e.currentTarget.style.color = "#007a66"; }}
+                              >
+                                <Download className="w-4 h-4" /> Download Guide
+                              </button>
+                            </CardBody>
+                          </Card>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              );
+            })()}
           </div>
         )}
 
