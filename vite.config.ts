@@ -23,7 +23,8 @@ export default defineConfig(() => {
           services: path.resolve(__dirname, 'services.html'),
           projects: path.resolve(__dirname, 'projects.html'),
           marketplace: path.resolve(__dirname, 'marketplace.html'),
-          partners: path.resolve(__dirname, 'partners.html')
+          partners: path.resolve(__dirname, 'partners.html'),
+          resources: path.resolve(__dirname, 'resources.html'),
         },
       },
     },
