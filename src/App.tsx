@@ -357,14 +357,10 @@ export default function App() {
             <a href="countries.html" className={`nav-link ${activeSection === 'countries' ? 'active' : ''}`} onClick={() => setMenuOpen(false)}>Countries</a>
             <a href="about.html" className="nav-link" onClick={() => setMenuOpen(false)}>About Dr. Gupta</a>
             <a href="partners.html" className="nav-link" onClick={() => setMenuOpen(false)}>Partners</a>
-            <a 
-              href="#resources" 
-              className={`nav-link ${isResourcesOpen ? 'active' : ''}`} 
-              onClick={(e) => {
-                e.preventDefault();
-                setIsResourcesOpen(true);
-                setMenuOpen(false);
-              }}
+            <a
+              href="resources.html"
+              className="nav-link"
+              onClick={() => setMenuOpen(false)}
             >
               Resources
             </a>
@@ -1294,23 +1290,15 @@ export default function App() {
               <div className="footer-col-title">Company</div>
               <a href="about.html" className="footer-link">About Dr. Anil Gupta</a>
               <a href="about.html" className="footer-link">Leadership team</a>
-              <a 
-                href="#resources" 
+              <a
+                href="resources.html#tools"
                 className="footer-link font-medium"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setIsResourcesOpen(true);
-                }}
               >
                 Tools &amp; Calculators
               </a>
-              <a 
-                href="#resources" 
+              <a
+                href="resources.html#guides"
                 className="footer-link font-medium"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setIsResourcesOpen(true);
-                }}
               >
                 Trade Guides Library
               </a>
