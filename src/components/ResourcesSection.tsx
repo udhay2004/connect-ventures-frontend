@@ -13,6 +13,7 @@ import {
   TrendingUp,
   Ship,
   Plane,
+  Globe,
 } from 'lucide-react';
 
 // ==========================================
@@ -46,7 +47,7 @@ const FLAG_CODES = {
 
 const FlagImg = ({ country, className = "w-10 h-auto rounded" }) => {
   const code = FLAG_CODES[country];
-  if (!code) return <span className={className}>🌐</span>;
+  if (!code) return <Globe className={className} strokeWidth={1.5} />;
   return (
     <img
       src={`https://flagcdn.com/w160/${code}.png`}
@@ -586,7 +587,7 @@ export default function ResourcesSection() {
                     color: activeTool === tool ? "#ffffff" : "#000000"
                   }}
                 >
-                  {tool === "fiscal" ? "🇮🇳 ⇄ 🇺🇸  India ⇄ USA Fiscal" : "📦  Export Landed Cost"}
+                  {tool === "fiscal" ? "India ⇄ USA Fiscal" : "Export Landed Cost"}
                 </button>
               ))}
             </div>
@@ -611,7 +612,11 @@ export default function ResourcesSection() {
                           {/* India HS */}
                           <div>
                             <div className="flex items-center justify-between mb-2 gap-2">
-                              <label className={labelCls} style={{marginBottom:0}}>🇮🇳 ITC-HS Code (India)</label>
+                              <label className={labelCls} style={{marginBottom:0}}>
+                                <span className="inline-flex items-center gap-1.5">
+                                  <FlagImg country="India" className="w-4 h-auto rounded-sm" /> ITC-HS Code (India)
+                                </span>
+                              </label>
                               <button onClick={() => setIsCustomIndMode(!isCustomIndMode)}
                                 className="text-[11px] text-[#0057c2] font-bold hover:underline whitespace-nowrap">
                                 {isCustomIndMode ? "← Use list" : "Enter custom"}
@@ -637,7 +642,11 @@ export default function ResourcesSection() {
                           {/* US HTS */}
                           <div>
                             <div className="flex items-center justify-between mb-2 gap-2">
-                              <label className={labelCls} style={{marginBottom:0}}>🇺🇸 US HTS Code</label>
+                              <label className={labelCls} style={{marginBottom:0}}>
+                                <span className="inline-flex items-center gap-1.5">
+                                  <FlagImg country="United States" className="w-4 h-auto rounded-sm" /> US HTS Code
+                                </span>
+                              </label>
                               <button onClick={() => setIsCustomUsMode(!isCustomUsMode)}
                                 className="text-[11px] text-[#0057c2] font-bold hover:underline whitespace-nowrap">
                                 {isCustomUsMode ? "← Use list" : "Enter custom"}
@@ -716,7 +725,7 @@ export default function ResourcesSection() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
                           <div className="sm:pr-10">
                             <p className="text-[10px] font-extrabold text-slate-700 uppercase tracking-[0.18em] mb-2">
-                              🇺🇸 Applies on entry to the US
+                              Applies on entry to the US
                             </p>
                             <ToggleRow checked={applyS122} onChange={setApplyS122}
                               label="Section 122 Surcharge (10%)" sub="US interim regulatory surcharge on CIF value"/>
@@ -728,7 +737,7 @@ export default function ResourcesSection() {
                           </div>
                           <div className="sm:border-l sm:border-slate-100 sm:pl-10 mt-8 sm:mt-0 pt-8 sm:pt-0 border-t sm:border-t-0 border-slate-100">
                             <p className="text-[10px] font-extrabold text-slate-700 uppercase tracking-[0.18em] mb-2">
-                              🇮🇳 Claimed on the India side
+                              Claimed on the India side
                             </p>
                             <ToggleRow checked={claimRoDTEP} onChange={setClaimRoDTEP}
                               label="RoDTEP & RoSCTL" sub="Rates auto-populated from your HS code"/>
@@ -748,7 +757,10 @@ export default function ResourcesSection() {
                       <div className="flex items-center justify-between gap-4 px-8 sm:px-10 py-6 border-b border-slate-100">
                         <div>
                           <p className="text-[10px] font-extrabold text-[#009e86] uppercase tracking-[0.2em] mb-1">Step 3 — Side A</p>
-                          <h3 className="text-[16px] font-bold text-slate-900">🇮🇳 India Sovereign Flow</h3>
+                          <h3 className="text-[16px] font-bold text-slate-900 flex items-center gap-2">
+                            <FlagImg country="India" className="w-5 h-auto rounded-sm" />
+                            India Sovereign Flow
+                          </h3>
                         </div>
                         <span className={`text-[15px] font-extrabold font-mono px-4 py-2 rounded-full whitespace-nowrap ${
                           subtotalIndiaNet <= 0 ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-700"
@@ -772,7 +784,10 @@ export default function ResourcesSection() {
                       <div className="flex items-center justify-between gap-4 px-8 sm:px-10 py-6 border-b border-slate-100">
                         <div>
                           <p className="text-[10px] font-extrabold text-[#0057c2] uppercase tracking-[0.2em] mb-1">Step 3 — Side B</p>
-                          <h3 className="text-[16px] font-bold text-slate-900">🇺🇸 United States Customs Flow</h3>
+                          <h3 className="text-[16px] font-bold text-slate-900 flex items-center gap-2">
+                            <FlagImg country="United States" className="w-5 h-auto rounded-sm" />
+                            United States Customs Flow
+                          </h3>
                         </div>
                         <span className={`text-[15px] font-extrabold font-mono px-4 py-2 rounded-full whitespace-nowrap ${
                           subtotalUsaNet <= 0 ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-700"
@@ -857,8 +872,8 @@ export default function ResourcesSection() {
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
                           {[
                             { label:"Import Duty Rate (%)", val:importDutyRatePercent, set:setImportDutyRatePercent, step:0.1 },
-                            { label:"🇮🇳 Inland India (USD)",   val:inlandFreightIndia,    set:setInlandFreightIndia,    step:1 },
-                            { label:"🇺🇸 US Last-Mile (USD)",   val:inlandFreightUsa,      set:setInlandFreightUsa,      step:1 },
+                            { label:"Inland India (USD)",   val:inlandFreightIndia,    set:setInlandFreightIndia,    step:1 },
+                            { label:"US Last-Mile (USD)",   val:inlandFreightUsa,      set:setInlandFreightUsa,      step:1 },
                             { label:"Broker & Port (USD)",  val:customsPortHandling,   set:setCustomsPortHandling,   step:1 },
                             { label:"Delay Buffer (days)",  val:delayBuffer,           set:setDelayBuffer,           step:1 },
                           ].map(({label,val,set,step})=>(
@@ -890,8 +905,8 @@ export default function ResourcesSection() {
                           <TableRow label="Ocean / Air freight"          val={usd(t2FreightCost)}       kind="cost"/>
                           <TableRow label="Cargo insurance"              sub="110% value insured" val={usd(insurancePremiumAmt)} kind="cost"/>
                           <TableRow label="US import customs duty"       sub={`${importDutyRatePercent}% rate`} val={usd(t2UsDuty)} kind="cost"/>
-                          <TableRow label="🇮🇳 Inland transport — India" val={usd(inlandFreightIndia)} kind="cost"/>
-                          <TableRow label="🇺🇸 US last-mile freight"     val={usd(inlandFreightUsa)}   kind="cost"/>
+                          <TableRow label="Inland transport — India" val={usd(inlandFreightIndia)} kind="cost"/>
+                          <TableRow label="US last-mile freight"     val={usd(inlandFreightUsa)}   kind="cost"/>
                           <TableRow label="Customs broker & local fees"  val={usd(customsPortHandling)} kind="cost"/>
                           <TableRow label="Packaging, docs & spoilage"   val={usd(t2OtherCostsTotal)}  kind="cost"/>
                         </tbody>
@@ -918,8 +933,8 @@ export default function ResourcesSection() {
                     </div>
                     {/* white body */}
                     <div className="bg-white px-7 py-7">
-                      <RailStat label="🇮🇳 India net"          val={usd(subtotalIndiaNet)}      tone="teal"/>
-                      <RailStat label="🇺🇸 USA net"            val={usd(subtotalUsaNet)}        tone="blue"/>
+                      <RailStat label="India net"          val={usd(subtotalIndiaNet)}      tone="teal"/>
+                      <RailStat label="USA net"            val={usd(subtotalUsaNet)}        tone="blue"/>
                       <RailStat label="Total incentives"       val={`−${usd(totalIndiaIncentives)}`} tone="teal"/>
                       <p className="text-[12px] text-slate-400 mt-6 leading-relaxed">
                         Updates live as you adjust inputs. Scroll the tables for the full breakdown.
