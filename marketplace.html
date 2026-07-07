@@ -407,6 +407,31 @@
     }
 
     // ─────────────────────────────────────────────
+    // Own approved listings — loaded on page arrival, before any AI
+    // search happens. This is what makes listings you approve in the
+    // CRM actually show up here; the AI search below is a separate
+    // feature that only kicks in once someone types a query.
+    // ─────────────────────────────────────────────
+    async function loadOwnListings() {
+      try {
+        const res = await fetch('https://connect-ventures-backend.onrender.com/api/marketplace');
+        if (!res.ok) throw new Error(`API error ${res.status}`);
+        const data = await res.json();
+        const listings = (data.listings || []).map((l, i) => ({
+          ...l,
+          slug: l.slug || l._id || `own-listing-${i}`,
+        }));
+        if (listings.length === 0) return; // keep the placeholder if nothing approved yet
+        allListings = listings;
+        populateCountryFilter();
+        renderGrid();
+      } catch (err) {
+        console.error('Could not load approved listings:', err);
+        // fail silently — leave the initial "search to begin" placeholder in place
+      }
+    }
+
+    // ─────────────────────────────────────────────
     // AI Search — calls our secure backend endpoint
     // ─────────────────────────────────────────────
     async function runAISearch(query) {
@@ -702,6 +727,12 @@
       }
 
     });
+
+    // ─────────────────────────────────────────────
+    // Init — populate the grid with our own approved
+    // listings as soon as the page loads.
+    // ─────────────────────────────────────────────
+    loadOwnListings();
   </script>
   <script type="module" src="/src/chatWidget.ts"></script>
 </body>
