@@ -1,0 +1,13 @@
+# Connect Ventures
+
+> Connect Ventures helps Indian businesses expand internationally across 47+ countries,
+> providing compliance, market entry strategy, and partner co-creation services through
+> a proprietary 5C framework.
+
+## Key pages
+- [About](https://connect-ventures-frontend.vercel.app/about.html): Company background and leadership.
+- [Services](https://connect-ventures-frontend.vercel.app/services.html): Full service offering.
+- [5C Model](https://connect-ventures-frontend.vercel.app/5c-model.html): Our proprietary expansion framework.
+- [Countries](https://connect-ventures-frontend.vercel.app/countries.html): Markets we operate in.
+- [FAQ](https://connect-ventures-frontend.vercel.app/faq.html): Common questions.
+- [Contact](https://connect-ventures-frontend.vercel.app/contact.html): How to reach us.
