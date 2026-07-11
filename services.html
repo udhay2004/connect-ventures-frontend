@@ -1756,16 +1756,40 @@
       applySearchAndCategoryFilters();
     });
   </script>
-  <script type="application/ld+json">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Connect Ventures Global Expansion Services",
+  "itemListElement": [
     {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "REPLACE: e.g. Market Entry Consulting",
-    "provider": { "@type": "Organization", "name": "Connect Ventures" },
-    "areaServed": "Worldwide",
-    "description": "REPLACE: one or two sentence description matching what's on the page."
+      "@type": "Service",
+      "position": 1,
+      "serviceType": "Foreign Incorporation",
+      "provider": {
+        "@type": "Organization",
+        "name": "Connect Ventures"
+      },
+      "areaServed": "Worldwide",
+      "description": "End-to-end company incorporation support for Indian businesses expanding into 47+ countries."
+    },
+    {
+      "@type": "Service",
+      "position": 2,
+      "serviceType": "International Taxation & DTAA Advisory",
+      "provider": {
+        "@type": "Organization",
+        "name": "Connect Ventures"
+      },
+      "areaServed": "Worldwide",
+      "description": "Cross-border tax structuring, DTAA compliance, and filing support for India-to-global expansion."
     }
-  </script>
-  <script type="module" src="/src/chatWidget.ts"></script>
+  ]
+}
+</script>
+
+<script type="module" src="/src/chatWidget.ts"></script>
+
 </body>
 </html>
