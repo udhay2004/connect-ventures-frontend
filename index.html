@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
 
   <title>Connect Ventures | Global Expansion & Compliance Partner for Indian Businesses</title>
 
@@ -63,10 +65,60 @@
     href="https://fonts.gstatic.com"
     crossorigin
   />
+
+  <!-- WebSite schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Connect Ventures",
+    "url": "https://connect-ventures-frontend.vercel.app/"
+  }
+  </script>
+
+  <!-- Organization schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Connect Ventures",
+    "url": "https://connect-ventures-frontend.vercel.app/",
+    "logo": "https://connect-ventures-frontend.vercel.app/assets/logo.png",
+    "description": "Global expansion and compliance partner helping Indian businesses grow into 47+ countries.",
+    "founder": { "@type": "Person", "name": "Dr. Anil Gupta" },
+    "sameAs": [
+      "https://www.linkedin.com/company/REPLACE-WITH-REAL-LINKEDIN-SLUG"
+    ]
+  }
+  </script>
 </head>
 
 <body>
-  <div id="root"></div>
+  <!--
+    Static fallback content below. React hydrates into #root and will
+    visually replace this once JS loads — real visitors never see it as
+    duplicate content. It exists so crawlers that don't execute JavaScript
+    (some AI crawlers, some early-stage Googlebot fetches) still see real
+    text instead of an empty div. Keep this in sync with the live homepage
+    copy when you update it.
+  -->
+  <div id="root">
+    <h1>Connect Ventures — Global Expansion &amp; Compliance Partner for Indian Businesses</h1>
+    <p>
+      Connect Ventures helps Indian businesses expand internationally across
+      47+ countries with compliance, market entry, and co-creation support
+      through our proprietary 5C framework: Coaching, Consulting, Connecting,
+      Collaboration, and Co-creation.
+    </p>
+    <nav aria-label="Primary">
+      <a href="/about.html">About</a>
+      <a href="/services.html">Services</a>
+      <a href="/5c-model.html">The 5C Model</a>
+      <a href="/countries.html">Countries We Serve</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
 
   <script type="module" src="/src/main.tsx"></script>
   <script type="module" src="/src/chatWidget.ts"></script>
