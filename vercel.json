@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/marketplace/:slug", "destination": "/marketplace.html" },
+    { "source": "/projects/:slug", "destination": "/projects.html" }
+  ]
+}
