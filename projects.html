@@ -432,6 +432,46 @@
       });
     }
 
+    function updateMetaTags(p) {
+      const base = 'https://connect-ventures-frontend.vercel.app';
+      const url = `${base}/projects/${p.slug}`;
+      const title = `${p.title} | Connect Ventures Projects`;
+      const desc = (p.summary || `${p.title} — a live opportunity facilitated by Connect Ventures.`).slice(0, 155);
+
+      document.title = title;
+      const setMeta = (selector, attr, value) => {
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute(attr, value);
+      };
+      setMeta('link[rel="canonical"]', 'href', url);
+      setMeta('meta[name="description"]', 'content', desc);
+      setMeta('meta[property="og:title"]', 'content', title);
+      setMeta('meta[property="og:description"]', 'content', desc);
+      setMeta('meta[property="og:url"]', 'content', url);
+      setMeta('meta[name="twitter:title"]', 'content', title);
+      setMeta('meta[name="twitter:description"]', 'content', desc);
+    }
+
+    function resetMetaTags() {
+      const base = 'https://connect-ventures-frontend.vercel.app';
+      document.title = 'Projects & Opportunities | Connect Ventures';
+      const setMeta = (selector, attr, value) => {
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute(attr, value);
+      };
+      setMeta('link[rel="canonical"]', 'href', `${base}/projects.html`);
+      setMeta('meta[property="og:title"]', 'content', 'Projects & Opportunities | Connect Ventures');
+      setMeta('meta[property="og:url"]', 'content', `${base}/projects.html`);
+      setMeta('meta[name="twitter:title"]', 'content', 'Projects & Opportunities | Connect Ventures');
+    }
+
+    function getSlugFromLocation() {
+      const pathMatch = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/);
+      if (pathMatch) return decodeURIComponent(pathMatch[1]);
+      if (window.location.hash) return decodeURIComponent(window.location.hash.replace('#', ''));
+      return null;
+    }
+
     async function showDetail(slug) {
       listView.classList.add('hidden');
       detailView.classList.add('active');
@@ -443,7 +483,8 @@
         if (!res.ok) throw new Error('Not found');
         const p = await res.json();
         renderDossier(p);
-        history.pushState({ slug }, '', `#${slug}`);
+        history.pushState({ slug }, '', `/projects/${slug}`);
+        updateMetaTags(p);
       } catch (err) {
         dossierContent.innerHTML = `<div class="empty-state"><div class="icon">⚠</div><p>This project couldn't be found.</p></div>`;
       }
@@ -499,12 +540,13 @@
     function showList() {
       detailView.classList.remove('active');
       listView.classList.remove('hidden');
-      history.pushState({}, '', window.location.pathname);
+      history.pushState({}, '', '/projects.html');
+      resetMetaTags();
     }
 
     document.getElementById('backBtn').addEventListener('click', showList);
     window.addEventListener('popstate', () => {
-      const slug = window.location.hash.replace('#', '');
+      const slug = getSlugFromLocation();
       if (slug) showDetail(slug); else showList();
     });
 
@@ -560,7 +602,7 @@
 
     // Init
     fetchProjects();
-    const initialSlug = window.location.hash.replace('#', '');
+    const initialSlug = getSlugFromLocation();
     if (initialSlug) showDetail(initialSlug);
   </script>
   <script type="module" src="/src/chatWidget.ts"></script>
