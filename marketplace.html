@@ -471,10 +471,20 @@
         allListings = listings;
         populateCountryFilter();
         renderGrid();
+        // Support deep links: /marketplace/<slug> (new) or #<slug> (legacy shared links)
+        const slug = getSlugFromLocation();
+        if (slug) openDetail(slug);
       } catch (err) {
         console.error('Could not load approved listings:', err);
         // fail silently — leave the initial "search to begin" placeholder in place
       }
+    }
+
+    function getSlugFromLocation() {
+      const pathMatch = window.location.pathname.match(/^\/marketplace\/([^/]+)\/?$/);
+      if (pathMatch) return decodeURIComponent(pathMatch[1]);
+      if (window.location.hash) return decodeURIComponent(window.location.hash.replace('#', ''));
+      return null;
     }
 
     // ─────────────────────────────────────────────
@@ -614,6 +624,40 @@
       });
     }
 
+    function updateMetaTags(p) {
+      const base = 'https://connect-ventures-frontend.vercel.app';
+      const url = `${base}/marketplace/${p.slug}`;
+      const title = `${p.title} | Connect Ventures Marketplace`;
+      const desc = (p.summary || `${p.title} — a business opportunity listed via Connect Ventures.`).slice(0, 155);
+
+      document.title = title;
+      const setMeta = (selector, attr, value) => {
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute(attr, value);
+      };
+      setMeta('link[rel="canonical"]', 'href', url);
+      setMeta('meta[name="description"]', 'content', desc);
+      setMeta('meta[property="og:title"]', 'content', title);
+      setMeta('meta[property="og:description"]', 'content', desc);
+      setMeta('meta[property="og:url"]', 'content', url);
+      setMeta('meta[name="twitter:title"]', 'content', title);
+      setMeta('meta[name="twitter:description"]', 'content', desc);
+    }
+
+    function resetMetaTags() {
+      const base = 'https://connect-ventures-frontend.vercel.app';
+      document.title = 'Business Marketplace | Connect Ventures';
+      const setMeta = (selector, attr, value) => {
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute(attr, value);
+      };
+      setMeta('link[rel="canonical"]', 'href', `${base}/marketplace.html`);
+      setMeta('meta[name="description"]', 'content', 'Browse real businesses for sale worldwide — Connect Ventures aggregates live listings from global marketplaces across 47+ countries.');
+      setMeta('meta[property="og:title"]', 'content', 'Business Marketplace | Connect Ventures');
+      setMeta('meta[property="og:url"]', 'content', `${base}/marketplace.html`);
+      setMeta('meta[name="twitter:title"]', 'content', 'Business Marketplace | Connect Ventures');
+    }
+
     function openDetail(slug) {
       const p = allListings.find(l => l.slug === slug);
       if (!p) return;
@@ -621,7 +665,8 @@
       detailView.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'instant' });
       renderDossier(p);
-      history.pushState({ slug }, '', `#${slug}`);
+      history.pushState({ slug }, '', `/marketplace/${slug}`);
+      updateMetaTags(p);
     }
 
     function renderDossier(p) {
@@ -695,7 +740,8 @@
     function showList() {
       detailView.classList.remove('active');
       listView.classList.remove('hidden');
-      history.pushState({}, '', window.location.pathname);
+      history.pushState({}, '', '/marketplace.html');
+      resetMetaTags();
     }
 
     // ─────────────────────────────────────────────
@@ -703,7 +749,7 @@
     // ─────────────────────────────────────────────
     document.getElementById('backBtn').addEventListener('click', showList);
     window.addEventListener('popstate', () => {
-      const slug = window.location.hash.replace('#', '');
+      const slug = getSlugFromLocation();
       if (slug) openDetail(slug); else showList();
     });
 
