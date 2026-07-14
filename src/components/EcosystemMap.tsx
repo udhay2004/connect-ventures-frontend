@@ -134,13 +134,6 @@ export default function EcosystemMap() {
                   ))}
                 </div>
               </div>
-
-              {/* CTA */}
-              <div className="mt-10 pt-7 border-t border-slate-800 flex items-center justify-end">
-                <span className="text-xs font-semibold text-slate-400 group-hover:text-teal-400 transition-colors flex items-center gap-1.5">
-                  Learn more <ArrowRight className="w-3.5 h-3.5" />
-                </span>
-              </div>
             </div>
           ))}
         </div>
