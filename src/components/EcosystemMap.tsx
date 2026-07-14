@@ -4,7 +4,8 @@ import {
   Globe2, 
   ShieldCheck, 
   Briefcase,
-  Check
+  Check,
+  ArrowRight
 } from 'lucide-react';
 
 interface Category {
