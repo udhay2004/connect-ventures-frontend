@@ -297,7 +297,7 @@ export default function App() {
         <div id="loader" className="transition-all duration-700 ease-out">
           <div className="loader-logo opacity-100 transition-opacity duration-500 flex flex-col items-center">
             <div className="bg-white p-6 rounded-3xl shadow-[0_12px_40px_rgba(255,255,255,0.12)] flex items-center justify-center border border-slate-100/10 mb-4 scale-95 md:scale-100">
-              <img src="/assets/logo.svg" alt="Connect Ventures Logo" className="h-[120px] w-auto animate-[pulse_2.2s_infinite]" referrerPolicy="no-referrer" />
+              <img src="/assets/logo.png" alt="Connect Ventures Logo" className="h-[120px] w-auto animate-[pulse_2.2s_infinite]" referrerPolicy="no-referrer" />
             </div>
           </div>
           <div className="loader-bar-track">
