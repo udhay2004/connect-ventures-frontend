@@ -326,8 +326,8 @@ export default function App() {
       <nav className={`nav ${isScrolled ? 'scrolled' : ''}`} id="main-nav">
         <div className="nav-inner items-center justify-between w-full">
           <a href="#" className="nav-logo flex items-center">
-            <div className="nav-logo-mark flex items-center justify-center font-bold text-white bg-slate-900 rounded-xl" style={{ width: '42px', height: '42px', fontSize: '15px' }}>
-              CV
+            <div className="nav-logo-mark flex items-center justify-center" style={{ width: '34px', height: '34px' }}>
+              <img src="/assets/logo-icon.png" alt="Connect Ventures Logo" className="nav-logo-svg" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
             </div>
             <div className="nav-brand">
               CONNECT VENTURES
