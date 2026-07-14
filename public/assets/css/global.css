@@ -68,9 +68,9 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
 .site-nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 100% !important; padding: 0 32px !important; }
 .nav-logo { display: flex; align-items: center; gap: 12px; }
 .nav-logo-mark {
-  width: 42px; height: 42px; background: var(--navy); border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-weight: 800; box-shadow: 0 4px 14px rgba(0,201,167,0.3);
+  width: 42px; height: 42px;
+  object-fit: contain;
+  display: block;
 }
 .nav-brand-name { font-size: 13.5px; font-weight: 800; letter-spacing: 0.05em; color: var(--navy); line-height: 1.2; }
 .nav-brand-tag { font-size: 10px; font-weight: 600; color: var(--muted); letter-spacing: 0.02em; margin-top: 1px; }
