@@ -94,9 +94,12 @@
 
   <style>
     /* Prevents the unstyled flash of the SEO fallback content below before
-       React hydrates and replaces #root. Inline so it applies instantly,
-       before any external stylesheet has to load. */
-    #root {
+       React hydrates. Scoped to #seo-fallback (NOT #root) — #root is the
+       same div the real app mounts into, so styling #root directly would
+       leak into the live site permanently. #seo-fallback only exists until
+       React clears #root's contents and renders the real app in its place,
+       so these styles vanish along with it and never touch the real site. */
+    #seo-fallback {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -108,9 +111,9 @@
       background: #0b1528;
       color: #f8fafc;
     }
-    #root h1 { font-size: 20px; font-weight: 700; margin: 0 0 12px; }
-    #root p { font-size: 14px; color: #94a3b8; max-width: 520px; margin: 0 0 16px; }
-    #root nav { display: none; }
+    #seo-fallback h1 { font-size: 20px; font-weight: 700; margin: 0 0 12px; }
+    #seo-fallback p { font-size: 14px; color: #94a3b8; max-width: 520px; margin: 0 0 16px; }
+    #seo-fallback nav { display: none; }
   </style>
 </head>
 
@@ -124,21 +127,23 @@
     copy when you update it.
   -->
   <div id="root">
-    <h1>Connect Ventures — Global Expansion &amp; Compliance Partner for Indian Businesses</h1>
-    <p>
-      Connect Ventures helps Indian businesses expand internationally across
-      47+ countries with compliance, market entry, and co-creation support
-      through our proprietary 5C framework: Coaching, Consulting, Connecting,
-      Collaboration, and Co-creation.
-    </p>
-    <nav aria-label="Primary">
-      <a href="/about.html">About</a>
-      <a href="/services.html">Services</a>
-      <a href="/5c-model.html">The 5C Model</a>
-      <a href="/countries.html">Countries We Serve</a>
-      <a href="/faq.html">FAQ</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
+    <div id="seo-fallback">
+      <h1>Connect Ventures — Global Expansion &amp; Compliance Partner for Indian Businesses</h1>
+      <p>
+        Connect Ventures helps Indian businesses expand internationally across
+        47+ countries with compliance, market entry, and co-creation support
+        through our proprietary 5C framework: Coaching, Consulting, Connecting,
+        Collaboration, and Co-creation.
+      </p>
+      <nav aria-label="Primary">
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/5c-model.html">The 5C Model</a>
+        <a href="/countries.html">Countries We Serve</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
   </div>
 
   <script type="module" src="/src/main.tsx"></script>
