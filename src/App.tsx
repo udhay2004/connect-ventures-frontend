@@ -322,6 +322,25 @@ export default function App() {
         style={{ left: `${cursorPos.x}px`, top: `${cursorPos.y}px` }} 
       />
 
+      {/* 🧭 TOP UTILITY BAR — mirrors the shared header used on every other page */}
+      <div className="topbar" id="topbar">
+        <div className="container flex items-center justify-between w-full">
+          <div className="topbar-item">
+            <strong>1,000+</strong> clients · <strong>47+</strong> countries · Chairman: <strong>Dr. Anil Gupta</strong> · Connect Ventures
+          </div>
+          <div className="topbar-phones">
+            <a href="tel:+13022141717" className="topbar-phone select-all">
+              <Phone className="topbar-phone-icon" /> +1 (302) 214-1717
+            </a>
+            <a href="tel:+919999981613" className="topbar-phone select-all">
+              <Phone className="topbar-phone-icon" /> +91 99999 81613
+            </a>
+            <span className="topbar-award">Most Promising Service Provider 2025</span>
+            <span className="topbar-award">Top 10 Compliance — SiliconIndia</span>
+          </div>
+        </div>
+      </div>
+
       {/* 🧭 NAVIGATION NAVBAR */}
       <nav className={`nav ${isScrolled ? 'scrolled' : ''}`} id="main-nav">
         <div className="nav-inner items-center justify-between w-full">
@@ -330,8 +349,8 @@ export default function App() {
               <img src="/assets/logo-icon.png" alt="Connect Ventures Logo" className="nav-logo-svg" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
             </div>
             <div className="nav-brand">
-              CONNECT VENTURES
-              <span>Your Globalization Partner</span>
+              <div className="nav-brand-name">CONNECT VENTURES</div>
+              <div className="nav-brand-tag">Your Globalization Partner</div>
             </div>
           </a>
           
@@ -365,22 +384,6 @@ export default function App() {
               Resources
             </a>
             <a href="#contact" className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`} onClick={() => setMenuOpen(false)}>Contact</a>
-            <div className="nav-phone-container select-all">
-              <a 
-                href="tel:+13022141717" 
-                className="nav-phone-link"
-                onClick={() => setMenuOpen(false)}
-              >
-                <Phone className="nav-phone-icon" /> +1 (302) 214-1717
-              </a>
-              <a 
-                href="tel:+919999981613" 
-                className="nav-phone-link"
-                onClick={() => setMenuOpen(false)}
-              >
-                <Phone className="nav-phone-icon" /> +91 99999 81613
-              </a>
-            </div>
             <a href="#contact" className="nav-link nav-links-cta" onClick={() => setMenuOpen(false)}>Free Consultation</a>
           </div>
           
