@@ -194,7 +194,7 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
 .wa-float:hover { background: #128c7e; transform: scale(1.1); animation-play-state: paused; }
 .wa-float svg { width: 25px; height: 25px; fill: #ffffff; }
 .scroll-top {
-  position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; border-radius: 50%;
+  position: fixed; bottom: 96px; right: 24px; width: 44px; height: 44px; border-radius: 50%;
   background: var(--navy); border: 1px solid var(--line-dark); color: #ffffff;
   display: flex; align-items: center; justify-content: center; cursor: pointer;
   font-size: 15px; font-weight: bold; opacity: 0; transform: translateY(10px);
