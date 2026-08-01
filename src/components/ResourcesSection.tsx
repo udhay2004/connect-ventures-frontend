@@ -20,7 +20,7 @@ import {
 // ==========================================
 // API CONFIG
 // ==========================================
-const API_BASE = "https://connect-ventures-backend.onrender.com";
+const API_BASE = "https://cvbackend-production-843a.up.railway.app";
 
 // ==========================================
 // FLAG IMAGES (real images — emoji flags don't render on Windows)
