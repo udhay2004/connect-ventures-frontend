@@ -460,7 +460,7 @@
     // ─────────────────────────────────────────────
     async function loadOwnListings() {
       try {
-        const res = await fetch('https://connect-ventures-backend.onrender.com/api/marketplace');
+        const res = await fetch('https://cvbackend-production-843a.up.railway.app/api/marketplace');
         if (!res.ok) throw new Error(`API error ${res.status}`);
         const data = await res.json();
         const listings = (data.listings || []).map((l, i) => ({
@@ -794,7 +794,7 @@
           contactEmail: document.getElementById('f-email').value.trim(),
           contactPhone: document.getElementById('f-phone').value.trim(),
         };
-         const res = await fetch('https://connect-ventures-backend.onrender.com/api/marketplace', {
+         const res = await fetch('https://cvbackend-production-843a.up.railway.app/api/marketplace', {
            method: 'POST',
            headers: { 'Content-Type': 'application/json' },
            body: JSON.stringify(payload),
