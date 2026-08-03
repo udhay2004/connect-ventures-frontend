@@ -2,7 +2,7 @@
 // Vanilla, framework-free widget — works identically on every page
 // (React SPA entry and the plain .html pages alike).
 
-const BOT_URL = 'https://connect-ventures-chatbot.onrender.com'; // set after deploying Step 1
+const BOT_URL = 'https://connect-ventures-chatbot-production.up.railway.app'; 
 
 // sessionStorage instead of localStorage: it clears when the tab closes,
 // so a returning visitor (or a different person on a shared computer)
