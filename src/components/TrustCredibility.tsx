@@ -136,39 +136,43 @@ export default function TrustCredibility() {
           </p>
         </div>
 
-        {/* Cert Cards */}
-        <div className="flex justify-center w-full mb-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full" style={{ maxWidth: '912px' }}>
-            <div className="bg-white border border-slate-200/80 rounded-3xl p-8 md:p-10 shadow-sm hover:translate-y-[-4px] hover:border-teal-500 hover:shadow-teal-500/10 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center w-full">
-              <div className="p-4 rounded-2xl inline-flex items-center justify-center mb-6 bg-emerald-50 text-emerald-500">
-                <Shield className="w-8 h-8" />
+        {/* Cert Cards: compact horizontal cards */}
+        <div className="sr-group grid grid-cols-1 md:grid-cols-2 gap-5 w-full mx-auto mb-12" style={{ maxWidth: '960px' }}>
+          <div className="group bg-white border border-slate-200/80 rounded-2xl p-6 md:p-7 shadow-sm hover:-translate-y-1 hover:border-emerald-400 hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300 flex items-start gap-5">
+            <div className="p-3.5 rounded-xl bg-emerald-50 text-emerald-500 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[-4deg]">
+              <Shield className="w-7 h-7" />
+            </div>
+            <div>
+              <div className="flex flex-col gap-0.5 mb-2">
+                <h3 className="text-xl font-bold text-slate-950">ISO 27001</h3>
+                <p className="text-xs font-bold uppercase tracking-wider text-emerald-600">Information Security Management</p>
               </div>
-              <h3 className="text-xl font-bold text-slate-950 mb-2">ISO 27001</h3>
-              <p className="text-sm font-semibold text-emerald-600 mb-3">Information Security Management</p>
-              <p className="text-slate-500 text-sm leading-relaxed max-w-[300px] mx-auto">
+              <p className="text-slate-500 text-sm leading-relaxed">
                 Reflecting our standard-compliant protocols for commercial client privacy protection, secure data transfer routing, and financial systems safety measures.
               </p>
             </div>
-            <div className="bg-white border border-slate-200/80 rounded-3xl p-8 md:p-10 shadow-sm hover:translate-y-[-4px] hover:border-blue-500 hover:shadow-blue-500/10 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center w-full">
-              <div className="p-4 rounded-2xl inline-flex items-center justify-center mb-6 bg-blue-50 text-blue-500">
-                <Award className="w-8 h-8" />
+          </div>
+          <div className="group bg-white border border-slate-200/80 rounded-2xl p-6 md:p-7 shadow-sm hover:-translate-y-1 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 flex items-start gap-5">
+            <div className="p-3.5 rounded-xl bg-blue-50 text-blue-500 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[-4deg]">
+              <Award className="w-7 h-7" />
+            </div>
+            <div>
+              <div className="flex flex-col gap-0.5 mb-2">
+                <h3 className="text-xl font-bold text-slate-950">ISO 9001</h3>
+                <p className="text-xs font-bold uppercase tracking-wider text-blue-600">Quality Management Systems</p>
               </div>
-              <h3 className="text-xl font-bold text-slate-950 mb-2">ISO 9001</h3>
-              <p className="text-sm font-semibold text-blue-600 mb-3">Quality Management Systems</p>
-              <p className="text-slate-500 text-sm leading-relaxed max-w-[300px] mx-auto">
+              <p className="text-slate-500 text-sm leading-relaxed">
                 Reflecting highly precise task workflows, periodic compliance validation checks, advisory certifications, and ongoing workflow efficiency assessments.
               </p>
             </div>
           </div>
         </div>
 
-        <div className="w-full h-16 md:h-24" />
-
         {/* Media Section */}
-        <div className="border-t border-slate-200/80 pt-16 md:pt-24 mt-2" id="media-press">
-          <div className="bg-slate-100/60 rounded-3xl p-8 md:p-14">
+        <div id="media-press">
+          <div className="bg-white border border-slate-200/70 rounded-3xl p-7 md:p-10 shadow-sm">
 
-            <div className="sh center" style={{ marginBottom: '3rem' }}>
+            <div className="sh center" style={{ marginBottom: '2rem' }}>
               <div className="label"><span className="label-dot" /> Media Presence</div>
               <h2>Featured by <em>leading media networks</em></h2>
               <p className="sh-sub text-slate-500" style={{ maxWidth: '640px', margin: '0 auto' }}>
@@ -189,7 +193,7 @@ export default function TrustCredibility() {
                         ? `${ch.activeBorder} bg-white shadow-lg`
                         : 'border-slate-200/80 opacity-60 hover:opacity-100 ' + ch.hoverBg
                     }`}
-                    style={{ padding: '1rem 0.5rem', minHeight: '108px', gap: '0.5rem' }}
+                    style={{ padding: '0.85rem 0.5rem', minHeight: '96px', gap: '0.4rem' }}
                   >
                     <span className={`text-[9px] font-bold tracking-widest uppercase transition-colors ${
                       isActive ? 'text-teal-600' : 'text-slate-400'

@@ -209,7 +209,7 @@ export default function App() {
     );
 
     // Track reveal classes
-    const revealElements = document.querySelectorAll('.sr, .reveal-h2');
+    const revealElements = document.querySelectorAll('.sr, .sr-group, .reveal-h2');
     revealElements.forEach((el) => observer.observe(el));
 
     // Track active sections
@@ -532,7 +532,7 @@ export default function App() {
             </p>
           </div>
           
-          <div className="fivec-grid relative">
+          <div className="fivec-grid sr-group relative">
             {/* Scroll-triggered connecting journey line for desktop xl screens */}
             <svg className="absolute hidden xl:block inset-x-0 top-[28%] w-full h-[60px] pointer-events-none z-0">
               <path 

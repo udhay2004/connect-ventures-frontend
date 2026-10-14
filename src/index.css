@@ -494,6 +494,22 @@ h1,h2,h3,h4{letter-spacing:-.03em;line-height:1.1}
 .sr-delay-3{transition-delay:.26s}
 .sr-delay-4{transition-delay:.34s}
 .sr-delay-5{transition-delay:.42s}
+/* Staggered group reveal: children of .sr-group float in one after another.
+   Uses a one-shot animation (fill: backwards) so each card's own hover
+   transitions keep working after the entrance. */
+@keyframes srIn{from{opacity:0;transform:translateY(26px) scale(.985)}to{opacity:1;transform:none}}
+.sr-group > *{opacity:0}
+.sr-group.visible > *{opacity:1;animation:srIn .75s cubic-bezier(.16,1,.3,1) backwards}
+.sr-group.visible > *:nth-child(2){animation-delay:.07s}
+.sr-group.visible > *:nth-child(3){animation-delay:.14s}
+.sr-group.visible > *:nth-child(4){animation-delay:.21s}
+.sr-group.visible > *:nth-child(5){animation-delay:.28s}
+.sr-group.visible > *:nth-child(6){animation-delay:.35s}
+.sr-group.visible > *:nth-child(7){animation-delay:.42s}
+.sr-group.visible > *:nth-child(n+8){animation-delay:.49s}
+@media (prefers-reduced-motion: reduce){
+  .sr,.sr-group > *{opacity:1 !important;transform:none !important;transition:none !important;animation:none !important}
+}
 
 /* ═══════ 5C FRAMEWORK ═══════ */
 .fivec-section{
@@ -1280,4 +1296,18 @@ h1,h2,h3,h4{letter-spacing:-.03em;line-height:1.1}
 .hero-stats-row{margin-top:clamp(8px,1.4vh,20px);padding-top:clamp(8px,1.3vh,16px)}
 .hsr-val{font-size:clamp(1.1rem,2.5vh,1.55rem)}
 .hero-right{height:clamp(440px,calc(100svh - 140px),580px)}
+}
+
+/* ═══════════════════════════════════════════
+   DESKTOP DENSITY: content below the hero renders at the scale that looks
+   right on laptops (equivalent to 80% browser zoom). The hero, top bar and
+   nav keep full size. Only top-level blocks are scaled, so zoom never stacks.
+═══════════════════════════════════════════ */
+@media (min-width:1100px){
+  #root > div > :is(section:not(.hero), #about, .marquee-wrap, footer){zoom:.8}
+  /* zoomed sections have 1/0.8 more room, so let the content column use it */
+  #root > div > :is(section:not(.hero), #about, footer) .wrap{max-width:1440px}
+}
+@media (min-width:1680px){
+  #root > div > :is(section:not(.hero), #about, .marquee-wrap, footer){zoom:.9}
 }
