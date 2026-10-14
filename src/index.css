@@ -1252,3 +1252,24 @@ h1,h2,h3,h4{letter-spacing:-.03em;line-height:1.1}
   margin-top: 16px;
   max-width: 340px;
 }
+
+/* ═══════════════════════════════════════════
+   HERO FIT: whole hero + top bar fits one screen on laptops
+   (sizes scale with screen height as well as width)
+═══════════════════════════════════════════ */
+/* Topbar: never wrap inside the fixed 40px bar */
+.topbar-phones{flex-wrap:nowrap}
+@media (max-width:1440px){.topbar-award + .topbar-award{display:none}}
+@media (max-width:1320px){.topbar-award{display:none}}
+
+/* Hero: whole hero fits one screen at any desktop size */
+@media (min-width:901px){
+.hero{height:100svh;min-height:520px;max-height:none}
+.hero-h1{font-size:clamp(1.9rem,min(4.2vw,6.8vh),4.4rem);line-height:1}
+.hero-h1-line2{font-size:clamp(1.4rem,min(2.6vw,4.3vh),2.8rem);padding-bottom:12px;margin-bottom:clamp(12px,1.8vh,20px)}
+.hero-subline{font-size:clamp(.86rem,1.85vh,1.05rem);line-height:1.55;margin-bottom:clamp(10px,1.8vh,22px);max-width:520px}
+.hero-btns{margin-bottom:clamp(6px,1.1vh,14px)}
+.hero-stats-row{margin-top:clamp(8px,1.4vh,20px);padding-top:clamp(8px,1.3vh,16px)}
+.hsr-val{font-size:clamp(1.1rem,2.5vh,1.55rem)}
+.hero-right{height:clamp(440px,calc(100svh - 140px),580px)}
+}
