@@ -18,7 +18,7 @@ export default function WhyChooseUs() {
       <div className="absolute bottom-[20%] right-[-10%] w-[45%] h-[45%] bg-radial-gradient from-[rgba(0,112,243,0.04)] to-transparent blur-[120px] pointer-events-none" />
 
       <div className="wrap relative z-10">
-        <div className="sh center !mb-8">
+        <div className="sh center !mb-10">
           <div className="label">
             <span className="label-dot animate-pulse" /> Core Advantages
           </div>
@@ -33,29 +33,29 @@ export default function WhyChooseUs() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-0 items-stretch">
 
           {/* Key Advantages Column: rows stretch so the column matches the stats card height */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-3 gap-4">
+          <div className="sr-group lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-3 gap-4">
             {points.map(({ icon: Icon, text }, idx) => (
               <div
                 key={idx}
-                className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 hover:border-teal-500/40 hover:bg-slate-900/70 transition-all duration-300 flex flex-col justify-between gap-5 group"
+                className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-5 hover:border-teal-500/40 hover:bg-slate-900/70 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-4 group"
               >
-                <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/25 flex items-center justify-center text-[var(--teal)] group-hover:bg-[var(--teal)] group-hover:text-slate-950 transition-all duration-300">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <span className="text-[11px] font-mono font-semibold text-slate-600 group-hover:text-teal-400 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/25 flex items-center justify-center text-[var(--teal)] group-hover:bg-[var(--teal)] group-hover:text-slate-950 group-hover:scale-110 transition-all duration-300 shrink-0">
+                  <Icon className="w-5 h-5" />
+                </div>
+                <div className="min-w-0">
+                  <span className="block text-[11px] font-mono font-semibold text-slate-500 group-hover:text-teal-400 transition-colors mb-1">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
+                  <p className="text-[15px] leading-snug font-semibold text-slate-200 group-hover:text-white transition-colors">
+                    {text}
+                  </p>
                 </div>
-                <p className="text-[15px] leading-relaxed font-semibold text-slate-200 group-hover:text-white transition-colors">
-                  {text}
-                </p>
               </div>
             ))}
           </div>
 
           {/* Interactive Statistics Grid Card Column */}
-          <div className="lg:col-span-5 w-full bg-gradient-to-tr from-[#111c2f] to-[#080d17] border border-slate-800/85 rounded-xl p-5 sm:p-6 md:p-8 relative overflow-visible flex flex-col gap-6">
+          <div className="lg:col-span-5 w-full bg-gradient-to-tr from-[#111c2f] to-[#080d17] border border-slate-800/85 rounded-2xl p-6 md:p-7 relative overflow-visible flex flex-col gap-5">
             {/* Ambient indicator lights */}
             <span className="absolute -top-[20px] -left-[20px] w-14 h-14 bg-[var(--teal)]/10 blur-xl rounded-full" />
             
@@ -63,38 +63,38 @@ export default function WhyChooseUs() {
               <span className="text-[11px] font-mono text-[var(--teal)] uppercase tracking-wider font-bold">
                 PROVEN BENCHMARKS &amp; COMPLIANCE
               </span>
-              <h3 className="text-2xl font-black text-slate-100 mt-3 tracking-tight leading-snug">
+              <h3 className="text-xl font-black text-slate-100 mt-2 tracking-tight leading-snug">
                 Consistent Execution. <br />Accurate Standard Outcomes.
               </h3>
-              <p className="text-xs text-slate-400 mt-3 leading-relaxed">
+              <p className="text-sm text-slate-400 mt-2 leading-relaxed">
                 Connect Ventures maintains a high corporate customer satisfaction score. We take pride in delivering robust, worry-free setups to business owners across continents.
               </p>
             </div>
 
             {/* Achievement counts row */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full">
-              <div className="p-4 sm:p-5 md:p-6 bg-slate-950/40 border border-slate-800/50 rounded-xl text-center">
+              <div className="p-4 bg-slate-950/40 border border-slate-800/50 rounded-xl text-center hover:border-teal-500/30 transition-colors">
                 <span className="block text-xl sm:text-2xl font-black text-white font-mono">1K+</span>
                 <span className="block text-[10px] sm:text-[10.5px] text-slate-500 font-bold uppercase mt-1 leading-tight break-words">Corporate Entities</span>
               </div>
-              <div className="p-4 sm:p-5 md:p-6 bg-slate-950/40 border border-slate-800/50 rounded-xl text-center">
+              <div className="p-4 bg-slate-950/40 border border-slate-800/50 rounded-xl text-center hover:border-teal-500/30 transition-colors">
                 <span className="block text-xl sm:text-2xl font-black text-white font-mono">47+</span>
                 <span className="block text-[10px] sm:text-[10.5px] text-slate-500 font-bold uppercase mt-1 leading-tight break-words">Nations Covered</span>
               </div>
-              <div className="p-4 sm:p-5 md:p-6 bg-slate-950/40 border border-slate-800/50 rounded-xl text-center">
+              <div className="p-4 bg-slate-950/40 border border-slate-800/50 rounded-xl text-center hover:border-teal-500/30 transition-colors">
                 <span className="block text-xl sm:text-2xl font-black text-white font-mono">99%</span>
                 <span className="block text-[10px] sm:text-[10.5px] text-slate-500 font-bold uppercase mt-1 leading-tight break-words">First-pass Success</span>
               </div>
-              <div className="p-4 sm:p-5 md:p-6 bg-slate-950/40 border border-slate-800/50 rounded-xl text-center">
+              <div className="p-4 bg-slate-950/40 border border-slate-800/50 rounded-xl text-center hover:border-teal-500/30 transition-colors">
                 <span className="block text-xl sm:text-2xl font-black text-white font-mono">24/7</span>
                 <span className="block text-[10px] sm:text-[10.5px] text-slate-500 font-bold uppercase mt-1 leading-tight break-words">Advisor Backing</span>
               </div>
             </div>
 
-            <div className="border-t border-slate-800/80 pt-6 mt-2 flex flex-col gap-3">
+            <div className="border-t border-slate-800/80 pt-5 flex flex-col gap-2">
               <a 
                 href="#contact" 
-                className="btn-hero-primary w-full flex justify-center items-center text-center py-4 px-4 text-xs font-bold tracking-wide uppercase whitespace-normal break-words"
+                className="btn-hero-primary w-full flex justify-center items-center text-center py-3.5 px-4 text-xs font-bold tracking-wide uppercase whitespace-normal break-words"
               >
                 Launch Your Global Journey →
               </a>

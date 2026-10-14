@@ -66,7 +66,7 @@ export default function BrandPromise() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        <div className="sr-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {promises.map((pr, idx) => {
             const isHovered = activeCard === idx;
             return (
