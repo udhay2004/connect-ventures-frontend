@@ -3,12 +3,12 @@ import { Check, ShieldCheck, Zap, Globe, Coins, Briefcase } from 'lucide-react';
 
 export default function WhyChooseUs() {
   const points = [
-    'Establish compliant corporate entities in USA, UK, UAE, or Singapore.',
-    'Secure corporate physical bank accounts and official Employer Identification Numbers.',
-    'Optimise cross-border commercial ventures through comprehensive tax and DTAA planning.',
-    'Ensure absolute regulatory compliance under FEMA, RBI, and secretarial guidelines.',
-    'Deploy foreign operations instantly using pre-vetted local Employer of Record services.',
-    'Accelerate overseas business growth with localised market entry and regional distributors.'
+    { icon: Briefcase, text: 'Establish compliant corporate entities in USA, UK, UAE, or Singapore.' },
+    { icon: Coins, text: 'Secure corporate physical bank accounts and official Employer Identification Numbers.' },
+    { icon: Globe, text: 'Optimise cross-border commercial ventures through comprehensive tax and DTAA planning.' },
+    { icon: ShieldCheck, text: 'Ensure absolute regulatory compliance under FEMA, RBI, and secretarial guidelines.' },
+    { icon: Check, text: 'Deploy foreign operations instantly using pre-vetted local Employer of Record services.' },
+    { icon: Zap, text: 'Accelerate overseas business growth with localised market entry and regional distributors.' }
   ];
 
   return (
@@ -30,26 +30,26 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-0 items-start">
-          
-          {/* Key Advantages Column */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {points.map((point, idx) => (
-              <div 
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-0 items-stretch">
+
+          {/* Key Advantages Column: rows stretch so the column matches the stats card height */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-3 gap-4">
+            {points.map(({ icon: Icon, text }, idx) => (
+              <div
                 key={idx}
-                className="bg-slate-900/30 border border-slate-800/80 rounded-xl p-6 hover:border-slate-700/80 transition-all duration-300 flex items-start gap-3.5 group"
+                className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 hover:border-teal-500/40 hover:bg-slate-900/70 transition-all duration-300 flex flex-col justify-between gap-5 group"
               >
-                <div className="w-6 h-6 rounded-full bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-[var(--teal)] group-hover:bg-[var(--teal)] group-hover:text-slate-950 transition-all duration-300 flex-shrink-0">
-                  <Check className="w-3.5 h-3.5 font-bold" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">
-                    {point.split(' - ')[0]}
-                  </p>
-                  <span className="block text-xs text-slate-400 mt-1">
-                    {point.includes(' - ') ? point.split(' - ')[1] : ''}
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/25 flex items-center justify-center text-[var(--teal)] group-hover:bg-[var(--teal)] group-hover:text-slate-950 transition-all duration-300">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <span className="text-[11px] font-mono font-semibold text-slate-600 group-hover:text-teal-400 transition-colors">
+                    {String(idx + 1).padStart(2, '0')}
                   </span>
                 </div>
+                <p className="text-[15px] leading-relaxed font-semibold text-slate-200 group-hover:text-white transition-colors">
+                  {text}
+                </p>
               </div>
             ))}
           </div>
@@ -100,7 +100,7 @@ export default function WhyChooseUs() {
               </a>
               <a 
                 href="about.html"
-                className="text-center text-xs text-slate-400 hover:text-[#2dd4bf] transition-colors py-1.5 font-medium flex items-center justify-center gap-1"
+                className="text-center text-xs !text-slate-300 hover:!text-[#2dd4bf] transition-colors py-1.5 font-medium flex items-center justify-center gap-1"
               >
                 <span>Read Dr. Anil Gupta's Founder Story &amp; Philosophy</span>
                 <span>→</span>
