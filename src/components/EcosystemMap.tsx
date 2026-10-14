@@ -99,29 +99,29 @@ export default function EcosystemMap() {
         </div>
 
         {/* 2x2 Bento Style Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-7 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
           {categories.map((category, idx) => (
             <div 
               key={idx}
-              className="group bg-[#0d1527] border border-slate-700/40 rounded-2xl p-8 md:p-10 flex flex-col h-full transition-all duration-300 hover:border-teal-500/35 hover:bg-[#111c34] hover:shadow-[0_4px_30px_rgba(20,184,166,0.07)] shadow-2xl shadow-black/40"
+              className="group bg-[#0d1527] border border-slate-700/40 rounded-2xl p-7 md:p-8 flex flex-col h-full transition-all duration-300 hover:border-teal-500/35 hover:bg-[#111c34] hover:shadow-[0_4px_30px_rgba(20,184,166,0.07)] shadow-2xl shadow-black/40"
             >
               <div className="flex-1 flex flex-col">
                 {/* Header Row */}
-                <div className="flex items-center gap-4 mb-5">
+                <div className="flex items-center gap-4 mb-4">
                   <div className="p-3 bg-slate-950/85 border border-slate-700/50 rounded-xl shrink-0">
                     {category.icon}
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+                  <h3 className="text-xl font-bold text-white tracking-tight">
                     {category.title}
                   </h3>
                 </div>
                 
-                <p className="text-sm text-slate-400 font-normal leading-relaxed mb-8">
+                <p className="text-sm text-slate-400 font-normal leading-relaxed mb-6">
                   {category.descriptor}
                 </p>
 
                 {/* Checklist */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-10 pt-7 border-t border-slate-800 mt-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3.5 gap-x-8 pt-5 border-t border-slate-800 mt-auto">
                   {category.services.map((service, sIdx) => (
                     <div key={sIdx} className="flex items-start gap-3 min-w-0">
                       <div className="w-5 h-5 rounded-full bg-teal-950/60 border border-teal-500/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -141,19 +141,19 @@ export default function EcosystemMap() {
         {/* Trust Metrics */}
         <div
           style={{
-            marginTop: '64px',
+            marginTop: '24px',
             backgroundColor: '#0a1020',
             border: '1px solid rgba(30,41,59,0.6)',
             borderRadius: '16px',
-            padding: '48px 40px'
+            padding: '36px 40px'
           }}
         >
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr 1fr',
-              gap: '48px',
-              marginBottom: '48px'
+              gap: '40px',
+              marginBottom: '28px'
             }}
             className="trust-metrics-grid"
           >
@@ -196,7 +196,7 @@ export default function EcosystemMap() {
 
           </div>
 
-          <div style={{ textAlign: 'center', paddingTop: '40px', borderTop: '1px solid #1e293b' }}>
+          <div style={{ textAlign: 'center', paddingTop: '28px', borderTop: '1px solid #1e293b' }}>
             <a
               href="services.html"
               style={{
