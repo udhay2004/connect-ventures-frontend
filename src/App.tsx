@@ -259,7 +259,7 @@ export default function App() {
   const description = (document.getElementById('desc-textarea') as HTMLTextAreaElement).value;
 
   try {
-    const API_BASE = 'https://YOUR-RENDER-URL.onrender.com/api/contact';
+    const API_BASE = 'https://cvbackend-production-843a.up.railway.app/api/contact';
     const res = await fetch(API_BASE, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -297,7 +297,7 @@ export default function App() {
         <div id="loader" className="transition-all duration-700 ease-out">
           <div className="loader-logo opacity-100 transition-opacity duration-500 flex flex-col items-center">
             <div className="bg-white p-6 rounded-3xl shadow-[0_12px_40px_rgba(255,255,255,0.12)] flex items-center justify-center border border-slate-100/10 mb-4 scale-95 md:scale-100">
-              <img src="/assets/logo.svg" alt="Connect Ventures Logo" className="h-[120px] w-auto animate-[pulse_2.2s_infinite]" referrerPolicy="no-referrer" />
+              <img src="/assets/logo.png" alt="Connect Ventures Logo" className="h-[120px] w-auto animate-[pulse_2.2s_infinite]" referrerPolicy="no-referrer" />
             </div>
           </div>
           <div className="loader-bar-track">
@@ -322,16 +322,35 @@ export default function App() {
         style={{ left: `${cursorPos.x}px`, top: `${cursorPos.y}px` }} 
       />
 
+      {/* 🧭 TOP UTILITY BAR — mirrors the shared header used on every other page */}
+      <div className="topbar" id="topbar">
+        <div className="container flex items-center justify-between w-full">
+          <div className="topbar-item">
+            <strong>1,000+</strong> clients · <strong>47+</strong> countries · Chairman: <strong>Dr. Anil Gupta</strong> · Connect Ventures
+          </div>
+          <div className="topbar-phones">
+            <a href="tel:+13022141717" className="topbar-phone select-all">
+              <Phone className="topbar-phone-icon" /> +1 (302) 214-1717
+            </a>
+            <a href="tel:+919999981613" className="topbar-phone select-all">
+              <Phone className="topbar-phone-icon" /> +91 99999 81613
+            </a>
+            <span className="topbar-award">Most Promising Service Provider 2025</span>
+            <span className="topbar-award">Top 10 Compliance — SiliconIndia</span>
+          </div>
+        </div>
+      </div>
+
       {/* 🧭 NAVIGATION NAVBAR */}
       <nav className={`nav ${isScrolled ? 'scrolled' : ''}`} id="main-nav">
         <div className="nav-inner items-center justify-between w-full">
           <a href="#" className="nav-logo flex items-center">
-            <div className="nav-logo-mark flex items-center justify-center font-bold text-white bg-slate-900 rounded-xl" style={{ width: '42px', height: '42px', fontSize: '15px' }}>
-              CV
+            <div className="nav-logo-mark flex items-center justify-center" style={{ width: '40px', height: '40px' }}>
+              <img src="/assets/logo-icon.png" alt="Connect Ventures Logo" className="nav-logo-svg" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
             </div>
             <div className="nav-brand">
-              CONNECT VENTURES
-              <span>Your Globalization Partner</span>
+              <div className="nav-brand-name">CONNECT VENTURES</div>
+              <div className="nav-brand-tag">Your Globalization Partner</div>
             </div>
           </a>
           
@@ -357,34 +376,14 @@ export default function App() {
             <a href="countries.html" className={`nav-link ${activeSection === 'countries' ? 'active' : ''}`} onClick={() => setMenuOpen(false)}>Countries</a>
             <a href="about.html" className="nav-link" onClick={() => setMenuOpen(false)}>About Dr. Gupta</a>
             <a href="partners.html" className="nav-link" onClick={() => setMenuOpen(false)}>Partners</a>
-            <a 
-              href="#resources" 
-              className={`nav-link ${isResourcesOpen ? 'active' : ''}`} 
-              onClick={(e) => {
-                e.preventDefault();
-                setIsResourcesOpen(true);
-                setMenuOpen(false);
-              }}
+            <a
+              href="resources.html"
+              className="nav-link"
+              onClick={() => setMenuOpen(false)}
             >
               Resources
             </a>
             <a href="#contact" className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`} onClick={() => setMenuOpen(false)}>Contact</a>
-            <div className="nav-phone-container select-all">
-              <a 
-                href="tel:+13022141717" 
-                className="nav-phone-link"
-                onClick={() => setMenuOpen(false)}
-              >
-                <Phone className="nav-phone-icon" /> +1 (302) 214-1717
-              </a>
-              <a 
-                href="tel:+919999981613" 
-                className="nav-phone-link"
-                onClick={() => setMenuOpen(false)}
-              >
-                <Phone className="nav-phone-icon" /> +91 99999 81613
-              </a>
-            </div>
             <a href="#contact" className="nav-link nav-links-cta" onClick={() => setMenuOpen(false)}>Free Consultation</a>
           </div>
           
@@ -1294,23 +1293,15 @@ export default function App() {
               <div className="footer-col-title">Company</div>
               <a href="about.html" className="footer-link">About Dr. Anil Gupta</a>
               <a href="about.html" className="footer-link">Leadership team</a>
-              <a 
-                href="#resources" 
+              <a
+                href="resources.html#tools"
                 className="footer-link font-medium"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setIsResourcesOpen(true);
-                }}
               >
                 Tools &amp; Calculators
               </a>
-              <a 
-                href="#resources" 
+              <a
+                href="resources.html#guides"
                 className="footer-link font-medium"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setIsResourcesOpen(true);
-                }}
               >
                 Trade Guides Library
               </a>
@@ -1331,19 +1322,7 @@ export default function App() {
       </footer>
 
       {/* 💬 FLOATING CHAT OVERLAYS (WhatsApp & Scroll to top) */}
-      <a 
-        href="https://wa.me/919999981613" 
-        className="wa" 
-        style={{ transition: 'transform 0.2s' }}
-        aria-label="Chat on WhatsApp" 
-        target="_blank" 
-        rel="noopener noreferrer"
-      >
-        <svg viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-      </a>
-
+      
       <button 
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
         className={`stbtn ${scrollTopVisible ? 'show' : ''}`} 

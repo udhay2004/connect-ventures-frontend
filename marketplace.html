@@ -3,27 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
   <meta name="google" content="notranslate">
   <meta name="description" content="Browse real businesses for sale worldwide — Connect Ventures aggregates live listings from global marketplaces across 47+ countries.">
   <title>Business Marketplace | Connect Ventures</title>
 
+  <link rel="canonical" href="https://theconnectventures.com/marketplace.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Business Marketplace | Connect Ventures" />
+  <meta property="og:description" content="Browse real businesses for sale worldwide — Connect Ventures aggregates live listings from global marketplaces across 47+ countries." />
+  <meta property="og:url" content="https://theconnectventures.com/marketplace.html" />
+  <meta property="og:image" content="https://theconnectventures.com/assets/og-cover.jpg" />
+  <meta property="og:site_name" content="Connect Ventures" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Business Marketplace | Connect Ventures" />
+  <meta name="twitter:description" content="Browse real businesses for sale worldwide — Connect Ventures aggregates live listings from global marketplaces across 47+ countries." />
+  <meta name="twitter:image" content="https://theconnectventures.com/assets/og-cover.jpg" />
+
+  <!-- Organization schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Connect Ventures",
+    "url": "https://theconnectventures.com/",
+    "logo": "https://theconnectventures.com/assets/logo.png",
+    "description": "Global expansion and compliance partner helping Indian businesses grow into 47+ countries.",
+    "founder": { "@type": "Person", "name": "Dr. Anil Gupta" },
+    "sameAs": [
+      "https://www.linkedin.com/company/connect-ventures-inc/"
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://theconnectventures.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Marketplace", "item": "https://theconnectventures.com/marketplace.html" }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/global.css">
 
   <style>
+    /* Page-specific styles for the Marketplace page only */
+
+    /* Extra colour tokens used only on this page (badges, deal-type accents) */
     :root {
-      --navy: #0b1528;
-      --navy-light: #16243d;
-      --navy-dark: #070d1a;
-      --teal: #00c9a7;
-      --teal-light: #f0fdfa;
-      --teal-dark: #008770;
-      --blue: #29b6f6;
-      --blue-light: #e0f7fa;
-      --blue-dark: #0288d1;
-      --gold: #f59e0b;
-      --gold-bg: #fffbeb;
       --gold-dark: #b45309;
       --purple: #7c3aed;
       --purple-light: #f5f3ff;
@@ -31,80 +70,19 @@
       --red-bg: #fef2f2;
       --green: #10b981;
       --green-light: #ecfdf5;
-      --ink: #0f172a;
-      --muted: #475569;
-      --muted-light: #94a3b8;
-      --bg-light: #f8fafc;
-      --line-light: rgba(15, 23, 42, 0.08);
-      --line-dark: rgba(255, 255, 255, 0.08);
-      --font-display: 'Plus Jakarta Sans', sans-serif;
-      --font-serif: 'Playfair Display', serif;
-      --font-mono: 'JetBrains Mono', monospace;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-display); background-color: var(--bg-light); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    .container { width: 100%; max-width: 1220px; margin: 0 auto; padding: 0 24px; }
-    a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     button { font-family: var(--font-display); }
 
-    /* ── Topbar ── */
-    .topbar { background-color: var(--navy-dark); color: #cbd5e1; font-size: 11.5px; font-weight: 500; letter-spacing: 0.01em; border-bottom: 1px solid var(--line-dark); position: relative; z-index: 100; }
-    .topbar .container { display: flex; justify-content: space-between; align-items: center; min-height: 40px; flex-wrap: wrap; gap: 12px; padding-top: 6px; padding-bottom: 6px; }
-    .topbar-item strong { color: #fff; font-weight: 700; }
-    .topbar-award { background: rgba(255,255,255,0.05); border: 1px solid var(--line-dark); padding: 3px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; color: #fff; }
-
-    /* ── Nav ── */
-    .site-nav { background: rgba(255,255,255,0.90); backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--line-light); position: sticky; top: 0; z-index: 99; height: 72px; display: flex; align-items: center; }
-    .site-nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 100% !important; padding: 0 32px !important; }
-    .nav-logo { display: flex; align-items: center; gap: 12px; }
-    .nav-logo-mark { width: 42px; height: 42px; background: var(--navy); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; box-shadow: 0 4px 14px rgba(0,201,167,0.3); }
-    .nav-brand-name { font-size: 13.5px; font-weight: 800; letter-spacing: 0.05em; color: var(--navy); line-height: 1.2; }
-    .nav-brand-tag { font-size: 10px; font-weight: 600; color: var(--muted); letter-spacing: 0.02em; margin-top: 1px; }
-    .nav-links { display: flex; gap: 24px; align-items: center; }
-    .nav-link { font-size: 13.5px; font-weight: 600; color: #475569; padding: 6px 0; position: relative; }
-    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: var(--teal); transform: scaleX(0); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); }
-    .nav-link.active, .nav-link:hover { color: var(--navy); }
-    .nav-link.active::after, .nav-link:hover::after { transform: scaleX(1); }
-    .nav-right { display: flex; align-items: center; gap: 16px; }
-    .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--navy); }
-
-    @media (max-width: 1200px) {
-      .hamburger { display: block; }
-      .nav-links { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: #fff; padding: 24px; border-bottom: 1px solid var(--line-light); gap: 16px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-      .nav-links.open { display: flex; }
-      .nav-right { display: none; }
-    }
-
-    @media (min-width: 1201px) and (max-width: 1380px) {
-      .site-nav .container { padding: 0 16px; }
-      .nav-links { gap: 12px; }
-      .nav-link { font-size: 12.5px; }
-      .btn-sm { padding: 8px 14px; font-size: 12px; }
-    }
-
-    .btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 750; border-radius: 10px; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); cursor: pointer; position: relative; overflow: hidden; border: none; }
-    .btn-sm { padding: 10px 18px; font-size: 12.5px; }
-    .btn-md { padding: 11px 20px; font-size: 13px; }
-    .btn-lg { padding: 13px 26px; font-size: 14px; }
-    .btn-primary { background-color: var(--teal); color: #fff; box-shadow: 0 4px 18px rgba(0,201,167,0.25); }
-    .btn-primary:hover { background-color: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,201,167,0.35); }
-    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-    .btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,0.25); color: #fff; }
-    .btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
-
-    /* ── Hero ── */
+    /* ── Hero (gold-accented variant for the marketplace) ── */
     .page-hero {
       background-color: var(--navy);
       background-image: radial-gradient(circle at 80% 20%, rgba(0,201,167,0.08) 0%, transparent 45%), radial-gradient(circle at 10% 80%, rgba(41,182,246,0.08) 0%, transparent 45%);
       padding: 56px 0 0; border-bottom: 4px solid var(--gold); position: relative; overflow: hidden;
     }
-    .section-eyebrow { font-size: 13.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--teal); margin-bottom: 12px; display: inline-flex; align-items: center; gap: 6px; }
-    .section-eyebrow::before { content: ''; display: inline-block; width: 7.5px; height: 7.5px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px var(--teal); }
-    .hero-title { color: #fff; font-size: clamp(1.9rem, 4.4vw, 2.8rem); font-weight: 800; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 14px; max-width: 760px; }
-    .hero-title em { font-family: var(--font-serif); font-style: italic; color: var(--gold); font-weight: 500; }
-    .hero-desc { color: #cbd5e1; font-size: 15px; line-height: 1.75; max-width: 660px; margin-bottom: 28px; }
+    .page-hero .hero-title { font-size: clamp(1.9rem, 4.4vw, 2.8rem); max-width: 760px; margin-bottom: 14px; }
+    .page-hero .hero-title em { color: var(--gold); }
+    .page-hero .hero-desc { max-width: 660px; margin-bottom: 28px; }
     .hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
 
     /* ── Search strip inside hero ── */
@@ -264,44 +242,7 @@
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="container">
-      <div class="topbar-item"><strong>1,000+</strong> clients · <strong>47+</strong> countries · Chairman: <strong>Dr. Anil Gupta</strong> · Connect Ventures</div>
-      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
-        <span class="topbar-item">Call: <a href="tel:+919999981613" style="color:var(--blue);font-weight:700;">+91 999 998 1613</a></span>
-        <span class="topbar-award">Most Promising Service Provider 2025</span>
-        <span class="topbar-award">Top 10 Compliance — SiliconIndia</span>
-      </div>
-    </div>
-  </div>
-
-  <nav class="site-nav" role="navigation">
-    <div class="container">
-      <a href="index.html" class="nav-logo">
-        <div class="nav-logo-mark">CV</div>
-        <div>
-          <div class="nav-brand-name">CONNECT VENTURES</div>
-          <div class="nav-brand-tag">Your Globalization Partner</div>
-        </div>
-      </a>
-      <button class="hamburger" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-      <div class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="services.html" class="nav-link">All Services</a>
-        <a href="5c-model.html" class="nav-link">5C Framework</a>
-        <a href="projects.html" class="nav-link">Projects</a>
-        <a href="#" class="nav-link active">Marketplace</a>
-        <a href="countries.html" class="nav-link">Countries</a>
-        <a href="about.html" class="nav-link">About Dr. Gupta</a>
-        <a href="partners.html" class="nav-link">Partners</a>
-        <a href="index.html#resources" class="nav-link">Resources</a>
-        <a href="index.html#contact" class="nav-link">Contact</a>
-      </div>
-      <div class="nav-right">
-        <a href="index.html#contact" class="btn btn-primary btn-sm">Free consultation</a>
-      </div>
-    </div>
-  </nav>
+  <div id="site-header"></div>
 
   <!-- Hero -->
   <header class="page-hero">
@@ -311,7 +252,7 @@
       <p class="hero-desc">Search live, real business-for-sale listings from global marketplaces — powered by AI-assisted discovery. Connect Ventures facilitates introductions, due diligence, and cross-border deal structuring across 47+ countries.</p>
       <div class="hero-cta-row">
         <button class="btn btn-primary btn-lg" id="openListModal">List your business →</button>
-        <a href="#listings-anchor" class="btn btn-outline btn-lg">Browse listings ↓</a>
+        <a href="#listings-anchor" class="btn btn-outline-white btn-lg">Browse listings ↓</a>
       </div>
     </div>
     <div class="hero-search-strip">
@@ -470,6 +411,10 @@
     </div>
   </div>
 
+  <div id="site-footer"></div>
+
+  <script src="assets/js/include-partials.js" defer></script>
+
   <script>
     // ─────────────────────────────────────────────
     // State
@@ -505,6 +450,41 @@
       const d = document.createElement('div');
       d.textContent = str ?? '';
       return d.innerHTML;
+    }
+
+    // ─────────────────────────────────────────────
+    // Own approved listings — loaded on page arrival, before any AI
+    // search happens. This is what makes listings you approve in the
+    // CRM actually show up here; the AI search below is a separate
+    // feature that only kicks in once someone types a query.
+    // ─────────────────────────────────────────────
+    async function loadOwnListings() {
+      try {
+        const res = await fetch('https://cvbackend-production-843a.up.railway.app/api/marketplace');
+        if (!res.ok) throw new Error(`API error ${res.status}`);
+        const data = await res.json();
+        const listings = (data.listings || []).map((l, i) => ({
+          ...l,
+          slug: l.slug || l._id || `own-listing-${i}`,
+        }));
+        if (listings.length === 0) return; // keep the placeholder if nothing approved yet
+        allListings = listings;
+        populateCountryFilter();
+        renderGrid();
+        // Support deep links: /marketplace/<slug> (new) or #<slug> (legacy shared links)
+        const slug = getSlugFromLocation();
+        if (slug) openDetail(slug);
+      } catch (err) {
+        console.error('Could not load approved listings:', err);
+        // fail silently — leave the initial "search to begin" placeholder in place
+      }
+    }
+
+    function getSlugFromLocation() {
+      const pathMatch = window.location.pathname.match(/^\/marketplace\/([^/]+)\/?$/);
+      if (pathMatch) return decodeURIComponent(pathMatch[1]);
+      if (window.location.hash) return decodeURIComponent(window.location.hash.replace('#', ''));
+      return null;
     }
 
     // ─────────────────────────────────────────────
@@ -644,6 +624,40 @@
       });
     }
 
+    function updateMetaTags(p) {
+      const base = 'https://theconnectventures.com';
+      const url = `${base}/marketplace/${p.slug}`;
+      const title = `${p.title} | Connect Ventures Marketplace`;
+      const desc = (p.summary || `${p.title} — a business opportunity listed via Connect Ventures.`).slice(0, 155);
+
+      document.title = title;
+      const setMeta = (selector, attr, value) => {
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute(attr, value);
+      };
+      setMeta('link[rel="canonical"]', 'href', url);
+      setMeta('meta[name="description"]', 'content', desc);
+      setMeta('meta[property="og:title"]', 'content', title);
+      setMeta('meta[property="og:description"]', 'content', desc);
+      setMeta('meta[property="og:url"]', 'content', url);
+      setMeta('meta[name="twitter:title"]', 'content', title);
+      setMeta('meta[name="twitter:description"]', 'content', desc);
+    }
+
+    function resetMetaTags() {
+      const base = 'https://theconnectventures.com';
+      document.title = 'Business Marketplace | Connect Ventures';
+      const setMeta = (selector, attr, value) => {
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute(attr, value);
+      };
+      setMeta('link[rel="canonical"]', 'href', `${base}/marketplace.html`);
+      setMeta('meta[name="description"]', 'content', 'Browse real businesses for sale worldwide — Connect Ventures aggregates live listings from global marketplaces across 47+ countries.');
+      setMeta('meta[property="og:title"]', 'content', 'Business Marketplace | Connect Ventures');
+      setMeta('meta[property="og:url"]', 'content', `${base}/marketplace.html`);
+      setMeta('meta[name="twitter:title"]', 'content', 'Business Marketplace | Connect Ventures');
+    }
+
     function openDetail(slug) {
       const p = allListings.find(l => l.slug === slug);
       if (!p) return;
@@ -651,7 +665,8 @@
       detailView.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'instant' });
       renderDossier(p);
-      history.pushState({ slug }, '', `#${slug}`);
+      history.pushState({ slug }, '', `/marketplace/${slug}`);
+      updateMetaTags(p);
     }
 
     function renderDossier(p) {
@@ -725,7 +740,8 @@
     function showList() {
       detailView.classList.remove('active');
       listView.classList.remove('hidden');
-      history.pushState({}, '', window.location.pathname);
+      history.pushState({}, '', '/marketplace.html');
+      resetMetaTags();
     }
 
     // ─────────────────────────────────────────────
@@ -733,7 +749,7 @@
     // ─────────────────────────────────────────────
     document.getElementById('backBtn').addEventListener('click', showList);
     window.addEventListener('popstate', () => {
-      const slug = window.location.hash.replace('#', '');
+      const slug = getSlugFromLocation();
       if (slug) openDetail(slug); else showList();
     });
 
@@ -763,9 +779,34 @@
       const btn = document.getElementById('submitBtn');
       const statusEl = document.getElementById('formStatus');
       btn.disabled = true; btn.textContent = 'Submitting…';
-      try {
-        // Replace with your actual form API endpoint
-        await new Promise(r => setTimeout(r, 1200)); // simulate
+       try {
+        const payload = {
+          title: document.getElementById('f-title').value.trim(),
+          industry: document.getElementById('f-industry').value,
+          country: document.getElementById('f-country').value.trim(),
+          dealType: document.getElementById('f-deal-type').value,
+          employees: document.getElementById('f-employees').value,
+          summary: document.getElementById('f-summary').value.trim(),
+          askingPrice: document.getElementById('f-asking').value.trim(),
+          revenue: document.getElementById('f-revenue').value.trim(),
+          yearEstablished: document.getElementById('f-estab').value.trim(),
+          contactName: document.getElementById('f-name').value.trim(),
+          contactEmail: document.getElementById('f-email').value.trim(),
+          contactPhone: document.getElementById('f-phone').value.trim(),
+        };
+         const res = await fetch('https://cvbackend-production-843a.up.railway.app/api/marketplace', {
+           method: 'POST',
+           headers: { 'Content-Type': 'application/json' },
+           body: JSON.stringify(payload),
+        });
+
+
+
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.error || 'Submission failed');
+        }
+
         statusEl.textContent = 'Submitted — our team will be in touch within 1–2 business days.';
         statusEl.className = 'form-status success';
         document.getElementById('listForm').reset();
@@ -776,19 +817,15 @@
       } finally {
         btn.disabled = false; btn.textContent = 'Submit confidentially →';
       }
+
     });
 
-    // Hamburger
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    if (hamburger && navLinks) {
-      hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-        hamburger.innerHTML = navLinks.classList.contains('open')
-          ? '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>'
-          : '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
-      });
-    }
+    // ─────────────────────────────────────────────
+    // Init — populate the grid with our own approved
+    // listings as soon as the page loads.
+    // ─────────────────────────────────────────────
+    loadOwnListings();
   </script>
+  <script type="module" src="/src/chatWidget.ts"></script>
 </body>
 </html>

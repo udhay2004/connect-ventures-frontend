@@ -13,7 +13,51 @@ import {
   TrendingUp,
   Ship,
   Plane,
+  Globe,
+  Search,
 } from 'lucide-react';
+
+// ==========================================
+// API CONFIG
+// ==========================================
+const API_BASE = "https://cvbackend-production-843a.up.railway.app";
+
+// ==========================================
+// FLAG IMAGES (real images — emoji flags don't render on Windows)
+// ==========================================
+const FLAG_CODES = {
+  Canada: "ca",
+  "United Kingdom": "gb",
+  "United States": "us",
+  Singapore: "sg",
+  Indonesia: "id",
+  "United Arab Emirates": "ae",
+  Thailand: "th",
+  Vietnam: "vn",
+  Philippines: "ph",
+  Italy: "it",
+  Estonia: "ee",
+  "Hong Kong": "hk",
+  Germany: "de",
+  Australia: "au",
+  Switzerland: "ch",
+  Netherlands: "nl",
+  India: "in",
+  Other: null,
+};
+
+const FlagImg = ({ country, className = "w-10 h-auto rounded" }) => {
+  const code = FLAG_CODES[country];
+  if (!code) return <Globe className={className} strokeWidth={1.5} />;
+  return (
+    <img
+      src={`https://flagcdn.com/w160/${code}.png`}
+      alt={`${country} flag`}
+      className={className}
+      loading="lazy"
+    />
+  );
+};
 
 // ==========================================
 // LOOKUP TABLES
@@ -104,26 +148,36 @@ const categoryRates = {
   "Plastics & Articles":       { insurance: 0.0030, spoilage: 0.002, packaging: 0.012, docs: 0.005 },
 };
 
+// India removed from this list — no india.docx file is served by the backend.
+// This list must match the COUNTRY_FILE_MAP keys in your backend routes/guides.js exactly.
 const downloadableGuides = [
-  { country: "Canada",               flag: "🇨🇦", downloads: "2,340+ downloads", size: "4.1 MB" },
-  { country: "United Kingdom",       flag: "🇬🇧", downloads: "1,890+ downloads", size: "3.9 MB" },
-  { country: "United States",        flag: "🇺🇸", downloads: "3,120+ downloads", size: "4.5 MB" },
-  { country: "Singapore",            flag: "🇸🇬", downloads: "1,650+ downloads", size: "3.8 MB" },
-  { country: "Indonesia",            flag: "🇮🇩", downloads: "1,420+ downloads", size: "4.0 MB" },
-  { country: "United Arab Emirates", flag: "🇦🇪", downloads: "2,180+ downloads", size: "3.7 MB" },
-  { country: "Thailand",             flag: "🇹🇭", downloads: "1,340+ downloads", size: "3.9 MB" },
-  { country: "Vietnam",              flag: "🇻🇳", downloads: "1,570+ downloads", size: "4.2 MB" },
-  { country: "Philippines",          flag: "🇵🇭", downloads: "980+ downloads",  size: "3.6 MB" },
-  { country: "Italy",                flag: "🇮🇹", downloads: "1,240+ downloads", size: "4.3 MB" },
-  { country: "Estonia",              flag: "🇪🇪", downloads: "650+ downloads",  size: "3.2 MB" },
-  { country: "Hong Kong",            flag: "🇭🇰", downloads: "1,810+ downloads", size: "4.1 MB" },
-  { country: "Germany",              flag: "🇩🇪", downloads: "2,560+ downloads", size: "4.5 MB" },
-  { country: "Mexico",               flag: "🇲🇽", downloads: "2,170+ downloads", size: "4.0 MB" },
-  { country: "Australia",            flag: "🇦🇺", downloads: "1,590+ downloads", size: "3.9 MB" },
-  { country: "Switzerland",          flag: "🇨🇭", downloads: "980+ downloads",  size: "3.8 MB" },
-  { country: "Netherlands",          flag: "🇳🇱", downloads: "1,470+ downloads", size: "4.2 MB" },
-  { country: "France",               flag: "🇫🇷", downloads: "2,340+ downloads", size: "4.4 MB" },
-  { country: "India",                flag: "🇮🇳", downloads: "3,450+ downloads", size: "4.6 MB" },
+  { country: "Canada", size: "4.1 MB", region: "Americas" },
+  { country: "United States", size: "4.5 MB", region: "Americas" },
+  { country: "United Kingdom", size: "3.9 MB", region: "Europe" },
+  { country: "Italy", size: "4.3 MB", region: "Europe" },
+  { country: "Estonia", size: "3.2 MB", region: "Europe" },
+  { country: "Germany", size: "4.5 MB", region: "Europe" },
+  { country: "Switzerland", size: "3.8 MB", region: "Europe" },
+  { country: "Netherlands", size: "4.2 MB", region: "Europe" },
+  { country: "Singapore", size: "3.8 MB", region: "Asia-Pacific" },
+  { country: "Indonesia", size: "4.0 MB", region: "Asia-Pacific" },
+  { country: "Thailand", size: "3.9 MB", region: "Asia-Pacific" },
+  { country: "Vietnam", size: "4.2 MB", region: "Asia-Pacific" },
+  { country: "Philippines", size: "3.6 MB", region: "Asia-Pacific" },
+  { country: "Hong Kong", size: "4.1 MB", region: "Asia-Pacific" },
+  { country: "Australia", size: "3.9 MB", region: "Asia-Pacific" },
+  { country: "United Arab Emirates", size: "3.7 MB", region: "Middle East" },
+];
+
+const REGION_ORDER = ["Americas", "Europe", "Asia-Pacific", "Middle East"];
+
+// Used to populate the gate-form country dropdown (the visitor's own country —
+// India is kept here since visitors from India can still submit the form).
+const gateFormCountries = [
+  "India", "United States", "United Kingdom", "Canada", "Singapore",
+  "United Arab Emirates", "Germany", "Australia", "Netherlands", "Switzerland",
+  "Hong Kong", "Indonesia", "Vietnam", "Thailand", "Philippines", "Italy",
+  "Estonia", "Other",
 ];
 
 // ==========================================
@@ -298,46 +352,65 @@ export function ResourcesDrawer({ isOpen, onClose }) {
 
 export default function ResourcesSection() {
   const [activeTab, setActiveTab]   = useState("tools");
+  const [guideSearch, setGuideSearch] = useState("");
   const [activeTool, setActiveTool] = useState("fiscal");
   const [showGateDialog, setShowGateDialog] = useState(false);
   const [selectedGuide, setSelectedGuide]   = useState(null);
   const [gateForm, setGateForm] = useState({ fullName: "", email: "", company: "", country: "", phone: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError]   = useState("");
+  const [modalMounted, setModalMounted] = useState(false);
+  useEffect(() => setModalMounted(true), []);
 
-  const handleOpenGate = (guide) => { setSelectedGuide(guide); setShowGateDialog(true); };
-  const handleGateSubmit = (e) => {
+  const handleOpenGate = (guide) => {
+    setSelectedGuide(guide);
+    setSubmitError("");
+    setShowGateDialog(true);
+  };
+
+  const handleGateSubmit = async (e) => {
     e.preventDefault();
-    if (!selectedGuide) return;
-    const content = `=============================================================================
-CONNECT VENTURES - GLOBAL COMPLIANCE & TRADE EXPANSION ADVISORY
-2026 OFFICIAL ENTERPRISE TRADE GUIDE: ${selectedGuide.country.toUpperCase()}
-=============================================================================
-Prepared for: ${gateForm.fullName} | ${gateForm.company} | ${gateForm.email}
-Generated: ${new Date().toLocaleString()}
------------------------------------------------------------------------------
-1. TARIFFS & GOVERNING CODE HARMONIZATION (${selectedGuide.country})
------------------------------------------------------------------------------
-To route exports or establish operational entities in ${selectedGuide.country},
-importers are strictly audited against standard international compliance filters.
------------------------------------------------------------------------------
-2. COMPLIANCE & CORPORATE SETUP STRATEGY
------------------------------------------------------------------------------
-Establishing secure foreign footprints requires systematic, legal execution.
------------------------------------------------------------------------------
-3. DIRECT ENTERPRISE ASSISTANCE
------------------------------------------------------------------------------
-* Portal: partner@complyglobally.com
-* USA:    +1 (302) 214-1717
-* India:  +91 99999 81613
-Connect Ventures | Comply Globally — complyglobally.com
-=============================================================================`;
-    const blob = new Blob([content], { type: "text/plain;charset=utf-8;" });
-    const url  = URL.createObjectURL(blob);
-    const a    = document.createElement("a");
-    a.href = url;
-    a.setAttribute("download", `Connect_Ventures_${selectedGuide.country.replace(/\s+/g,"_")}_Trade_Guide_2026.txt`);
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    setShowGateDialog(false);
-    setGateForm({ fullName:"", email:"", company:"", country:"", phone:"" });
+    if (!selectedGuide || isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const res = await fetch(`${API_BASE}/api/guides/download`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: gateForm.fullName,
+          email: gateForm.email,
+          company: gateForm.company,
+          country: gateForm.country,
+          phone: gateForm.phone,
+          guideCountry: selectedGuide.country,
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || "Something went wrong. Please try again.");
+      }
+
+      const { downloadUrl } = await res.json();
+
+      const a = document.createElement("a");
+      a.href = `${API_BASE}${downloadUrl}`;
+      a.setAttribute("download", `${selectedGuide.country.replace(/\s+/g, "_")}_Trade_Guide_2026.docx`);
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      setShowGateDialog(false);
+      setGateForm({ fullName: "", email: "", company: "", country: "", phone: "" });
+    } catch (err) {
+      console.error("Guide download error:", err);
+      setSubmitError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // ── Tool 1 state
@@ -458,42 +531,89 @@ Connect Ventures | Comply Globally — complyglobally.com
         {/* ═══ DOWNLOADS TAB ═══ */}
         {activeTab === "downloads" && (
           <div>
-            <div className="mb-12">
-              <p className="text-[11px] font-bold text-[#009e86] uppercase tracking-[0.2em] mb-3">📚 Free resource library</p>
-              <h3 className="text-[28px] font-bold text-slate-900 mb-3">Global Trade Guides</h3>
-              <p className="text-[14px] text-slate-600 max-w-xl leading-relaxed">
-                Comprehensive country-specific compliance guides. Fill in your details for instant access — no account needed. Updated for 2026.
-              </p>
+            <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+              <div>
+                <p className="text-[11px] font-bold text-[#009e86] uppercase tracking-[0.2em] mb-3">Free resource library</p>
+                <h3 className="text-[28px] font-bold text-slate-900 mb-3">Global Trade Guides</h3>
+                <p className="text-[14px] text-slate-600 max-w-xl leading-relaxed">
+                  {downloadableGuides.length} country-specific compliance guides, updated for 2026. Fill in your details for instant access — no account needed.
+                </p>
+              </div>
+              <div className="relative w-full md:w-[280px] flex-shrink-0">
+                <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={guideSearch}
+                  onChange={(e) => setGuideSearch(e.target.value)}
+                  placeholder="Search by country…"
+                  className="w-full bg-white border border-[#d1d9e0] rounded-xl pl-11 pr-4 py-3 text-[14px] text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#00c9a7]/30 focus:border-[#00c9a7] transition-all placeholder:text-slate-400"
+                />
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-              {downloadableGuides.map((guide, idx) => (
-                <Card key={idx} className="flex flex-col">
-                  <CardBody className="flex flex-col flex-1 justify-between">
-                    <div>
-                      <div className="flex items-start justify-between mb-6 gap-2">
-                        <span className="text-6xl leading-none">{guide.flag}</span>
-                        <span className="text-[11px] font-mono font-semibold text-slate-400 bg-slate-100 px-3 py-1.5 rounded-full whitespace-nowrap">
-                          {guide.size}
-                        </span>
-                      </div>
-                      <h4 className="text-[16px] font-bold text-slate-900 mb-1">{guide.country}</h4>
-                      <p className="text-[12px] font-semibold text-[#009e86] mb-4">{guide.downloads}</p>
-                      <p className="text-[13px] text-slate-500 leading-relaxed">
-                        Tariff structures, compliance frameworks and strategic market entry for {guide.country}.
-                      </p>
+
+            {(() => {
+              const query = guideSearch.trim().toLowerCase();
+              const filtered = downloadableGuides.filter(g => g.country.toLowerCase().includes(query));
+
+              if (filtered.length === 0) {
+                return (
+                  <div className="py-20 flex flex-col items-center text-center">
+                    <div className="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mb-5">
+                      <Search className="w-6 h-6 text-slate-400" />
                     </div>
-                    <button onClick={() => handleOpenGate(guide)}
-                      className="mt-8 w-full flex items-center justify-center gap-2 py-3
-                        bg-[#00c9a7]/10 border border-[#00c9a7]/40 rounded-xl
-                        hover:bg-[#00c9a7] hover:border-[#00c9a7] hover:text-white
-                        text-[#007a66] text-[13px] font-bold transition-all duration-200"
-                    >
-                      <Download className="w-4 h-4" /> Download Manual
+                    <p className="text-[15px] font-bold text-slate-700 mb-1.5">No guides match "{guideSearch}"</p>
+                    <p className="text-[13px] text-slate-500 mb-6">Try a different country name, or clear the search.</p>
+                    <button onClick={() => setGuideSearch("")}
+                      className="text-[13px] font-bold text-[#009e86] hover:underline">
+                      Clear search
                     </button>
-                  </CardBody>
-                </Card>
-              ))}
-            </div>
+                  </div>
+                );
+              }
+
+              const regionsPresent = REGION_ORDER.filter(r => filtered.some(g => g.region === r));
+
+              return (
+                <div className="space-y-12">
+                  {regionsPresent.map(region => (
+                    <div key={region}>
+                      <div className="flex items-center gap-4 mb-6">
+                        <h4 className="text-[13px] font-extrabold text-slate-500 uppercase tracking-[0.18em] whitespace-nowrap">{region}</h4>
+                        <div className="h-px bg-slate-200 flex-1" />
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                        {filtered.filter(g => g.region === region).map((guide) => (
+                          <Card key={guide.country} className="flex flex-col hover:border-[#00c9a7]/40 hover:shadow-md transition-all duration-200">
+                            <CardBody className="flex flex-col flex-1 justify-between">
+                              <div>
+                                <div className="flex items-start justify-between mb-6 gap-2">
+                                  <FlagImg country={guide.country} className="w-14 h-auto rounded-md shadow-sm border border-slate-100" />
+                                  <span className="text-[11px] font-mono font-semibold text-slate-400 bg-slate-100 px-3 py-1.5 rounded-full whitespace-nowrap">
+                                    {guide.size}
+                                  </span>
+                                </div>
+                                <h5 className="text-[16px] font-bold text-slate-900 mb-1.5">{guide.country}</h5>
+                                <p className="text-[13px] text-slate-500 leading-relaxed">
+                                  Tariffs, entity setup, and compliance requirements for market entry.
+                                </p>
+                              </div>
+                              <button onClick={() => handleOpenGate(guide)}
+                                className="mt-8 w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-[13px] border transition-all duration-200"
+                                style={{ backgroundColor: "#e6f9f6", borderColor: "#00c9a7", color: "#007a66" }}
+                                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#00c9a7"; e.currentTarget.style.color = "#ffffff"; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "#e6f9f6"; e.currentTarget.style.color = "#007a66"; }}
+                              >
+                                <Download className="w-4 h-4" /> Download Guide
+                              </button>
+                            </CardBody>
+                          </Card>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              );
+            })()}
           </div>
         )}
 
@@ -519,7 +639,7 @@ Connect Ventures | Comply Globally — complyglobally.com
                     color: activeTool === tool ? "#ffffff" : "#000000"
                   }}
                 >
-                  {tool === "fiscal" ? "🇮🇳 ⇄ 🇺🇸  India ⇄ USA Fiscal" : "📦  Export Landed Cost"}
+                  {tool === "fiscal" ? "India ⇄ USA Fiscal" : "Export Landed Cost"}
                 </button>
               ))}
             </div>
@@ -544,7 +664,11 @@ Connect Ventures | Comply Globally — complyglobally.com
                           {/* India HS */}
                           <div>
                             <div className="flex items-center justify-between mb-2 gap-2">
-                              <label className={labelCls} style={{marginBottom:0}}>🇮🇳 ITC-HS Code (India)</label>
+                              <label className={labelCls} style={{marginBottom:0}}>
+                                <span className="inline-flex items-center gap-1.5">
+                                  <FlagImg country="India" className="w-4 h-auto rounded-sm" /> ITC-HS Code (India)
+                                </span>
+                              </label>
                               <button onClick={() => setIsCustomIndMode(!isCustomIndMode)}
                                 className="text-[11px] text-[#0057c2] font-bold hover:underline whitespace-nowrap">
                                 {isCustomIndMode ? "← Use list" : "Enter custom"}
@@ -570,7 +694,11 @@ Connect Ventures | Comply Globally — complyglobally.com
                           {/* US HTS */}
                           <div>
                             <div className="flex items-center justify-between mb-2 gap-2">
-                              <label className={labelCls} style={{marginBottom:0}}>🇺🇸 US HTS Code</label>
+                              <label className={labelCls} style={{marginBottom:0}}>
+                                <span className="inline-flex items-center gap-1.5">
+                                  <FlagImg country="United States" className="w-4 h-auto rounded-sm" /> US HTS Code
+                                </span>
+                              </label>
                               <button onClick={() => setIsCustomUsMode(!isCustomUsMode)}
                                 className="text-[11px] text-[#0057c2] font-bold hover:underline whitespace-nowrap">
                                 {isCustomUsMode ? "← Use list" : "Enter custom"}
@@ -649,7 +777,7 @@ Connect Ventures | Comply Globally — complyglobally.com
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
                           <div className="sm:pr-10">
                             <p className="text-[10px] font-extrabold text-slate-700 uppercase tracking-[0.18em] mb-2">
-                              🇺🇸 Applies on entry to the US
+                              Applies on entry to the US
                             </p>
                             <ToggleRow checked={applyS122} onChange={setApplyS122}
                               label="Section 122 Surcharge (10%)" sub="US interim regulatory surcharge on CIF value"/>
@@ -661,7 +789,7 @@ Connect Ventures | Comply Globally — complyglobally.com
                           </div>
                           <div className="sm:border-l sm:border-slate-100 sm:pl-10 mt-8 sm:mt-0 pt-8 sm:pt-0 border-t sm:border-t-0 border-slate-100">
                             <p className="text-[10px] font-extrabold text-slate-700 uppercase tracking-[0.18em] mb-2">
-                              🇮🇳 Claimed on the India side
+                              Claimed on the India side
                             </p>
                             <ToggleRow checked={claimRoDTEP} onChange={setClaimRoDTEP}
                               label="RoDTEP & RoSCTL" sub="Rates auto-populated from your HS code"/>
@@ -681,7 +809,10 @@ Connect Ventures | Comply Globally — complyglobally.com
                       <div className="flex items-center justify-between gap-4 px-8 sm:px-10 py-6 border-b border-slate-100">
                         <div>
                           <p className="text-[10px] font-extrabold text-[#009e86] uppercase tracking-[0.2em] mb-1">Step 3 — Side A</p>
-                          <h3 className="text-[16px] font-bold text-slate-900">🇮🇳 India Sovereign Flow</h3>
+                          <h3 className="text-[16px] font-bold text-slate-900 flex items-center gap-2">
+                            <FlagImg country="India" className="w-5 h-auto rounded-sm" />
+                            India Sovereign Flow
+                          </h3>
                         </div>
                         <span className={`text-[15px] font-extrabold font-mono px-4 py-2 rounded-full whitespace-nowrap ${
                           subtotalIndiaNet <= 0 ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-700"
@@ -705,7 +836,10 @@ Connect Ventures | Comply Globally — complyglobally.com
                       <div className="flex items-center justify-between gap-4 px-8 sm:px-10 py-6 border-b border-slate-100">
                         <div>
                           <p className="text-[10px] font-extrabold text-[#0057c2] uppercase tracking-[0.2em] mb-1">Step 3 — Side B</p>
-                          <h3 className="text-[16px] font-bold text-slate-900">🇺🇸 United States Customs Flow</h3>
+                          <h3 className="text-[16px] font-bold text-slate-900 flex items-center gap-2">
+                            <FlagImg country="United States" className="w-5 h-auto rounded-sm" />
+                            United States Customs Flow
+                          </h3>
                         </div>
                         <span className={`text-[15px] font-extrabold font-mono px-4 py-2 rounded-full whitespace-nowrap ${
                           subtotalUsaNet <= 0 ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-700"
@@ -790,8 +924,8 @@ Connect Ventures | Comply Globally — complyglobally.com
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
                           {[
                             { label:"Import Duty Rate (%)", val:importDutyRatePercent, set:setImportDutyRatePercent, step:0.1 },
-                            { label:"🇮🇳 Inland India (USD)",   val:inlandFreightIndia,    set:setInlandFreightIndia,    step:1 },
-                            { label:"🇺🇸 US Last-Mile (USD)",   val:inlandFreightUsa,      set:setInlandFreightUsa,      step:1 },
+                            { label:"Inland India (USD)",   val:inlandFreightIndia,    set:setInlandFreightIndia,    step:1 },
+                            { label:"US Last-Mile (USD)",   val:inlandFreightUsa,      set:setInlandFreightUsa,      step:1 },
                             { label:"Broker & Port (USD)",  val:customsPortHandling,   set:setCustomsPortHandling,   step:1 },
                             { label:"Delay Buffer (days)",  val:delayBuffer,           set:setDelayBuffer,           step:1 },
                           ].map(({label,val,set,step})=>(
@@ -823,8 +957,8 @@ Connect Ventures | Comply Globally — complyglobally.com
                           <TableRow label="Ocean / Air freight"          val={usd(t2FreightCost)}       kind="cost"/>
                           <TableRow label="Cargo insurance"              sub="110% value insured" val={usd(insurancePremiumAmt)} kind="cost"/>
                           <TableRow label="US import customs duty"       sub={`${importDutyRatePercent}% rate`} val={usd(t2UsDuty)} kind="cost"/>
-                          <TableRow label="🇮🇳 Inland transport — India" val={usd(inlandFreightIndia)} kind="cost"/>
-                          <TableRow label="🇺🇸 US last-mile freight"     val={usd(inlandFreightUsa)}   kind="cost"/>
+                          <TableRow label="Inland transport — India" val={usd(inlandFreightIndia)} kind="cost"/>
+                          <TableRow label="US last-mile freight"     val={usd(inlandFreightUsa)}   kind="cost"/>
                           <TableRow label="Customs broker & local fees"  val={usd(customsPortHandling)} kind="cost"/>
                           <TableRow label="Packaging, docs & spoilage"   val={usd(t2OtherCostsTotal)}  kind="cost"/>
                         </tbody>
@@ -851,8 +985,8 @@ Connect Ventures | Comply Globally — complyglobally.com
                     </div>
                     {/* white body */}
                     <div className="bg-white px-7 py-7">
-                      <RailStat label="🇮🇳 India net"          val={usd(subtotalIndiaNet)}      tone="teal"/>
-                      <RailStat label="🇺🇸 USA net"            val={usd(subtotalUsaNet)}        tone="blue"/>
+                      <RailStat label="India net"          val={usd(subtotalIndiaNet)}      tone="teal"/>
+                      <RailStat label="USA net"            val={usd(subtotalUsaNet)}        tone="blue"/>
                       <RailStat label="Total incentives"       val={`−${usd(totalIndiaIncentives)}`} tone="teal"/>
                       <p className="text-[12px] text-slate-400 mt-6 leading-relaxed">
                         Updates live as you adjust inputs. Scroll the tables for the full breakdown.
@@ -907,22 +1041,27 @@ Connect Ventures | Comply Globally — complyglobally.com
         )}
       </div>
 
-      {/* ── DOWNLOAD GATE MODAL ── */}
-      {showGateDialog && selectedGuide && (
+      {/* ── DOWNLOAD GATE MODAL — portaled to <body> so it isn't clipped by the
+            drawer's overflow-hidden + transform ancestor (that was cutting off
+            the bottom of the form, including the Submit button) ── */}
+      {showGateDialog && selectedGuide && modalMounted && createPortal(
         <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 overflow-y-auto"
           style={{background:"rgba(15,23,42,0.55)"}}>
-          <div className="bg-white rounded-2xl border border-[#e2e8ef] w-full max-w-[520px] overflow-hidden shadow-2xl my-8">
-            <div className="flex items-start justify-between gap-3 px-8 py-7 border-b border-slate-100">
-              <div>
-                <p className="text-[10px] font-bold text-[#00c9a7] uppercase tracking-[0.22em] mb-1">Connect Ventures Library</p>
-                <h3 className="text-[18px] font-bold text-slate-900">Download: {selectedGuide.country} {selectedGuide.flag}</h3>
+          <div className="bg-white rounded-2xl border border-[#e2e8ef] w-full max-w-[520px] overflow-hidden shadow-2xl my-8 flex flex-col max-h-[90vh]">
+            <div className="flex items-start justify-between gap-3 px-8 py-7 border-b border-slate-100 flex-shrink-0">
+              <div className="flex items-center gap-3">
+                <FlagImg country={selectedGuide.country} className="w-9 h-auto rounded shadow-sm border border-slate-100" />
+                <div>
+                  <p className="text-[10px] font-bold text-[#00c9a7] uppercase tracking-[0.22em] mb-1">Connect Ventures Library</p>
+                  <h3 className="text-[18px] font-bold text-slate-900">Download: {selectedGuide.country}</h3>
+                </div>
               </div>
               <button onClick={()=>setShowGateDialog(false)}
                 className="w-9 h-9 rounded-lg border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-50 transition-colors flex-shrink-0 mt-0.5">
                 <X className="w-4 h-4"/>
               </button>
             </div>
-            <div className="px-8 py-8">
+            <div className="px-8 py-8 overflow-y-auto">
               <form onSubmit={handleGateSubmit} className="space-y-6">
                 {[
                   { label:"Full Name *",      key:"fullName", type:"text",  placeholder:"e.g. Ramesh Kumar",    required:true },
@@ -941,8 +1080,8 @@ Connect Ventures | Comply Globally — complyglobally.com
                     <label className={labelCls}>Country *</label>
                     <select required value={gateForm.country} onChange={e=>setGateForm({...gateForm,country:e.target.value})} className={selectCls}>
                       <option value="">Select…</option>
-                      {["India","United States","Singapore","United Kingdom","Canada","United Arab Emirates","Germany","Other"].map(c=>(
-                        <option key={c} value={c}>{c}</option>
+                      {gateFormCountries.map((name)=>(
+                        <option key={name} value={name}>{name}</option>
                       ))}
                     </select>
                   </div>
@@ -952,20 +1091,35 @@ Connect Ventures | Comply Globally — complyglobally.com
                       onChange={e=>setGateForm({...gateForm,phone:e.target.value})} className={inputCls}/>
                   </div>
                 </div>
-                <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-3 pt-6 border-t border-slate-100">
+
+                {submitError && (
+                  <div className="flex items-start gap-2.5 px-4 py-3 bg-rose-50 border border-rose-200 rounded-xl">
+                    <ShieldAlert className="w-4 h-4 text-rose-500 mt-0.5 flex-shrink-0"/>
+                    <p className="text-[12px] text-rose-700 leading-relaxed">{submitError}</p>
+                  </div>
+                )}
+
+                <div className="flex flex-row items-center justify-end gap-3 pt-6 border-t border-slate-100">
                   <button type="button" onClick={()=>setShowGateDialog(false)}
-                    className="px-6 py-3 text-[13px] font-semibold text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
+                    className="px-6 py-3 text-[13px] font-semibold rounded-xl border transition-colors"
+                    style={{ color: "#475569", borderColor: "#e2e8f0", backgroundColor: "#ffffff" }}>
                     Cancel
                   </button>
-                  <button type="submit"
-                    className="px-7 py-3 bg-slate-900 text-white text-[13px] font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-700 transition-colors">
-                    Submit & Download <ArrowRight className="w-4 h-4"/>
+                  <button type="submit" disabled={isSubmitting}
+                    className="px-7 py-3 text-[13px] font-bold rounded-xl flex items-center justify-center gap-2 transition-colors disabled:cursor-not-allowed"
+                    style={{
+                      backgroundColor: isSubmitting ? "#334155" : "#0b1220",
+                      color: "#ffffff",
+                      opacity: isSubmitting ? 0.7 : 1,
+                    }}>
+                    {isSubmitting ? "Preparing…" : "Submit & Download"} <ArrowRight className="w-4 h-4" style={{ color: "#ffffff" }}/>
                   </button>
                 </div>
               </form>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

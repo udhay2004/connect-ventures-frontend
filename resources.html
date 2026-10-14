@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en" class="notranslate">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <meta name="google" content="notranslate">
+  <meta name="description" content="Free global expansion resources from Connect Ventures — 16 country-specific trade &amp; compliance guides plus interactive landed-cost and duty calculators. Updated for 2026.">
+  <meta name="keywords" content="global expansion resources, trade compliance guides, landed cost calculator, duty calculator India, country market entry guide, RoDTEP drawback calculator">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://theconnectventures.com/resources.html">
+  <title>Resources — Trade Guides &amp; Compliance Calculators | Connect Ventures</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Connect Ventures">
+  <meta property="og:title" content="Resources — Trade Guides &amp; Compliance Calculators | Connect Ventures">
+  <meta property="og:description" content="16 country-specific trade &amp; compliance guides plus interactive landed-cost and duty calculators, updated for 2026.">
+  <meta property="og:url" content="https://theconnectventures.com/resources.html">
+  <meta property="og:image" content="https://theconnectventures.com/assets/og-cover.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Resources — Trade Guides &amp; Compliance Calculators | Connect Ventures">
+  <meta name="twitter:description" content="16 country-specific trade &amp; compliance guides plus interactive landed-cost and duty calculators.">
+  <meta name="twitter:image" content="https://theconnectventures.com/assets/og-cover.jpg">
+
+  <!-- Structured data: Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://theconnectventures.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://theconnectventures.com/resources.html" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: CollectionPage + ItemList of guides -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Global Expansion Resources — Connect Ventures",
+    "url": "https://theconnectventures.com/resources.html",
+    "isPartOf": { "@type": "WebSite", "name": "Connect Ventures", "url": "https://theconnectventures.com/" },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Canada Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 2, "name": "United States Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 3, "name": "United Kingdom Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 4, "name": "Italy Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 5, "name": "Estonia Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 6, "name": "Germany Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 7, "name": "Switzerland Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 8, "name": "Netherlands Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 9, "name": "Singapore Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 10, "name": "Indonesia Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 11, "name": "Thailand Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 12, "name": "Vietnam Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 13, "name": "Philippines Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 14, "name": "Hong Kong Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 15, "name": "Australia Trade &amp; Compliance Guide" },
+        { "@type": "ListItem", "position": 16, "name": "United Arab Emirates Trade &amp; Compliance Guide" }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Web Fonts — same family stack as every other page on the site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/global.css">
+
+  <style>
+    /* Page-specific styles for the Resources page only.
+       Brand tokens, reset, nav, buttons, footer, and the WhatsApp/
+       scroll-top widgets now all live in assets/css/global.css and
+       partials/header.html + partials/footer.html — only the things
+       unique to this page (hero, toolbar, cards, download-gate modal,
+       and the two interactive calculators) stay here. */
+
+    img { max-width: 100%; display: block; }
+
+    /* This page uses a slightly wider content column than the site default */
+    .container { max-width: 1280px; }
+
+    /* ── Hero ── */
+    .res-hero {
+      background: var(--navy);
+      background-image: radial-gradient(circle at 8% 20%, rgba(0,201,167,.10) 0%, transparent 42%),
+                         radial-gradient(circle at 92% 75%, rgba(41,182,246,.10) 0%, transparent 42%);
+      padding: 72px 0 40px;
+      border-bottom: 3px solid var(--teal);
+    }
+    .eyebrow { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .2em; color: var(--teal); margin-bottom: 14px; display: inline-flex; align-items: center; gap: 8px; }
+    .eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px rgba(0,201,167,.18); }
+    .res-hero h1 { color: #fff; font-size: clamp(30px, 4.2vw, 46px); font-weight: 800; letter-spacing: -0.01em; line-height: 1.12; max-width: 720px; }
+    .res-hero h1 em { font-style: italic; font-family: var(--font-serif); color: var(--teal); font-weight: 600; }
+    .res-hero p.lead { color: #94a3b8; font-size: 15.5px; max-width: 620px; margin-top: 16px; line-height: 1.7; }
+    .hero-stats { display: flex; gap: 40px; margin-top: 36px; flex-wrap: wrap; }
+    .hero-stat val { display: block; font-family: var(--font-mono); font-size: 26px; font-weight: 700; color: #fff; }
+    .hero-stat span { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: #64748b; margin-top: 4px; font-weight: 700; }
+
+    /* ── Sticky toolbar: search + filters ── */
+    .toolbar {
+      position: sticky; top: 72px; z-index: 40;
+      background: rgba(248,250,252,.92); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line-light);
+      padding: 18px 0;
+    }
+    .toolbar-inner { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: space-between; }
+    .search-box { position: relative; flex: 1 1 280px; max-width: 360px; }
+    .search-box svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--muted-light); pointer-events: none; }
+    .search-box input {
+      width: 100%; padding: 11px 14px 11px 40px; font-size: 13.5px; font-family: var(--font-display);
+      border: 1.5px solid var(--line-light); border-radius: 10px; background: #fff; color: var(--ink);
+      outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .search-box input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(0,201,167,.15); }
+    .pill-group { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill {
+      font-size: 12.5px; font-weight: 700; padding: 8px 16px; border-radius: 999px;
+      border: 1.5px solid var(--line-light); background: #fff; color: var(--muted); cursor: pointer;
+      transition: all .18s ease; white-space: nowrap;
+    }
+    .pill:hover { border-color: var(--teal); color: var(--teal-dark); }
+    .pill.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+    .pill .count { opacity: .6; margin-left: 4px; font-weight: 600; }
+
+    /* ── Section headers (this page uses a shorter vertical rhythm than the sitewide .section) ── */
+    .section { padding: 56px 0; }
+    .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 28px; flex-wrap: wrap; }
+    .section-head h2 { font-size: 24px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
+    .section-head p { font-size: 13.5px; color: var(--muted); margin-top: 6px; max-width: 520px; }
+    .region-heading { display: flex; align-items: center; gap: 14px; margin: 40px 0 18px; }
+    .region-heading h3 { font-size: 12.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .16em; color: var(--muted); white-space: nowrap; }
+    .region-heading .rule { flex: 1; height: 1px; background: var(--line-light); }
+
+    /* ── Featured strip ── */
+    .featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .featured-card {
+      background: var(--navy); border-radius: 18px; padding: 28px; position: relative; overflow: hidden;
+      color: #fff; display: flex; flex-direction: column; min-height: 200px;
+      border: 1px solid rgba(255,255,255,.06); transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .featured-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(11,21,40,.35); }
+    .featured-card .glow { position: absolute; inset: 0; background: radial-gradient(circle at 85% 0%, rgba(0,201,167,.18), transparent 55%); pointer-events: none; }
+    .featured-badge { display: inline-flex; align-self: flex-start; font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--teal); background: rgba(0,201,167,.12); border: 1px solid rgba(0,201,167,.3); padding: 5px 11px; border-radius: 999px; margin-bottom: 16px; }
+    .featured-card h3 { font-size: 18px; font-weight: 700; line-height: 1.35; margin-bottom: 8px; }
+    .featured-card p { font-size: 12.5px; color: #94a3b8; line-height: 1.6; flex: 1; }
+    .featured-cta { margin-top: 18px; font-size: 12.5px; font-weight: 700; color: var(--teal); display: inline-flex; align-items: center; gap: 6px; }
+
+    /* ── Resource cards ── */
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .r-card {
+      background: #fff; border: 1px solid var(--line-light); border-radius: 16px; padding: 24px;
+      display: flex; flex-direction: column; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+    .r-card:hover { border-color: rgba(0,201,167,.4); box-shadow: 0 10px 28px rgba(15,23,42,.08); transform: translateY(-2px); }
+    .r-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 16px; }
+    .r-flag { width: 46px; height: auto; border-radius: 6px; box-shadow: 0 0 0 1px var(--line-light); }
+    .r-icon-tile { width: 46px; height: 46px; border-radius: 10px; background: var(--teal-light); display: flex; align-items: center; justify-content: center; color: var(--teal-dark); flex-shrink: 0; }
+    .r-meta-pill { font-size: 10.5px; font-family: var(--font-mono); font-weight: 700; color: var(--muted); background: var(--bg-light); border: 1px solid var(--line-light); padding: 4px 9px; border-radius: 999px; white-space: nowrap; }
+    .r-type { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--teal-dark); margin-bottom: 6px; display: block; }
+    .r-card h4 { font-size: 15.5px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .r-card .r-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; flex: 1; }
+    .r-card .r-footline { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line-light); font-size: 11px; color: var(--muted-light); font-weight: 600; }
+    .r-btn {
+      margin-top: 16px; width: 100%; padding: 11px; border-radius: 10px; font-weight: 700; font-size: 12.5px;
+      border: 1.5px solid var(--teal); background: var(--teal-light); color: var(--teal-dark);
+      display: flex; align-items: center; justify-content: center; gap: 7px; cursor: pointer; transition: all .18s ease;
+    }
+    .r-btn:hover { background: var(--teal); color: #fff; }
+
+    /* ── Empty state ── */
+    .empty-state { display: none; flex-direction: column; align-items: center; text-align: center; padding: 80px 0; }
+    .empty-state.show { display: flex; }
+    .empty-state .icon-tile { width: 56px; height: 56px; border-radius: 16px; background: var(--bg-light); border: 1px solid var(--line-light); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: var(--muted-light); }
+    .empty-state h4 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .empty-state p { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+    .empty-state button { font-size: 12.5px; font-weight: 700; color: var(--teal-dark); background: none; border: none; cursor: pointer; }
+    .empty-state button:hover { text-decoration: underline; }
+
+    #guidesWrap.hidden, #toolsWrap.hidden, .featured-grid.hidden { display: none; }
+
+    /* ── Modal (download gate) ── */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(11,21,40,.55); z-index: 300; display: none; align-items: center; justify-content: center; padding: 16px; }
+    .modal-overlay.open { display: flex; }
+    .modal-box { background: #fff; border-radius: 18px; width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto; box-shadow: 0 24px 60px rgba(0,0,0,.3); }
+    .modal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 26px 28px; border-bottom: 1px solid var(--line-light); }
+    .modal-head-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .18em; color: var(--teal-dark); margin-bottom: 4px; }
+    .modal-head h3 { font-size: 17px; font-weight: 700; color: var(--ink); }
+    .modal-close { width: 34px; height: 34px; border-radius: 9px; border: 1px solid var(--line-light); background: #fff; color: var(--muted); cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .modal-close:hover { background: var(--bg-light); color: var(--ink); }
+    .modal-body { padding: 26px 28px; }
+    .f-label { display: block; font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 7px; }
+    .f-group { margin-bottom: 18px; }
+    .f-input, .f-select {
+      width: 100%; padding: 11px 13px; font-size: 13.5px; font-family: var(--font-display);
+      border: 1.5px solid var(--line-light); border-radius: 9px; background: #fff; color: var(--ink); outline: none;
+    }
+    .f-input:focus, .f-select:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(0,201,167,.15); }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .f-error { display: none; background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; font-size: 12px; padding: 10px 12px; border-radius: 8px; margin-bottom: 16px; }
+    .f-error.show { display: block; }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line-light); }
+    .btn-cancel { padding: 11px 20px; border-radius: 10px; font-size: 12.5px; font-weight: 700; border: 1.5px solid var(--line-light); background: #fff; color: var(--muted); cursor: pointer; }
+    .btn-submit { padding: 11px 22px; border-radius: 10px; font-size: 12.5px; font-weight: 700; border: none; background: var(--navy); color: #fff; cursor: pointer; display: flex; align-items: center; gap: 7px; }
+    .btn-submit:disabled { opacity: .65; cursor: not-allowed; }
+
+    @media (max-width: 900px) {
+      .featured-grid, .card-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+      .featured-grid, .card-grid { grid-template-columns: 1fr; }
+      .toolbar-inner { flex-direction: column; align-items: stretch; }
+      .search-box { max-width: none; }
+    }
+
+    /* ── Interactive calculator modal (ported from src/components/ResourcesSection.tsx) ── */
+    .calc-overlay { position: fixed; inset: 0; background: rgba(11,21,40,.6); z-index: 400; display: none; align-items: flex-start; justify-content: center; padding: 40px 20px; overflow-y: auto; }
+    .calc-overlay.open { display: flex; }
+    .calc-box { background: #f4f6f8; border-radius: 20px; width: 100%; max-width: 1180px; margin-bottom: 40px; box-shadow: 0 30px 80px rgba(0,0,0,.35); overflow: hidden; }
+    .calc-head { background: var(--navy); padding: 28px 36px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .calc-head-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .2em; color: var(--teal); margin-bottom: 6px; }
+    .calc-head h2 { font-size: 21px; font-weight: 800; color: #fff; }
+    .calc-close { width: 38px; height: 38px; border-radius: 10px; border: 1px solid rgba(255,255,255,.15); background: transparent; color: #94a3b8; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .calc-close:hover { color: #fff; background: rgba(255,255,255,.08); }
+
+    .calc-tabbar { display: flex; gap: 6px; padding: 14px 36px; background: #fff; border-bottom: 1px solid var(--line-light); }
+    .calc-tab { padding: 10px 18px; border-radius: 9px; font-size: 13px; font-weight: 700; border: none; background: transparent; color: var(--muted); cursor: pointer; font-family: var(--font-display); }
+    .calc-tab:hover { background: var(--bg-light); }
+    .calc-tab.active { background: var(--navy); color: #fff; }
+
+    .calc-body { padding: 32px 36px; display: grid; grid-template-columns: 1fr 320px; gap: 28px; align-items: start; max-height: 74vh; overflow-y: auto; }
+    .calc-col { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+
+    .calc-card { background: #fff; border: 1px solid var(--line-light); border-radius: 16px; overflow: hidden; }
+    .calc-card-body { padding: 26px 28px; }
+    .calc-card-headline { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 28px; border-bottom: 1px solid var(--line-light); }
+    .calc-card-headline .step { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .18em; color: var(--teal-dark); margin-bottom: 4px; }
+    .calc-card-headline h4 { font-size: 15px; font-weight: 700; color: var(--ink); }
+    .calc-card-headline .amt { font-size: 14px; font-weight: 800; font-family: var(--font-mono); padding: 6px 14px; border-radius: 999px; white-space: nowrap; }
+    .amt-pos { background: #ecfdf5; color: #047857; }
+    .amt-neg { background: #fef2f2; color: #b91c1c; }
+
+    .calc-card-body .step { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .18em; color: var(--teal-dark); margin-bottom: 10px; }
+    .calc-h { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .calc-helper { font-size: 12.5px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+    .calc-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .calc-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .calc-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .calc-field label { display: block; font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 7px; }
+    .calc-field input, .calc-field select {
+      width: 100%; padding: 10px 13px; font-size: 13.5px; font-family: var(--font-display);
+      border: 1.5px solid var(--line-light); border-radius: 9px; background: #fff; color: var(--ink); outline: none;
+    }
+    .calc-field input:focus, .calc-field select:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(0,201,167,.15); }
+    .calc-note { font-size: 11.5px; margin-top: 6px; }
+    .calc-note.ok { color: #047857; }
+    .calc-note.err { color: #b91c1c; }
+    .calc-divider { border-top: 1px solid var(--line-light); margin: 22px 0; }
+
+    .calc-toggle-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid #f1f5f9; transition: opacity .15s; }
+    .calc-toggle-row:last-child { border-bottom: none; }
+    .calc-switch { position: relative; width: 42px; height: 24px; border-radius: 999px; border: none; cursor: pointer; flex-shrink: 0; background: var(--muted-light); transition: background .2s; margin-top: 2px; }
+    .calc-switch.on { background: var(--teal); }
+    .calc-switch .knob { position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; transition: transform .2s; }
+    .calc-switch.on .knob { transform: translateX(18px); }
+    .calc-toggle-text .t-label { font-size: 13.5px; font-weight: 600; color: var(--ink); display: block; }
+    .calc-toggle-text .t-sub { font-size: 11.5px; color: var(--muted); margin-top: 2px; display: block; }
+    .calc-toggle-col-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: 4px; }
+
+    .calc-table { width: 100%; border-collapse: collapse; }
+    .calc-table tr.offset { background: #ecfdf5; }
+    .calc-table td { padding: 13px 28px; font-size: 13.5px; border-bottom: 1px solid #f8fafc; }
+    .calc-table tr:last-child td { border-bottom: none; }
+    .calc-table td.label-cell .sub { display: block; font-size: 11.5px; color: var(--muted-light); margin-top: 2px; }
+    .calc-table td.val-cell { text-align: right; font-family: var(--font-mono); font-weight: 700; white-space: nowrap; }
+    .calc-table tr.offset td.val-cell { color: #047857; }
+
+    .calc-rail { position: sticky; top: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-light); box-shadow: 0 6px 20px rgba(15,23,42,.06); }
+    .calc-rail-head { background: var(--navy-dark); padding: 26px; }
+    .calc-rail-head .lbl { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .18em; color: #64748b; margin-bottom: 4px; }
+    .calc-rail-head .sub { font-size: 12px; color: #94a3b8; margin-bottom: 14px; }
+    .calc-rail-head .big { font-size: 30px; font-weight: 800; color: #fff; font-family: var(--font-mono); line-height: 1; margin-bottom: 12px; }
+    .calc-rail-head .pct { display: inline-flex; font-size: 11px; font-weight: 800; padding: 6px 12px; border-radius: 999px; background: rgba(0,201,167,.18); color: var(--teal); }
+    .calc-rail-body { background: #fff; padding: 24px 26px; }
+    .calc-rail-stat { display: flex; align-items: baseline; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid #f1f5f9; }
+    .calc-rail-stat:last-of-type { border-bottom: none; }
+    .calc-rail-stat .l { font-size: 12.5px; color: var(--muted); font-weight: 600; }
+    .calc-rail-stat .v { font-size: 13.5px; font-family: var(--font-mono); font-weight: 800; }
+    .calc-rail-stat .v.teal { color: var(--teal-dark); }
+    .calc-rail-stat .v.blue { color: var(--blue-dark); }
+    .calc-rail-note { font-size: 11.5px; color: var(--muted-light); line-height: 1.6; margin-top: 16px; }
+    .calc-mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+    .calc-mini-stat { background: var(--bg-light); border: 1px solid var(--line-light); border-radius: 10px; padding: 12px; text-align: center; }
+    .calc-mini-stat .l { font-size: 9.5px; font-weight: 800; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; letter-spacing: .06em; }
+    .calc-mini-stat .v { font-size: 18px; font-weight: 800; color: var(--ink); font-family: var(--font-mono); }
+
+    .calc-disclaimer { display: flex; align-items: flex-start; gap: 10px; background: #fff; border: 1px solid var(--line-light); border-radius: 14px; padding: 18px 22px; font-size: 12px; color: var(--muted); line-height: 1.6; margin: 0 36px 28px; }
+    .calc-disclaimer a { color: var(--blue-dark); font-weight: 700; }
+    .calc-disclaimer svg { flex-shrink: 0; margin-top: 2px; }
+
+    @media (max-width: 980px) {
+      .calc-body { grid-template-columns: 1fr; }
+      .calc-rail { position: static; }
+    }
+    @media (max-width: 640px) {
+      .calc-grid-2, .calc-grid-3, .calc-grid-4 { grid-template-columns: 1fr 1fr; }
+      .calc-head, .calc-tabbar, .calc-body { padding-left: 20px; padding-right: 20px; }
+      .calc-disclaimer { margin-left: 20px; margin-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <!-- Hero -->
+  <section class="res-hero">
+    <div class="container">
+      <span class="eyebrow">Knowledge &amp; intelligence suite</span>
+      <h1>Compliance &amp; fiscal <em>resources</em>, built for operators</h1>
+      <p class="lead">Sixteen country-specific trade guides and two interactive calculators — the same tools our advisory team uses with clients — free to access, updated for 2026.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><val>16</val><span>Country guides</span></div>
+        <div class="hero-stat"><val>2</val><span>Interactive tools</span></div>
+        <div class="hero-stat"><val>4</val><span>Regions covered</span></div>
+        <div class="hero-stat"><val>2026</val><span>Last updated</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky toolbar -->
+  <div class="toolbar">
+    <div class="container toolbar-inner">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="resSearch" placeholder="Search countries, tools…" autocomplete="off">
+      </div>
+      <div class="pill-group" id="typePills">
+        <button class="pill active" data-type="all">All resources <span class="count">18</span></button>
+        <button class="pill" data-type="tools">Interactive tools <span class="count">2</span></button>
+        <button class="pill" data-type="guides">Trade guides <span class="count">16</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured -->
+  <section class="section" style="padding-bottom: 0;">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Most used this quarter</h2>
+          <p>The three resources our clients reach for first when planning a new-market launch.</p>
+        </div>
+      </div>
+      <div class="featured-grid">
+        <a href="#" class="featured-card" data-calc-trigger="landed">
+          <div class="glow"></div>
+          <span class="featured-badge">Interactive Tool</span>
+          <h3>Landed Cost Calculator</h3>
+          <p>Model duty, freight, insurance and total landed cost for India ⇄ US shipments across 24 HS/HTS code pairs.</p>
+          <span class="featured-cta">Launch calculator →</span>
+        </a>
+        <a href="#" class="featured-card" data-calc-trigger="fiscal">
+          <div class="glow"></div>
+          <span class="featured-badge">Interactive Tool</span>
+          <h3>Tariff &amp; Duty Estimator</h3>
+          <p>Compare RoDTEP, drawback and RoSCTL offsets against destination MFN duty rates by product category.</p>
+          <span class="featured-cta">Launch calculator →</span>
+        </a>
+        <a href="#" class="featured-card" data-guide-trigger data-country="United States">
+          <div class="glow"></div>
+          <span class="featured-badge">Trade Guide · Most downloaded</span>
+          <h3>United States Market Entry Guide</h3>
+          <p>Entity setup, EIN &amp; FinCEN filing, sales tax nexus and banking — the complete US playbook.</p>
+          <span class="featured-cta">Download guide →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Tools -->
+  <section class="section" id="tools">
+    <div class="container" id="toolsWrap">
+      <div class="section-head">
+        <div>
+          <h2>Interactive tools</h2>
+          <p>Full calculators live in-app for instant, no-reload results.</p>
+        </div>
+      </div>
+      <div class="card-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <a href="#" class="r-card" data-calc-trigger="landed">
+          <div class="r-card-top">
+            <div class="r-icon-tile">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="8" y2="18"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+            </div>
+            <span class="r-meta-pill">Free</span>
+          </div>
+          <span class="r-type">Calculator</span>
+          <h4>Landed Cost Calculator</h4>
+          <p class="r-desc">India ⇄ US sea &amp; air freight, insurance, packaging and customs duty rolled into one total landed cost, by HS/HTS code.</p>
+          <div class="r-footline"><span>Connect Ventures · Comply Globally</span><span>2026 rates</span></div>
+        </a>
+        <a href="#" class="r-card" data-calc-trigger="fiscal">
+          <div class="r-card-top">
+            <div class="r-icon-tile">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+            </div>
+            <span class="r-meta-pill">Free</span>
+          </div>
+          <span class="r-type">Calculator</span>
+          <h4>Tariff &amp; Duty Estimator</h4>
+          <p class="r-desc">Compare India RoDTEP / drawback / RoSCTL offsets against US MFN tariff rates for 24 common HS code categories.</p>
+          <div class="r-footline"><span>Connect Ventures · Comply Globally</span><span>2026 rates</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trade Guides Library -->
+  <section class="section" id="guides" style="padding-top: 0;">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Trade &amp; compliance guides</h2>
+          <p>Entity setup, tax, and market-entry requirements for 16 countries — free download, no account needed.</p>
+        </div>
+        <div class="pill-group" id="regionPills">
+          <button class="pill active" data-region="all">All regions</button>
+          <button class="pill" data-region="Americas">Americas</button>
+          <button class="pill" data-region="Europe">Europe</button>
+          <button class="pill" data-region="Asia-Pacific">Asia-Pacific</button>
+          <button class="pill" data-region="Middle East">Middle East</button>
+        </div>
+      </div>
+      <div id="guidesWrap"></div>
+      <div class="empty-state" id="emptyState">
+        <div class="icon-tile">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h4 id="emptyTitle">No resources match your search</h4>
+        <p>Try a different keyword, or clear your filters.</p>
+        <button id="emptyClear">Clear search &amp; filters</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download gate modal -->
+  <div class="modal-overlay" id="gateModal" role="dialog" aria-modal="true" aria-label="Download guide">
+    <div class="modal-box">
+      <div class="modal-head">
+        <div>
+          <div class="modal-head-label">Connect Ventures Library</div>
+          <h3 id="gateTitle">Download guide</h3>
+        </div>
+        <button class="modal-close" id="gateClose" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="gateForm">
+          <div class="f-group">
+            <label class="f-label" for="gFullName">Full Name *</label>
+            <input class="f-input" id="gFullName" type="text" placeholder="e.g. Ramesh Kumar" required>
+          </div>
+          <div class="f-group">
+            <label class="f-label" for="gEmail">Business Email *</label>
+            <input class="f-input" id="gEmail" type="email" placeholder="ramesh@company.com" required>
+          </div>
+          <div class="f-group">
+            <label class="f-label" for="gCompany">Company Name *</label>
+            <input class="f-input" id="gCompany" type="text" placeholder="e.g. AgriCrop Inc." required>
+          </div>
+          <div class="f-row">
+            <div class="f-group">
+              <label class="f-label" for="gCountry">Country *</label>
+              <select class="f-select" id="gCountry" required>
+                <option value="">Select…</option>
+                <option>India</option><option>United States</option><option>United Kingdom</option>
+                <option>Canada</option><option>Singapore</option><option>United Arab Emirates</option>
+                <option>Germany</option><option>Australia</option><option>Netherlands</option>
+                <option>Switzerland</option><option>Hong Kong</option><option>Indonesia</option>
+                <option>Vietnam</option><option>Thailand</option><option>Philippines</option>
+                <option>Italy</option><option>Estonia</option><option>Other</option>
+              </select>
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="gPhone">Phone (optional)</label>
+              <input class="f-input" id="gPhone" type="tel" placeholder="+91 99999 81613">
+            </div>
+          </div>
+          <div class="f-error" id="gError"></div>
+          <div class="modal-actions">
+            <button type="button" class="btn-cancel" id="gateCancel">Cancel</button>
+            <button type="submit" class="btn-submit" id="gateSubmit">Submit &amp; Download →</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive calculators modal -->
+  <div class="calc-overlay" id="calcModal" role="dialog" aria-modal="true" aria-label="Interactive calculators">
+    <div class="calc-box">
+      <div class="calc-head">
+        <div>
+          <div class="calc-head-label">Knowledge &amp; Intelligence Suite</div>
+          <h2>Compliance &amp; Fiscal Calculators</h2>
+        </div>
+        <button class="calc-close" id="calcClose" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+        </button>
+      </div>
+      <div class="calc-tabbar">
+        <button class="calc-tab active" data-calc-tab="fiscal">India ⇄ USA Fiscal</button>
+        <button class="calc-tab" data-calc-tab="landed">Export Landed Cost</button>
+      </div>
+
+      <!-- FISCAL TOOL -->
+      <div class="calc-body" id="calcFiscalPanel">
+        <div class="calc-col">
+          <div class="calc-card"><div class="calc-card-body">
+            <div class="step">Step 1</div>
+            <h4 class="calc-h">Cargo &amp; Classification Codes</h4>
+            <p class="calc-helper">Select your Indian ITC-HS code and matching US HTS code. Incentive rates auto-populate.</p>
+            <div class="calc-grid-2">
+              <div class="calc-field">
+                <label>ITC-HS Code (India)</label>
+                <select id="fIndCode"></select>
+                <div class="calc-note" id="fIndNote"></div>
+              </div>
+              <div class="calc-field">
+                <label>US HTS Code</label>
+                <select id="fUsCode"></select>
+                <div class="calc-note" id="fUsNote"></div>
+              </div>
+            </div>
+            <div class="calc-divider"></div>
+            <div class="calc-grid-3">
+              <div class="calc-field"><label>Shipping Mode</label>
+                <select id="fShipMode"><option value="Sea">Sea</option><option value="Air">Air</option></select>
+              </div>
+              <div class="calc-field"><label>FOB Value (USD)</label><input type="number" id="fFob" value="50000"></div>
+              <div class="calc-field"><label>CIF / Customs Value (USD)</label><input type="number" id="fCif" value="55000"></div>
+            </div>
+            <div class="calc-grid-4" style="margin-top:16px;">
+              <div class="calc-field"><label>Imported Inputs (USD)</label><input type="number" id="fImportedInput" value="10000"></div>
+              <div class="calc-field"><label>Input GST Paid (USD)</label><input type="number" id="fGstPaid" value="1800"></div>
+              <div class="calc-field"><label>Export Credit (USD)</label><input type="number" id="fExportCredit" value="15000"></div>
+              <div class="calc-field"><label>Re-exported from US?</label>
+                <select id="fReExported"><option value="No">No</option><option value="Yes">Yes</option></select>
+              </div>
+            </div>
+          </div></div>
+
+          <div class="calc-card"><div class="calc-card-body">
+            <div class="step">Step 2</div>
+            <h4 class="calc-h">Compliance &amp; Cost Offsets</h4>
+            <p class="calc-helper">Toggle US surcharges and select Indian incentives you intend to claim.</p>
+            <div class="calc-grid-2">
+              <div>
+                <div class="calc-toggle-col-label">Applies on entry to the US</div>
+                <div class="calc-toggle-row"><button class="calc-switch on" id="tS122"><span class="knob"></span></button><span class="calc-toggle-text"><span class="t-label">Section 122 Surcharge (10%)</span><span class="t-sub">US interim regulatory surcharge on CIF value</span></span></div>
+                <div class="calc-toggle-row"><button class="calc-switch" id="tForcedLabor"><span class="knob"></span></button><span class="calc-toggle-text"><span class="t-label">Forced-Labour Duty (12.5%)</span><span class="t-sub">Proposed compliance duty — not yet enacted</span></span></div>
+                <div class="calc-toggle-row" id="tUsDrawbackRow"><button class="calc-switch" id="tUsDrawback"><span class="knob"></span></button><span class="calc-toggle-text"><span class="t-label">US Duty Drawback (99%)</span><span class="t-sub">Recovery available only when goods are re-exported</span></span></div>
+              </div>
+              <div>
+                <div class="calc-toggle-col-label">Claimed on the India side</div>
+                <div class="calc-toggle-row"><button class="calc-switch on" id="tRoDTEP"><span class="knob"></span></button><span class="calc-toggle-text"><span class="t-label">RoDTEP &amp; RoSCTL</span><span class="t-sub">Rates auto-populated from your HS code</span></span></div>
+                <div class="calc-toggle-row"><button class="calc-switch on" id="tDrawbackInd"><span class="knob"></span></button><span class="calc-toggle-text"><span class="t-label">Duty Drawback (India)</span><span class="t-sub">Applied on FOB value</span></span></div>
+                <div class="calc-toggle-row"><button class="calc-switch on" id="tGstRefund"><span class="knob"></span></button><span class="calc-toggle-text"><span class="t-label">GST / IGST Refund</span><span class="t-sub">Full refund of input GST paid</span></span></div>
+                <div class="calc-toggle-row"><button class="calc-switch" id="tIntEqualisation"><span class="knob"></span></button><span class="calc-toggle-text"><span class="t-label">Interest Equalisation (3%)</span><span class="t-sub">Applied to export credit facility</span></span></div>
+              </div>
+            </div>
+          </div></div>
+
+          <div class="calc-card">
+            <div class="calc-card-headline">
+              <div><div class="step" style="color:var(--teal-dark);">Step 3 — Side A</div><h4>India Sovereign Flow</h4></div>
+              <span class="amt" id="fIndiaNetAmt"></span>
+            </div>
+            <table class="calc-table"><tbody id="fIndiaTable"></tbody></table>
+          </div>
+
+          <div class="calc-card">
+            <div class="calc-card-headline">
+              <div><div class="step" style="color:var(--blue-dark);">Step 3 — Side B</div><h4>United States Customs Flow</h4></div>
+              <span class="amt" id="fUsNetAmt"></span>
+            </div>
+            <table class="calc-table"><tbody id="fUsTable"></tbody></table>
+          </div>
+        </div>
+
+        <div class="calc-rail">
+          <div class="calc-rail-head">
+            <div class="lbl">Net result</div>
+            <div class="sub">Total Net Government Cost</div>
+            <div class="big" id="fNetTotal"></div>
+            <span class="pct" id="fNetPct"></span>
+          </div>
+          <div class="calc-rail-body">
+            <div class="calc-rail-stat"><span class="l">India net</span><span class="v teal" id="fRailIndia"></span></div>
+            <div class="calc-rail-stat"><span class="l">USA net</span><span class="v blue" id="fRailUsa"></span></div>
+            <div class="calc-rail-stat"><span class="l">Total incentives</span><span class="v teal" id="fRailIncentives"></span></div>
+            <p class="calc-rail-note">Updates live as you adjust inputs. Scroll the tables for the full breakdown.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LANDED COST TOOL -->
+      <div class="calc-body" id="calcLandedPanel" style="display:none;">
+        <div class="calc-col">
+          <div class="calc-card"><div class="calc-card-body">
+            <div class="step">Step 1</div>
+            <h4 class="calc-h">Shipment Dimensions &amp; Corridor</h4>
+            <p class="calc-helper">Configure product category, shipping mode, weight, volume and cargo value.</p>
+            <div class="calc-grid-2">
+              <div class="calc-field"><label>Product Category</label><select id="lCategory"></select></div>
+              <div class="calc-field"><label>Shipping Mode</label>
+                <select id="lShipMode">
+                  <option value="Sea-FCL-40ft">Sea — Full Container (FCL 40ft)</option>
+                  <option value="Sea-LCL">Sea — Less than Container (LCL)</option>
+                  <option value="Air-Standard">Air — Standard Cargo</option>
+                  <option value="Air-Express">Air — Express Delivery</option>
+                  <option value="Air-Pharma">Air — Cold-Chain Pharmaceutical</option>
+                  <option value="Air-Perishable">Air — Perishable Cargo</option>
+                </select>
+              </div>
+            </div>
+            <div class="calc-field" id="lRouteWrap" style="margin-top:16px;">
+              <label>Trade Route Corridor</label>
+              <select id="lRoute"></select>
+            </div>
+            <div class="calc-divider"></div>
+            <div class="calc-grid-4">
+              <div class="calc-field"><label>Weight (kg)</label><input type="number" id="lWeight" value="3500"></div>
+              <div class="calc-field"><label>Volume (CBM)</label><input type="number" id="lVolume" value="14"></div>
+              <div class="calc-field"><label>Cargo Value (USD)</label><input type="number" id="lCargoValue" value="120000"></div>
+              <div class="calc-field" id="lContainersWrap"><label>Containers</label><input type="number" id="lContainers" value="1"></div>
+            </div>
+          </div></div>
+
+          <div class="calc-card"><div class="calc-card-body">
+            <div class="step">Step 2</div>
+            <h4 class="calc-h">Financial &amp; Inland Assumptions</h4>
+            <p class="calc-helper">Adjust duty rate, inland costs, broker fees and transit buffer.</p>
+            <div class="calc-grid-3">
+              <div class="calc-field"><label>Import Duty Rate (%)</label><input type="number" step="0.1" id="lDutyRate" value="10"></div>
+              <div class="calc-field"><label>Inland India (USD)</label><input type="number" id="lInlandIndia" value="450"></div>
+              <div class="calc-field"><label>US Last-Mile (USD)</label><input type="number" id="lInlandUsa" value="900"></div>
+              <div class="calc-field"><label>Broker &amp; Port (USD)</label><input type="number" id="lBroker" value="550"></div>
+              <div class="calc-field"><label>Delay Buffer (days)</label><input type="number" id="lDelay" value="5"></div>
+            </div>
+          </div></div>
+
+          <div class="calc-card">
+            <div class="calc-card-headline">
+              <div><div class="step" style="color:var(--teal-dark);">Step 3</div><h4>Logistics Cost Breakdown</h4></div>
+              <span class="amt" id="lTransitBadge" style="background:var(--blue-light); color:var(--blue-dark);"></span>
+            </div>
+            <table class="calc-table"><tbody id="lTable"></tbody></table>
+          </div>
+        </div>
+
+        <div class="calc-rail">
+          <div class="calc-rail-head">
+            <div class="lbl">Net result</div>
+            <div class="sub">Total Landed Cost</div>
+            <div class="big" id="lTotal"></div>
+          </div>
+          <div class="calc-rail-body">
+            <div class="calc-mini-stats">
+              <div class="calc-mini-stat"><div class="l">Landed factor</div><div class="v" id="lPct"></div></div>
+              <div class="calc-mini-stat"><div class="l">Cost / kg</div><div class="v" id="lPerKg"></div></div>
+            </div>
+            <div class="calc-rail-stat"><span class="l">Freight cost</span><span class="v" id="lRailFreight"></span></div>
+            <div class="calc-rail-stat"><span class="l">Insurance</span><span class="v" id="lRailInsurance"></span></div>
+            <div class="calc-rail-stat"><span class="l">Customs duty</span><span class="v" id="lRailDuty"></span></div>
+            <div class="calc-rail-stat"><span class="l">Transit time</span><span class="v blue" id="lRailTransit"></span></div>
+            <p class="calc-rail-note">Updates live as you adjust inputs.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-disclaimer">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <span>All figures are 2026 representative benchmarks — not legal or tax advice. Verify rates at <a href="https://dgft.gov.in" target="_blank" rel="noopener">dgft.gov.in</a> and <a href="https://hts.usitc.gov" target="_blank" rel="noopener">hts.usitc.gov</a>. Prepared by Connect Ventures | Comply Globally — <a href="https://complyglobally.com" target="_blank" rel="noopener">complyglobally.com</a></span>
+      </div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/include-partials.js" defer></script>
+
+  <script>
+    // ═══════════════════════════════════════════
+    // DATA — mirrors downloadableGuides / COUNTRY_FILE_MAP
+    // in src/components/ResourcesSection.tsx and
+    // cvbackend/routes/guides.js. If you add a country
+    // in one place, add it in all three.
+    // ═══════════════════════════════════════════
+    const API_BASE = "https://cvbackend-production-843a.up.railway.app";
+
+    const FLAG_CODES = {
+      Canada: "ca", "United Kingdom": "gb", "United States": "us", Singapore: "sg",
+      Indonesia: "id", "United Arab Emirates": "ae", Thailand: "th", Vietnam: "vn",
+      Philippines: "ph", Italy: "it", Estonia: "ee", "Hong Kong": "hk",
+      Germany: "de", Australia: "au", Switzerland: "ch", Netherlands: "nl",
+    };
+
+    const GUIDES = [
+      { country: "Canada", size: "4.1 MB", region: "Americas" },
+      { country: "United States", size: "4.5 MB", region: "Americas" },
+      { country: "United Kingdom", size: "3.9 MB", region: "Europe" },
+      { country: "Italy", size: "4.3 MB", region: "Europe" },
+      { country: "Estonia", size: "3.2 MB", region: "Europe" },
+      { country: "Germany", size: "4.5 MB", region: "Europe" },
+      { country: "Switzerland", size: "3.8 MB", region: "Europe" },
+      { country: "Netherlands", size: "4.2 MB", region: "Europe" },
+      { country: "Singapore", size: "3.8 MB", region: "Asia-Pacific" },
+      { country: "Indonesia", size: "4.0 MB", region: "Asia-Pacific" },
+      { country: "Thailand", size: "3.9 MB", region: "Asia-Pacific" },
+      { country: "Vietnam", size: "4.2 MB", region: "Asia-Pacific" },
+      { country: "Philippines", size: "3.6 MB", region: "Asia-Pacific" },
+      { country: "Hong Kong", size: "4.1 MB", region: "Asia-Pacific" },
+      { country: "Australia", size: "3.9 MB", region: "Asia-Pacific" },
+      { country: "United Arab Emirates", size: "3.7 MB", region: "Middle East" },
+    ];
+    const REGION_ORDER = ["Americas", "Europe", "Asia-Pacific", "Middle East"];
+
+    const guidesWrap = document.getElementById('guidesWrap');
+    const emptyState = document.getElementById('emptyState');
+    const toolsWrap = document.getElementById('toolsWrap');
+    const searchInput = document.getElementById('resSearch');
+    let activeType = 'all';
+    let activeRegion = 'all';
+
+    function flagSvgOrImg(country) {
+      const code = FLAG_CODES[country];
+      if (!code) return '<div class="r-icon-tile">🌍</div>';
+      return `<img class="r-flag" src="https://flagcdn.com/w160/${code}.png" alt="${country} flag" loading="lazy">`;
+    }
+
+    function renderGuides() {
+      const q = searchInput.value.trim().toLowerCase();
+      const filtered = GUIDES.filter(g =>
+        g.country.toLowerCase().includes(q) &&
+        (activeRegion === 'all' || g.region === activeRegion)
+      );
+
+      if (activeType === 'tools' || filtered.length === 0) {
+        guidesWrap.innerHTML = '';
+      }
+
+      if (activeType === 'tools') {
+        emptyState.classList.remove('show');
+        return;
+      }
+
+      if (filtered.length === 0) {
+        emptyState.classList.add('show');
+        document.getElementById('emptyTitle').textContent = `No guides match "${searchInput.value}"`;
+        return;
+      }
+      emptyState.classList.remove('show');
+
+      const regions = REGION_ORDER.filter(r => filtered.some(g => g.region === r));
+      guidesWrap.innerHTML = regions.map(region => `
+        <div class="region-heading"><h3>${region}</h3><div class="rule"></div></div>
+        <div class="card-grid">
+          ${filtered.filter(g => g.region === region).map(g => `
+            <div class="r-card">
+              <div class="r-card-top">
+                ${flagSvgOrImg(g.country)}
+                <span class="r-meta-pill">${g.size}</span>
+              </div>
+              <span class="r-type">Trade Guide · DOCX</span>
+              <h4>${g.country}</h4>
+              <p class="r-desc">Tariffs, entity setup, and compliance requirements for market entry.</p>
+              <div class="r-footline"><span>Connect Ventures</span><span>Updated 2026</span></div>
+              <button class="r-btn" data-guide-trigger data-country="${g.country}">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Guide
+              </button>
+            </div>
+          `).join('')}
+        </div>
+      `).join('');
+    }
+
+    function applyTypeFilter() {
+      if (activeType === 'tools') {
+        toolsWrap.parentElement.classList.remove('hidden');
+        document.getElementById('guides').classList.add('hidden');
+      } else if (activeType === 'guides') {
+        toolsWrap.parentElement.classList.add('hidden');
+        document.getElementById('guides').classList.remove('hidden');
+      } else {
+        toolsWrap.parentElement.classList.remove('hidden');
+        document.getElementById('guides').classList.remove('hidden');
+      }
+      renderGuides();
+    }
+
+    document.querySelectorAll('#typePills .pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#typePills .pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeType = btn.dataset.type;
+        applyTypeFilter();
+      });
+    });
+
+    document.querySelectorAll('#regionPills .pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#regionPills .pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeRegion = btn.dataset.region;
+        renderGuides();
+      });
+    });
+
+    searchInput.addEventListener('input', renderGuides);
+    document.getElementById('emptyClear').addEventListener('click', () => {
+      searchInput.value = '';
+      activeRegion = 'all';
+      document.querySelectorAll('#regionPills .pill').forEach(b => b.classList.remove('active'));
+      document.querySelector('#regionPills .pill[data-region="all"]').classList.add('active');
+      renderGuides();
+    });
+
+    renderGuides();
+
+    // ═══════════════════════════════════════════
+    // Download gate modal — same fields/endpoint as
+    // the React ResourcesDrawer, so backend leads stay unified.
+    // ═══════════════════════════════════════════
+    const gateModal = document.getElementById('gateModal');
+    const gateForm = document.getElementById('gateForm');
+    const gateTitle = document.getElementById('gateTitle');
+    const gError = document.getElementById('gError');
+    const gateSubmit = document.getElementById('gateSubmit');
+    let selectedCountry = null;
+
+    function openGate(country) {
+      selectedCountry = country;
+      gateTitle.textContent = `Download: ${country}`;
+      gError.classList.remove('show');
+      gateForm.reset();
+      gateModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeGate() {
+      gateModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-guide-trigger]');
+      if (trigger) {
+        e.preventDefault();
+        openGate(trigger.dataset.country);
+      }
+    });
+    document.getElementById('gateClose').addEventListener('click', closeGate);
+    document.getElementById('gateCancel').addEventListener('click', closeGate);
+    gateModal.addEventListener('click', (e) => { if (e.target === gateModal) closeGate(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && gateModal.classList.contains('open')) closeGate(); });
+
+    gateForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!selectedCountry) return;
+      gateSubmit.disabled = true;
+      gateSubmit.textContent = 'Preparing…';
+      gError.classList.remove('show');
+
+      try {
+        const res = await fetch(`${API_BASE}/api/guides/download`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fullName: document.getElementById('gFullName').value,
+            email: document.getElementById('gEmail').value,
+            company: document.getElementById('gCompany').value,
+            country: document.getElementById('gCountry').value,
+            phone: document.getElementById('gPhone').value,
+            guideCountry: selectedCountry,
+          }),
+        });
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.error || 'Something went wrong. Please try again.');
+        }
+        const { downloadUrl } = await res.json();
+        const a = document.createElement('a');
+        a.href = `${API_BASE}${downloadUrl}`;
+        a.setAttribute('download', `${selectedCountry.replace(/\s+/g, '_')}_Trade_Guide_2026.docx`);
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        closeGate();
+      } catch (err) {
+        gError.textContent = err.message || 'Something went wrong. Please try again.';
+        gError.classList.add('show');
+      } finally {
+        gateSubmit.disabled = false;
+        gateSubmit.textContent = 'Submit & Download →';
+      }
+    });
+
+    // Deep-link support: resources.html#tools / #guides
+    if (location.hash === '#tools') document.querySelector('#typePills .pill[data-type="tools"]').click();
+    if (location.hash === '#guides') document.querySelector('#typePills .pill[data-type="guides"]').click();
+
+    // ═══════════════════════════════════════════
+    // INTERACTIVE CALCULATORS — ported from
+    // src/components/ResourcesSection.tsx (React drawer).
+    // Formulas kept 1:1 with that file. If you update a
+    // rate/table there, update it here too.
+    // ═══════════════════════════════════════════
+    const indiaHS = {
+      "30049099": { description: "Medicaments, other (formulations)",       rodtep: 0.007,  drawback: 0.015,  rosclt: 0.000 },
+      "29419090": { description: "Antibiotics/APIs, other",                 rodtep: 0.010,  drawback: 0.017,  rosclt: 0.000 },
+      "85171290": { description: "Telephones/smartphones, other",           rodtep: 0.014,  drawback: 0.020,  rosclt: 0.000 },
+      "85423900": { description: "Electronic integrated circuits, other",   rodtep: 0.008,  drawback: 0.015,  rosclt: 0.000 },
+      "71131910": { description: "Gold jewellery, studded",                 rodtep: 0.005,  drawback: 0.010,  rosclt: 0.000 },
+      "71023910": { description: "Cut & polished diamonds",                 rodtep: 0.003,  drawback: 0.005,  rosclt: 0.000 },
+      "84799090": { description: "Machinery parts, other",                  rodtep: 0.016,  drawback: 0.020,  rosclt: 0.000 },
+      "84833000": { description: "Bearings/housings",                       rodtep: 0.017,  drawback: 0.022,  rosclt: 0.000 },
+      "29051100": { description: "Methanol/alcohols",                       rodtep: 0.014,  drawback: 0.018,  rosclt: 0.000 },
+      "29153990": { description: "Esters, other",                           rodtep: 0.016,  drawback: 0.020,  rosclt: 0.000 },
+      "62034200": { description: "Men's cotton trousers",                   rodtep: 0.026,  drawback: 0.028,  rosclt: 0.043 },
+      "61102000": { description: "Cotton sweaters/pullovers",               rodtep: 0.026,  drawback: 0.029,  rosclt: 0.046 },
+      "09042110": { description: "Chilli, dried",                           rodtep: 0.014,  drawback: 0.016,  rosclt: 0.000 },
+      "21039040": { description: "Mixed condiments/sauces",                 rodtep: 0.017,  drawback: 0.019,  rosclt: 0.000 },
+      "03061700": { description: "Frozen shrimp/prawns",                    rodtep: 0.025,  drawback: 0.027,  rosclt: 0.000 },
+      "16052900": { description: "Prepared shrimp",                         rodtep: 0.024,  drawback: 0.026,  rosclt: 0.000 },
+      "72142090": { description: "Bars/rods of iron/steel",                 rodtep: 0.016,  drawback: 0.018,  rosclt: 0.000 },
+      "73269099": { description: "Articles of iron/steel, other",           rodtep: 0.017,  drawback: 0.019,  rosclt: 0.000 },
+      "87089900": { description: "Motor vehicle parts, other",              rodtep: 0.018,  drawback: 0.021,  rosclt: 0.000 },
+      "87082900": { description: "Body parts/accessories",                  rodtep: 0.017,  drawback: 0.020,  rosclt: 0.000 },
+      "64039990": { description: "Leather footwear, other",                 rodtep: 0.022,  drawback: 0.025,  rosclt: 0.000 },
+      "42022210": { description: "Handbags w/ outer leather",               rodtep: 0.020,  drawback: 0.023,  rosclt: 0.000 },
+      "39269099": { description: "Articles of plastics, other",             rodtep: 0.015,  drawback: 0.017,  rosclt: 0.000 },
+      "39202020": { description: "Plates/sheets of polymers",               rodtep: 0.014,  drawback: 0.016,  rosclt: 0.000 },
+    };
+
+    const usHTS = {
+      "3004909200": { description: "Medicaments, other, dosage form",         mfn: 0.000 },
+      "2941909000": { description: "Antibiotics, other",                      mfn: 0.000 },
+      "8517130000": { description: "Smartphones",                             mfn: 0.000 },
+      "8542390001": { description: "Integrated circuits, processors",         mfn: 0.000 },
+      "7113191000": { description: "Gold jewellery articles",                 mfn: 0.055 },
+      "7102391000": { description: "Diamonds, worked, not mounted",           mfn: 0.000 },
+      "8479909500": { description: "Machine parts, other",                    mfn: 0.000 },
+      "8483300000": { description: "Bearing housings, plain shaft",           mfn: 0.045 },
+      "2905110000": { description: "Methanol",                                mfn: 0.055 },
+      "2915399000": { description: "Esters of acetic acid, other",            mfn: 0.037 },
+      "6203424011": { description: "Men's cotton trousers",                   mfn: 0.166 },
+      "6110201000": { description: "Cotton pullovers/sweaters",               mfn: 0.165 },
+      "0904211000": { description: "Paprika/chilli, dried",                   mfn: 0.030 },
+      "2103904000": { description: "Sauces/condiments, other",                mfn: 0.064 },
+      "0306170040": { description: "Frozen shrimp",                           mfn: 0.000 },
+      "1605290510": { description: "Shrimp, prepared",                        mfn: 0.050 },
+      "7214209000": { description: "Iron/steel bars",                         mfn: 0.000 },
+      "7326909860": { description: "Articles of iron/steel, other",           mfn: 0.029 },
+      "8708992300": { description: "Motor vehicle parts, other",              mfn: 0.025 },
+      "8708291500": { description: "Body stampings",                         mfn: 0.025 },
+      "6403990000": { description: "Leather footwear, other",                 mfn: 0.100 },
+      "4202221500": { description: "Handbags, outer leather",                 mfn: 0.080 },
+      "3926909989": { description: "Articles of plastic, other",              mfn: 0.053 },
+      "3920202000": { description: "Polymer plates/sheets",                   mfn: 0.042 },
+    };
+
+    const seaRoutes = {
+      "Nhava Sheva (Mumbai) → Los Angeles":   { transit: 28, fcl40: 3850, lcl: 104 },
+      "Nhava Sheva (Mumbai) → New York":      { transit: 33, fcl40: 4350, lcl: 115 },
+      "Mundra → Los Angeles":                 { transit: 30, fcl40: 3950, lcl: 106 },
+      "Mundra → New York/Savannah":           { transit: 34, fcl40: 4450, lcl: 117 },
+      "Chennai → New York":                   { transit: 35, fcl40: 4550, lcl: 119 },
+      "Nhava Sheva → Houston":                { transit: 36, fcl40: 4650, lcl: 121 },
+    };
+
+    const airRates = {
+      "Air-Standard":    { transit: 6, ratePerKg: 3.50, minKg: 150 },
+      "Air-Express":     { transit: 4, ratePerKg: 8.50, minKg: 1   },
+      "Air-Pharma":      { transit: 5, ratePerKg: 6.50, minKg: 100 },
+      "Air-Perishable":  { transit: 5, ratePerKg: 5.00, minKg: 100 },
+    };
+
+    const categoryRates = {
+      "Pharmaceuticals":           { insurance: 0.0050, spoilage: 0.015, packaging: 0.012, docs: 0.008 },
+      "Electronics":               { insurance: 0.0055, spoilage: 0.003, packaging: 0.015, docs: 0.006 },
+      "Gems & Jewellery":          { insurance: 0.0105, spoilage: 0.000, packaging: 0.008, docs: 0.010 },
+      "Machinery & Parts":         { insurance: 0.0030, spoilage: 0.002, packaging: 0.018, docs: 0.005 },
+      "Organic Chemicals":         { insurance: 0.0060, spoilage: 0.004, packaging: 0.020, docs: 0.009 },
+      "Apparel & Textiles":        { insurance: 0.0032, spoilage: 0.002, packaging: 0.010, docs: 0.005 },
+      "Food & Spices":             { insurance: 0.0055, spoilage: 0.025, packaging: 0.015, docs: 0.010 },
+      "Marine Products (Seafood)": { insurance: 0.0073, spoilage: 0.040, packaging: 0.020, docs: 0.010 },
+      "Iron & Steel Articles":     { insurance: 0.0027, spoilage: 0.001, packaging: 0.012, docs: 0.004 },
+      "Auto Components":          { insurance: 0.0034, spoilage: 0.002, packaging: 0.015, docs: 0.006 },
+      "Leather & Footwear":        { insurance: 0.0037, spoilage: 0.003, packaging: 0.012, docs: 0.006 },
+      "Plastics & Articles":       { insurance: 0.0030, spoilage: 0.002, packaging: 0.012, docs: 0.005 },
+    };
+
+    const usd  = (v) => new Intl.NumberFormat("en-US", { style:"currency", currency:"USD", maximumFractionDigits: 0 }).format(v);
+    const usd2 = (v) => new Intl.NumberFormat("en-US", { style:"currency", currency:"USD", minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(v);
+
+    // ── Populate the two HS/HTS code selects
+    const fIndCodeSel = document.getElementById('fIndCode');
+    const fUsCodeSel = document.getElementById('fUsCode');
+    Object.keys(indiaHS).forEach(code => {
+      const opt = document.createElement('option');
+      opt.value = code;
+      opt.textContent = `${code} — ${indiaHS[code].description.slice(0, 26)}…`;
+      fIndCodeSel.appendChild(opt);
+    });
+    Object.keys(usHTS).forEach(code => {
+      const opt = document.createElement('option');
+      opt.value = code;
+      opt.textContent = `${code} — ${usHTS[code].description.slice(0, 26)}…`;
+      fUsCodeSel.appendChild(opt);
+    });
+    fIndCodeSel.value = "30049099";
+    fUsCodeSel.value = "3004909200";
+
+    // ── Toggle switches (fiscal tool)
+    const fToggles = {
+      applyS122: true, forcedLabor: false, usDrawback: false,
+      roDTEP: true, drawbackInd: true, gstRefund: true, intEqualisation: false,
+    };
+    function wireToggle(btnId, key) {
+      const btn = document.getElementById(btnId);
+      btn.addEventListener('click', () => {
+        fToggles[key] = !fToggles[key];
+        btn.classList.toggle('on', fToggles[key]);
+        updateFiscal();
+      });
+    }
+    wireToggle('tS122', 'applyS122');
+    wireToggle('tForcedLabor', 'forcedLabor');
+    wireToggle('tUsDrawback', 'usDrawback');
+    wireToggle('tRoDTEP', 'roDTEP');
+    wireToggle('tDrawbackInd', 'drawbackInd');
+    wireToggle('tGstRefund', 'gstRefund');
+    wireToggle('tIntEqualisation', 'intEqualisation');
+
+    function tableRow(label, sub, val, isOffset) {
+      return `<tr class="${isOffset ? 'offset' : ''}">
+        <td class="label-cell">${label}${sub ? `<span class="sub">${sub}</span>` : ''}</td>
+        <td class="val-cell">${val}</td>
+      </tr>`;
+    }
+
+    function updateFiscal() {
+      const indData = indiaHS[fIndCodeSel.value];
+      const usData = usHTS[fUsCodeSel.value];
+
+      const fIndNote = document.getElementById('fIndNote');
+      fIndNote.textContent = indData ? indData.description : 'Code not found';
+      fIndNote.className = 'calc-note ' + (indData ? 'ok' : 'err');
+      const fUsNote = document.getElementById('fUsNote');
+      fUsNote.textContent = usData ? usData.description : 'Code not found';
+      fUsNote.className = 'calc-note ' + (usData ? 'ok' : 'err');
+
+      const shipMode = document.getElementById('fShipMode').value;
+      const fob = Math.max(0, +document.getElementById('fFob').value || 0);
+      const cif = Math.max(0, +document.getElementById('fCif').value || 0);
+      const importedInput = Math.max(0, +document.getElementById('fImportedInput').value || 0);
+      const gstPaid = Math.max(0, +document.getElementById('fGstPaid').value || 0);
+      const exportCredit = Math.max(0, +document.getElementById('fExportCredit').value || 0);
+      const reExported = document.getElementById('fReExported').value;
+
+      const drawbackRow = document.getElementById('tUsDrawbackRow');
+      drawbackRow.style.opacity = reExported === 'No' ? .4 : 1;
+      drawbackRow.style.pointerEvents = reExported === 'No' ? 'none' : 'auto';
+
+      const bcd = importedInput * 0.075;
+      const sws = bcd * 0.10;
+      const rodtep = fToggles.roDTEP ? fob * (indData?.rodtep ?? 0) : 0;
+      const rosclt = fToggles.roDTEP ? fob * (indData?.rosclt ?? 0) : 0;
+      const drawbackInd = fToggles.drawbackInd ? fob * (indData?.drawback ?? 0) : 0;
+      const gstRefund = fToggles.gstRefund ? gstPaid : 0;
+      const intEq = fToggles.intEqualisation ? exportCredit * 0.03 : 0;
+      const totalIncentives = rodtep + rosclt + drawbackInd + gstRefund + intEq;
+      const indiaNet = gstPaid + bcd + sws - totalIncentives;
+
+      const mfnRate = usData?.mfn ?? 0;
+      const usDuty = cif * mfnRate;
+      const s122 = fToggles.applyS122 ? cif * 0.10 : 0;
+      const forcedLabor = fToggles.forcedLabor ? cif * 0.125 : 0;
+      const mpf = cif * 0.003464;
+      const hmf = shipMode === 'Sea' ? cif * 0.00125 : 0;
+      const usDrawback = (fToggles.usDrawback && reExported === 'Yes') ? usDuty * 0.99 : 0;
+      const usNet = usDuty + s122 + forcedLabor + mpf + hmf - usDrawback;
+
+      const netTotal = indiaNet + usNet;
+      const netPct = fob > 0 ? (netTotal / fob) * 100 : 0;
+
+      const indiaAmtEl = document.getElementById('fIndiaNetAmt');
+      indiaAmtEl.textContent = usd(indiaNet);
+      indiaAmtEl.className = 'amt ' + (indiaNet <= 0 ? 'amt-pos' : 'amt-neg');
+      const usAmtEl = document.getElementById('fUsNetAmt');
+      usAmtEl.textContent = usd(usNet);
+      usAmtEl.className = 'amt ' + (usNet <= 0 ? 'amt-pos' : 'amt-neg');
+
+      document.getElementById('fIndiaTable').innerHTML =
+        tableRow('Input GST paid', '', usd(gstPaid)) +
+        tableRow('BCD on imported inputs', '7.5% rate', usd(bcd)) +
+        tableRow('SWS on BCD', '10% rate', usd(sws)) +
+        tableRow('RoDTEP & RoSCTL', '', `−${usd(rodtep + rosclt)}`, true) +
+        tableRow('India Duty Drawback', '', `−${usd(drawbackInd)}`, true) +
+        tableRow('GST / IGST Refund', '', `−${usd(gstRefund)}`, true) +
+        tableRow('Interest Equalisation', '3% on export credit', `−${usd(intEq)}`, true);
+
+      let usRowsHtml =
+        tableRow('US MFN Import Duty', `${(mfnRate * 100).toFixed(1)}% on CIF`, usd(usDuty)) +
+        tableRow('Section 122 Surcharge', '', usd(s122)) +
+        tableRow('Forced-Labour Duty', '', usd(forcedLabor)) +
+        tableRow('Merchandise Processing', '0.3464% of CIF', usd(mpf));
+      if (shipMode === 'Sea') usRowsHtml += tableRow('Harbor Maintenance Fee', 'Sea shipments only', usd(hmf));
+      usRowsHtml += tableRow('US Duty Drawback Refund', '99% recovery on re-export', `−${usd(usDrawback)}`, true);
+      document.getElementById('fUsTable').innerHTML = usRowsHtml;
+
+      document.getElementById('fNetTotal').textContent = usd(netTotal);
+      document.getElementById('fNetPct').textContent = `${netPct.toFixed(1)}% of FOB value`;
+      document.getElementById('fRailIndia').textContent = usd(indiaNet);
+      document.getElementById('fRailUsa').textContent = usd(usNet);
+      document.getElementById('fRailIncentives').textContent = `−${usd(totalIncentives)}`;
+    }
+    ['fIndCode','fUsCode','fShipMode','fFob','fCif','fImportedInput','fGstPaid','fExportCredit','fReExported'].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', updateFiscal);
+      el.addEventListener('change', updateFiscal);
+    });
+    updateFiscal();
+
+    // ── Landed Cost tool
+    const lCategorySel = document.getElementById('lCategory');
+    Object.keys(categoryRates).forEach(c => {
+      const opt = document.createElement('option'); opt.value = c; opt.textContent = c;
+      lCategorySel.appendChild(opt);
+    });
+    lCategorySel.value = 'Pharmaceuticals';
+
+    const lRouteSel = document.getElementById('lRoute');
+    Object.keys(seaRoutes).forEach(r => {
+      const opt = document.createElement('option'); opt.value = r; opt.textContent = r;
+      lRouteSel.appendChild(opt);
+    });
+    lRouteSel.value = 'Nhava Sheva (Mumbai) → Los Angeles';
+
+    function updateLanded() {
+      const shipMode = document.getElementById('lShipMode').value;
+      const isAir = shipMode.startsWith('Air');
+      const isSeaFcl = shipMode === 'Sea-FCL-40ft';
+      document.getElementById('lRouteWrap').style.display = isAir ? 'none' : 'block';
+      const containersWrap = document.getElementById('lContainersWrap');
+      containersWrap.style.opacity = isSeaFcl ? 1 : .4;
+      document.getElementById('lContainers').disabled = !isSeaFcl;
+
+      const category = lCategorySel.value;
+      const route = lRouteSel.value;
+      const weight = Math.max(0, +document.getElementById('lWeight').value || 0);
+      const volume = Math.max(0, +document.getElementById('lVolume').value || 0);
+      const cargoValue = Math.max(0, +document.getElementById('lCargoValue').value || 0);
+      const containers = Math.max(1, +document.getElementById('lContainers').value || 1);
+      const dutyRate = Math.max(0, +document.getElementById('lDutyRate').value || 0);
+      const inlandIndia = Math.max(0, +document.getElementById('lInlandIndia').value || 0);
+      const inlandUsa = Math.max(0, +document.getElementById('lInlandUsa').value || 0);
+      const broker = Math.max(0, +document.getElementById('lBroker').value || 0);
+      const delay = Math.max(0, +document.getElementById('lDelay').value || 0);
+
+      const volumetricWeight = volume * 167;
+      const chargeableWeight = isAir ? Math.max(weight, volumetricWeight) : 0;
+
+      let freightCost = 0, transitDays = 0;
+      if (isAir) {
+        const r = airRates[shipMode];
+        if (r) { freightCost = r.ratePerKg * Math.max(chargeableWeight, r.minKg); transitDays = r.transit; }
+      } else {
+        const r = seaRoutes[route];
+        if (r) { freightCost = isSeaFcl ? r.fcl40 * containers : r.lcl * volume; transitDays = r.transit; }
+      }
+
+      const finalTransit = transitDays + delay;
+      const catData = categoryRates[category];
+      const insurance = cargoValue * 1.10 * (catData?.insurance ?? 0.005);
+      const usDuty = cargoValue * (dutyRate / 100);
+      const spoilage = cargoValue * (catData?.spoilage ?? 0) * (finalTransit / 30);
+      const packaging = cargoValue * (catData?.packaging ?? 0);
+      const docs = cargoValue * (catData?.docs ?? 0);
+      const otherCosts = spoilage + packaging + docs;
+      const totalLanded = freightCost + insurance + usDuty + inlandIndia + inlandUsa + broker + otherCosts;
+      const landedPct = cargoValue > 0 ? (totalLanded / cargoValue) * 100 : 0;
+      const perKg = weight > 0 ? totalLanded / weight : 0;
+
+      document.getElementById('lTransitBadge').textContent = `${finalTransit} days`;
+
+      let rowsHtml = '';
+      if (isAir) rowsHtml += tableRow('Chargeable weight', '', `${Math.round(chargeableWeight).toLocaleString()} kg`);
+      rowsHtml += tableRow('Ocean / Air freight', '', usd(freightCost));
+      rowsHtml += tableRow('Cargo insurance', '110% value insured', usd(insurance));
+      rowsHtml += tableRow('US import customs duty', `${dutyRate}% rate`, usd(usDuty));
+      rowsHtml += tableRow('Inland transport — India', '', usd(inlandIndia));
+      rowsHtml += tableRow('US last-mile freight', '', usd(inlandUsa));
+      rowsHtml += tableRow('Customs broker & local fees', '', usd(broker));
+      rowsHtml += tableRow('Packaging, docs & spoilage', '', usd(otherCosts));
+      document.getElementById('lTable').innerHTML = rowsHtml;
+
+      document.getElementById('lTotal').textContent = usd(totalLanded);
+      document.getElementById('lPct').textContent = `${landedPct.toFixed(1)}%`;
+      document.getElementById('lPerKg').textContent = usd2(perKg);
+      document.getElementById('lRailFreight').textContent = usd(freightCost);
+      document.getElementById('lRailInsurance').textContent = usd(insurance);
+      document.getElementById('lRailDuty').textContent = usd(usDuty);
+      document.getElementById('lRailTransit').textContent = `${finalTransit} days`;
+    }
+    ['lCategory','lShipMode','lRoute','lWeight','lVolume','lCargoValue','lContainers','lDutyRate','lInlandIndia','lInlandUsa','lBroker','lDelay'].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', updateLanded);
+      el.addEventListener('change', updateLanded);
+    });
+    updateLanded();
+
+    // ── Modal open/close + tab switching
+    const calcModal = document.getElementById('calcModal');
+    const calcTabs = document.querySelectorAll('.calc-tab');
+    const fiscalPanel = document.getElementById('calcFiscalPanel');
+    const landedPanel = document.getElementById('calcLandedPanel');
+
+    function setCalcTab(tool) {
+      calcTabs.forEach(t => t.classList.toggle('active', t.dataset.calcTab === tool));
+      fiscalPanel.style.display = tool === 'fiscal' ? 'grid' : 'none';
+      landedPanel.style.display = tool === 'landed' ? 'grid' : 'none';
+    }
+    function openCalc(tool) {
+      calcModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setCalcTab(tool === 'landed' ? 'landed' : 'fiscal');
+    }
+    function closeCalc() {
+      calcModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    calcTabs.forEach(t => t.addEventListener('click', () => setCalcTab(t.dataset.calcTab)));
+    document.getElementById('calcClose').addEventListener('click', closeCalc);
+    calcModal.addEventListener('click', (e) => { if (e.target === calcModal) closeCalc(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && calcModal.classList.contains('open')) closeCalc(); });
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-calc-trigger]');
+      if (trigger) {
+        e.preventDefault();
+        openCalc(trigger.dataset.calcTrigger);
+      }
+    });
+
+    // Deep-link support: resources.html#calc-fiscal / #calc-landed
+    if (location.hash === '#calc-fiscal') openCalc('fiscal');
+    if (location.hash === '#calc-landed') openCalc('landed');
+  </script>
+  <script type="module" src="/src/chatWidget.ts"></script>
+</body>
+</html>

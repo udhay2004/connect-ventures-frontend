@@ -1,14 +1,152 @@
 <!doctype html>
 <html lang="en" class="notranslate">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google" content="notranslate" />
-    <title>Connect Ventures | Global Expansion & Compliance Partner</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
 
+  <title>Connect Ventures | Global Expansion & Compliance Partner for Indian Businesses</title>
+
+  <meta
+    name="description"
+    content="Connect Ventures helps Indian businesses expand internationally across 47+ countries with compliance, market entry, and co-creation support through our proprietary 5C framework."
+  />
+  <meta
+    name="keywords"
+    content="global expansion consultant, Indian business international expansion, market entry compliance, Connect Ventures"
+  />
+  <meta name="robots" content="index, follow" />
+
+  <link
+    rel="canonical"
+    href="https://theconnectventures.com/"
+  />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta
+    property="og:title"
+    content="Connect Ventures | Global Expansion & Compliance Partner"
+  />
+  <meta
+    property="og:description"
+    content="Helping Indian businesses expand internationally across 47+ countries through the proprietary 5C framework."
+  />
+  <meta
+    property="og:url"
+    content="https://theconnectventures.com/"
+  />
+  <meta
+    property="og:image"
+    content="https://theconnectventures.com/assets/og-cover.jpg"
+  />
+  <meta property="og:site_name" content="Connect Ventures" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="Connect Ventures | Global Expansion & Compliance Partner"
+  />
+  <meta
+    name="twitter:description"
+    content="Helping Indian businesses expand internationally across 47+ countries."
+  />
+  <meta
+    name="twitter:image"
+    content="https://theconnectventures.com/assets/og-cover.jpg"
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <!-- WebSite schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Connect Ventures",
+    "url": "https://theconnectventures.com/"
+  }
+  </script>
+
+  <!-- Organization schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Connect Ventures",
+    "url": "https://theconnectventures.com/",
+    "logo": "https://theconnectventures.com/assets/logo.png",
+    "description": "Global expansion and compliance partner helping Indian businesses grow into 47+ countries.",
+    "founder": { "@type": "Person", "name": "Dr. Anil Gupta" },
+    "sameAs": [
+      "https://www.linkedin.com/company/connect-ventures-inc/"
+    ]
+  }
+  </script>
+
+  <style>
+    /* Prevents the unstyled flash of the SEO fallback content below before
+       React hydrates. Scoped to #seo-fallback (NOT #root) — #root is the
+       same div the real app mounts into, so styling #root directly would
+       leak into the live site permanently. #seo-fallback only exists until
+       React clears #root's contents and renders the real app in its place,
+       so these styles vanish along with it and never touch the real site. */
+    #seo-fallback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      text-align: center;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: #0b1528;
+      color: #f8fafc;
+    }
+    #seo-fallback h1 { font-size: 20px; font-weight: 700; margin: 0 0 12px; }
+    #seo-fallback p { font-size: 14px; color: #94a3b8; max-width: 520px; margin: 0 0 16px; }
+    #seo-fallback nav { display: none; }
+  </style>
+</head>
+
+<body>
+  <!--
+    Static fallback content below. React hydrates into #root and will
+    visually replace this once JS loads — real visitors never see it as
+    duplicate content. It exists so crawlers that don't execute JavaScript
+    (some AI crawlers, some early-stage Googlebot fetches) still see real
+    text instead of an empty div. Keep this in sync with the live homepage
+    copy when you update it.
+  -->
+  <div id="root">
+    <div id="seo-fallback">
+      <h1>Connect Ventures — Global Expansion &amp; Compliance Partner for Indian Businesses</h1>
+      <p>
+        Connect Ventures helps Indian businesses expand internationally across
+        47+ countries with compliance, market entry, and co-creation support
+        through our proprietary 5C framework: Coaching, Consulting, Connecting,
+        Collaboration, and Co-creation.
+      </p>
+      <nav aria-label="Primary">
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/5c-model.html">The 5C Model</a>
+        <a href="/countries.html">Countries We Serve</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.tsx"></script>
+  <script type="module" src="/src/chatWidget.ts"></script>
+</body>
+</html>

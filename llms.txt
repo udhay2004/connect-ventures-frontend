@@ -1,0 +1,13 @@
+# Connect Ventures
+
+> Connect Ventures helps Indian businesses expand internationally across 47+ countries,
+> providing compliance, market entry strategy, and partner co-creation services through
+> a proprietary 5C framework.
+
+## Key pages
+- [About](https://theconnectventures.com/about.html): Company background and leadership.
+- [Services](https://theconnectventures.com/services.html): Full service offering.
+- [5C Model](https://theconnectventures.com/5c-model.html): Our proprietary expansion framework.
+- [Countries](https://theconnectventures.com/countries.html): Markets we operate in.
+- [FAQ](https://theconnectventures.com/faq.html): Common questions.
+- [Contact](https://theconnectventures.com/contact.html): How to reach us.
