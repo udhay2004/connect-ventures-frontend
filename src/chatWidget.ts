@@ -29,8 +29,8 @@ function mountWidget() {
         background:linear-gradient(135deg,#00c9a7 0%,#0070f3 100%); box-shadow:0 8px 24px rgba(0,112,243,.35);
         border:none; cursor:pointer; z-index:9999; display:flex; align-items:center; justify-content:center; }
       #cv-chat-btn svg { width:28px; height:28px; }
-      #cv-chat-panel { position:fixed; bottom:96px; right:24px; width:360px; max-width:92vw; height:520px;
-        max-height:75vh; background:#fff; border-radius:16px; box-shadow:0 16px 48px rgba(8,12,20,.25);
+      #cv-chat-panel { position:fixed; bottom:96px; right:24px; width:360px; max-width:calc(92vw / var(--zoom, 1)); height:520px;
+        max-height:calc(75vh / var(--zoom, 1)); background:#fff; border-radius:16px; box-shadow:0 16px 48px rgba(8,12,20,.25);
         display:none; flex-direction:column; overflow:hidden; z-index:9999; font-family:'Plus Jakarta Sans',sans-serif; }
       #cv-chat-head { background:linear-gradient(135deg,#00c9a7 0%,#0070f3 100%); color:#fff; padding:14px 16px; font-weight:700;
         display:flex; align-items:center; justify-content:space-between; }

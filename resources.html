@@ -99,7 +99,7 @@
     }
     .eyebrow { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .2em; color: var(--teal); margin-bottom: 14px; display: inline-flex; align-items: center; gap: 8px; }
     .eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px rgba(0,201,167,.18); }
-    .res-hero h1 { color: #fff; font-size: clamp(30px, 4.2vw, 46px); font-weight: 800; letter-spacing: -0.01em; line-height: 1.12; max-width: 720px; }
+    .res-hero h1 { color: #fff; font-size: clamp(30px, calc(4.2vw / var(--zoom, 1)), 46px); font-weight: 800; letter-spacing: -0.01em; line-height: 1.12; max-width: 720px; }
     .res-hero h1 em { font-style: italic; font-family: var(--font-serif); color: var(--teal); font-weight: 600; }
     .res-hero p.lead { color: #94a3b8; font-size: 15.5px; max-width: 620px; margin-top: 16px; line-height: 1.7; }
     .hero-stats { display: flex; gap: 40px; margin-top: 36px; flex-wrap: wrap; }
@@ -191,7 +191,7 @@
     /* ── Modal (download gate) ── */
     .modal-overlay { position: fixed; inset: 0; background: rgba(11,21,40,.55); z-index: 300; display: none; align-items: center; justify-content: center; padding: 16px; }
     .modal-overlay.open { display: flex; }
-    .modal-box { background: #fff; border-radius: 18px; width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto; box-shadow: 0 24px 60px rgba(0,0,0,.3); }
+    .modal-box { background: #fff; border-radius: 18px; width: 100%; max-width: 480px; max-height: calc(90vh / var(--zoom, 1)); overflow-y: auto; box-shadow: 0 24px 60px rgba(0,0,0,.3); }
     .modal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 26px 28px; border-bottom: 1px solid var(--line-light); }
     .modal-head-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .18em; color: var(--teal-dark); margin-bottom: 4px; }
     .modal-head h3 { font-size: 17px; font-weight: 700; color: var(--ink); }
@@ -237,7 +237,7 @@
     .calc-tab:hover { background: var(--bg-light); }
     .calc-tab.active { background: var(--navy); color: #fff; }
 
-    .calc-body { padding: 32px 36px; display: grid; grid-template-columns: 1fr 320px; gap: 28px; align-items: start; max-height: 74vh; overflow-y: auto; }
+    .calc-body { padding: 32px 36px; display: grid; grid-template-columns: 1fr 320px; gap: 28px; align-items: start; max-height: calc(74vh / var(--zoom, 1)); overflow-y: auto; }
     .calc-col { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
 
     .calc-card { background: #fff; border: 1px solid var(--line-light); border-radius: 16px; overflow: hidden; }

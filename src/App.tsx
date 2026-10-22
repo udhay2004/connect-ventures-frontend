@@ -147,8 +147,11 @@ export default function App() {
 
   useEffect(() => {
     // 2. Custom Cursor listener
+    // The page is CSS-zoomed on desktop (see --zoom in index.css), so fixed
+    // positions must be divided by the zoom to line up with the mouse.
+    const zoom = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--zoom')) || 1;
     const handleMouseMove = (e: MouseEvent) => {
-      setCursorPos({ x: e.clientX, y: e.clientY });
+      setCursorPos({ x: e.clientX / zoom, y: e.clientY / zoom });
     };
     window.addEventListener('mousemove', handleMouseMove);
 

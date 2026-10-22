@@ -68,100 +68,265 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/global.css">
   <style>
-    /* Hero stats strip */
-    .hero-stats {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-      margin-top: 40px; background: var(--line-dark);
-      border-top: 1px solid var(--line-dark);
+    /* ── Shared bits ── */
+    .ab-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 9999px;
+      font-size: 11.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--teal-dark); background: rgba(0, 201, 167, 0.1); border: 1px solid rgba(0, 201, 167, 0.25);
     }
-    .hero-stat { background: var(--navy); padding: 22px 8px 26px; }
-    .hero-stat-num { font-family: var(--font-mono); font-size: 28px; font-weight: 600; color: var(--teal); line-height: 1.1; }
-    .hero-stat-label { font-size: 12.5px; color: #94a3b8; margin-top: 6px; }
-    @media (max-width: 640px) { .hero-stats { grid-template-columns: repeat(2, 1fr); } }
+    .ab-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 10px var(--teal); }
+    .ab-eyebrow.on-dark { color: var(--teal); background: rgba(0, 201, 167, 0.08); }
+    .ab-h2 { font-size: clamp(1.9rem, calc(3.4vw / var(--zoom, 1)), 2.9rem); font-weight: 800; color: var(--navy); letter-spacing: -0.025em; line-height: 1.15; margin: 16px 0 14px; text-wrap: balance; }
+    .ab-h2 em { font-family: var(--font-serif); font-style: italic; font-weight: 600; background: linear-gradient(90deg, var(--teal), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .ab-lead { font-size: 16px; color: var(--muted); line-height: 1.8; max-width: 640px; }
+    .ab-center { text-align: center; }
+    .ab-center .ab-lead { margin: 0 auto; }
+    .ab-icon { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
-    /* Who we are */
-    .who-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: start; }
-    .who-text p { font-size: 15px; color: var(--muted); line-height: 1.85; margin-bottom: 18px; }
-    .who-text p strong { color: var(--navy); }
-    .pillar-list { display: flex; flex-direction: column; gap: 14px; }
-    .pillar {
-      background: #ffffff; border: 1px solid var(--line-light); border-left: 4px solid var(--teal);
-      border-radius: 12px; padding: 18px 20px;
-    }
-    .pillar h3 { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
-    .pillar p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
-    .pillar-blue { border-left-color: var(--blue); }
-    .pillar-gold { border-left-color: var(--gold); }
-    @media (max-width: 900px) { .who-grid { grid-template-columns: 1fr; gap: 32px; } }
-
-    /* 5C framework */
-    .fivec-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-    .fivec-card {
-      background: #ffffff; border: 1px solid var(--line-light); border-radius: 16px;
-      padding: 24px 20px; display: flex; flex-direction: column; position: relative; overflow: hidden;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-    }
-    .fivec-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--c); }
-    .fivec-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(15, 23, 42, 0.07); }
-    .fivec-num { font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: 28px; color: var(--c); line-height: 1; }
-    .fivec-card h3 { font-size: 17px; font-weight: 800; color: var(--navy); margin: 12px 0 8px; }
-    .fivec-card p { font-size: 13px; color: var(--muted); line-height: 1.65; flex: 1; }
-    .fivec-link { font-size: 12.5px; font-weight: 700; color: var(--c); margin-top: 16px; }
-    .fivec-card:hover .fivec-link { text-decoration: underline; }
-    .c-coaching { --c: #7c3aed; }
-    .c-consulting { --c: var(--teal-dark); }
-    .c-connecting { --c: #2e7d32; }
-    .c-collaboration { --c: #d97706; }
-    .c-cocreation { --c: #ea580c; }
-    .fivec-more { text-align: center; margin-top: 32px; }
-    @media (max-width: 1100px) { .fivec-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 760px) { .fivec-grid { grid-template-columns: 1fr; } }
-
-    /* Chairman */
-    .chairman-card {
-      display: grid; grid-template-columns: 320px 1fr; background: var(--navy);
-      border-radius: 24px; overflow: hidden; border: 1px solid var(--line-dark);
-      box-shadow: 0 20px 48px rgba(7, 13, 26, 0.18);
-    }
-    .chairman-photo { padding: 48px 0 48px 48px; }
-    .chairman-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 25%; border-radius: 16px; border: 1px solid var(--line-dark); }
-    .chairman-body { padding: 48px 48px 44px; color: #cbd5e1; }
-    .chairman-body .section-eyebrow { margin-bottom: 10px; }
-    .chairman-name { font-family: var(--font-serif); font-size: 36px; font-weight: 700; color: #ffffff; line-height: 1.15; }
-    .chairman-role { font-size: 12px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em; margin: 8px 0 22px; }
-    .chairman-body p { font-size: 14.5px; line-height: 1.8; margin-bottom: 16px; }
-    .chairman-body p strong { color: #ffffff; }
-    .chairman-quote {
-      border-left: 3px solid var(--teal); padding: 4px 0 4px 18px; margin: 24px 0 28px;
-      font-family: var(--font-serif); font-style: italic; font-size: 17px; color: #ffffff; line-height: 1.55;
-    }
-    .chairman-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
-    .chairman-tag {
-      font-size: 11.5px; font-weight: 600; color: #e2e8f0; padding: 5px 12px; border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.05); border: 1px solid var(--line-dark);
-    }
-    @media (max-width: 900px) {
-      .chairman-card { grid-template-columns: 1fr; }
-      .chairman-photo { padding: 32px 24px 0; }
-      .chairman-photo img { max-width: 240px; }
-      .chairman-body { padding: 32px 24px; }
-      .chairman-name { font-size: 30px; }
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); transition-delay: var(--d, 0s); }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .ab-orb, .ab-ring, .marquee-track, .ab-float { animation: none !important; }
     }
 
-    /* Leadership team */
-    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .team-card {
-      background: #ffffff; border: 1px solid var(--line-light); border-radius: 18px; overflow: hidden;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    /* ── Hero ── */
+    .ab-hero { position: relative; overflow: hidden; background: #060c19; color: #fff; padding: 88px 0 150px; }
+    .ab-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 75%);
     }
-    .team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(15, 23, 42, 0.07); }
-    .team-photo { aspect-ratio: 4 / 5; background: var(--navy); position: relative; overflow: hidden; }
-    .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; }
-    .team-info { padding: 18px 20px 22px; border-top: 3px solid var(--teal); }
-    .team-name { font-size: 16px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
-    .team-role { font-size: 12.5px; color: var(--muted); margin-top: 4px; line-height: 1.45; }
-    @media (max-width: 1000px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 520px) { .team-grid { grid-template-columns: 1fr; } }
+    .ab-orb { position: absolute; border-radius: 50%; filter: blur(80px); animation: orbFloat 14s ease-in-out infinite; pointer-events: none; }
+    .ab-orb.o1 { width: 460px; height: 460px; background: #00c9a7; top: -160px; right: 8%; opacity: 0.32; }
+    .ab-orb.o2 { width: 380px; height: 380px; background: #29b6f6; bottom: -120px; left: -80px; opacity: 0.25; animation-delay: -5s; }
+    .ab-orb.o3 { width: 260px; height: 260px; background: #7c3aed; top: 30%; left: 42%; opacity: 0.18; animation-delay: -9s; }
+    @keyframes orbFloat { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(30px, -24px) scale(1.08); } }
+
+    .ab-hero-grid { position: relative; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+    .ab-hero h1 { font-size: clamp(2.5rem, calc(5vw / var(--zoom, 1)), 4.2rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.035em; margin: 22px 0; text-wrap: balance; }
+    .ab-hero h1 em {
+      font-family: var(--font-serif); font-style: italic; font-weight: 600; padding-right: 0.08em; margin-right: -0.06em;
+      background: linear-gradient(100deg, #00c9a7 10%, #29b6f6 60%, #a78bfa 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .ab-hero p { font-size: 17px; line-height: 1.8; color: #b6c2d4; max-width: 560px; margin-bottom: 34px; }
+    .ab-hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* Portrait collage */
+    .ab-collage { position: relative; width: min(100%, 420px); margin-left: auto; aspect-ratio: 4 / 5; }
+    .ab-ring { position: absolute; inset: -34px; border-radius: 50%; border: 1.5px dashed rgba(0, 201, 167, 0.35); animation: spin 40s linear infinite; }
+    .ab-ring::before, .ab-ring::after {
+      content: ''; position: absolute; width: 12px; height: 12px; border-radius: 50%;
+      background: var(--teal); box-shadow: 0 0 16px var(--teal); top: 12%; left: 12%;
+    }
+    .ab-ring::after { background: var(--blue); box-shadow: 0 0 16px var(--blue); top: auto; left: auto; bottom: 10%; right: 14%; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .ab-portrait {
+      position: absolute; inset: 0; border-radius: 28px; overflow: hidden; padding: 3px;
+      background: linear-gradient(140deg, var(--teal), rgba(41, 182, 246, 0.6) 45%, rgba(255, 255, 255, 0.08));
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.45);
+    }
+    .ab-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; border-radius: 25px; display: block; }
+    .ab-glass {
+      position: absolute; background: rgba(10, 18, 34, 0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; padding: 14px 18px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+    .ab-float { animation: bob 6s ease-in-out infinite; }
+    @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .ab-name-card { left: -48px; bottom: 36px; }
+    .ab-name-card strong { display: block; font-size: 15px; font-weight: 800; }
+    .ab-name-card span { font-size: 11.5px; color: var(--teal); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+    .ab-award-card { right: -36px; top: 28px; display: flex; align-items: center; gap: 10px; animation-delay: -3s; max-width: 230px; }
+    .ab-award-card .ab-icon { color: var(--gold); flex-shrink: 0; }
+    .ab-award-card div { font-size: 12px; line-height: 1.4; color: #e2e8f0; font-weight: 600; }
+    .ab-team-card { right: -24px; bottom: -26px; display: flex; align-items: center; gap: 12px; animation-delay: -1.5s; }
+    .ab-avatars { display: flex; }
+    .ab-avatars img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; object-position: 50% 20%; border: 2px solid #0a1222; margin-left: -10px; }
+    .ab-avatars img:first-child { margin-left: 0; }
+    .ab-team-card div { font-size: 12px; color: #cbd5e1; font-weight: 600; line-height: 1.35; }
+
+    /* Stats card overlapping hero */
+    .ab-stats-wrap { position: relative; z-index: 2; margin-top: -86px; }
+    .ab-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); background: #fff; border-radius: 22px;
+      box-shadow: 0 30px 60px rgba(7, 13, 26, 0.12); border: 1px solid var(--line-light); overflow: hidden;
+    }
+    .ab-stat { padding: 30px 28px; position: relative; }
+    .ab-stat + .ab-stat::before { content: ''; position: absolute; left: 0; top: 24%; bottom: 24%; width: 1px; background: var(--line-light); }
+    .ab-stat-num {
+      font-size: clamp(2rem, calc(3.2vw / var(--zoom, 1)), 2.7rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+      background: linear-gradient(120deg, var(--navy) 30%, var(--teal-dark)); -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .ab-stat-label { font-size: 13.5px; color: var(--muted); margin-top: 8px; font-weight: 500; }
+
+    /* Countries marquee */
+    .marquee { margin-top: 56px; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+    .marquee-label { text-align: center; font-size: 11.5px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 18px; }
+    .marquee-track { display: flex; gap: 14px; width: max-content; animation: marquee 38s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee { to { transform: translateX(calc(-50% - 7px)); } }
+    .country-chip {
+      display: inline-flex; align-items: center; gap: 10px; padding: 12px 22px; border-radius: 9999px;
+      background: #fff; border: 1px solid var(--line-light); font-size: 14px; font-weight: 700; color: var(--navy); white-space: nowrap;
+    }
+    .country-chip i { width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), var(--blue)); }
+
+    /* ── Story ── */
+    .ab-story-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: start; }
+    .ab-story p { font-size: 15.5px; color: var(--muted); line-height: 1.9; margin-bottom: 18px; }
+    .ab-story p strong { color: var(--navy); }
+    .ab-pull {
+      position: relative; margin: 34px 0 0; padding: 28px 30px 26px; border-radius: 20px;
+      background: linear-gradient(135deg, var(--teal-light), #eef9ff); border: 1px solid rgba(0, 201, 167, 0.18);
+      font-family: var(--font-serif); font-style: italic; font-size: 20px; line-height: 1.5; color: var(--navy);
+    }
+    .ab-pull::before { content: '\201C'; position: absolute; top: -30px; left: 22px; font-size: 90px; line-height: 1; color: var(--teal); font-family: var(--font-serif); }
+    .ab-pull cite { display: block; margin-top: 12px; font-family: var(--font-display); font-style: normal; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal-dark); }
+    .ab-feature-list { display: flex; flex-direction: column; gap: 16px; padding-top: 8px; }
+    .ab-feature {
+      display: flex; gap: 18px; padding: 24px; border-radius: 20px; background: #fff;
+      border: 1px solid var(--line-light); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+    .ab-feature:hover { transform: translateY(-4px); box-shadow: 0 20px 44px rgba(15, 23, 42, 0.09); border-color: rgba(0, 201, 167, 0.3); }
+    .ab-feature-icon {
+      width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0; display: grid; place-items: center; color: #fff;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark)); box-shadow: 0 10px 22px rgba(0, 201, 167, 0.3);
+    }
+    .ab-feature-icon.blue { background: linear-gradient(135deg, var(--blue), var(--blue-dark)); box-shadow: 0 10px 22px rgba(41, 182, 246, 0.3); }
+    .ab-feature-icon.gold { background: linear-gradient(135deg, #fbbf24, #d97706); box-shadow: 0 10px 22px rgba(245, 158, 11, 0.3); }
+    .ab-feature h3 { font-size: 16.5px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+    .ab-feature p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* ── Values ── */
+    .ab-values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 48px; text-align: left; }
+    .ab-value {
+      position: relative; padding: 34px 30px; border-radius: 22px; background: #fff; overflow: hidden;
+      border: 1px solid var(--line-light); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+    }
+    .ab-value::after {
+      content: ''; position: absolute; width: 180px; height: 180px; border-radius: 50%; right: -60px; bottom: -70px;
+      background: radial-gradient(circle, rgba(0, 201, 167, 0.14), transparent 70%); transition: transform 0.5s ease;
+    }
+    .ab-value:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(15, 23, 42, 0.08); }
+    .ab-value:hover::after { transform: scale(1.5); }
+    .ab-value-num { font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--teal-dark); letter-spacing: 0.1em; }
+    .ab-value .ab-icon { display: block; width: 34px; height: 34px; color: var(--teal); margin: 18px 0 16px; }
+    .ab-value h3 { font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .ab-value p { font-size: 14.5px; color: var(--muted); line-height: 1.7; position: relative; z-index: 1; }
+
+    /* ── 5C ── */
+    .ab-5c { position: relative; overflow: hidden; background: #070e1d; color: #fff; padding: 100px 0; }
+    .ab-5c::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 15% 20%, rgba(124, 58, 237, 0.18), transparent 40%),
+                  radial-gradient(circle at 85% 80%, rgba(0, 201, 167, 0.16), transparent 45%);
+    }
+    .ab-5c .ab-h2 { color: #fff; }
+    .ab-5c .ab-lead { color: #a8b5c8; }
+    .c5-rail { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 64px; }
+    .c5-rail::before {
+      content: ''; position: absolute; top: 27px; left: 10%; right: 10%; height: 2px;
+      background: linear-gradient(90deg, #a78bfa, #2dd4bf, #4ade80, #fbbf24, #fb923c); opacity: 0.6;
+    }
+    .c5 { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; color: inherit; }
+    .c5-node {
+      position: relative; z-index: 1; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
+      background: #070e1d; border: 2px solid var(--c); color: var(--c);
+      box-shadow: 0 0 0 6px #070e1d, 0 0 28px color-mix(in srgb, var(--c) 45%, transparent);
+      transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease;
+    }
+    .c5-card {
+      margin-top: 22px; flex: 1; width: 100%; padding: 26px 22px 24px; border-radius: 20px;
+      background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+      display: flex; flex-direction: column;
+    }
+    .c5-tag { font-family: var(--font-serif); font-style: italic; font-size: 15px; color: var(--c); }
+    .c5 h3 { font-size: 19px; font-weight: 800; margin: 6px 0 10px; }
+    .c5 p { font-size: 13.5px; line-height: 1.7; color: #a8b5c8; flex: 1; }
+    .c5-more { margin-top: 18px; font-size: 13px; font-weight: 700; color: var(--c); }
+    .c5:hover .c5-node { transform: scale(1.1); background: var(--c); color: #070e1d; }
+    .c5:hover .c5-card { transform: translateY(-6px); background: rgba(255, 255, 255, 0.06); border-color: color-mix(in srgb, var(--c) 55%, transparent); box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35); }
+    .c5.coaching { --c: #a78bfa; }
+    .c5.consulting { --c: #2dd4bf; }
+    .c5.connecting { --c: #4ade80; }
+    .c5.collaboration { --c: #fbbf24; }
+    .c5.cocreation { --c: #fb923c; }
+    .ab-5c-cta { position: relative; text-align: center; margin-top: 52px; }
+
+    /* ── Chairman ── */
+    .ab-chair { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: center; }
+    .ab-chair-photo { position: relative; }
+    .ab-chair-photo::before {
+      content: ''; position: absolute; inset: 22px -22px -22px 22px; border-radius: 28px;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+    }
+    .ab-chair-photo img {
+      position: relative; display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 25%;
+      border-radius: 28px; box-shadow: 0 30px 60px rgba(7, 13, 26, 0.25);
+    }
+    .ab-chair-badge {
+      position: absolute; left: -26px; bottom: 34px; background: var(--navy); color: #fff; border-radius: 16px;
+      padding: 14px 18px; box-shadow: 0 18px 40px rgba(7, 13, 26, 0.3); border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .ab-chair-badge strong { display: block; font-size: 24px; font-weight: 800; color: var(--teal); line-height: 1; margin-bottom: 4px; }
+    .ab-chair-badge span { font-size: 12px; color: #cbd5e1; }
+    .ab-chair-name { font-family: var(--font-serif); font-size: clamp(2.2rem, calc(4vw / var(--zoom, 1)), 3.2rem); font-weight: 700; color: var(--navy); line-height: 1.1; margin-top: 16px; }
+    .ab-chair-role { font-size: 12.5px; font-weight: 800; color: var(--teal-dark); letter-spacing: 0.12em; text-transform: uppercase; margin: 10px 0 24px; }
+    .ab-chair p { font-size: 15.5px; color: var(--muted); line-height: 1.85; margin-bottom: 16px; }
+    .ab-chair p strong { color: var(--navy); }
+    .ab-chair-quote {
+      margin: 28px 0; padding: 4px 0 4px 26px; border-left: 3px solid var(--teal);
+      font-family: var(--font-serif); font-style: italic; font-size: 21px; line-height: 1.5; color: var(--navy);
+    }
+    .ab-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+    .ab-chip { font-size: 12.5px; font-weight: 700; color: var(--navy); padding: 8px 14px; border-radius: 9999px; background: var(--bg-light); border: 1px solid var(--line-light); }
+
+    /* ── Leadership ── */
+    .ab-team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 52px; }
+    .ab-member { position: relative; border-radius: 24px; overflow: hidden; background: var(--navy); aspect-ratio: 3 / 4; isolation: isolate; box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1); }
+    .ab-member img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); z-index: -1; }
+    .ab-member::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 45%, rgba(6, 12, 25, 0.55) 68%, rgba(6, 12, 25, 0.95)); }
+    .ab-member-info { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 22px 24px; color: #fff; }
+    .ab-member-info::before {
+      content: ''; display: block; width: 36px; height: 3px; border-radius: 2px; margin-bottom: 14px;
+      background: linear-gradient(90deg, var(--teal), var(--blue)); transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ab-member-name { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
+    .ab-member-role { font-size: 13px; color: #b6c2d4; margin-top: 4px; line-height: 1.45; }
+    .ab-member:hover img { transform: scale(1.07); }
+    .ab-member:hover .ab-member-info::before { width: 80px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .c5-rail { grid-template-columns: repeat(3, 1fr); row-gap: 40px; }
+      .c5-rail::before { display: none; }
+      .ab-team { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 960px) {
+      .ab-hero { padding: 64px 0 140px; }
+      .ab-hero-grid, .ab-story-grid, .ab-chair { grid-template-columns: 1fr; gap: 48px; }
+      .ab-collage { margin: 30px auto 0; width: min(78%, 360px); }
+      .ab-stats { grid-template-columns: repeat(2, 1fr); }
+      .ab-stat:nth-child(3)::before { display: none; }
+      .ab-values { grid-template-columns: 1fr; }
+      .ab-chair-photo { width: 100%; max-width: 360px; margin: 0 auto; }
+    }
+    @media (max-width: 640px) {
+      .ab-name-card { left: -12px; bottom: 20px; }
+      .ab-award-card, .ab-team-card { display: none; }
+      .c5-rail { grid-template-columns: 1fr; }
+      .ab-team { grid-template-columns: 1fr; max-width: 360px; margin-left: auto; margin-right: auto; }
+      .ab-stat { padding: 22px 18px; }
+      .ab-chair-badge { left: -6px; }
+      .ab-chair-photo::before { inset: 14px -12px -14px 12px; }
+    }
   </style>
 </head>
 <body>
@@ -169,169 +334,215 @@
   <div id="site-header"></div>
 
   <!-- Hero -->
-  <div class="hero-header">
+  <section class="ab-hero">
+    <div class="ab-orb o1"></div><div class="ab-orb o2"></div><div class="ab-orb o3"></div>
     <div class="container">
-      <span class="section-eyebrow">About us</span>
-      <h1 class="hero-title">Taking Indian businesses <em>global</em>, one connection at a time</h1>
-      <p class="hero-desc">Connect Ventures is a globalization partner for Indian entrepreneurs and MSMEs. For 15+ years we have helped businesses enter new markets with the right structure, the right compliance and the right people on the ground.</p>
-      <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-num">15+</div><div class="hero-stat-label">Years of global expansion</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">1,000+</div><div class="hero-stat-label">Businesses guided</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">47+</div><div class="hero-stat-label">Countries served</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">280+</div><div class="hero-stat-label">Years of collective team expertise</div></div>
+      <div class="ab-hero-grid">
+        <div>
+          <span class="ab-eyebrow on-dark reveal">About Connect Ventures</span>
+          <h1 class="reveal" style="--d:.08s">Taking Indian businesses <em>global</em>, one connection at a time</h1>
+          <p class="reveal" style="--d:.16s">Connect Ventures is a globalization partner for Indian entrepreneurs and MSMEs. For 15+ years we have helped businesses enter new markets with the right structure, the right compliance and the right people on the ground.</p>
+          <div class="ab-hero-btns reveal" style="--d:.24s">
+            <a href="#leadership" class="btn btn-primary btn-lg">Meet our leadership →</a>
+            <a href="#5c-framework" class="btn btn-outline-white btn-lg">Explore the 5C framework</a>
+          </div>
+        </div>
+        <div class="ab-collage reveal" style="--d:.2s">
+          <div class="ab-ring" aria-hidden="true"></div>
+          <div class="ab-portrait">
+            <img src="/assets/team/anil-gupta.jpg" alt="Dr. Anil Gupta, Founder and Chairman of Connect Ventures" width="1447" height="1087" fetchpriority="high">
+          </div>
+          <div class="ab-glass ab-name-card ab-float">
+            <strong>Dr. Anil Gupta</strong>
+            <span>Founder &amp; Chairman</span>
+          </div>
+          <div class="ab-glass ab-award-card ab-float">
+            <svg class="ab-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <div>Most Promising Service Provider of the Year 2025</div>
+          </div>
+          <div class="ab-glass ab-team-card ab-float">
+            <div class="ab-avatars">
+              <img src="/assets/team/bhawana-gupta.jpg" alt="" width="34" height="34">
+              <img src="/assets/team/shaurya-satyarthi.jpg" alt="" width="34" height="34">
+              <img src="/assets/team/ravi-bagri.jpg" alt="" width="34" height="34">
+              <img src="/assets/team/sonali-shah.jpg" alt="" width="34" height="34">
+            </div>
+            <div>Backed by an expert<br>leadership team</div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Who we are -->
-  <section class="section bg-white" id="who-we-are">
-    <div class="container">
-      <div class="who-grid">
-        <div class="who-text">
-          <div class="section-header">
-            <span class="section-eyebrow">Who we are</span>
-            <h2 class="section-title">The Connect Ventures story</h2>
-            <div class="section-divider"></div>
-          </div>
-          <p>Connect Ventures was founded by <strong>Dr. Anil Gupta</strong> on a simple conviction: global expansion should not be the exclusive privilege of large corporations. Indian businesses with world-class products deserve world-class international support, at pricing they can afford.</p>
-          <p>Headquartered in <strong>Union City, California</strong>, we help founders set up and run businesses abroad: company formation, cross-border structuring, international tax, banking, compliance, and the market connections that turn a registered entity into a working business.</p>
-          <p>Together with our globalization partner <strong>Comply Globally</strong>, an ISO 27001 and ISO 9001 certified execution partner, and a network of 1,000+ accounting, legal and secretarial firms worldwide, we take clients from first conversation to first customer abroad.</p>
+  <!-- Stats + countries -->
+  <section class="bg-light" style="padding-bottom: 96px;">
+    <div class="container ab-stats-wrap">
+      <div class="ab-stats reveal">
+        <div class="ab-stat"><div class="ab-stat-num" data-count="15" data-suffix="+">15+</div><div class="ab-stat-label">Years of global expansion</div></div>
+        <div class="ab-stat"><div class="ab-stat-num" data-count="1000" data-suffix="+">1,000+</div><div class="ab-stat-label">Businesses guided</div></div>
+        <div class="ab-stat"><div class="ab-stat-num" data-count="47" data-suffix="+">47+</div><div class="ab-stat-label">Countries served</div></div>
+        <div class="ab-stat"><div class="ab-stat-num" data-count="8000" data-suffix="+">8,000+</div><div class="ab-stat-label">Entrepreneurs coached</div></div>
+      </div>
+      <div class="marquee reveal">
+        <div class="marquee-label">Helping businesses set up across the world</div>
+        <div class="marquee-track">
+          <span class="country-chip"><i></i>United States</span><span class="country-chip"><i></i>United Kingdom</span><span class="country-chip"><i></i>European Union</span><span class="country-chip"><i></i>Canada</span><span class="country-chip"><i></i>Singapore</span><span class="country-chip"><i></i>UAE &amp; Dubai</span><span class="country-chip"><i></i>Australia</span><span class="country-chip"><i></i>India</span>
+          <span class="country-chip" aria-hidden="true"><i></i>United States</span><span class="country-chip" aria-hidden="true"><i></i>United Kingdom</span><span class="country-chip" aria-hidden="true"><i></i>European Union</span><span class="country-chip" aria-hidden="true"><i></i>Canada</span><span class="country-chip" aria-hidden="true"><i></i>Singapore</span><span class="country-chip" aria-hidden="true"><i></i>UAE &amp; Dubai</span><span class="country-chip" aria-hidden="true"><i></i>Australia</span><span class="country-chip" aria-hidden="true"><i></i>India</span>
         </div>
-        <div class="pillar-list">
-          <div class="pillar">
-            <h3>Our mission</h3>
-            <p>To make going global simple, compliant and affordable for every ambitious Indian business.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="section bg-white" id="who-we-are" style="padding-top: 96px; padding-bottom: 96px;">
+    <div class="container">
+      <div class="ab-story-grid">
+        <div class="ab-story">
+          <span class="ab-eyebrow reveal">Who we are</span>
+          <h2 class="ab-h2 reveal" style="--d:.06s">Built on one belief: <em>going global</em> shouldn't be only for big companies</h2>
+          <p class="reveal" style="--d:.12s">Connect Ventures was founded by <strong>Dr. Anil Gupta</strong> on a simple conviction: Indian businesses with world-class products deserve world-class international support, at pricing they can afford.</p>
+          <p class="reveal" style="--d:.16s">Headquartered in <strong>Union City, California</strong>, we help founders set up and run businesses abroad: company formation, cross-border structuring, international tax, banking, compliance, and the market connections that turn a registered entity into a working business.</p>
+          <p class="reveal" style="--d:.2s">Together with our globalization partner <strong>Comply Globally</strong>, an ISO 27001 and ISO 9001 certified execution partner, and a network of 1,000+ accounting, legal and secretarial firms worldwide, we take clients from first conversation to first customer abroad.</p>
+          <blockquote class="ab-pull reveal" style="--d:.24s">
+            True commercial strength is built on speed, compliance accuracy, and deep business integrity.
+            <cite>Dr. Anil Gupta, Chairman</cite>
+          </blockquote>
+        </div>
+        <div class="ab-feature-list">
+          <div class="ab-feature reveal" style="--d:.1s">
+            <div class="ab-feature-icon"><svg class="ab-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+            <div><h3>Our mission</h3><p>To make going global simple, compliant and affordable for every ambitious Indian business.</p></div>
           </div>
-          <div class="pillar pillar-blue">
-            <h3>Our approach</h3>
-            <p>One integrated partner instead of a dozen disconnected vendors. Strategy, setup, compliance and growth handled together through the 5C framework.</p>
+          <div class="ab-feature reveal" style="--d:.18s">
+            <div class="ab-feature-icon blue"><svg class="ab-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+            <div><h3>Our approach</h3><p>One integrated partner instead of a dozen disconnected vendors. Strategy, setup, compliance and growth handled together through the 5C framework.</p></div>
           </div>
-          <div class="pillar pillar-gold">
-            <h3>Recognition</h3>
-            <p>Most Promising Service Provider of the Year 2025 (BC Business Connect) and Top 10 Compliance Company in India (SiliconIndia).</p>
+          <div class="ab-feature reveal" style="--d:.26s">
+            <div class="ab-feature-icon gold"><svg class="ab-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+            <div><h3>Recognition</h3><p>Most Promising Service Provider of the Year 2025 (BC Business Connect) and Top 10 Compliance Company in India (SiliconIndia).</p></div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section bg-light" style="padding-top: 96px; padding-bottom: 96px;">
+    <div class="container ab-center">
+      <span class="ab-eyebrow reveal">What we stand for</span>
+      <h2 class="ab-h2 reveal" style="--d:.06s">Three promises behind <em>every engagement</em></h2>
+      <div class="ab-values">
+        <div class="ab-value reveal" style="--d:.1s">
+          <span class="ab-value-num">01</span>
+          <svg class="ab-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <h3>Speed</h3>
+          <p>Markets don't wait. We move quickly from first call to a working entity, so you can start selling sooner.</p>
+        </div>
+        <div class="ab-value reveal" style="--d:.18s">
+          <span class="ab-value-num">02</span>
+          <svg class="ab-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <h3>Compliance accuracy</h3>
+          <p>Cross-border rules are unforgiving. We get structure, tax and filings right the first time, in every jurisdiction.</p>
+        </div>
+        <div class="ab-value reveal" style="--d:.26s">
+          <span class="ab-value-num">03</span>
+          <svg class="ab-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <h3>Integrity</h3>
+          <p>We build operations with real substance, not paperwork in a drawer, and give you straight advice even when it's not what you hoped to hear.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 5C Framework -->
-  <section class="section bg-light" id="5c-framework">
-    <div class="container">
-      <div class="section-header center">
-        <span class="section-eyebrow">How we work</span>
-        <h2 class="section-title">The 5C framework</h2>
-        <div class="section-divider"></div>
-        <p class="section-subtitle">Most expansions fail because strategy, structure, connections and execution are handled by different people who never talk to each other. Our proprietary 5C framework brings all five together under one roof.</p>
+  <section class="ab-5c" id="5c-framework">
+    <div class="container" style="position: relative;">
+      <div class="ab-center">
+        <span class="ab-eyebrow on-dark reveal">How we work</span>
+        <h2 class="ab-h2 reveal" style="--d:.06s">The <em>5C framework</em></h2>
+        <p class="ab-lead reveal" style="--d:.12s">Most expansions fail because strategy, structure, connections and execution are handled by different people who never talk to each other. Our proprietary 5C framework brings all five together under one roof.</p>
       </div>
-      <div class="fivec-grid">
-        <a href="coaching.html" class="fivec-card c-coaching">
-          <span class="fivec-num">C1</span>
-          <h3>Coaching</h3>
-          <p>Preparing founders and leadership teams with the global vision, mindset and regulatory awareness to expand with confidence.</p>
-          <span class="fivec-link">Explore coaching →</span>
+      <div class="c5-rail">
+        <a href="coaching.html" class="c5 coaching reveal" style="--d:.05s">
+          <span class="c5-node"><svg class="ab-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+          <div class="c5-card"><span class="c5-tag">C1</span><h3>Coaching</h3><p>Preparing founders and leadership teams with the global vision, mindset and regulatory awareness to expand with confidence.</p><span class="c5-more">Explore →</span></div>
         </a>
-        <a href="consulting.html" class="fivec-card c-consulting">
-          <span class="fivec-num">C2</span>
-          <h3>Consulting</h3>
-          <p>Designing the right corporate structure, tax plan, IP ownership and compliance roadmap for each target country.</p>
-          <span class="fivec-link">Explore consulting →</span>
+        <a href="consulting.html" class="c5 consulting reveal" style="--d:.12s">
+          <span class="c5-node"><svg class="ab-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+          <div class="c5-card"><span class="c5-tag">C2</span><h3>Consulting</h3><p>Designing the right corporate structure, tax plan, IP ownership and compliance roadmap for each target country.</p><span class="c5-more">Explore →</span></div>
         </a>
-        <a href="connecting.html" class="fivec-card c-connecting">
-          <span class="fivec-num">C3</span>
-          <h3>Connecting</h3>
-          <p>Opening doors to attorneys, banks, regulators, distributors and investors through our global partner network.</p>
-          <span class="fivec-link">Explore connecting →</span>
+        <a href="connecting.html" class="c5 connecting reveal" style="--d:.19s">
+          <span class="c5-node"><svg class="ab-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+          <div class="c5-card"><span class="c5-tag">C3</span><h3>Connecting</h3><p>Opening doors to attorneys, banks, regulators, distributors and investors through our global partner network.</p><span class="c5-more">Explore →</span></div>
         </a>
-        <a href="collaboration.html" class="fivec-card c-collaboration">
-          <span class="fivec-num">C4</span>
-          <h3>Collaboration</h3>
-          <p>Forging distribution partnerships and joint ventures that secure early customer traction in new markets.</p>
-          <span class="fivec-link">Explore collaboration →</span>
+        <a href="collaboration.html" class="c5 collaboration reveal" style="--d:.26s">
+          <span class="c5-node"><svg class="ab-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <div class="c5-card"><span class="c5-tag">C4</span><h3>Collaboration</h3><p>Forging distribution partnerships and joint ventures that secure early customer traction in new markets.</p><span class="c5-more">Explore →</span></div>
         </a>
-        <a href="co-creation.html" class="fivec-card c-cocreation">
-          <span class="fivec-num">C5</span>
-          <h3>Co-creation</h3>
-          <p>Building operating systems, marketing networks and capital solutions alongside our clients for the long run.</p>
-          <span class="fivec-link">Explore co-creation →</span>
+        <a href="co-creation.html" class="c5 cocreation reveal" style="--d:.33s">
+          <span class="c5-node"><svg class="ab-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
+          <div class="c5-card"><span class="c5-tag">C5</span><h3>Co-creation</h3><p>Building operating systems, marketing networks and capital solutions alongside our clients for the long run.</p><span class="c5-more">Explore →</span></div>
         </a>
       </div>
-      <div class="fivec-more">
-        <a href="5c-model.html" class="btn btn-primary btn-md">See the full 5C framework →</a>
+      <div class="ab-5c-cta reveal">
+        <a href="5c-model.html" class="btn btn-primary btn-lg">See the full 5C framework →</a>
       </div>
     </div>
   </section>
 
   <!-- Chairman -->
-  <section class="section bg-white" id="chairman">
+  <section class="section bg-white" id="chairman" style="padding-top: 104px; padding-bottom: 104px;">
     <div class="container">
-      <div class="chairman-card">
-        <div class="chairman-photo">
+      <div class="ab-chair">
+        <div class="ab-chair-photo reveal">
           <img src="/assets/team/anil-gupta.jpg" alt="Dr. Anil Gupta, Chairman of Connect Ventures" loading="lazy" width="1447" height="1087">
-        </div>
-        <div class="chairman-body">
-          <span class="section-eyebrow">Meet our Chairman</span>
-          <h2 class="chairman-name">Dr. Anil Gupta</h2>
-          <div class="chairman-role">Founder &amp; Chairman, Connect Ventures</div>
-          <p>Dr. Anil Gupta is a globally recognised authority on international business expansion for Indian entrepreneurs, with deep expertise in cross-border corporate structuring, international taxation and building global stakeholder networks.</p>
-          <p>He has personally guided <strong>1,000+ Indian businesses</strong> into 47+ countries, coached <strong>8,000+ entrepreneurs</strong>, and created the proprietary <strong>5C framework</strong>. He is also Chairman of Comply Globally, a NITI Aayog Mentor of Change and a TEDx speaker.</p>
-          <blockquote class="chairman-quote">"Do not build international entities simply to collect documents in a drawer. Build operations that hold true substance."</blockquote>
-          <div class="chairman-tags">
-            <span class="chairman-tag">Doctorate in International Business (Hon.)</span>
-            <span class="chairman-tag">NITI Aayog Mentor of Change</span>
-            <span class="chairman-tag">TEDx Speaker</span>
+          <div class="ab-chair-badge">
+            <strong>8,000+</strong>
+            <span>entrepreneurs coached</span>
           </div>
-          <a href="dr-anil-gupta.html" class="btn btn-primary btn-md">Read Dr. Gupta's full story →</a>
+        </div>
+        <div>
+          <span class="ab-eyebrow reveal">Meet our Chairman</span>
+          <h2 class="ab-chair-name reveal" style="--d:.06s">Dr. Anil Gupta</h2>
+          <div class="ab-chair-role reveal" style="--d:.1s">Founder &amp; Chairman, Connect Ventures</div>
+          <p class="reveal" style="--d:.14s">Dr. Anil Gupta is a globally recognised authority on international business expansion for Indian entrepreneurs, with deep expertise in cross-border corporate structuring, international taxation and building global stakeholder networks.</p>
+          <p class="reveal" style="--d:.18s">He has personally guided <strong>1,000+ Indian businesses</strong> into 47+ countries, coached <strong>8,000+ entrepreneurs</strong>, and created the proprietary <strong>5C framework</strong>. He is also Chairman of Comply Globally, a NITI Aayog Mentor of Change and a TEDx speaker.</p>
+          <blockquote class="ab-chair-quote reveal" style="--d:.22s">"Do not build international entities simply to collect documents in a drawer. Build operations that hold true substance."</blockquote>
+          <div class="ab-chips reveal" style="--d:.26s">
+            <span class="ab-chip">Doctorate in International Business (Hon.)</span>
+            <span class="ab-chip">NITI Aayog Mentor of Change</span>
+            <span class="ab-chip">TEDx Speaker</span>
+          </div>
+          <div class="reveal" style="--d:.3s"><a href="dr-anil-gupta.html" class="btn btn-primary btn-lg">Read Dr. Gupta's full story →</a></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Leadership team -->
-  <section class="section bg-light" id="leadership">
+  <section class="section bg-light" id="leadership" style="padding-top: 96px; padding-bottom: 104px;">
     <div class="container">
-      <div class="section-header center">
-        <span class="section-eyebrow">Leadership team</span>
-        <h2 class="section-title">The people who take you global</h2>
-        <div class="section-divider"></div>
-        <p class="section-subtitle">Lawyers, chartered accountants and operators who lead our practices and work directly with clients every day.</p>
+      <div class="ab-center">
+        <span class="ab-eyebrow reveal">Leadership team</span>
+        <h2 class="ab-h2 reveal" style="--d:.06s">The people who <em>take you global</em></h2>
+        <p class="ab-lead reveal" style="--d:.12s">Lawyers, chartered accountants and operators who lead our practices and work directly with clients every day.</p>
       </div>
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="team-photo">
-            <img src="/assets/team/bhawana-gupta.jpg" alt="Adv. Bhawana Gupta, Director" loading="lazy" width="1448" height="1086">
-          </div>
-          <div class="team-info">
-            <div class="team-name">Adv. Bhawana Gupta</div>
-            <div class="team-role">Director</div>
-          </div>
+      <div class="ab-team">
+        <div class="ab-member reveal" style="--d:.05s">
+          <img src="/assets/team/bhawana-gupta.jpg" alt="Adv. Bhawana Gupta" loading="lazy" width="1448" height="1086">
+          <div class="ab-member-info"><div class="ab-member-name">Adv. Bhawana Gupta</div><div class="ab-member-role">Director</div></div>
         </div>
-        <div class="team-card">
-          <div class="team-photo">
-            <img src="/assets/team/shaurya-satyarthi.jpg" alt="Shaurya Satyarthi, General Manager – Global Operations" loading="lazy" width="1254" height="1254">
-          </div>
-          <div class="team-info">
-            <div class="team-name">Shaurya Satyarthi</div>
-            <div class="team-role">General Manager – Global Operations</div>
-          </div>
+        <div class="ab-member reveal" style="--d:.12s">
+          <img src="/assets/team/shaurya-satyarthi.jpg" alt="Shaurya Satyarthi" loading="lazy" width="1254" height="1254">
+          <div class="ab-member-info"><div class="ab-member-name">Shaurya Satyarthi</div><div class="ab-member-role">General Manager – Global Operations</div></div>
         </div>
-        <div class="team-card">
-          <div class="team-photo">
-            <img src="/assets/team/ravi-bagri.jpg" alt="CA Ravi Bagri, Practice Head – Debt Funding" loading="lazy" width="901" height="1600">
-          </div>
-          <div class="team-info">
-            <div class="team-name">CA Ravi Bagri</div>
-            <div class="team-role">Practice Head – Debt Funding</div>
-          </div>
+        <div class="ab-member reveal" style="--d:.19s">
+          <img src="/assets/team/ravi-bagri.jpg" alt="CA Ravi Bagri" loading="lazy" width="901" height="1600">
+          <div class="ab-member-info"><div class="ab-member-name">CA Ravi Bagri</div><div class="ab-member-role">Practice Head – Debt Funding</div></div>
         </div>
-        <div class="team-card">
-          <div class="team-photo">
-            <img src="/assets/team/sonali-shah.jpg" alt="CA Sonali Shah, Practice Head" loading="lazy" width="1086" height="1448">
-          </div>
-          <div class="team-info">
-            <div class="team-name">CA Sonali Shah</div>
-            <div class="team-role">Practice Head</div>
-          </div>
+        <div class="ab-member reveal" style="--d:.26s">
+          <img src="/assets/team/sonali-shah.jpg" alt="CA Sonali Shah" loading="lazy" width="1086" height="1448">
+          <div class="ab-member-info"><div class="ab-member-name">CA Sonali Shah</div><div class="ab-member-role">Practice Head</div></div>
         </div>
       </div>
     </div>
@@ -354,6 +565,38 @@
   <div id="site-footer"></div>
 
   <script src="assets/js/include-partials.js" defer></script>
+  <script>
+    // Page-specific: scroll-reveal and stat count-up. Content is fully visible
+    // with reduced motion or without IntersectionObserver.
+    (function () {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const items = document.querySelectorAll('.reveal');
+      if (reduce || !('IntersectionObserver' in window)) {
+        items.forEach(el => el.classList.add('in'));
+        return;
+      }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('in');
+          e.target.querySelectorAll('[data-count]').forEach(countUp);
+          io.unobserve(e.target);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      items.forEach(el => io.observe(el));
+
+      function countUp(el) {
+        const target = +el.dataset.count, suffix = el.dataset.suffix || '';
+        const start = performance.now(), dur = 1600;
+        const tick = now => {
+          const t = Math.min((now - start) / dur, 1), eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = Math.round(target * eased).toLocaleString('en-US') + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+    })();
+  </script>
   <script type="module" src="/src/chatWidget.ts"></script>
 </body>
 </html>

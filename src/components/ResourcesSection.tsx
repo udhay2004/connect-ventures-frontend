@@ -311,7 +311,7 @@ export function ResourcesDrawer({ isOpen, onClose }) {
         }`}
       />
       <div role="dialog" aria-modal="true" aria-label="Resources panel"
-        className={`fixed top-0 right-0 bottom-0 z-[9999] w-full sm:w-[94vw] lg:max-w-[1320px] bg-[#f4f6f8] shadow-2xl
+        className={`fixed top-0 right-0 bottom-0 z-[9999] w-full sm:w-[calc(94vw/var(--zoom,1))] lg:max-w-[1320px] bg-[#f4f6f8] shadow-2xl
           flex flex-col transition-transform duration-300 ease-in-out overflow-hidden
           ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
@@ -1047,7 +1047,7 @@ export default function ResourcesSection() {
       {showGateDialog && selectedGuide && modalMounted && createPortal(
         <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 overflow-y-auto"
           style={{background:"rgba(15,23,42,0.55)"}}>
-          <div className="bg-white rounded-2xl border border-[#e2e8ef] w-full max-w-[520px] overflow-hidden shadow-2xl my-8 flex flex-col max-h-[90vh]">
+          <div className="bg-white rounded-2xl border border-[#e2e8ef] w-full max-w-[520px] overflow-hidden shadow-2xl my-8 flex flex-col max-h-[calc(90vh/var(--zoom,1))]">
             <div className="flex items-start justify-between gap-3 px-8 py-7 border-b border-slate-100 flex-shrink-0">
               <div className="flex items-center gap-3">
                 <FlagImg country={selectedGuide.country} className="w-9 h-auto rounded shadow-sm border border-slate-100" />

@@ -116,7 +116,7 @@ export default function C5CoCreationModal({ isOpen, onClose }: C5CoCreationModal
         </div>
 
         {/* Modal Scroll-body */}
-        <div className="p-6 md:p-10 max-h-[75vh] overflow-y-auto space-y-10">
+        <div className="p-6 md:p-10 max-h-[calc(75vh/var(--zoom,1))] overflow-y-auto space-y-10">
           
           {/* Main Title Block */}
           <div className="text-center space-y-4 max-w-4xl mx-auto">
