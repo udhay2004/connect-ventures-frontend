@@ -329,7 +329,7 @@ export default function App() {
       <div className="topbar" id="topbar">
         <div className="container flex items-center justify-between w-full">
           <div className="topbar-item">
-            <strong>1,000+</strong> clients · <strong>47+</strong> countries · Chairman: <strong>Dr. Anil Gupta</strong> · Connect Ventures
+            <strong>1,000+</strong> clients · <strong>47+</strong> countries · Chairman: <strong>Dr. Anil Gupta</strong> · Connect Ventures Inc USA
           </div>
           <div className="topbar-phones">
             <a href="tel:+13022141717" className="topbar-phone select-all">
@@ -352,7 +352,7 @@ export default function App() {
               <img src="/assets/logo-icon.png" alt="Connect Ventures Logo" className="nav-logo-svg" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
             </div>
             <div className="nav-brand">
-              <div className="nav-brand-name">CONNECT VENTURES</div>
+              <div className="nav-brand-name">CONNECT VENTURES INC USA</div>
               <div className="nav-brand-tag">Your Globalization Partner</div>
             </div>
           </a>
@@ -1320,7 +1320,7 @@ export default function App() {
           
           <div className="footer-bottom">
             <div className="footer-copy">
-              © 2025 Connect Ventures. All rights reserved. | Chairman: Dr. Anil Gupta
+              © 2025 Connect Ventures Inc USA. All rights reserved. | Chairman: Dr. Anil Gupta
             </div>
             <div className="footer-award">
               🏆 Most Promising 2025 · ⭐ Top 10 — SiliconIndia
