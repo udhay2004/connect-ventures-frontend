@@ -374,7 +374,7 @@ export default function App() {
             <a href="projects.html" className="nav-link" onClick={() => setMenuOpen(false)}>Projects</a>
             <a href="marketplace.html" className="nav-link" onClick={() => setMenuOpen(false)}>Marketplace</a>
             <a href="countries.html" className={`nav-link ${activeSection === 'countries' ? 'active' : ''}`} onClick={() => setMenuOpen(false)}>Countries</a>
-            <a href="about.html" className="nav-link" onClick={() => setMenuOpen(false)}>About Dr. Gupta</a>
+            <a href="about.html" className="nav-link" onClick={() => setMenuOpen(false)}>About Us</a>
             <a href="partners.html" className="nav-link" onClick={() => setMenuOpen(false)}>Partners</a>
             <a
               href="resources.html"
@@ -1291,8 +1291,9 @@ export default function App() {
             
             <div>
               <div className="footer-col-title">Company</div>
-              <a href="about.html" className="footer-link">About Dr. Anil Gupta</a>
-              <a href="about.html" className="footer-link">Leadership team</a>
+              <a href="about.html" className="footer-link">About Us</a>
+              <a href="dr-anil-gupta.html" className="footer-link">Dr. Anil Gupta</a>
+              <a href="about.html#leadership" className="footer-link">Leadership team</a>
               <a
                 href="resources.html#tools"
                 className="footer-link font-medium"
