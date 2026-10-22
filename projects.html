@@ -77,7 +77,7 @@
                         radial-gradient(circle at 10% 80%, rgba(41,182,246,0.08) 0%, transparent 45%);
       padding: 56px 0 40px; border-bottom: 4px solid var(--blue); position: relative; overflow: hidden;
     }
-    .page-hero .hero-title { font-size: clamp(1.9rem, 4.4vw, 2.8rem); max-width: 760px; margin-bottom: 14px; }
+    .page-hero .hero-title { font-size: clamp(1.9rem, calc(4.4vw / var(--zoom, 1)), 2.8rem); max-width: 760px; margin-bottom: 14px; }
     .page-hero .hero-desc { max-width: 660px; margin-bottom: 28px; }
     .hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
 
@@ -167,7 +167,7 @@
     }
     .dossier-header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; position: relative; z-index: 1; }
     .dossier-meta-top { font-family: var(--font-mono); font-size: 11px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; font-weight: 600; }
-    .dossier-title { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; color: #fff; line-height: 1.3; max-width: 80%; margin-bottom: 18px; position: relative; z-index: 1; }
+    .dossier-title { font-size: clamp(1.4rem, calc(3vw / var(--zoom, 1)), 1.9rem); font-weight: 800; color: #fff; line-height: 1.3; max-width: 80%; margin-bottom: 18px; position: relative; z-index: 1; }
     .dossier-tags { display: flex; gap: 10px; flex-wrap: wrap; position: relative; z-index: 1; }
     .dossier-tags .proj-tag { background: rgba(255,255,255,0.1); color: #fff; }
     .dossier-tags .proj-tag::before { background: var(--teal); }
@@ -199,7 +199,7 @@
       z-index: 200; align-items: center; justify-content: center; padding: 20px;
     }
     .modal-overlay.active { display: flex; }
-    .modal { background: #fff; border-radius: 20px; max-width: 580px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 32px; }
+    .modal { background: #fff; border-radius: 20px; max-width: 580px; width: 100%; max-height: calc(88vh / var(--zoom, 1)); overflow-y: auto; padding: 32px; }
     .modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
     .modal h2 { font-size: 22px; font-weight: 800; color: var(--navy); }
     .modal-close { background: var(--bg-light); border: none; color: var(--muted); font-size: 18px; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; line-height: 1; }

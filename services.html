@@ -97,7 +97,7 @@
     }
 
     .services-hero h1 {
-      font-size: clamp(38px, 6vw, 56px);
+      font-size: clamp(38px, calc(6vw / var(--zoom, 1)), 56px);
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1.15;
@@ -113,7 +113,7 @@
     }
 
     .services-hero-desc {
-      font-size: clamp(15px, 2vw, 17.5px);
+      font-size: clamp(15px, calc(2vw / var(--zoom, 1)), 17.5px);
       color: #94a3b8;
       max-width: 800px;
       margin: 0 auto 36px;
@@ -384,7 +384,7 @@
     }
 
     .service-card h3 {
-      font-size: clamp(17px, 2vw, 20px);
+      font-size: clamp(17px, calc(2vw / var(--zoom, 1)), 20px);
       font-weight: 800;
       color: var(--navy);
       letter-spacing: -0.015em;
@@ -581,7 +581,7 @@
     }
 
     .trust-item h4 {
-      font-size: clamp(32px, 4vw, 42px);
+      font-size: clamp(32px, calc(4vw / var(--zoom, 1)), 42px);
       font-weight: 800;
       color: var(--teal);
       margin-bottom: 8px;
@@ -1593,7 +1593,7 @@
   <section class="trust-banner">
     <div class="container bg-[#080c14] rounded-3xl p-8 md:p-12 border border-slate-800/40 relative z-10" style="max-width: 1000px; margin: 0 auto">
       <span class="section-eyebrow" style="color:#00c9a7; background:rgba(0,201,167,0.05)">Connect Ventures Matrix</span>
-      <h2 style="font-size:clamp(22px,3.5vw,32px); font-weight:800; color:#fff; letter-spacing:-0.02e; line-height:1.2; margin-top:20px;">We do what lawyers, accountants, and consultants <br><em class="font-serif italic text-[#00c9a7]">cannot solve.</em></h2>
+      <h2 style="font-size:clamp(22px,calc(3.5vw / var(--zoom, 1)),32px); font-weight:800; color:#fff; letter-spacing:-0.02e; line-height:1.2; margin-top:20px;">We do what lawyers, accountants, and consultants <br><em class="font-serif italic text-[#00c9a7]">cannot solve.</em></h2>
       <div class="trust-grid">
         <div class="trust-item">
           <h4>1,000+</h4>
