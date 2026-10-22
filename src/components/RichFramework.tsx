@@ -89,7 +89,7 @@ export default function RichFramework() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+        <div className="sr-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
           {cards.map((card, idx) => {
             const isHovered = activeCard === idx;
             return (

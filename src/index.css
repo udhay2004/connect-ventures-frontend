@@ -2,7 +2,11 @@
 @import "tailwindcss";
 
 /* ═══════ RESET + TOKENS ═══════ */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* Kept in the base layer so Tailwind spacing utilities (p-*, m-*, mb-*) can
+   override it. Unlayered, it silently zeroed every padding/margin class. */
+@layer base{
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+}
 :root{
   --ink:#080c14;
   --ink2:#101824;
@@ -464,19 +468,23 @@ h1,h2,h3,h4{letter-spacing:-.03em;line-height:1.1}
 /* ═══════ SECTION HELPERS ═══════ */
 .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
 .wrap-sm{max-width:980px;margin:0 auto;padding:0 32px}
-.section{padding:96px 0}
+.section{padding:clamp(64px,10vh,96px) 0}
 @media(max-width:1024px){.section{padding:64px 0}}
 @media(max-width:640px){.section{padding:40px 0}}
-.label{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:750;letter-spacing:1.6px;text-transform:uppercase;color:var(--teal2);margin-bottom:14px}
-.label-dot{width:5.5px;height:5.5px;border-radius:50%;background:var(--teal)}
-.sh{margin-bottom:56px}
-.sh.center{text-align:center}
-.sh.center .sh-sub{margin:14px auto 0}
-.sh h2{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:700;color:var(--ink);letter-spacing:-0.035em}
+/* Section header helpers live in the components layer so per-section
+   Tailwind classes (e.g. text-slate-400 on dark sections) can override them. */
+@layer components{
+  .label{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:750;letter-spacing:1.6px;text-transform:uppercase;color:var(--teal2);margin-bottom:12px}
+  .label-dot{width:5.5px;height:5.5px;border-radius:50%;background:var(--teal)}
+  .sh{margin-bottom:44px}
+  .sh.center{text-align:center}
+  .sh.center .sh-sub{margin:12px auto 0}
+  .sh h2{font-size:clamp(1.9rem,3.1vw,2.75rem);line-height:1.12;font-weight:700;color:var(--ink);letter-spacing:-0.035em}
+  .sh h2 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--teal2)}
+  .sh-sub{font-size:1rem;color:var(--muted);max-width:600px;margin-top:12px;line-height:1.7}
+}
 .sh h2.text-white, .sh h2.\!text-white, .sh h2[style*="color"] { color: inherit !important; }
-.sh h2 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--teal2)}
 .sh h2.text-white em, .sh h2.\!text-white em { color: #2dd4bf !important; }
-.sh-sub{font-size:1.05rem;color:var(--muted);max-width:560px;margin-top:14px;line-height:1.75}
 
 /* ═══════ SCROLL REVEAL ═══════ */
 .sr{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
@@ -486,6 +494,22 @@ h1,h2,h3,h4{letter-spacing:-.03em;line-height:1.1}
 .sr-delay-3{transition-delay:.26s}
 .sr-delay-4{transition-delay:.34s}
 .sr-delay-5{transition-delay:.42s}
+/* Staggered group reveal: children of .sr-group float in one after another.
+   Uses a one-shot animation (fill: backwards) so each card's own hover
+   transitions keep working after the entrance. */
+@keyframes srIn{from{opacity:0;transform:translateY(26px) scale(.985)}to{opacity:1;transform:none}}
+.sr-group > *{opacity:0}
+.sr-group.visible > *{opacity:1;animation:srIn .75s cubic-bezier(.16,1,.3,1) backwards}
+.sr-group.visible > *:nth-child(2){animation-delay:.07s}
+.sr-group.visible > *:nth-child(3){animation-delay:.14s}
+.sr-group.visible > *:nth-child(4){animation-delay:.21s}
+.sr-group.visible > *:nth-child(5){animation-delay:.28s}
+.sr-group.visible > *:nth-child(6){animation-delay:.35s}
+.sr-group.visible > *:nth-child(7){animation-delay:.42s}
+.sr-group.visible > *:nth-child(n+8){animation-delay:.49s}
+@media (prefers-reduced-motion: reduce){
+  .sr,.sr-group > *{opacity:1 !important;transform:none !important;transition:none !important;animation:none !important}
+}
 
 /* ═══════ 5C FRAMEWORK ═══════ */
 .fivec-section{
@@ -1272,4 +1296,18 @@ h1,h2,h3,h4{letter-spacing:-.03em;line-height:1.1}
 .hero-stats-row{margin-top:clamp(8px,1.4vh,20px);padding-top:clamp(8px,1.3vh,16px)}
 .hsr-val{font-size:clamp(1.1rem,2.5vh,1.55rem)}
 .hero-right{height:clamp(440px,calc(100svh - 140px),580px)}
+}
+
+/* ═══════════════════════════════════════════
+   DESKTOP DENSITY: content below the hero renders at the scale that looks
+   right on laptops (equivalent to 80% browser zoom). The hero, top bar and
+   nav keep full size. Only top-level blocks are scaled, so zoom never stacks.
+═══════════════════════════════════════════ */
+@media (min-width:1100px){
+  #root > div > :is(section:not(.hero), #about, .marquee-wrap, footer){zoom:.8}
+  /* zoomed sections have 1/0.8 more room, so let the content column use it */
+  #root > div > :is(section:not(.hero), #about, footer) .wrap{max-width:1440px}
+}
+@media (min-width:1680px){
+  #root > div > :is(section:not(.hero), #about, .marquee-wrap, footer){zoom:.9}
 }

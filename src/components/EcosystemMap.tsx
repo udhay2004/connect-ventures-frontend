@@ -99,29 +99,29 @@ export default function EcosystemMap() {
         </div>
 
         {/* 2x2 Bento Style Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-7 mb-24">
+        <div className="sr-group grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
           {categories.map((category, idx) => (
             <div 
               key={idx}
-              className="group bg-[#0d1527] border border-slate-700/40 rounded-2xl p-8 md:p-10 flex flex-col h-full transition-all duration-300 hover:border-teal-500/35 hover:bg-[#111c34] hover:shadow-[0_4px_30px_rgba(20,184,166,0.07)] shadow-2xl shadow-black/40"
+              className="group bg-[#0d1527] border border-slate-700/40 rounded-2xl p-6 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:border-teal-500/35 hover:bg-[#111c34] hover:shadow-[0_4px_30px_rgba(20,184,166,0.07)] shadow-2xl shadow-black/40"
             >
               <div className="flex-1 flex flex-col">
                 {/* Header Row */}
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="p-3 bg-slate-950/85 border border-slate-700/50 rounded-xl shrink-0">
+                <div className="flex flex-col items-start gap-4 mb-3">
+                  <div className="p-3 bg-slate-950/85 border border-slate-700/50 rounded-xl shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:border-teal-500/40">
                     {category.icon}
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+                  <h3 className="text-lg font-bold text-white tracking-tight">
                     {category.title}
                   </h3>
                 </div>
                 
-                <p className="text-sm text-slate-400 font-normal leading-relaxed mb-8">
+                <p className="text-sm text-slate-400 font-normal leading-relaxed mb-5">
                   {category.descriptor}
                 </p>
 
                 {/* Checklist */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-10 pt-7 border-t border-slate-800 mt-auto">
+                <div className="grid grid-cols-1 gap-y-3 pt-5 border-t border-slate-800 mt-auto">
                   {category.services.map((service, sIdx) => (
                     <div key={sIdx} className="flex items-start gap-3 min-w-0">
                       <div className="w-5 h-5 rounded-full bg-teal-950/60 border border-teal-500/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -141,25 +141,25 @@ export default function EcosystemMap() {
         {/* Trust Metrics */}
         <div
           style={{
-            marginTop: '64px',
+            marginTop: '24px',
             backgroundColor: '#0a1020',
             border: '1px solid rgba(30,41,59,0.6)',
             borderRadius: '16px',
-            padding: '48px 40px'
+            padding: '28px 36px'
           }}
         >
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr 1fr',
-              gap: '48px',
-              marginBottom: '48px'
+              gap: '36px',
+              marginBottom: '22px'
             }}
             className="trust-metrics-grid"
           >
 
             <div>
-              <span style={{ display: 'block', fontSize: '40px', fontWeight: 900, color: '#ffffff', lineHeight: 1, marginBottom: '12px' }}>
+              <span style={{ display: 'block', fontSize: '34px', fontWeight: 900, color: '#ffffff', lineHeight: 1, marginBottom: '12px' }}>
                 150+
               </span>
               <h4 style={{ fontSize: '11px', fontFamily: 'monospace', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#2dd4bf', fontWeight: 700, marginBottom: '10px' }}>
@@ -171,7 +171,7 @@ export default function EcosystemMap() {
             </div>
 
             <div style={{ paddingLeft: '40px', borderLeft: '1px solid #1e293b' }} className="trust-metric-divider">
-              <span style={{ display: 'block', fontSize: '40px', fontWeight: 900, color: '#2dd4bf', lineHeight: 1, marginBottom: '12px' }}>
+              <span style={{ display: 'block', fontSize: '34px', fontWeight: 900, color: '#2dd4bf', lineHeight: 1, marginBottom: '12px' }}>
                 21
               </span>
               <h4 style={{ fontSize: '11px', fontFamily: 'monospace', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#2dd4bf', fontWeight: 700, marginBottom: '10px' }}>
@@ -196,7 +196,7 @@ export default function EcosystemMap() {
 
           </div>
 
-          <div style={{ textAlign: 'center', paddingTop: '40px', borderTop: '1px solid #1e293b' }}>
+          <div style={{ textAlign: 'center', paddingTop: '22px', borderTop: '1px solid #1e293b' }}>
             <a
               href="services.html"
               style={{
