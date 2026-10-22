@@ -99,7 +99,7 @@ export default function WhyChooseUs() {
                 Launch Your Global Journey →
               </a>
               <a 
-                href="about.html"
+                href="dr-anil-gupta.html"
                 className="text-center text-xs !text-slate-300 hover:!text-[#2dd4bf] transition-colors py-1.5 font-medium flex items-center justify-center gap-1"
               >
                 <span>Read Dr. Anil Gupta's Founder Story &amp; Philosophy</span>

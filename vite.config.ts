@@ -11,6 +11,7 @@ export default defineConfig(() => {
         input: {
           main: path.resolve(__dirname, 'index.html'),
           about: path.resolve(__dirname, 'about.html'),
+          'dr-anil-gupta': path.resolve(__dirname, 'dr-anil-gupta.html'),
           '5c-model': path.resolve(__dirname, '5c-model.html'),
           'co-creation': path.resolve(__dirname, 'co-creation.html'),
           coaching: path.resolve(__dirname, 'coaching.html'),
