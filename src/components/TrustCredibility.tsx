@@ -64,7 +64,7 @@ export default function TrustCredibility() {
       isLogoOnly: true,
       paragraphs: [
         'Zee TV is one of India\'s largest and most-watched television networks, reaching hundreds of millions of viewers across India and the Indian diaspora worldwide through its entertainment and news programming.',
-        'Comply Globally was featured on a dedicated Zee TV segment that highlighted our work in simplifying cross-border business registration and compliance for entrepreneurs and SMEs looking to expand internationally.',
+        'Comply Globally was featured on a dedicated Zee TV segment that highlighted its work in simplifying cross-border business registration and compliance for entrepreneurs and SMEs looking to expand internationally.',
         'Being recognized by a network of Zee TV\'s scale and reach reflects the growing trust placed in our advisory and compliance services by India\'s business community.'
       ],
     },
@@ -88,7 +88,7 @@ export default function TrustCredibility() {
       isLogoOnly: true,
       paragraphs: [
         'Sudarshan News is a widely-followed national news channel known for its coverage of business and policy topics across India.',
-        'Comply Globally was featured in a segment highlighting how our remote-enabled services allow entrepreneurs to expand internationally without the overhead of setting up local offices.',
+        'Comply Globally was featured in a segment highlighting how its remote-enabled services allow entrepreneurs to expand internationally without the overhead of setting up local offices.',
         'Being featured on a channel with Sudarshan\'s national reach underscores the relevance of our work to entrepreneurs across the country.'
       ],
     },

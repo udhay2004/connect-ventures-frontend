@@ -369,12 +369,16 @@ export default function App() {
           
           <div className={`nav-links ${menuOpen ? 'open' : ''}`} id="nav-links">
             <a href="#" className={`nav-link ${activeSection === 'hero' ? 'active' : ''}`} onClick={() => setMenuOpen(false)}>Home</a>
-            <a href="services.html" className="nav-link" onClick={() => setMenuOpen(false)}>All Services</a>
-            <a href="5c-model.html" className="nav-link" onClick={() => setMenuOpen(false)}>5C Framework</a>
-            <a href="projects.html" className="nav-link" onClick={() => setMenuOpen(false)}>Projects</a>
-            <a href="marketplace.html" className="nav-link" onClick={() => setMenuOpen(false)}>Marketplace</a>
-            <a href="countries.html" className={`nav-link ${activeSection === 'countries' ? 'active' : ''}`} onClick={() => setMenuOpen(false)}>Countries</a>
             <a href="about.html" className="nav-link" onClick={() => setMenuOpen(false)}>About Us</a>
+            <a href="services.html" className="nav-link" onClick={() => setMenuOpen(false)}>Our Services</a>
+            <div className="nav-dropdown">
+              <button type="button" className="nav-link nav-dropdown-toggle" aria-haspopup="true">Opportunities <span className="nav-caret" aria-hidden="true">&#9662;</span></button>
+              <div className="nav-dropdown-menu">
+                <a href="projects.html" className="nav-link nav-dropdown-item" onClick={() => setMenuOpen(false)}>Projects</a>
+                <a href="marketplace.html" className="nav-link nav-dropdown-item" onClick={() => setMenuOpen(false)}>Marketplace</a>
+              </div>
+            </div>
+            <a href="countries.html" className={`nav-link ${activeSection === 'countries' ? 'active' : ''}`} onClick={() => setMenuOpen(false)}>Countries</a>
             <a href="partners.html" className="nav-link" onClick={() => setMenuOpen(false)}>Partners</a>
             <a
               href="resources.html"
@@ -1262,7 +1266,7 @@ export default function App() {
             <div>
               <div className="footer-brand uppercase">CONNECT VENTURES</div>
               <p className="footer-desc">
-                India's premier global expansion group. Connect Ventures is the parent company. Comply Globally is a group company. Together we serve 1,000+ businesses across 47+ countries through the proprietary 5C framework. Chairman: Dr. Anil Gupta.
+                India's premier global expansion partner. With our globalization partner Comply Globally, we serve 1,000+ businesses across 47+ countries through the proprietary 5C framework. Chairman: Dr. Anil Gupta.
               </p>
               <div className="mt-3.5 text-xs text-teal antialiased font-semibold">
                 www.theconnectventures.com · www.complyglobally.com
