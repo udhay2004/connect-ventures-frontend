@@ -288,7 +288,8 @@
       box-shadow: 0 12px 20px -8px rgba(0, 201, 167, 0.1);
     }
 
-    .office-flag { font-size: 28px; margin-bottom: 12px; }
+    .office-card { position: relative; overflow: hidden; padding-top: 96px; }
+    .office-card > :not(.flag-wave) { position: relative; z-index: 1; }
     .office-country { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 2px; }
     .office-type {
       font-size: 11px;
@@ -548,7 +549,7 @@
       <div class="grid-3 mt-4">
 
         <address class="office-card" style="font-style:normal" itemscope itemtype="https://schema.org/PostalAddress">
-          <div class="office-flag">🇺🇸</div>
+          <div class="flag-wave" style="--flag:url(/assets/flags/us.svg);--n:32" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i><i style="--i:30"></i><i style="--i:31"></i></div>
           <div class="office-country" itemprop="addressCountry">USA — Headquarters</div>
           <div class="office-type">Connect Ventures</div>
           <div class="office-addr" itemprop="streetAddress">
@@ -560,7 +561,7 @@
         </address>
 
         <address class="office-card" style="font-style:normal">
-          <div class="office-flag">🇬🇧</div>
+          <div class="flag-wave" style="--flag:url(/assets/flags/gb.svg);--n:32" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i><i style="--i:30"></i><i style="--i:31"></i></div>
           <div class="office-country">United Kingdom</div>
           <div class="office-type">UK Operations</div>
           <div class="office-addr">
@@ -569,7 +570,7 @@
         </address>
 
         <address class="office-card" style="font-style:normal">
-          <div class="office-flag">🇨🇦</div>
+          <div class="flag-wave" style="--flag:url(/assets/flags/ca.svg);--n:32" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i><i style="--i:30"></i><i style="--i:31"></i></div>
           <div class="office-country">Canada</div>
           <div class="office-type">Canadian Operations</div>
           <div class="office-addr">
@@ -578,7 +579,7 @@
         </address>
 
         <address class="office-card" style="font-style:normal">
-          <div class="office-flag">🇮🇳</div>
+          <div class="flag-wave" style="--flag:url(/assets/flags/in.svg);--n:32" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i><i style="--i:30"></i><i style="--i:31"></i></div>
           <div class="office-country">India — Delhi NCR</div>
           <div class="office-type">India Regional Office</div>
           <div class="office-addr">
@@ -590,7 +591,7 @@
         </address>
 
         <address class="office-card" style="font-style:normal">
-          <div class="office-flag">🇮🇳</div>
+          <div class="flag-wave" style="--flag:url(/assets/flags/in.svg);--n:32" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i><i style="--i:30"></i><i style="--i:31"></i></div>
           <div class="office-country">India — Hyderabad</div>
           <div class="office-type">South India Office</div>
           <div class="office-addr">
@@ -599,7 +600,7 @@
         </address>
 
         <address class="office-card" style="font-style:normal">
-          <div class="office-flag">🇮🇳</div>
+          <div class="flag-wave" style="--flag:url(/assets/flags/in.svg);--n:32" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i><i style="--i:30"></i><i style="--i:31"></i></div>
           <div class="office-country">India — Mumbai</div>
           <div class="office-type">West India Office</div>
           <div class="office-addr">
