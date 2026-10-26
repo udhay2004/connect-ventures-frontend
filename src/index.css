@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght=400;500&display=swap');
 @import "tailwindcss";
 
-/* Site-wide scale: render desktop layouts at 80% (the density the site was
+/* Site-wide scale: render desktop layouts at 95% (the density the site was
    tuned for). Viewport units are divided by --zoom so full-height sections
    still fill the screen. */
 :root { --zoom: 1; }
 @media (min-width: 1024px) {
-  :root { --zoom: 0.8; }
-  html { zoom: 0.8; }
+  :root { --zoom: 0.95; }
+  html { zoom: 0.95; }
 }
 
 /* ═══════ RESET + TOKENS ═══════ */
