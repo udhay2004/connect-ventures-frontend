@@ -594,6 +594,55 @@
       font-weight: 700;
       letter-spacing: 0.1em;
     }
+
+    /* ── Core services (six categories) ── */
+    .core-services { padding: 90px 0 70px; background: #fff; }
+    .core-head { text-align: center; max-width: 720px; margin: 0 auto 28px; }
+    .core-head h2, .specialist-head h2 { font-size: clamp(28px, calc(3.6vw / var(--zoom, 1)), 42px); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; line-height: 1.2; margin: 12px 0 12px; }
+    .core-head h2 em, .specialist-head h2 em { font-family: var(--font-serif); font-style: italic; font-weight: 600; color: var(--teal); }
+    .core-head p { color: var(--muted); font-size: 16px; line-height: 1.7; }
+    .core-jump { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 48px; }
+    .core-jump a { font-size: 13px; font-weight: 700; color: var(--navy); padding: 8px 16px; border-radius: 9999px; border: 1.5px solid var(--line-light); background: var(--bg-light); transition: all 0.2s ease; }
+    .core-jump a:hover { border-color: var(--teal); color: var(--teal-dark); background: #fff; }
+    .core-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .core-cat {
+      position: relative; display: flex; flex-direction: column; background: #fff; border-radius: 24px; padding: 30px;
+      border: 1.5px solid var(--line-light); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04); overflow: hidden;
+      scroll-margin-top: 100px; transition: box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+    }
+    .core-cat::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--c); }
+    .core-cat::after { content: ''; position: absolute; width: 260px; height: 260px; right: -110px; top: -130px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--c) 16%, transparent), transparent 70%); pointer-events: none; }
+    .core-cat:hover { transform: translateY(-4px); box-shadow: 0 24px 50px rgba(15, 23, 42, 0.09); border-color: color-mix(in srgb, var(--c) 40%, transparent); }
+    .core-cat-head { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 22px; position: relative; z-index: 1; }
+    .core-cat-icon { width: 54px; height: 54px; flex-shrink: 0; border-radius: 16px; display: grid; place-items: center; color: #fff; background: var(--c); box-shadow: 0 10px 22px color-mix(in srgb, var(--c) 35%, transparent); }
+    .core-cat-icon svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .core-cat-num { font-family: var(--font-mono); font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-light); }
+    .core-cat h3 { font-size: 22px; font-weight: 800; color: var(--navy); letter-spacing: -0.015em; margin: 4px 0 6px; }
+    .core-cat-head p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .core-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; flex: 1; align-content: start; position: relative; z-index: 1; }
+    .core-item { position: relative; display: flex; flex-direction: column; gap: 4px; padding: 14px 16px 14px 18px; border-radius: 14px; background: var(--bg-light); border: 1px solid var(--line-light); transition: background 0.2s ease, border-color 0.2s ease; }
+    .core-item::before { content: ''; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px; border-radius: 3px; background: var(--c); }
+    .core-item:hover { background: #fff; border-color: color-mix(in srgb, var(--c) 35%, transparent); }
+    .core-item-name { font-size: 14px; font-weight: 800; color: var(--navy); line-height: 1.3; }
+    .core-item-desc { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+    .core-item-link { padding-right: 34px; color: inherit; }
+    .core-item-go { position: absolute; right: 14px; top: 14px; font-weight: 800; color: var(--c); transition: transform 0.2s ease; }
+    .core-item-link:hover .core-item-go { transform: translateX(3px); }
+    .core-cat-cta { align-self: flex-start; margin-top: 22px; font-size: 13.5px; font-weight: 800; color: var(--navy); padding: 10px 18px; border-radius: 10px; border: 1.5px solid var(--line-light); position: relative; z-index: 1; transition: all 0.2s ease; }
+    .core-cat-cta:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
+    .specialist-head { background: var(--bg-light); padding: 64px 0 8px; text-align: center; border-top: 1px solid var(--line-light); }
+    .core-cat-wide { grid-column: 1 / -1; }
+    .core-cat-wide .core-items { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 1100px) {
+      .core-grid { grid-template-columns: 1fr; }
+      .core-cat-wide .core-items { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .core-services { padding: 64px 0 48px; }
+      .core-cat { padding: 22px; }
+      .core-items, .core-cat-wide .core-items { grid-template-columns: 1fr; }
+      .core-cat-head { gap: 14px; }
+    }
   </style>
 </head>
 <body>
@@ -604,9 +653,9 @@
   <section class="services-hero">
     <div class="container">
       <span class="section-eyebrow">Complete Service Portfolio</span>
-      <h1>All 21 services. <em>Explained in full.</em></h1>
+      <h1>Everything you need to <em>go global.</em></h1>
       <p class="services-hero-desc">
-        Explore India's most intensive global expansion, cross-border corporate structure, and compliance matrix designed for tech startups, ecommerce exports, and strategic manufacturers going global.
+        Six core service areas to get you represented, localized, coached and connected in a new country, plus 21 specialist services for setup, tax, compliance and growth.
       </p>
 
       <!-- Live Search Box -->
@@ -620,6 +669,141 @@
       </div>
     </div>
   </section>
+
+  <!-- Core services: six categories, shown above the specialist services -->
+  <section class="core-services" id="core-services">
+    <div class="container">
+      <div class="core-head">
+        <span class="section-eyebrow">Our core services</span>
+        <h2>Six ways we take you <em>global</em></h2>
+        <p>From a local representative on day one to the investors and partners who help you scale.</p>
+      </div>
+      <nav class="core-jump" aria-label="Core service categories">
+        <a href="#local-representation">Local Representation</a>
+        <a href="#globalization">Globalization &amp; Glocalization</a>
+        <a href="#coaches">Coaches</a>
+        <a href="#stakeholder-search">Stakeholder Search</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#directory-listing">Directory Listing</a>
+      </nav>
+      <div class="core-grid">
+        <article class="core-cat core-cat-wide" id="local-representation" style="--c: #00c9a7">
+          <header class="core-cat-head">
+            <span class="core-cat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div>
+              <span class="core-cat-num">01 · 9 services</span>
+              <h3>Local Representation</h3>
+              <p>A trusted presence in your target country, so you can operate there before you hire or open an office.</p>
+            </div>
+          </header>
+          <div class="core-items">
+            <div class="core-item"><span class="core-item-name">Registered Agent</span><span class="core-item-desc">A statutory agent who receives legal and government notices for your company and keeps it in good standing.</span></div>
+            <div class="core-item"><span class="core-item-name">Nominee Director</span><span class="core-item-desc">A resident director where local law requires one, under a clear agreement that keeps control with you.</span></div>
+            <div class="core-item"><span class="core-item-name">Marketing Representative</span><span class="core-item-desc">An in-market representative who presents your brand, meets prospects and attends trade events for you.</span></div>
+            <div class="core-item"><span class="core-item-name">Local Country Dealer</span><span class="core-item-desc">An appointed dealer who stocks, sells and services your products under your brand in the country.</span></div>
+            <div class="core-item"><span class="core-item-name">Importer of Record (IOR)</span><span class="core-item-desc">A licensed importer who clears your goods through customs, pays duties and takes on import compliance.</span></div>
+            <div class="core-item"><span class="core-item-name">Employer of Record (EOR)</span><span class="core-item-desc">Hire staff legally in-country without your own entity: contracts, payroll, benefits and taxes handled.</span></div>
+            <div class="core-item"><span class="core-item-name">Registered Office & Mail Handling</span><span class="core-item-desc">An official business address in the country, with mail received, scanned and forwarded to you.</span></div>
+            <div class="core-item"><span class="core-item-name">Fiscal / Tax Representative</span><span class="core-item-desc">A local representative for VAT or GST registration and filings where non-resident companies need one.</span></div>
+            <div class="core-item"><span class="core-item-name">Authorized Signatory (Power of Attorney)</span><span class="core-item-desc">A trusted local person empowered to sign documents and deal with banks and authorities on your behalf.</span></div>
+          </div>
+          <a class="core-cat-cta" href="index.html#contact">Talk to an advisor →</a>
+        </article>
+        <article class="core-cat" id="globalization" style="--c: #29b6f6">
+          <header class="core-cat-head">
+            <span class="core-cat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+            <div>
+              <span class="core-cat-num">02 · 5 services</span>
+              <h3>Globalization &amp; Glocalization</h3>
+              <p>Adapt your product and go-to-market for each country, so you sell like a local brand.</p>
+            </div>
+          </header>
+          <div class="core-items">
+            <div class="core-item"><span class="core-item-name">Product Localization</span><span class="core-item-desc">Adapting features, specifications, certifications and labelling to local standards and customer preferences.</span></div>
+            <div class="core-item"><span class="core-item-name">GTM Localization</span><span class="core-item-desc">Pricing, channels, positioning and messaging tailored to how each market buys.</span></div>
+            <div class="core-item"><span class="core-item-name">Packaging</span><span class="core-item-desc">Packaging and labelling redesigned for local language, regulations and retail shelves.</span></div>
+            <div class="core-item"><span class="core-item-name">Local Market Research</span><span class="core-item-desc">Demand sizing, competitor mapping and customer insight before you commit budget.</span></div>
+            <div class="core-item"><span class="core-item-name">Website for Digital Presence</span><span class="core-item-desc">A localized website, domain, local SEO and business listings so customers can find and trust you.</span></div>
+          </div>
+          <a class="core-cat-cta" href="index.html#contact">Talk to an advisor →</a>
+        </article>
+        <article class="core-cat" id="coaches" style="--c: #a78bfa">
+          <header class="core-cat-head">
+            <span class="core-cat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+            <div>
+              <span class="core-cat-num">03 · 4 services</span>
+              <h3>Coaches</h3>
+              <p>Learn from people who have already built businesses where you want to go.</p>
+            </div>
+          </header>
+          <div class="core-items">
+            <div class="core-item"><span class="core-item-name">Geographic Coaches</span><span class="core-item-desc">Country specialists who explain the culture, business etiquette and how deals really get done.</span></div>
+            <div class="core-item"><span class="core-item-name">Technology Coaches</span><span class="core-item-desc">Guidance on the digital tools, platforms and automation that run a cross-border business.</span></div>
+            <div class="core-item"><span class="core-item-name">Business Function Coaches</span><span class="core-item-desc">Sales, marketing, finance, HR and operations experts who help each function work across borders.</span></div>
+            <div class="core-item"><span class="core-item-name">Legal &amp; Regulatory Coaches</span><span class="core-item-desc">Practical coaching on compliance, licensing, contracts and approvals in your target market.</span></div>
+          </div>
+          <a class="core-cat-cta" href="index.html#contact">Talk to an advisor →</a>
+        </article>
+        <article class="core-cat" id="stakeholder-search" style="--c: #fbbf24">
+          <header class="core-cat-head">
+            <span class="core-cat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg></span>
+            <div>
+              <span class="core-cat-num">04 · 4 services</span>
+              <h3>Stakeholder Search</h3>
+              <p>We find, vet and introduce the partners you need on the ground.</p>
+            </div>
+          </header>
+          <div class="core-items">
+            <div class="core-item"><span class="core-item-name">Warehouse</span><span class="core-item-desc">Bonded, 3PL and fulfilment warehouses close to your customers, matched to your volumes.</span></div>
+            <div class="core-item"><span class="core-item-name">C&amp;F Agent</span><span class="core-item-desc">Carrying and forwarding agents who receive, store and dispatch your stock to distributors in a region.</span></div>
+            <div class="core-item"><span class="core-item-name">Master Country Franchise</span><span class="core-item-desc">A master franchisee to own, build and grow your brand across an entire country.</span></div>
+            <div class="core-item"><span class="core-item-name">Space &amp; Office Services</span><span class="core-item-desc">Private offices, coworking desks, virtual offices and meeting rooms wherever you need them.</span></div>
+          </div>
+          <a class="core-cat-cta" href="index.html#contact">Talk to an advisor →</a>
+        </article>
+        <article class="core-cat" id="marketplace" style="--c: #4ade80">
+          <header class="core-cat-head">
+            <span class="core-cat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></svg></span>
+            <div>
+              <span class="core-cat-num">05 · 3 services</span>
+              <h3>Marketplace</h3>
+              <p>Buy, sell and source across borders on the Connect Ventures Marketplace.</p>
+            </div>
+          </header>
+          <div class="core-items">
+            <a class="core-item core-item-link" href="marketplace.html"><span class="core-item-name">Company Buy &amp; Sell</span><span class="core-item-desc">Acquire an established business abroad, or find a buyer for yours.</span><span class="core-item-go" aria-hidden="true">→</span></a>
+            <a class="core-item core-item-link" href="projects.html"><span class="core-item-name">Projects</span><span class="core-item-desc">Live cross-border projects and opportunities looking for partners.</span><span class="core-item-go" aria-hidden="true">→</span></a>
+            <a class="core-item core-item-link" href="marketplace.html"><span class="core-item-name">Cross-Border Sourcing</span><span class="core-item-desc">Find and vet manufacturers and suppliers in other countries.</span><span class="core-item-go" aria-hidden="true">→</span></a>
+          </div>
+          <a class="core-cat-cta" href="marketplace.html">Open the Marketplace →</a>
+        </article>
+        <article class="core-cat core-cat-wide" id="directory-listing" style="--c: #fb923c">
+          <header class="core-cat-head">
+            <span class="core-cat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h8M8 11h6"/></svg></span>
+            <div>
+              <span class="core-cat-num">06 · 3 services</span>
+              <h3>Directory Listing</h3>
+              <p>A curated directory of vetted professionals for businesses going global.</p>
+            </div>
+          </header>
+          <div class="core-items">
+            <div class="core-item"><span class="core-item-name">Investors</span><span class="core-item-desc">Angel, venture and strategic investors interested in cross-border businesses.</span></div>
+            <div class="core-item"><span class="core-item-name">Coaches</span><span class="core-item-desc">Verified business coaches, searchable by country and by business function.</span></div>
+            <div class="core-item"><span class="core-item-name">Trademark &amp; Patent Agents</span><span class="core-item-desc">Registered IP agents who file and protect your brand and inventions abroad.</span></div>
+          </div>
+          <a class="core-cat-cta" href="index.html#contact">Talk to an advisor →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialist services heading -->
+  <div class="specialist-head">
+    <div class="container">
+      <span class="section-eyebrow">Specialist services</span>
+      <h2>21 specialist services, <em>explained in full</em></h2>
+    </div>
+  </div>
 
   <!-- Filter tabs -->
   <div class="filter-wrapper">
@@ -1715,24 +1899,35 @@
         }
       });
 
+      // Core categories: hide sub-services (and whole categories) that don't match
+      let coreShown = 0;
+      document.querySelectorAll('.core-cat').forEach(cat => {
+        const catMatch = !query || cat.querySelector('.core-cat-head').textContent.toLowerCase().includes(query);
+        let shown = 0;
+        cat.querySelectorAll('.core-item').forEach(item => {
+          const ok = catMatch || item.textContent.toLowerCase().includes(query);
+          item.style.display = ok ? '' : 'none';
+          if (ok) shown++;
+        });
+        cat.style.display = shown ? '' : 'none';
+        coreShown += shown;
+      });
+      const totalShown = matchedCount + coreShown;
+      document.querySelector('.specialist-head').style.display = query && matchedCount === 0 ? 'none' : '';
+
       // Update badge totals
       updateBadgeCounts(query);
 
       // System Stats text
       if (query) {
-        searchStats.textContent = `Found ${matchedCount} services matching your query ("${query}").`;
+        searchStats.textContent = `Found ${totalShown} services matching your query ("${query}").`;
       } else {
-        searchStats.textContent = `Displaying ${matchedCount} services. Click "Benefits & Timeline" to inspect.`;
+        searchStats.textContent = `Displaying ${totalShown} services across 6 core areas and 21 specialist services.`;
       }
 
       // Toggle no-results visual panel
-      if (matchedCount === 0) {
-        noResults.style.display = 'block';
-        document.getElementById('servicesGrid').style.display = 'none';
-      } else {
-        noResults.style.display = 'none';
-        document.getElementById('servicesGrid').style.display = 'grid';
-      }
+      noResults.style.display = totalShown === 0 ? 'block' : 'none';
+      document.getElementById('servicesGrid').style.display = matchedCount === 0 ? 'none' : 'grid';
     }
 
     // Dynamic counts per category matching the active query string
