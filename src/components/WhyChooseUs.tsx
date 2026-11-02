@@ -5,7 +5,7 @@ export default function WhyChooseUs() {
   const points = [
     { icon: Briefcase, text: 'Establish compliant corporate entities in USA, UK, UAE, or Singapore.' },
     { icon: Coins, text: 'Secure corporate physical bank accounts and official Employer Identification Numbers.' },
-    { icon: Globe, text: 'Optimise cross-border commercial ventures through comprehensive tax and DTAA planning.' },
+    { icon: Globe, text: 'Localize your product, packaging and go-to-market so you sell like a local brand in every country.' },
     { icon: ShieldCheck, text: 'Ensure absolute regulatory compliance under FEMA, RBI, and secretarial guidelines.' },
     { icon: Check, text: 'Deploy foreign operations instantly using pre-vetted local Employer of Record services.' },
     { icon: Zap, text: 'Accelerate overseas business growth with localised market entry and regional distributors.' }
