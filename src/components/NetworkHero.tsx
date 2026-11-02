@@ -19,7 +19,7 @@ export default function NetworkHero() {
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
   const regionsData: RegionNode[] = [
-    { id: 'na',        name: 'North America', sub: 'Incorporation',      desc: 'USA LLC • 7 Days',  lat: 38.0,  lon: -98.0,  color: '#00d4ff', dotType: 'cyan', offset: [-160, -45] },
+    { id: 'na',        name: 'North America', sub: 'Local Presence',     desc: 'Agent • IOR • EOR',  lat: 38.0,  lon: -98.0,  color: '#00d4ff', dotType: 'cyan', offset: [-160, -45] },
     { id: 'europe',    name: 'Europe',         sub: 'Business Expansion', desc: 'Seamless Growth',   lat: 50.0,  lon: 15.0,   color: '#fbbf24', dotType: 'gold', offset: [45,  -95] },
     { id: 'me',        name: 'Middle East',    sub: 'Banking',            desc: 'UAE Free Zone',     lat: 25.0,  lon: 45.0,   color: '#00c9a7', dotType: 'teal', offset: [-155, 45] },
     { id: 'africa',    name: 'Africa',         sub: 'Market Entry',       desc: '50+ Countries',     lat: -2.0,  lon: 22.0,   color: '#fbbf24', dotType: 'gold', offset: [-45,  95] },

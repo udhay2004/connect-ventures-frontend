@@ -212,7 +212,7 @@ export default function EcosystemMap() {
                 textDecoration: 'none'
               }}
             >
-              View all 21 services
+              View all services
               <ArrowRight style={{ width: '16px', height: '16px' }} />
             </a>
           </div>

@@ -497,12 +497,12 @@ export default function App() {
       {/* 🎪 HORIZONTAL SCOPE MARQUEE */}
       <div className="marquee-wrap">
         <div className="marquee-track">
-          <span className="mi"><span className="dot" />Company Formation</span>
+          <span className="mi"><span className="dot" />Local Representation</span>
           <span className="mi"><span className="dot" />International Banking</span>
-          <span className="mi"><span className="dot" />Tax &amp; DTAA Planning</span>
+          <span className="mi"><span className="dot" />Product Localization</span>
           <span className="mi"><span className="dot" />Secretarial Compliance</span>
           <span className="mi"><span className="dot" />IOR / EOR Services</span>
-          <span className="mi"><span className="dot" />Stakeholder Hunt</span>
+          <span className="mi"><span className="dot" />Stakeholder Search</span>
           <span className="mi"><span className="dot" />Trade Finance</span>
           <span className="mi"><span className="dot" />Visa &amp; Immigration</span>
           <span className="mi"><span className="dot" />Patent &amp; Trademark</span>
@@ -510,12 +510,12 @@ export default function App() {
           <span className="mi"><span className="dot" />Market Research</span>
           <span className="mi"><span className="dot" />Localization</span>
           {/* Repeated items for circular infinite scrolling layout */}
-          <span className="mi"><span className="dot" />Company Formation</span>
+          <span className="mi"><span className="dot" />Local Representation</span>
           <span className="mi"><span className="dot" />International Banking</span>
-          <span className="mi"><span className="dot" />Tax &amp; DTAA Planning</span>
+          <span className="mi"><span className="dot" />Product Localization</span>
           <span className="mi"><span className="dot" />Secretarial Compliance</span>
           <span className="mi"><span className="dot" />IOR / EOR Services</span>
-          <span className="mi"><span className="dot" />Stakeholder Hunt</span>
+          <span className="mi"><span className="dot" />Stakeholder Search</span>
           <span className="mi"><span className="dot" />Trade Finance</span>
           <span className="mi"><span className="dot" />Visa &amp; Immigration</span>
           <span className="mi"><span className="dot" />Patent &amp; Trademark</span>
@@ -600,8 +600,8 @@ export default function App() {
               </div>
               <div className="c-body">
                 <div className="c-items">
-                  <div className="c-item">Foreign company incorporation</div>
-                  <div className="c-item">International taxation &amp; DTAA</div>
+                  <div className="c-item">Local representation</div>
+                  <div className="c-item">Cross-border legal drafting</div>
                   <div className="c-item">Cross-border banking</div>
                   <div className="c-item">IPR — Patent, TM, Copyright</div>
                   <div className="c-item">Trade finance &amp; MSME credit</div>
@@ -1006,11 +1006,11 @@ export default function App() {
                   <div className="fg-floating font-sans">
                     <select id="service-select" className="fc peer" defaultValue="" required>
                       <option value="" disabled hidden></option>
-                      <option value="incorporation">Company incorporation abroad</option>
+                      <option value="representation">Local representation (agent, director, IOR, EOR)</option>
                       <option value="banking">International banking setup</option>
                       <option value="ior">IOR / EOR services</option>
-                      <option value="tax">Tax &amp; DTAA compliance</option>
-                      <option value="stakeholder">Stakeholder / distributor hunt</option>
+                      <option value="glocalization">Globalization &amp; glocalization</option>
+                      <option value="stakeholder">Stakeholder search</option>
                       <option value="visa">Visa &amp; immigration</option>
                       <option value="framework">Full 5C expansion package</option>
                       <option value="guidance">Not sure — need guidance</option>
@@ -1094,7 +1094,7 @@ export default function App() {
               </button>
               <div className={`faq-a ${openFaqIdx === 1 ? 'open' : ''}`}>
                 <p>
-                  The 5C model covers: C1 Coaching, C2 Consulting (incorporation, tax, banking), C3 Connecting (stakeholder hunt, investors), C4 Collaboration (IOR/EOR, deals), C5 Co-creation (JV, co-investment). Unlike firms that specialise in one area, Connect Ventures delivers all five — the only true single-stop partner for any Indian business going global.
+                  The 5C model covers: C1 Coaching, C2 Consulting (local representation, banking, legal), C3 Connecting (stakeholder hunt, investors), C4 Collaboration (IOR/EOR, deals), C5 Co-creation (JV, co-investment). Unlike firms that specialise in one area, Connect Ventures delivers all five — the only true single-stop partner for any Indian business going global.
                 </p>
               </div>
             </div>
@@ -1284,7 +1284,7 @@ export default function App() {
               <a href="connecting.html" className="footer-link">C3 — Connecting</a>
               <a href="collaboration.html" className="footer-link">C4 — Collaboration</a>
               <a href="co-creation.html" className="footer-link">C5 — Co-creation</a>
-              <a href="services.html" className="footer-link text-teal mt-1 font-semibold">All 21+ services →</a>
+              <a href="services.html" className="footer-link text-teal mt-1 font-semibold">All services →</a>
             </div>
             
             <div>
