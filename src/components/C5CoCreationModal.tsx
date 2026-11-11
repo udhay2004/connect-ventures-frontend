@@ -125,10 +125,10 @@ export default function C5CoCreationModal({ isOpen, onClose }: C5CoCreationModal
               Strategic Growth Partnerships & Co-Investment
             </div>
             <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight uppercase font-sans">
-              C5 — Co-creation Framework
+              C5 — Co-Creating Framework
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl mx-auto">
-              The C5 Co-creation module represents the deepest level of engagement — where Connect Ventures acts not just as an advisor but as an active co-investor, strategic partner, or co-creator in your international business ventures.
+              The C5 Co-Creating module represents the deepest level of engagement — where Connect Ventures acts not just as an advisor but as an active co-investor, strategic partner, or co-creator in your international business ventures.
             </p>
           </div>
 
@@ -169,10 +169,10 @@ export default function C5CoCreationModal({ isOpen, onClose }: C5CoCreationModal
                 ⭐ SPECIALIZED PARTNERSHIP INITIATOR
               </span>
               <h3 className="text-xl sm:text-3xl font-black text-white uppercase tracking-tight">
-                Ready to explore C5 — Co-creation?
+                Ready to explore C5 — Co-Creating?
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Connect Ventures delivers C5 — Co-creation as part of the complete 5C global expansion framework. Talk to Dr. Anil Gupta's team for a free assessment of how C5 — Co-creation can accelerate your international growth.
+                Connect Ventures delivers C5 — Co-Creating as part of the complete 5C global expansion framework. Talk to Dr. Anil Gupta's team for a free assessment of how C5 — Co-Creating can accelerate your international growth.
               </p>
               
               {/* Button Groups */}

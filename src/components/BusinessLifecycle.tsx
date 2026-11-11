@@ -74,7 +74,7 @@ export default function BusinessLifecycle() {
       duration: 'Ongoing Priority',
       keyAction: 'Secure international patents, copyrights, and trademarks under Madrid networks.',
       metrics: [
-        { label: 'Active Trademark nodes', value: '47+ Juris.' },
+        { label: 'Active Trademark nodes', value: '50+ Juris.' },
         { label: 'IP Security Record', value: 'First-Pass' }
       ],
       deliverables: [

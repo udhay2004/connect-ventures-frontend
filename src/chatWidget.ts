@@ -18,7 +18,7 @@ function getSessionId(): string {
 }
 
 const DEFAULT_GREETING =
-  "Hi there! 👋 Welcome to Connect Ventures. I'm your global expansion advisor — here to help across Coaching, Consulting, Connecting, Collaboration, and Co-creation. Who am I speaking with?";
+  "Hi there! 👋 Welcome to Connect Ventures. I'm your global expansion advisor — here to help across Coaching, Consulting, Connecting, Collaborating, and Co-Creating. Who am I speaking with?";
 
 function mountWidget() {
   const sessionId = getSessionId();
