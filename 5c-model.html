@@ -59,6 +59,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/five-c.css">
 
   <style>
     /* Page-specific overrides and content unique to the 5C page only */
@@ -149,11 +150,6 @@
     }
 
     /* ---------- Content from "The 5Cs of Going Global" ---------- */
-    .c-mod-coaching { --c: #7c3aed; --c-soft: rgba(124, 58, 237, 0.07); }
-    .c-mod-consulting { --c: #008770; --c-soft: rgba(0, 201, 167, 0.08); }
-    .c-mod-connecting { --c: #2e7d32; --c-soft: rgba(76, 175, 80, 0.09); }
-    .c-mod-collaboration { --c: #d97706; --c-soft: rgba(245, 158, 11, 0.09); }
-    .c-mod-cocreation { --c: #ea580c; --c-soft: rgba(249, 115, 22, 0.08); }
 
     .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); transition-delay: var(--d, 0s); }
     .reveal.in { opacity: 1; transform: none; }
@@ -247,9 +243,6 @@
     .c-band { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease; }
     .c-band.in { opacity: 1; transform: none; }
     .c-deep { display: grid; grid-template-columns: 290px 1fr; gap: 22px; margin-bottom: 26px; }
-    .c-illo { margin: 0; background: var(--c-soft); border-radius: 16px; padding: 14px 14px 12px; display: flex; flex-direction: column; justify-content: center; color: var(--c); }
-    .c-illo svg { width: 100%; height: auto; display: block; }
-    .c-illo figcaption { font-size: 11.5px; font-weight: 700; color: var(--navy); text-align: center; margin-top: 4px; }
     .c-lead { display: flex; gap: 12px; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 1px dashed rgba(15, 23, 42, 0.12); }
     .c-lead img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12); flex-shrink: 0; }
     .c-lead p { font-size: 11.3px; line-height: 1.5; color: var(--muted); }
@@ -307,45 +300,6 @@
     .check-meter i b { display: block; height: 100%; width: 0; background: var(--c); border-radius: 6px; transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
 
     .c-sub-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted-light); margin-bottom: 12px; }
-
-    /* Illustration animations: they start once the band scrolls into view */
-    .c-band svg * { transform-box: fill-box; }
-    .il-pop { transform-origin: center; transform: scale(0); }
-    .c-band.in .il-pop { animation: ilPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; animation-delay: var(--d, 0s); }
-    @keyframes ilPop { to { transform: scale(1); } }
-    .il-draw { stroke-dasharray: var(--len, 300); stroke-dashoffset: var(--len, 300); }
-    .c-band.in .il-draw { animation: ilDraw 1.4s ease forwards; animation-delay: var(--d, 0s); }
-    @keyframes ilDraw { to { stroke-dashoffset: 0; } }
-    .il-fade { opacity: 0; }
-    .c-band.in .il-fade { animation: ilFade 0.6s ease forwards; animation-delay: var(--d, 0s); }
-    @keyframes ilFade { to { opacity: 1; } }
-    .il-ripple { transform-origin: center; opacity: 0; }
-    .c-band.in .il-ripple { animation: ilRipple 2.2s ease-out infinite; animation-delay: var(--d, 0s); }
-    @keyframes ilRipple { 0% { transform: scale(0.4); opacity: 0.7; } 100% { transform: scale(2.4); opacity: 0; } }
-    .il-float { animation: ilFloat 3.6s ease-in-out infinite; animation-delay: var(--d, 0s); }
-    @keyframes ilFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-    .c-band.in .il-fade.il-float { animation: ilFade 0.6s ease var(--d, 0s) forwards, ilFloat 3.6s ease-in-out calc(var(--d, 0s) + 0.6s) infinite; }
-
-    .il-needle { transform-origin: 50% 50%; transform-box: fill-box; }
-    .c-band.in .il-needle { animation: needle 2.4s cubic-bezier(0.3, 0.7, 0.4, 1) 0.3s forwards; }
-    @keyframes needle { 0% { transform: rotate(0); } 25% { transform: rotate(150deg); } 45% { transform: rotate(40deg); } 62% { transform: rotate(108deg); } 78% { transform: rotate(76deg); } 100% { transform: rotate(88deg); } }
-
-    .il-month.hot { animation: monthHot 2s ease-in-out infinite; animation-delay: var(--d, 0s); }
-    @keyframes monthHot { 0%, 100% { fill: #fff; } 50% { fill: #99f6e4; } }
-    .il-shuttle { animation: shuttle 2.4s ease-in-out infinite; }
-    @keyframes shuttle { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(38px); } }
-
-    .il-name { opacity: 0; }
-    .c-band.in .il-name { animation: nameFall 3.2s ease-in infinite; animation-delay: var(--d, 0s); }
-    @keyframes nameFall { 0% { opacity: 0; transform: translate(0, 0); } 12% { opacity: 1; } 70% { opacity: 0.9; transform: translate(var(--dx), var(--dy)); } 80%, 100% { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
-    .il-qual { opacity: 0; transform-origin: center; }
-    .c-band.in .il-qual { animation: qual 3.2s ease-out infinite; animation-delay: var(--d, 0s); }
-    @keyframes qual { 0%, 55% { opacity: 0; transform: translateY(-34px) scale(0.6); } 72% { opacity: 1; transform: translateY(0) scale(1.25); } 82%, 92% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(0) scale(1); } }
-
-    .c-band.in .il-left { animation: mergeL 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; }
-    .c-band.in .il-right { animation: mergeR 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; }
-    @keyframes mergeL { to { transform: translateX(22px); } }
-    @keyframes mergeR { to { transform: translateX(-22px); } }
 
     /* Readiness scorecard */
     .score-wrap { display: grid; grid-template-columns: 1fr 340px; gap: 26px; align-items: start; }
@@ -444,9 +398,7 @@
       .reveal, .c-band, .tl-item, .stair { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none !important; }
       .tl::after, .stair-axis i::before { width: 100% !important; transition: none !important; }
       .stair-axis i::after { opacity: 1; transition: none; }
-      .c-band svg *, .frag svg * { animation: none !important; }
-      .il-pop { transform: none; } .il-draw { stroke-dashoffset: 0; } .il-fade, .il-qual { opacity: 1; } .il-name, .il-ripple { opacity: 0; }
-      .il-needle { transform: rotate(88deg); } .il-left { transform: translateX(22px); } .il-right { transform: translateX(-22px); }
+      .frag svg * { animation: none !important; }
       .c-tabpanel { animation: none; }
     }
   </style>
@@ -680,7 +632,7 @@
               </div>
               <div class="c-tabpanel" role="tabpanel" id="c1-t3" aria-labelledby="c1-b3" hidden>
                 <p>Most of the expensive surprises in a new market are local, not legal. A product that sells on price in India may need to sell on certification in Germany. Packaging that works on an Indian shelf may break labelling rules in the UK. A website written for Indian buyers may read as untrustworthy to an American procurement team that expects named people, a local address and prices in dollars.</p>
-                <div class="tp-note">Dr. Gupta's book <em>LOCAL: The Art of Business Localisation</em> is built around this problem. The coaching conversation decides which localisation services a business needs (product, go-to-market, packaging, market research, website) before money is spent on any of them. <a href="services.html#core-services">See localisation services</a></div>
+                <div class="tp-note">Dr. Gupta's book <em>LOCAL: The Art of Business Localisation</em> is built around this problem. The coaching conversation decides which localisation services a business needs (product, go-to-market, packaging, market research, website) before money is spent on any of them. <a href="services.html#globalization">See localisation services</a></div>
               </div>
               <div class="c-tabpanel" role="tabpanel" id="c1-t4" aria-labelledby="c1-b4" hidden>
                 <ol class="tp-list warn">
