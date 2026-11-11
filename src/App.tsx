@@ -116,7 +116,7 @@ export default function App() {
   // Message list for the initial loader screen
   const loaderMsgs = [
     'Connecting to global network…',
-    'Loading 47 country nodes…',
+    'Loading 50+ country nodes…',
     'Initializing trade routes…',
     'Ready.'
   ];
@@ -330,7 +330,7 @@ export default function App() {
       <div className="topbar" id="topbar">
         <div className="container flex items-center justify-between w-full">
           <div className="topbar-item">
-            <strong>1,000+</strong> clients · <strong>47+</strong> countries · Chairman: <strong>Dr. Anil Gupta</strong> · Connect Ventures Inc USA
+            <strong>1,000+</strong> clients · <strong>50+</strong> countries · Chairman: <strong>Dr. Anil Gupta</strong> · Connect Ventures Inc USA
           </div>
           <div className="topbar-phones">
             <a href="tel:+13022141717" className="topbar-phone select-all">
@@ -445,7 +445,7 @@ export default function App() {
               go global
             </h1>
             <span className="hero-h1-line2 in relative block pb-2 max-w-full" id="hero-h1-line2">
-              We handle company setup and compliance across 47+ countries.
+              We handle company setup and compliance across 50+ countries.
               <span className="absolute bottom-0 left-0 right-12 h-[3px] bg-gradient-to-r from-[var(--teal)] via-[var(--blue)] to-amber-400 rounded-full opacity-80" />
             </span>
 
@@ -469,7 +469,7 @@ export default function App() {
                 <div className="hsr-lbl">Clients served</div>
               </div>
               <div className="hsr-stat">
-                <div className="hsr-val"><CountUpTo end={47} suffix="+" /></div>
+                <div className="hsr-val"><CountUpTo end={50} suffix="+" /></div>
                 <div className="hsr-lbl">Countries</div>
               </div>
               <div className="hsr-stat">
@@ -646,7 +646,7 @@ export default function App() {
             >
               <div className="c-card-top-border" />
               <div className="c-top">
-                <div className="c-badge">C4 — Collaboration</div>
+                <div className="c-badge">C4 — Collaborating</div>
                 <div className="c-name">Cross-Border Deals</div>
                 <div className="c-sub">Closing deals across borders</div>
               </div>
@@ -660,7 +660,7 @@ export default function App() {
                 </div>
               </div>
               <span className="c-cta w-full text-left bg-transparent border-none p-0 font-semibold block">
-                Explore Collaboration →
+                Explore Collaborating →
               </span>
             </a>
 
@@ -672,7 +672,7 @@ export default function App() {
             >
               <div className="c-card-top-border" />
               <div className="c-top">
-                <div className="c-badge">C5 — Co-creation</div>
+                <div className="c-badge">C5 — Co-Creating</div>
                 <div className="c-name">Growth Partnerships</div>
                 <div className="c-sub">Strategic co-investment</div>
               </div>
@@ -686,7 +686,7 @@ export default function App() {
                 </div>
               </div>
               <span className="c-cta w-full text-left bg-transparent border-none p-0 font-semibold block">
-                Explore Co-creation →
+                Explore Co-Creating →
               </span>
             </a>
 
@@ -767,7 +767,7 @@ export default function App() {
               
               <div className="c-meta flex gap-9 mt-6">
                 <div>
-                  <div className="val"><CountUpTo end={47} suffix="+" /></div>
+                  <div className="val"><CountUpTo end={50} suffix="+" /></div>
                   <div className="lbl text-xs text-slate-500 uppercase tracking-widest font-semibold mt-1">Countries active</div>
                 </div>
                 <div>
@@ -1076,7 +1076,7 @@ export default function App() {
               </button>
               <div className={`faq-a ${openFaqIdx === 0 ? 'open' : ''}`}>
                 <p>
-                  International expansion from India follows five core steps: (1) Market selection, (2) Legal structure — register a foreign entity, (3) Banking and finance, (4) Tax and compliance registration, (5) Market entry — find local distributors or agents. Connect Ventures handles all five steps through the 5C framework across 47+ countries.
+                  International expansion from India follows five core steps: (1) Market selection, (2) Legal structure — register a foreign entity, (3) Banking and finance, (4) Tax and compliance registration, (5) Market entry — find local distributors or agents. Connect Ventures handles all five steps through the 5C framework across 50+ countries.
                 </p>
                 <div className="faq-kw">
                   Also searched: how to go global from India · international expansion strategy India
@@ -1094,7 +1094,7 @@ export default function App() {
               </button>
               <div className={`faq-a ${openFaqIdx === 1 ? 'open' : ''}`}>
                 <p>
-                  The 5C model covers: C1 Coaching, C2 Consulting (local representation, banking, legal), C3 Connecting (stakeholder hunt, investors), C4 Collaboration (IOR/EOR, deals), C5 Co-creation (JV, co-investment). Unlike firms that specialise in one area, Connect Ventures delivers all five — the only true single-stop partner for any Indian business going global.
+                  The 5C model covers: C1 Coaching, C2 Consulting (local representation, banking, legal), C3 Connecting (stakeholder hunt, investors), C4 Collaborating (IOR/EOR, deals), C5 Co-Creating (JV, co-investment). Unlike firms that specialise in one area, Connect Ventures delivers all five — the only true single-stop partner for any Indian business going global.
                 </p>
               </div>
             </div>
@@ -1270,7 +1270,7 @@ export default function App() {
             <div>
               <div className="footer-brand uppercase">CONNECT VENTURES</div>
               <p className="footer-desc">
-                India's premier global expansion partner. With our globalization partner Comply Globally, we serve 1,000+ businesses across 47+ countries through the proprietary 5C framework. Chairman: Dr. Anil Gupta.
+                India's premier global expansion partner. With our globalization partner Comply Globally, we serve 1,000+ businesses across 50+ countries through the proprietary 5C framework. Chairman: Dr. Anil Gupta.
               </p>
               <div className="mt-3.5 text-xs text-teal antialiased font-semibold">
                 www.theconnectventures.com · www.complyglobally.com
@@ -1282,8 +1282,8 @@ export default function App() {
               <a href="coaching.html" className="footer-link">C1 — Coaching</a>
               <a href="consulting.html" className="footer-link">C2 — Consulting</a>
               <a href="connecting.html" className="footer-link">C3 — Connecting</a>
-              <a href="collaboration.html" className="footer-link">C4 — Collaboration</a>
-              <a href="co-creation.html" className="footer-link">C5 — Co-creation</a>
+              <a href="collaboration.html" className="footer-link">C4 — Collaborating</a>
+              <a href="co-creation.html" className="footer-link">C5 — Co-Creating</a>
               <a href="services.html" className="footer-link text-teal mt-1 font-semibold">All services →</a>
             </div>
             
@@ -1294,7 +1294,7 @@ export default function App() {
               <a href="countries.html" className="footer-link">India to UAE</a>
               <a href="countries.html" className="footer-link">India to Singapore</a>
               <a href="countries.html" className="footer-link">India to Canada</a>
-              <a href="countries.html" className="footer-link text-teal mt-1 font-semibold">All 47+ countries →</a>
+              <a href="countries.html" className="footer-link text-teal mt-1 font-semibold">All 50+ countries →</a>
             </div>
             
             <div>
@@ -1341,7 +1341,7 @@ export default function App() {
         ↑
       </button>
 
-      {/* C5 Co-creation Premium Deep Dive Modal Layout */}
+      {/* C5 Co-Creating Premium Deep Dive Modal Layout */}
       <C5CoCreationModal isOpen={c5ModalOpen} onClose={() => setC5ModalOpen(false)} />
 
       {/* Resources & Compliance Drawer */}

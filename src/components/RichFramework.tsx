@@ -19,11 +19,11 @@ export default function RichFramework() {
       number: '01',
       title: 'Reach',
       subtitle: 'Global Expansion & Penetration',
-      description: 'We guide you through seamless international company registration support across 47+ strategic jurisdictions including USA, UAE, UK, Singapore, and Canada. From establishing multi-region digital presence setups to localized go-to-market strategies, we eliminate cross-border friction.',
+      description: 'We guide you through seamless international company registration support across 50+ strategic jurisdictions including USA, UAE, UK, Singapore, and Canada. From establishing multi-region digital presence setups to localized go-to-market strategies, we eliminate cross-border friction.',
       glowColor: 'from-[#2dd4bf]/20 to-[#00d4ff]/10',
       icon: <Globe className="w-8 h-8 text-[#2dd4bf]" />,
       bullets: [
-        'Registration Support across 47+ jurisdictions (USA, UAE, UK, SG, CA)',
+        'Registration Support across 50+ jurisdictions (USA, UAE, UK, SG, CA)',
         'Multi-region digital presence setup & compliance mapping',
         'Localized go-to-market strategies & operational logistics scaling'
       ]

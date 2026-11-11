@@ -78,7 +78,7 @@ export default function WhyChooseUs() {
                 <span className="block text-[10px] sm:text-[10.5px] text-slate-500 font-bold uppercase mt-1 leading-tight break-words">Corporate Entities</span>
               </div>
               <div className="p-4 bg-slate-950/40 border border-slate-800/50 rounded-xl text-center hover:border-teal-500/30 transition-colors">
-                <span className="block text-xl sm:text-2xl font-black text-white font-mono">47+</span>
+                <span className="block text-xl sm:text-2xl font-black text-white font-mono">50+</span>
                 <span className="block text-[10px] sm:text-[10.5px] text-slate-500 font-bold uppercase mt-1 leading-tight break-words">Nations Covered</span>
               </div>
               <div className="p-4 bg-slate-950/40 border border-slate-800/50 rounded-xl text-center hover:border-teal-500/30 transition-colors">
