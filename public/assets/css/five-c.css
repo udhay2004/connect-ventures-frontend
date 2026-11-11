@@ -93,11 +93,6 @@
 .ca-links a:hover { transform: translateX(4px); }
 .ca-links a::after { content: "\2192"; color: var(--c); }
 
-.ca-author { display: grid; grid-template-columns: 76px 1fr; gap: 18px; align-items: center; margin-top: 34px; padding: 22px; border-radius: 18px; border: 1px solid var(--line-light); background: linear-gradient(135deg, #fff 0%, var(--c-soft) 100%); }
-.ca-author img { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12); }
-.ca-author .label { font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted-light); }
-.ca-author h4 { font-size: 17px; font-weight: 800; color: var(--navy); margin: 3px 0 4px; }
-.ca-article .ca-author p { font-size: 13px; line-height: 1.6; margin: 0; color: var(--muted); }
 
 .ca-journey { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line-light); }
 .ca-journey-label { font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted-light); margin-bottom: 14px; }
@@ -126,8 +121,6 @@
   .ca-quote { font-size: 20px; padding: 22px 20px; }
   .ca-aside { grid-template-columns: 1fr; }
   .ca-aside .c-illo { grid-row: auto; }
-  .ca-author { grid-template-columns: 56px 1fr; padding: 18px; }
-  .ca-author img { width: 56px; height: 56px; }
   .ca-article .ca-steps a { font-size: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
