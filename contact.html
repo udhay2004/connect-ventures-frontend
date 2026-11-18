@@ -282,6 +282,7 @@
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
     }
 
+    .office-card:hover .flag-ribbons { transform: translate(-4px, 4px) scale(1.04); }
     .office-card:hover {
       border-color: var(--teal);
       transform: translateY(-4px);
@@ -289,7 +290,7 @@
     }
 
     .office-card { position: relative; overflow: hidden; padding-top: 96px; }
-    .office-card > :not(.flag-wave) { position: relative; z-index: 1; }
+    .office-card > :not(.flag-ribbons) { position: relative; z-index: 1; }
     .office-country { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 2px; }
     .office-type {
       font-size: 11px;
@@ -313,6 +314,14 @@
     }
     .office-phone a { color: var(--blue-dark); font-weight: 600; }
     .office-phone a:hover { text-decoration: underline; }
+    .office-reg { display: flex; align-items: center; gap: 16px; max-width: 760px; margin: 28px auto 0; padding: 16px 22px; background: #fff; border: 1px solid var(--line-light); border-radius: 16px; }
+    .office-reg p { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
+    .office-reg strong { color: var(--navy); }
+    .office-reg p span { display: block; font-size: 12px; }
+    .office-reg-mark { display: flex; flex-direction: column; gap: 3px; flex-shrink: 0; }
+    .office-reg-mark i { display: block; width: 30px; height: 5px; border-radius: 3px; background: #B22234; }
+    .office-reg-mark i:nth-child(2) { background: #3C3B6E; width: 22px; }
+    @media (max-width: 480px) { .office-reg { align-items: flex-start; padding: 14px 16px; } }
 
     /* Calendar Scheduling Modal */
     .modal-overlay {
@@ -550,7 +559,7 @@
       <div class="grid-3 mt-4">
 
         <address class="office-card" style="font-style:normal" itemscope itemtype="https://schema.org/PostalAddress">
-          <div class="flag-wave" style="--flag:url(/assets/flags/us.svg);--n:32" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i><i style="--i:30"></i><i style="--i:31"></i></div>
+          <svg class="flag-ribbons" data-code="us" viewBox="0 0 320 180" aria-hidden="true" focusable="false"><defs><radialGradient id="fr-glow-us"><stop offset="0" stop-color="#B22234" stop-opacity="0.16"/><stop offset="1" stop-color="#B22234" stop-opacity="0"/></radialGradient></defs><circle cx="290" cy="10" r="120" fill="url(#fr-glow-us)"/><path d="M10 58 C110 92 200 34 340 -12 L340 -3 C200 40.75 110 96.05 10 59.35Z" fill="#B22234"><animate attributeName="d" dur="7s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 58 C110 92 200 34 340 -12 L340 -3 C200 40.75 110 96.05 10 59.35Z;M10 58 C110 80 200 46 340 -2 L340 7 C200 52.75 110 84.05 10 59.35Z;M10 58 C110 92 200 34 340 -12 L340 -3 C200 40.75 110 96.05 10 59.35Z"/></path><path d="M10 63.25 C110 100.25 200 46.75 340 3 L340 23 C200 61.75 110 109.25 10 66.25Z" fill="#3C3B6E"><animate attributeName="d" dur="7s" begin="-0.45s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 63.25 C110 100.25 200 46.75 340 3 L340 23 C200 61.75 110 109.25 10 66.25Z;M10 63.25 C110 88.25 200 58.75 340 13 L340 33 C200 73.75 110 97.25 10 66.25Z;M10 63.25 C110 100.25 200 46.75 340 3 L340 23 C200 61.75 110 109.25 10 66.25Z"/></path><path d="M10 72.35 C110 114.55 200 68.85 340 29 L340 38 C200 75.6 110 118.6 10 73.7Z" fill="#B22234"><animate attributeName="d" dur="7s" begin="-0.9s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 72.35 C110 114.55 200 68.85 340 29 L340 38 C200 75.6 110 118.6 10 73.7Z;M10 72.35 C110 102.55 200 80.85 340 39 L340 48 C200 87.6 110 106.6 10 73.7Z;M10 72.35 C110 114.55 200 68.85 340 29 L340 38 C200 75.6 110 118.6 10 73.7Z"/></path><path d="M40 90.3 C130 123.9 210 83.3 340 46" fill="none" stroke="#3C3B6E" stroke-width="1" stroke-opacity="0.45"><animate attributeName="d" dur="7s" begin="-1.35s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M40 90.3 C130 123.9 210 83.3 340 46;M40 90.3 C130 111.9 210 95.3 340 56;M40 90.3 C130 123.9 210 83.3 340 46"/></path><g fill="#3C3B6E" class="fr-dots"><circle cx="282" cy="92" r="3.2" style="--k:0"/><circle cx="262" cy="104" r="2.2" style="--k:1"/><circle cx="292" cy="112" r="1.6" style="--k:2"/></g></svg>
           <div class="office-country" itemprop="addressCountry">USA — Headquarters</div>
           <div class="office-type">Connect Ventures</div>
           <div class="office-addr" itemprop="streetAddress">
@@ -562,7 +571,7 @@
         </address>
 
         <address class="office-card" style="font-style:normal">
-          <div class="flag-wave" style="--flag:url(/assets/flags/gb.svg);--n:32" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i><i style="--i:30"></i><i style="--i:31"></i></div>
+          <svg class="flag-ribbons" data-code="gb" viewBox="0 0 320 180" aria-hidden="true" focusable="false"><defs><radialGradient id="fr-glow-gb"><stop offset="0" stop-color="#012169" stop-opacity="0.16"/><stop offset="1" stop-color="#012169" stop-opacity="0"/></radialGradient></defs><circle cx="290" cy="10" r="120" fill="url(#fr-glow-gb)"/><path d="M10 58 C110 92 200 34 340 -12 L340 2 C200 44.5 110 98.3 10 60.1Z" fill="#012169"><animate attributeName="d" dur="7s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 58 C110 92 200 34 340 -12 L340 2 C200 44.5 110 98.3 10 60.1Z;M10 58 C110 80 200 46 340 -2 L340 12 C200 56.5 110 86.3 10 60.1Z;M10 58 C110 92 200 34 340 -12 L340 2 C200 44.5 110 98.3 10 60.1Z"/></path><path d="M10 65 C110 103 200 51 340 8 L340 20 C200 60 110 108.4 10 66.8Z" fill="#C8102E"><animate attributeName="d" dur="7s" begin="-0.45s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 65 C110 103 200 51 340 8 L340 20 C200 60 110 108.4 10 66.8Z;M10 65 C110 91 200 63 340 18 L340 30 C200 72 110 96.4 10 66.8Z;M10 65 C110 103 200 51 340 8 L340 20 C200 60 110 108.4 10 66.8Z"/></path><path d="M10 71.3 C110 112.9 200 66.3 340 26 L340 40 C200 76.8 110 119.2 10 73.4Z" fill="#012169"><animate attributeName="d" dur="7s" begin="-0.9s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 71.3 C110 112.9 200 66.3 340 26 L340 40 C200 76.8 110 119.2 10 73.4Z;M10 71.3 C110 100.9 200 78.3 340 36 L340 50 C200 88.8 110 107.2 10 73.4Z;M10 71.3 C110 112.9 200 66.3 340 26 L340 40 C200 76.8 110 119.2 10 73.4Z"/></path><path d="M40 91 C130 125 210 85 340 48" fill="none" stroke="#C8102E" stroke-width="1" stroke-opacity="0.45"><animate attributeName="d" dur="7s" begin="-1.35s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M40 91 C130 125 210 85 340 48;M40 91 C130 113 210 97 340 58;M40 91 C130 125 210 85 340 48"/></path><g fill="#C8102E" class="fr-dots"><circle cx="282" cy="92" r="3.2" style="--k:0"/><circle cx="262" cy="104" r="2.2" style="--k:1"/><circle cx="292" cy="112" r="1.6" style="--k:2"/></g></svg>
           <div class="office-country">United Kingdom</div>
           <div class="office-type">UK Operations</div>
           <div class="office-addr">
@@ -571,7 +580,7 @@
         </address>
 
         <address class="office-card" style="font-style:normal">
-          <div class="flag-wave" style="--flag:url(/assets/flags/ca.svg);--n:32" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i><i style="--i:30"></i><i style="--i:31"></i></div>
+          <svg class="flag-ribbons" data-code="ca" viewBox="0 0 320 180" aria-hidden="true" focusable="false"><defs><radialGradient id="fr-glow-ca"><stop offset="0" stop-color="#D52B1E" stop-opacity="0.16"/><stop offset="1" stop-color="#D52B1E" stop-opacity="0"/></radialGradient></defs><circle cx="290" cy="10" r="120" fill="url(#fr-glow-ca)"/><path d="M10 58 C110 92 200 34 340 -12 L340 4 C200 46 110 99.2 10 60.4Z" fill="#D52B1E"><animate attributeName="d" dur="7s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 58 C110 92 200 34 340 -12 L340 4 C200 46 110 99.2 10 60.4Z;M10 58 C110 80 200 46 340 -2 L340 14 C200 58 110 87.2 10 60.4Z;M10 58 C110 92 200 34 340 -12 L340 4 C200 46 110 99.2 10 60.4Z"/></path><path d="M10 71.3 C110 112.9 200 66.3 340 26 L340 42 C200 78.3 110 120.1 10 73.7Z" fill="#D52B1E"><animate attributeName="d" dur="7s" begin="-0.45s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 71.3 C110 112.9 200 66.3 340 26 L340 42 C200 78.3 110 120.1 10 73.7Z;M10 71.3 C110 100.9 200 78.3 340 36 L340 52 C200 90.3 110 108.1 10 73.7Z;M10 71.3 C110 112.9 200 66.3 340 26 L340 42 C200 78.3 110 120.1 10 73.7Z"/></path><path d="M40 91.7 C130 126.1 210 86.7 340 50" fill="none" stroke="#D52B1E" stroke-width="1" stroke-opacity="0.45"><animate attributeName="d" dur="7s" begin="-0.9s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M40 91.7 C130 126.1 210 86.7 340 50;M40 91.7 C130 114.1 210 98.7 340 60;M40 91.7 C130 126.1 210 86.7 340 50"/></path><g fill="#D52B1E" class="fr-dots"><circle cx="282" cy="92" r="3.2" style="--k:0"/><circle cx="262" cy="104" r="2.2" style="--k:1"/><circle cx="292" cy="112" r="1.6" style="--k:2"/></g></svg>
           <div class="office-country">Canada</div>
           <div class="office-type">Canadian Operations</div>
           <div class="office-addr">
@@ -580,7 +589,7 @@
         </address>
 
         <address class="office-card" style="font-style:normal">
-          <div class="flag-wave" style="--flag:url(/assets/flags/in.svg);--n:32" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i><i style="--i:30"></i><i style="--i:31"></i></div>
+          <svg class="flag-ribbons" data-code="in" viewBox="0 0 320 180" aria-hidden="true" focusable="false"><defs><radialGradient id="fr-glow-in"><stop offset="0" stop-color="#FF9933" stop-opacity="0.16"/><stop offset="1" stop-color="#FF9933" stop-opacity="0"/></radialGradient></defs><circle cx="290" cy="10" r="120" fill="url(#fr-glow-in)"/><path d="M10 58 C110 92 200 34 340 -12 L340 4 C200 46 110 99.2 10 60.4Z" fill="#FF9933"><animate attributeName="d" dur="7s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 58 C110 92 200 34 340 -12 L340 4 C200 46 110 99.2 10 60.4Z;M10 58 C110 80 200 46 340 -2 L340 14 C200 58 110 87.2 10 60.4Z;M10 58 C110 92 200 34 340 -12 L340 4 C200 46 110 99.2 10 60.4Z"/></path><path d="M10 70.6 C110 111.8 200 64.6 340 24 L340 40 C200 76.6 110 119 10 73Z" fill="#138808"><animate attributeName="d" dur="7s" begin="-0.45s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 70.6 C110 111.8 200 64.6 340 24 L340 40 C200 76.6 110 119 10 73Z;M10 70.6 C110 99.8 200 76.6 340 34 L340 50 C200 88.6 110 107 10 73Z;M10 70.6 C110 111.8 200 64.6 340 24 L340 40 C200 76.6 110 119 10 73Z"/></path><path d="M40 91 C130 125 210 85 340 48" fill="none" stroke="#000080" stroke-width="1" stroke-opacity="0.45"><animate attributeName="d" dur="7s" begin="-0.9s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M40 91 C130 125 210 85 340 48;M40 91 C130 113 210 97 340 58;M40 91 C130 125 210 85 340 48"/></path><g fill="#000080" class="fr-dots"><circle cx="282" cy="92" r="3.2" style="--k:0"/><circle cx="262" cy="104" r="2.2" style="--k:1"/><circle cx="292" cy="112" r="1.6" style="--k:2"/></g></svg>
           <div class="office-country">India — Delhi NCR</div>
           <div class="office-type">India Regional Office</div>
           <div class="office-addr">
@@ -592,7 +601,7 @@
         </address>
 
         <address class="office-card" style="font-style:normal">
-          <div class="flag-wave" style="--flag:url(/assets/flags/in.svg);--n:32" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i><i style="--i:30"></i><i style="--i:31"></i></div>
+          <svg class="flag-ribbons" data-code="in" viewBox="0 0 320 180" aria-hidden="true" focusable="false"><defs><radialGradient id="fr-glow-in"><stop offset="0" stop-color="#FF9933" stop-opacity="0.16"/><stop offset="1" stop-color="#FF9933" stop-opacity="0"/></radialGradient></defs><circle cx="290" cy="10" r="120" fill="url(#fr-glow-in)"/><path d="M10 58 C110 92 200 34 340 -12 L340 4 C200 46 110 99.2 10 60.4Z" fill="#FF9933"><animate attributeName="d" dur="7s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 58 C110 92 200 34 340 -12 L340 4 C200 46 110 99.2 10 60.4Z;M10 58 C110 80 200 46 340 -2 L340 14 C200 58 110 87.2 10 60.4Z;M10 58 C110 92 200 34 340 -12 L340 4 C200 46 110 99.2 10 60.4Z"/></path><path d="M10 70.6 C110 111.8 200 64.6 340 24 L340 40 C200 76.6 110 119 10 73Z" fill="#138808"><animate attributeName="d" dur="7s" begin="-0.45s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 70.6 C110 111.8 200 64.6 340 24 L340 40 C200 76.6 110 119 10 73Z;M10 70.6 C110 99.8 200 76.6 340 34 L340 50 C200 88.6 110 107 10 73Z;M10 70.6 C110 111.8 200 64.6 340 24 L340 40 C200 76.6 110 119 10 73Z"/></path><path d="M40 91 C130 125 210 85 340 48" fill="none" stroke="#000080" stroke-width="1" stroke-opacity="0.45"><animate attributeName="d" dur="7s" begin="-0.9s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M40 91 C130 125 210 85 340 48;M40 91 C130 113 210 97 340 58;M40 91 C130 125 210 85 340 48"/></path><g fill="#000080" class="fr-dots"><circle cx="282" cy="92" r="3.2" style="--k:0"/><circle cx="262" cy="104" r="2.2" style="--k:1"/><circle cx="292" cy="112" r="1.6" style="--k:2"/></g></svg>
           <div class="office-country">India — Hyderabad</div>
           <div class="office-type">South India Office</div>
           <div class="office-addr">
@@ -601,15 +610,26 @@
         </address>
 
         <address class="office-card" style="font-style:normal">
-          <div class="flag-wave" style="--flag:url(/assets/flags/in.svg);--n:32" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i><i style="--i:30"></i><i style="--i:31"></i></div>
+          <svg class="flag-ribbons" data-code="in" viewBox="0 0 320 180" aria-hidden="true" focusable="false"><defs><radialGradient id="fr-glow-in"><stop offset="0" stop-color="#FF9933" stop-opacity="0.16"/><stop offset="1" stop-color="#FF9933" stop-opacity="0"/></radialGradient></defs><circle cx="290" cy="10" r="120" fill="url(#fr-glow-in)"/><path d="M10 58 C110 92 200 34 340 -12 L340 4 C200 46 110 99.2 10 60.4Z" fill="#FF9933"><animate attributeName="d" dur="7s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 58 C110 92 200 34 340 -12 L340 4 C200 46 110 99.2 10 60.4Z;M10 58 C110 80 200 46 340 -2 L340 14 C200 58 110 87.2 10 60.4Z;M10 58 C110 92 200 34 340 -12 L340 4 C200 46 110 99.2 10 60.4Z"/></path><path d="M10 70.6 C110 111.8 200 64.6 340 24 L340 40 C200 76.6 110 119 10 73Z" fill="#138808"><animate attributeName="d" dur="7s" begin="-0.45s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M10 70.6 C110 111.8 200 64.6 340 24 L340 40 C200 76.6 110 119 10 73Z;M10 70.6 C110 99.8 200 76.6 340 34 L340 50 C200 88.6 110 107 10 73Z;M10 70.6 C110 111.8 200 64.6 340 24 L340 40 C200 76.6 110 119 10 73Z"/></path><path d="M40 91 C130 125 210 85 340 48" fill="none" stroke="#000080" stroke-width="1" stroke-opacity="0.45"><animate attributeName="d" dur="7s" begin="-0.9s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M40 91 C130 125 210 85 340 48;M40 91 C130 113 210 97 340 58;M40 91 C130 125 210 85 340 48"/></path><g fill="#000080" class="fr-dots"><circle cx="282" cy="92" r="3.2" style="--k:0"/><circle cx="262" cy="104" r="2.2" style="--k:1"/><circle cx="292" cy="112" r="1.6" style="--k:2"/></g></svg>
           <div class="office-country">India — Mumbai</div>
           <div class="office-type">West India Office</div>
           <div class="office-addr">
-            SATYARTHI, Trivedi Niwas<br>New Nagardas Road, Andheri East<br>Mumbai 400069, Maharashtra
+            Connect Ventures Inc.<br>Dhananjay Kosh, Meghna Annex, H.S. Lane<br>Andheri East, Mumbai 400069, Maharashtra
+          </div>
+          <div class="office-phone">
+            <span>Ms. Hasti Shah:</span> <a href="tel:+917208905490">+91 72089 05490</a> &nbsp;|&nbsp; <a href="tel:+919768326850">+91 97683 26850</a>
           </div>
         </address>
 
       </div>
+
+      <div class="office-reg">
+        <span class="office-reg-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <p><strong>Connect Ventures Inc.</strong> is incorporated in the State of Delaware, USA.
+          <span>Registered address: Northwest Registered Agent Service, Inc., 8 The Green, Suite B, Dover, DE 19901</span></p>
+      </div>
+
+      <script>if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('.flag-ribbons animate').forEach(function (a) { a.remove(); });</script>
 
       <p style="text-align:center;margin-top:40px;font-size:13.5px;color:var(--muted)">
         ✉ <a href="mailto:anil.gupta@theconnectventures.com" style="color:var(--blue-dark); font-weight: 600;">anil.gupta@theconnectventures.com</a> &nbsp;·&nbsp;
