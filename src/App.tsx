@@ -9,7 +9,7 @@ import BrandPromise from './components/BrandPromise';
 import WhyChooseUs from './components/WhyChooseUs';
 import C5CoCreationModal from './components/C5CoCreationModal';
 import ResourcesSection, { ResourcesDrawer } from './components/ResourcesSection';
-import WavingFlag from './components/WavingFlag';
+import FlagRibbons from './components/FlagRibbons';
 import { 
   FileText, 
   Percent, 
@@ -1196,7 +1196,7 @@ export default function App() {
           <div className="offices-grid">
             {/* Office 1 */}
             <address className="office sr" style={{ fontStyle: 'normal' }}>
-              <WavingFlag code="us" />
+              <FlagRibbons code="us" />
               <div className="office-country">USA — Headquarters</div>
               <div className="office-badge">Connect Ventures</div>
               <div className="office-addr">
@@ -1209,7 +1209,7 @@ export default function App() {
 
             {/* Office 2 */}
             <address className="office sr sr-delay-1" style={{ fontStyle: 'normal' }}>
-              <WavingFlag code="gb" />
+              <FlagRibbons code="gb" />
               <div className="office-country">United Kingdom</div>
               <div className="office-badge">UK Operations</div>
               <div className="office-addr">
@@ -1219,7 +1219,7 @@ export default function App() {
 
             {/* Office 3 */}
             <address className="office sr sr-delay-2" style={{ fontStyle: 'normal' }}>
-              <WavingFlag code="ca" />
+              <FlagRibbons code="ca" />
               <div className="office-country">Canada</div>
               <div className="office-badge">Canadian Operations</div>
               <div className="office-addr">
@@ -1229,7 +1229,7 @@ export default function App() {
 
             {/* Office 4 */}
             <address className="office sr sr-delay-3" style={{ fontStyle: 'normal' }}>
-              <WavingFlag code="in" />
+              <FlagRibbons code="in" />
               <div className="office-country">India — Delhi NCR</div>
               <div className="office-badge">India Regional Office</div>
               <div className="office-addr">
@@ -1242,7 +1242,7 @@ export default function App() {
 
             {/* Office 5 */}
             <address className="office sr sr-delay-4" style={{ fontStyle: 'normal' }}>
-              <WavingFlag code="in" />
+              <FlagRibbons code="in" />
               <div className="office-country">India — Hyderabad</div>
               <div className="office-badge">South India Office</div>
               <div className="office-addr">
@@ -1252,13 +1252,25 @@ export default function App() {
 
             {/* Office 6 */}
             <address className="office sr sr-delay-5" style={{ fontStyle: 'normal' }}>
-              <WavingFlag code="in" />
+              <FlagRibbons code="in" />
               <div className="office-country">India — Mumbai</div>
               <div className="office-badge">West India Office</div>
               <div className="office-addr">
-                Trivedi Niwas, New Nagardas Road<br />Andheri East, Mumbai 400069
+                Dhananjay Kosh, Meghna Annex, H.S. Lane<br />Andheri East, Mumbai 400069
+              </div>
+              <div>
+                <a href="tel:+917208905490" className="office-phone text-xs font-bold">+91 72089 05490</a>
+                <span className="office-contact">Ms. Hasti Shah</span>
               </div>
             </address>
+          </div>
+
+          <div className="office-reg sr">
+            <span className="office-reg-mark" aria-hidden="true"><i /><i /><i /></span>
+            <p>
+              <strong>Connect Ventures Inc.</strong> is incorporated in the State of Delaware, USA.
+              <span>Registered address: Northwest Registered Agent Service, Inc., 8 The Green, Suite B, Dover, DE 19901</span>
+            </p>
           </div>
         </div>
       </section>
