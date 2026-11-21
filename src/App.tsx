@@ -9,7 +9,7 @@ import BrandPromise from './components/BrandPromise';
 import WhyChooseUs from './components/WhyChooseUs';
 import C5CoCreationModal from './components/C5CoCreationModal';
 import ResourcesSection, { ResourcesDrawer } from './components/ResourcesSection';
-import FlagRibbons from './components/FlagRibbons';
+import OfficesSection from './components/OfficesSection';
 import { 
   FileText, 
   Percent, 
@@ -1183,97 +1183,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* 🏢 PHYSICAL OFFICE CONTACT CARDS */}
-      <section className="offices-section section">
-        <div className="wrap">
-          <div className="sh center">
-            <div className="label">
-              <span className="label-dot" />Our offices
-            </div>
-            <h2>Present where you need us — <em>offices on 3 continents</em></h2>
-          </div>
-          
-          <div className="offices-grid">
-            {/* Office 1 */}
-            <address className="office sr" style={{ fontStyle: 'normal' }}>
-              <FlagRibbons code="us" />
-              <div className="office-country">USA — Headquarters</div>
-              <div className="office-badge">Connect Ventures</div>
-              <div className="office-addr">
-                1501 Decoto Rd, #154, Union City<br />California 94587, USA
-              </div>
-              <div>
-                <a href="tel:+13022141717" className="office-phone text-xs font-bold">+1 302 214 1717</a>
-              </div>
-            </address>
-
-            {/* Office 2 */}
-            <address className="office sr sr-delay-1" style={{ fontStyle: 'normal' }}>
-              <FlagRibbons code="gb" />
-              <div className="office-country">United Kingdom</div>
-              <div className="office-badge">UK Operations</div>
-              <div className="office-addr">
-                Voxman Roberts, Office 5<br />Tondu Business Centre, Aberkenfig<br />Bridgend, CF32 9BS, UK
-              </div>
-            </address>
-
-            {/* Office 3 */}
-            <address className="office sr sr-delay-2" style={{ fontStyle: 'normal' }}>
-              <FlagRibbons code="ca" />
-              <div className="office-country">Canada</div>
-              <div className="office-badge">Canadian Operations</div>
-              <div className="office-addr">
-                381 Front Street West<br />Toronto, Ontario M5V3R8, Canada
-              </div>
-            </address>
-
-            {/* Office 4 */}
-            <address className="office sr sr-delay-3" style={{ fontStyle: 'normal' }}>
-              <FlagRibbons code="in" />
-              <div className="office-country">India — Delhi NCR</div>
-              <div className="office-badge">India Regional Office</div>
-              <div className="office-addr">
-                A1503, Apex Acacia Valley, Sector 3<br />Vaishali, Ghaziabad, UP 201010
-              </div>
-              <div>
-                <a href="tel:+919999981613" className="office-phone text-xs font-bold">+91 999 998 1613</a>
-              </div>
-            </address>
-
-            {/* Office 5 */}
-            <address className="office sr sr-delay-4" style={{ fontStyle: 'normal' }}>
-              <FlagRibbons code="in" />
-              <div className="office-country">India — Hyderabad</div>
-              <div className="office-badge">South India Office</div>
-              <div className="office-addr">
-                7-1-621/13, No.102, First Floor<br />SR Nagar, Hyderabad 500038
-              </div>
-            </address>
-
-            {/* Office 6 */}
-            <address className="office sr sr-delay-5" style={{ fontStyle: 'normal' }}>
-              <FlagRibbons code="in" />
-              <div className="office-country">India — Mumbai</div>
-              <div className="office-badge">West India Office</div>
-              <div className="office-addr">
-                Dhananjay Kosh, Meghna Annex, H.S. Lane<br />Andheri East, Mumbai 400069
-              </div>
-              <div>
-                <a href="tel:+917208905490" className="office-phone text-xs font-bold">+91 72089 05490</a>
-                <span className="office-contact">Ms. Hasti Shah</span>
-              </div>
-            </address>
-          </div>
-
-          <div className="office-reg sr">
-            <span className="office-reg-mark" aria-hidden="true"><i /><i /><i /></span>
-            <p>
-              <strong>Connect Ventures Inc.</strong> is incorporated in the State of Delaware, USA.
-              <span>Registered address: Northwest Registered Agent Service, Inc., 8 The Green, Suite B, Dover, DE 19901</span>
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* 🏢 OFFICES */}
+      <OfficesSection />
 
       {/* 👣 COMPREHENSIVE FOOTER */}
       <footer className="footer">
