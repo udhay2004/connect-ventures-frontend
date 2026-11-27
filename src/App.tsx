@@ -445,7 +445,7 @@ export default function App() {
               go global
             </h1>
             <span className="hero-h1-line2 in relative block pb-2 max-w-full" id="hero-h1-line2">
-              We handle company setup and compliance across 50+ countries.
+              Your partner in a foreign land, <span className="whitespace-nowrap">across 50+ countries.</span>
               <span className="absolute bottom-0 left-0 right-12 h-[3px] bg-gradient-to-r from-[var(--teal)] via-[var(--blue)] to-amber-400 rounded-full opacity-80" />
             </span>
 
