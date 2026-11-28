@@ -894,6 +894,7 @@
             country: document.getElementById('gCountry').value,
             phone: document.getElementById('gPhone').value,
             guideCountry: selectedCountry,
+            ...window.cvGuard(document.getElementById('gateForm')),
           }),
         });
         if (!res.ok) {
@@ -1269,5 +1270,6 @@
     if (location.hash === '#calc-landed') openCalc('landed');
   </script>
   <script type="module" src="/src/chatWidget.ts"></script>
+<script src="/assets/js/form-guard.js"></script>
 </body>
 </html>

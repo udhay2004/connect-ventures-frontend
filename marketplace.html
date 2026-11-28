@@ -797,7 +797,7 @@
          const res = await fetch('https://cvbackend-production-843a.up.railway.app/api/marketplace', {
            method: 'POST',
            headers: { 'Content-Type': 'application/json' },
-           body: JSON.stringify(payload),
+           body: JSON.stringify(Object.assign({}, payload, window.cvGuard(document.getElementById('listForm')))),
         });
 
 
@@ -827,5 +827,6 @@
     loadOwnListings();
   </script>
   <script type="module" src="/src/chatWidget.ts"></script>
+<script src="/assets/js/form-guard.js"></script>
 </body>
 </html>

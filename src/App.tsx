@@ -8,6 +8,9 @@ import BusinessLifecycle from './components/BusinessLifecycle';
 import BrandPromise from './components/BrandPromise';
 import WhyChooseUs from './components/WhyChooseUs';
 import C5CoCreationModal from './components/C5CoCreationModal';
+
+// When the page opened; the backend's spam guard rejects forms sent too quickly
+const PAGE_OPENED_AT = Date.now();
 import ResourcesSection, { ResourcesDrawer } from './components/ResourcesSection';
 import OfficesSection from './components/OfficesSection';
 import { 
@@ -261,13 +264,15 @@ export default function App() {
   const targetMarket = (document.getElementById('target-market-select') as HTMLSelectElement).value;
   const service = (document.getElementById('service-select') as HTMLSelectElement).value;
   const description = (document.getElementById('desc-textarea') as HTMLTextAreaElement).value;
+  const _hp = (document.getElementById('cv-hp-input') as HTMLInputElement).value;
+  const _t = Date.now() - PAGE_OPENED_AT;
 
   try {
     const API_BASE = 'https://cvbackend-production-843a.up.railway.app/api/contact';
     const res = await fetch(API_BASE, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, phone, targetMarket, service, description }),
+      body: JSON.stringify({ name, email, phone, targetMarket, service, description, _hp, _t }),
     });
     if (!res.ok) throw new Error('Submission failed');
     setFormSubmitted(true);
@@ -971,6 +976,10 @@ export default function App() {
                 </div>
                 
                 <form className="lead-form mt-4" noValidate onSubmit={handleFormSubmit}>
+                  {/* Honeypot: hidden from people, filled in by bots */}
+                  <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', width: 1, height: 1, overflow: 'hidden' }}>
+                    <label>Leave this field empty <input type="text" id="cv-hp-input" name="cv_extra" tabIndex={-1} autoComplete="off" /></label>
+                  </div>
                   <div className="form-row">
                     <div className="fg-floating font-sans">
                       <input type="text" id="name-input" className="fc peer" placeholder=" " required />
